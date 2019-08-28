@@ -1,0 +1,16 @@
+<script type="text/javascript"> 
+var locationOfcurrentPage = document.URL ;
+var first = getUrlVars()["retURL"];
+var id = first.substring(first.length -15, first.length);
+
+window.location="/apex/NewContractMassUpdate"+"?retURL="+ id;
+
+function getUrlVars(){
+var vars = {};
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+function(m,key,value){
+vars[key] = value;
+});
+return vars;
+}
+</script>

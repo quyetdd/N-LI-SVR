@@ -1,0 +1,2 @@
+<apex:page standardcontroller="wb_MembershipDetail__c" extensions="wb_MembershipDetail_redirect"  action="{!redirect}" id="thePage" sidebar="false" showHeader="false">
+</apex:page>

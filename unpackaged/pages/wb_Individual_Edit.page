@@ -1,0 +1,131 @@
+<apex:page standardController="wb_Individual__c" extensions="wb_Individual">
+    <apex:sectionHeader title="個人" subtitle="{!wb_Individual__c.Name}"/>
+    <apex:pageBlock >
+        <apex:form id="theForm" >
+     
+            <apex:commandButton action="{!UpdateRecords}" value="Save"/>
+            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+            <apex:pageBlockSection title="情報" columns="2">
+                
+                <apex:inputField value="{!Individual.Name}" id="Name"/>
+                <apex:inputField label="性別" value="{!Individual.Sex__c}"/>
+                <apex:inputField label="姓（カナ）" value="{!Individual.LastNameKana__c}"/>
+                <apex:inputField label="名（カナ）" value="{!Individual.FirstNameKana__c}"/>
+                <apex:inputField label="姓（ローマ字）" value="{!Individual.LastNameRoma__c}"/>
+                <apex:inputField label="名（ローマ字）" value="{!Individual.FirstNameRoma__c}"/>
+                <apex:inputField label="生年月日" value="{!Individual.DateOfBirth__c}"/>
+               <!-- <apex:inputField label="国" value="{!Individual.Country__c}"/> -->
+                <apex:inputField label="勤務会社" value="{!Individual.WorkingCompany__c}"/>
+                <apex:inputField label="住所" value="{!Individual.Address__c}"/>
+                <apex:inputField label="国際電話国番号" value="{!Individual.CountryCallingCodes__c}"/>
+                <apex:inputField label="携帯TEL" value="{!Individual.Mobile__c}"/>
+                <!--
+<apex:inputField label="会員開始日" value="{!Individual.MembershipStartDate__c}"/>
+<apex:inputField label="会員終了日" value="{!Individual.MembershipEndDate__c}"/>
+-->
+               <!-- <apex:inputField label="(退会後）役職" value="{!Individual.PositionAfterWithdrawal__c}"/>
+                <apex:inputField label="(退会後）部署" value="{!Individual.DeptAfterWithdrawal__c}"/>
+                <apex:inputField label="(退会後）勤務先会社" value="{!Individual.CompanyAfterWithdrawal__c}"/> -->
+                <apex:outputField label="AC用顧客情報" value="{!Individual.AC_Information__c}"/>
+                <!-- <apex:inputField label="一時帰国中担保" value="{!Individual.ReturningHomeCountryCoverage__c}"/> -->
+                <apex:inputField label="役職" value="{!Individual.Position__c}"/>
+               <!-- <apex:inputField label="所属地区" value="{!Individual.AffiliationDistrict__c}"/> -->
+                <apex:inputField label="持病" value="{!Individual.ChronicDisease__c}"/>
+                <apex:inputField label="苦情区分" value="{!Individual.Complaint__c}"/>
+                <apex:outputField label="家族番号" value="{!Individual.FamilyNo__c}"/>
+                <!--<apex:inputField label="家族関係" value="{!Individual.FamilyRelationship__c}"/>-->
+                <apex:inputField label="健診システム番号" value="{!Individual.HealthCheckSystemNo__c}"/>
+              <!--  <apex:inputField label="現メンバー番号" value="{!Individual.CurrentMemberNo__c}"/> -->
+                <apex:inputField label="郵便番号" value="{!Individual.PostalCode__c}"/>
+                
+             <!--   <apex:inputField label="管轄地区" value="{!Individual.Jurisdiction__c}"/> -->
+                <!--<apex:inputField label="親" value="{!Individual.Parent__c}"/> -->
+                <apex:inputField label="メール配信" value="{!Individual.MailDelivery__c}"/>
+                <apex:inputField label="メールアドレス" value="{!Individual.EmailAddress__c}"/>
+               <apex:inputField label="{!$ObjectType.wb_Individual__c.fields.Note__c.label}" value="{!Individual.Note__c}"/> 
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="家族" columns="１">
+                <script>
+                function scrollSomewhere() {
+                    // alert('scroll');
+                    document.querySelector('#family').scrollIntoView();
+                }
+                </script>
+                
+                <apex:commandButton action="{!NewFamilyMember}"
+                                    oncomplete="scrollSomewhere()"
+                                    value="家族メンバー追加" reRender="theForm" />
+                
+                <p id="family"></p>   
+                <apex:datatable value="{!WholeFamily}" var="a" columns="10" border="1" cellpadding="4"  >  
+                    <apex:column >
+                        <apex:commandButton value="削除"
+                                            onClick="openPopupConfirmDeletePendingWin('{!a.id}','{!a.name}');return false;"/>
+                        <script>
+                        function confirmation(name) {  
+                            if (!confirm( name + 'を削除?' )) return false;
+                            else return true;
+                        }
+                        function openPopupConfirmDeletePendingWin(id,name){
+                            try {
+                                if (confirmation(name)) {
+                                    // alert(id );
+                                    //CallApexMethod2DeletePendingCar(id,idx);
+                                }
+                                
+                            }catch(e)
+                            {
+                                alert(e);
+                            }                       
+                            return false;
+                        }
+                        
+                        </script>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.Name.label}"><apex:inputField value="{!a.Name}"></apex:inputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.Sex__c.label}">
+                        <apex:inputField value="{!a.Sex__c}"></apex:inputField>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FamilyRelationship__c.label}">
+                        <apex:inputField value="{!a.FamilyRelationship__c}"></apex:inputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FamilyNo__c.label}">
+                        <apex:inputField value="{!a.FamilyNo__c}"></apex:inputField>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FirstNameKana__c.label}">
+                        <apex:inputField value="{!a.FirstNameKana__c}"></apex:inputField>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.LastNameKana__c.label}">
+                        <apex:inputField value="{!a.LastNameKana__c}"></apex:inputField>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FirstNameRoma__c.label}">
+                        <apex:inputField value="{!a.FirstNameRoma__c}"></apex:inputField>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.LastNameRoma__c.label}">
+                        <apex:inputField value="{!a.LastNameRoma__c}"></apex:inputField>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.DateOfBirth__c.label}">
+                        <div style="width:90px;">
+                            <apex:inputfield value="{!a.DateOfBirth__c}" style="width:90px;"> </apex:inputfield>
+                            <style type="text/css">
+                                .dateFormat{
+                                visibility:hidden;
+                                }
+                            </style>  
+                        </div>
+                        
+                        
+                    </apex:column>
+                    
+                </apex:datatable>
+               
+            </apex:pageBlockSection>
+           
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>提携病院</value>
+    </caseValues>
+    <fields>
+        <label><!-- (契約情報) 限度額 --></label>
+        <name>ContractInfo_AmountLimit__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 保証金金額 --></label>
+        <name>ContractInfo_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 自動更新 --></label>
+        <name>ContractInfo_AutomaticRenewal__c</name>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>○</masterLabel>
+            <translation><!-- ○ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>不明</masterLabel>
+            <translation><!-- 不明 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>記載なし</masterLabel>
+            <translation><!-- 記載なし --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 提携病院契約申請書 --></label>
+        <name>ContractInfo_ContractAgreement__c</name>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>○</masterLabel>
+            <translation><!-- ○ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 契約期間 --></label>
+        <name>ContractInfo_ContractTerm__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 与信期間 --></label>
+        <name>ContractInfo_CreditTerm__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 契約開始日 --></label>
+        <name>ContractInfo_DateFrom__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 契約満期日 --></label>
+        <name>ContractInfo_DateTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 契約名称 --></label>
+        <name>ContractInfo_DocumentTitle__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 罰金 --></label>
+        <name>ContractInfo_PenalCharge__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 役職 --></label>
+        <name>ContractInfo_Post__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 代表者 --></label>
+        <name>ContractInfo_Representative__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) エリア --></label>
+        <name>Contract_Area__c</name>
+    </fields>
+    <fields>
+        <label><!-- （契約情報）担当部署 --></label>
+        <name>Contract_Busho__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 病院区分 --></label>
+        <name>Contract_Category__c</name>
+        <picklistValues>
+            <masterLabel>クリニック</masterLabel>
+            <translation><!-- クリニック --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>専門</masterLabel>
+            <translation><!-- 専門 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>歯科</masterLabel>
+            <translation><!-- 歯科 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>総合</masterLabel>
+            <translation><!-- 総合 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 国 --></label>
+        <name>Contract_Country__c</name>
+        <picklistValues>
+            <masterLabel>UAE</masterLabel>
+            <translation><!-- UAE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>イギリス</masterLabel>
+            <translation><!-- イギリス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation><!-- インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オランダ</masterLabel>
+            <translation><!-- オランダ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オーストラリア</masterLabel>
+            <translation><!-- オーストラリア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カンボジア</masterLabel>
+            <translation><!-- カンボジア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation><!-- シンガポール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スリランカ</masterLabel>
+            <translation><!-- スリランカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タイ</masterLabel>
+            <translation><!-- タイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ドイツ</masterLabel>
+            <translation><!-- ドイツ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フランス</masterLabel>
+            <translation><!-- フランス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ブラジル</masterLabel>
+            <translation><!-- ブラジル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マカオ</masterLabel>
+            <translation><!-- マカオ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ミャンマー</masterLabel>
+            <translation><!-- ミャンマー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコ</masterLabel>
+            <translation><!-- メキシコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ラオス</masterLabel>
+            <translation><!-- ラオス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ロシア</masterLabel>
+            <translation><!-- ロシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台湾</masterLabel>
+            <translation><!-- 台湾 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>韓国</masterLabel>
+            <translation><!-- 韓国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 契約保管 --></label>
+        <name>Contract_DocKeep__c</name>
+        <picklistValues>
+            <masterLabel>コピー</masterLabel>
+            <translation><!-- コピー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>保管なし</masterLabel>
+            <translation><!-- 保管なし --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>原本</masterLabel>
+            <translation><!-- 原本 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （契約情報）担当者Email --></label>
+        <name>Contract_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 住所 --></label>
+        <name>Contract_HospitalAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 病院名 --></label>
+        <name>Contract_HospitalName__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 病院名(通称) --></label>
+        <name>Contract_HospitalPopularName__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 電話番号(代表) --></label>
+        <name>Contract_HospitalTel__c</name>
+    </fields>
+    <fields>
+        <label><!-- （契約情報）メール配信 --></label>
+        <name>Contract_MailHaishin__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 医療機関/契約先 --></label>
+        <name>Contract_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 部数 --></label>
+        <name>Contract_NumberOfCopies__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 州／県 --></label>
+        <name>Contract_Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- （契約情報）担当者名 --></label>
+        <name>Contract_Shimei__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約種類 --></label>
+        <name>Contract_Type__c</name>
+        <picklistValues>
+            <masterLabel>Affiliated Agreement</masterLabel>
+            <translation><!-- Affiliated Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business Referral Agreement</masterLabel>
+            <translation><!-- Business Referral Agreement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>通常キャッシュレス</masterLabel>
+            <translation><!-- 通常キャッシュレス --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (契約情報) 地区 --></label>
+        <name>Contract_Zone__c</name>
+    </fields>
+    <fields>
+        <label><!-- （表示順）国番号 --></label>
+        <name>Country_Sort_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- 要確認事項備考 --></label>
+        <name>Field1__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約区分 --></label>
+        <name>Field2__c</name>
+        <picklistValues>
+            <masterLabel>契約なし（キャッシュレス可）</masterLabel>
+            <translation><!-- 契約なし（キャッシュレス可） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>契約済</masterLabel>
+            <translation><!-- 契約済 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>契約解除</masterLabel>
+            <translation><!-- 契約解除 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>契約進行中</masterLabel>
+            <translation><!-- 契約進行中 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>紹介のみ</masterLabel>
+            <translation><!-- 紹介のみ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (ファイリング) 枝番 --></label>
+        <name>Field3__c</name>
+    </fields>
+    <fields>
+        <label><!-- (ファイリング) 国コード --></label>
+        <name>Filing_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- (ファイリング) 番号 --></label>
+        <name>Filing_No__c</name>
+    </fields>
+    <fields>
+        <help><!-- ハンドブックに地図を掲載する場合に、チェックします。 --></help>
+        <label><!-- (HP_ハンドブック掲載) ハンドブック地図 --></label>
+        <name>HP__c</name>
+    </fields>
+    <fields>
+        <label><!-- (病院情報) 24時間対応(注意文) --></label>
+        <name>HospitalInfo_24HoursRemarks__c</name>
+        <picklistValues>
+            <masterLabel>※24時間対応の病院は、「受診場所」が24時間対応とは限りません。</masterLabel>
+            <translation><!-- ※24時間対応の病院は、「受診場所」が24時間対応とは限りません。 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>※病院のHPで開院時間をご確認ください。</masterLabel>
+            <translation><!-- ※病院のHPで開院時間をご確認ください。 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (病院情報) 24時間対応 --></label>
+        <name>HospitalInfo_24Hours__c</name>
+        <picklistValues>
+            <masterLabel>24時間</masterLabel>
+            <translation><!-- 24時間 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昼間./場合により夜間</masterLabel>
+            <translation><!-- 昼間./場合により夜間 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昼間のみ</masterLabel>
+            <translation><!-- 昼間のみ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (病院情報) 病院スタッフ言語 --></label>
+        <name>HospitalInfo_HospitalStaffLanguage__c</name>
+        <picklistValues>
+            <masterLabel>病院スタッフ日本語可</masterLabel>
+            <translation><!-- 病院スタッフ日本語可 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>病院スタッフ日英可</masterLabel>
+            <translation><!-- 病院スタッフ日英可 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>病院スタッフ英語可</masterLabel>
+            <translation><!-- 病院スタッフ英語可 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (病院情報) 診療科目 --></label>
+        <name>HospitalInfo_MedicalDepartment__c</name>
+    </fields>
+    <fields>
+        <label><!-- (病院情報) 診察時間 --></label>
+        <name>HospitalInfo_SurgeryHours__c</name>
+    </fields>
+    <fields>
+        <label><!-- (病院情報) 受診場所 --></label>
+        <name>HospitalInfo_VisitTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 病院住所 --></label>
+        <name>Hospital_Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- （表示順）病院区分番号 --></label>
+        <name>Hospital_Category_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- （表示順）病院番号 --></label>
+        <name>Hospital_Sort_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- 病院電話番号 --></label>
+        <name>Hospital_Tel__c</name>
+    </fields>
+    <fields>
+        <label><!-- 病院場所 緯度経度 --></label>
+        <name>Longitude_Latitude__c</name>
+    </fields>
+    <fields>
+        <label><!-- (HP_ハンドブック掲載) HP削除依頼日 --></label>
+        <name>Post_HPDeleteRequestedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- (HP_ハンドブック掲載) HP掲載依頼日 --></label>
+        <name>Post_HPPostRequestedDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- 掲載=チェックあり --></help>
+        <label><!-- (HP_ハンドブック掲載) HP --></label>
+        <name>Post_HP__c</name>
+    </fields>
+    <fields>
+        <help><!-- 掲載=チェックあり --></help>
+        <label><!-- (HP_ハンドブック掲載) ハンドブック --></label>
+        <name>Post_Handbook__c</name>
+    </fields>
+    <fields>
+        <label><!-- (HP_ハンドブック掲載) 掲載順番 --></label>
+        <name>Post_PostSort__c</name>
+    </fields>
+    <fields>
+        <label><!-- （表示順）州／県番号 --></label>
+        <name>Region_Sort_Order__c</name>
+    </fields>
+    <fields>
+        <help><!-- 常駐地区=○
+非常駐地区=× --></help>
+        <label><!-- (WBスタッフ) 常駐地区 --></label>
+        <name>WBStaff_StationedArea__c</name>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>○</masterLabel>
+            <translation><!-- ○ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (WBスタッフ) 病院常駐有無 --></label>
+        <name>WBStaff_StationedHospital__c</name>
+        <picklistValues>
+            <masterLabel>ご依頼時派遣</masterLabel>
+            <translation><!-- ご依頼時派遣 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>予約手配のみ</masterLabel>
+            <translation><!-- 予約手配のみ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>予約手配のみ（病院日本語可）</masterLabel>
+            <translation><!-- 予約手配のみ（病院日本語可） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常駐（平日/一部土日）</masterLabel>
+            <translation><!-- 常駐（平日/一部土日） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常駐（平日のみ）</masterLabel>
+            <translation><!-- 常駐（平日のみ） --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (WBスタッフ) 病院常駐時間 --></label>
+        <name>WBStaff_StationedTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- (WB情報) WB様式契約書 --></label>
+        <name>WB_AgreementTemplate__c</name>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>○</masterLabel>
+            <translation><!-- ○ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (WB情報) WB契約会社 --></label>
+        <name>WB_Company__c</name>
+    </fields>
+    <fields>
+        <label><!-- (WB情報) WB現地会社 --></label>
+        <name>WB_LocalCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- (WB情報) WB担当 --></label>
+        <name>WB_LocalHandle__c</name>
+    </fields>
+    <fields>
+        <label><!-- (WB情報) WB現地代表者 --></label>
+        <name>WB_LocalRepresentative__c</name>
+    </fields>
+    <fields>
+        <label><!-- (WB情報) 備考 --></label>
+        <name>WB_Remarks__c</name>
+    </fields>
+    <fields>
+        <label><!-- (WB情報) WB代表者 --></label>
+        <name>WB_Representative__c</name>
+    </fields>
+    <fields>
+        <label><!-- （表示順）地区番号 --></label>
+        <name>Zone_Sort_Order__c</name>
+    </fields>
+    <fields>
+        <label><!-- （アプリ）削除日 --></label>
+        <name>appDeletedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （アプリ）掲載日 --></label>
+        <name>appPostingDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- 確認事項ありの場合=チェックあり --></help>
+        <label><!-- 要確認事項 --></label>
+        <name>confirm__c</name>
+    </fields>
+    <fields>
+        <label><!-- f_AppDeleteTarget --></label>
+        <name>f_AppDeleteTarget__c</name>
+    </fields>
+    <fields>
+        <label><!-- f_AppPostingTarget --></label>
+        <name>f_AppPostingTarget__c</name>
+    </fields>
+    <fields>
+        <label><!-- f_orderingcondition --></label>
+        <name>f_orderingcondition__c</name>
+    </fields>
+    <layouts>
+        <layout>提携病院レイアウト</layout>
+        <sections>
+            <label><!-- WB情報 --></label>
+            <section>WB情報</section>
+        </sections>
+        <sections>
+            <label><!-- アプリ --></label>
+            <section>アプリ</section>
+        </sections>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- ホームページ・ハンドブック情報 --></label>
+            <section>ホームページ・ハンドブック情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約先情報 --></label>
+            <section>契約先情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約先情報2 --></label>
+            <section>契約先情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約先情報3 --></label>
+            <section>契約先情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 契約先情報4 --></label>
+            <section>契約先情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 契約先情報5 --></label>
+            <section>契約先情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 契約内容 --></label>
+            <section>契約内容</section>
+        </sections>
+        <sections>
+            <label><!-- 提携病院 --></label>
+            <section>提携病院</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 病院情報 --></label>
+            <section>病院情報</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

@@ -1,0 +1,142 @@
+<apex:page standardController="account" extensions="wb_Account_MDContract">
+    <apex:form >
+        <apex:actionFunction name="CallApexMethod2GetConfirmedDetails" action="{!GetConfirmedDetails}"  reRender="TheConfirmedDetail" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theHighlightedConfirmed}" value="" />
+        </apex:actionFunction>
+        <script>
+        var lastRowConfirmed;
+        function highlightConfirmed(elem){
+            //alert(elem);
+            //alert(elem.cells.item(0).innerText);
+            CallApexMethod2GetConfirmedDetails(elem.cells.item(0).innerText);
+            if(lastRowConfirmed != undefined)
+                lastRowConfirmed.style.backgroundColor = 'white';
+            
+            elem.style.backgroundColor = 'yellow';
+            lastRowConfirmed = elem;
+        }
+        </script>
+        <apex:outputPanel id="page" layout="block" style="margin:5px;padding:10px;padding-top:2px;">
+            <style>
+                .activeTab {background-color: yellow; color:black; background-image:none}
+                .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+            </style>
+            
+            <apex:tabPanel tabClass="activeTab" inactiveTabClass="inactiveTab" switchType="client" selectedTab="tab2" id="tabbedPanel">
+                <apex:tab label="未確定" name="tab1" id="tabOne">
+                    <apex:datatable value="{!theDraftContracts}" var="a" columns="4" border="1" cellpadding="4"  >    
+                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Name.label}" styleClass="greyColour">
+                            <a href="/{!a.Id}" target="_blank">
+                                <apex:outputfield value="{!a.Name}"></apex:outputfield>
+                            </a> 
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Status__c.label}" styleClass="greyColour">
+                            <apex:outputtext value="{!a.Status__c}"></apex:outputtext>
+                        </apex:column> 
+                        
+                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Currency__c.label}">
+                            <apex:outputfield value="{!a.Currency__c}"></apex:outputfield>
+                        </apex:column>
+                        
+                    </apex:datatable>
+                </apex:tab>
+              
+                <apex:tab label="確定" name="tab2" id="tabTwo">
+                    
+                    <apex:pageMessages ></apex:pageMessages> 
+                    
+                    
+                        <table>
+                            <tr>
+                                <td valign="top">
+                                     <apex:outputPanel id="TheConfirmed">
+                                    <div align="left" style="display:{!IF(NOT(ISNULL(ConfirmedContractsPage.Memberships)),'block','none')}">
+                                        <font size="1pt">Page #:&nbsp;<apex:outputLabel value="{!ConfirmedContractsPage.PageNumber}"/>&nbsp;out of&nbsp;<apex:outputLabel value="{!ConfirmedContractsPage.totalPageNumber}"/>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                                        <apex:commandButton value="Previous" action="{!ConfirmedContractsPage.previousBtnClick}"
+                                                            disabled="{!ConfirmedContractsPage.previousButtonEnabled}"
+                                                            reRender="TheConfirmed" oncomplete="CallApexMethod2GetConfirmedDetails('');"></apex:commandButton> 
+                                        <apex:commandButton value="Next" action="{!ConfirmedContractsPage.nextBtnClick}"
+                                                            reRender="TheConfirmed" disabled="{!ConfirmedContractsPage.nextButtonDisabled}"
+                                                            oncomplete="CallApexMethod2GetConfirmedDetails('');"></apex:commandButton> 
+                                    </div>  
+                                   
+                                    <apex:datatable value="{!ConfirmedContractsPage.pageMemberships}" var="a" columns="4" border="1" cellpadding="4" onRowClick="highlightConfirmed(this);"  >    
+                                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Name.label}" styleClass="greyColour">
+                                            <a href="/{!a.Id}" target="_blank"> 
+                                                <apex:outputfield value="{!a.Name}"></apex:outputfield>
+                                            </a>
+                                        </apex:column>
+                                        
+                                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.ContractDate__c.label}" styleClass="greyColour">
+                                            <apex:outputfield value="{!a.ContractDate__c}"></apex:outputfield>
+                                        </apex:column> 
+                                        
+                                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Status__c.label}" styleClass="greyColour">
+                                            <apex:outputtext value="{!a.Status__c}"></apex:outputtext>
+                                        </apex:column> 
+                                        
+                                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Currency__c.label}">
+                                            <apex:outputfield value="{!a.Currency__c}"></apex:outputfield>
+                                        </apex:column>
+                                        
+                                    </apex:datatable>
+                                     </apex:outputPanel>
+                                </td>
+                                
+                                <td valign="top"> 
+                                      <apex:outputPanel id="TheConfirmedDetail">
+                                    <div align="left" >
+                                        <font size="1pt">Page #:&nbsp;<apex:outputLabel value="{!ConfirmedContractDetailsPage.PageNumber}"/>&nbsp;out of&nbsp;<apex:outputLabel value="{!ConfirmedContractDetailsPage.totalPageNumber}"/>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                                        <apex:commandButton value="Previous" action="{!ConfirmedContractDetailsPage.previousBtnClick}" disabled="{!ConfirmedContractDetailsPage.previousButtonEnabled}" reRender="TheConfirmedDetail"></apex:commandButton> 
+                                        <apex:commandButton value="Next" action="{!ConfirmedContractDetailsPage.nextBtnClick}" reRender="TheConfirmedDetail" disabled="{!ConfirmedContractDetailsPage.nextButtonDisabled}" ></apex:commandButton> 
+                                    </div>  
+                                 
+                                    <apex:datatable value="{!ConfirmedContractDetailsPage.pageMembershipsDetails}" var="a" columns="4"   cellpadding="4"  >  
+                                        
+                                        <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Name.label}" styleClass="greyColour">
+                                           <!-- <a href="/{!a.MembershipDetail__r.Membership__r.Id}" target="_blank"> -->
+                                                <apex:outputfield value="{!a.name}"></apex:outputfield>
+                                         <!--   </a> --> 
+                                        </apex:column>
+                                        
+                                        <apex:column headerValue="会員" styleClass="greyColour">
+                                            <apex:outputfield value="{!a.Individual__r.name}"></apex:outputfield>
+                                        </apex:column> 
+                                        
+                                        <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Type__c.label}">
+                                            <apex:outputfield value="{!a.Type__c}"></apex:outputfield>
+                                        </apex:column>
+                                        
+                                    </apex:datatable>
+                                          </apex:outputPanel>
+                                </td>
+                                
+                            </tr>
+                            
+                        </table>
+                   
+                </apex:tab>
+                <apex:tab label="キャンセル" name="tab3" id="tabThree">
+                    <apex:datatable value="{!theCancelledContracts}" var="a" columns="4" border="1" cellpadding="4"  >    
+                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Name.label}" styleClass="greyColour">
+                            <a href="/{!a.Id}" target="_blank">
+                                <apex:outputfield value="{!a.Name}"></apex:outputfield>
+                            </a> 
+                        </apex:column>
+                        
+                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Status__c.label}" styleClass="greyColour">
+                            <apex:outputtext value="{!a.Status__c}"></apex:outputtext>
+                        </apex:column> 
+                        
+                        <apex:column headerValue="{!$ObjectType.wb_Membership__c.fields.Currency__c.label}">
+                            <apex:outputfield value="{!a.Currency__c}"></apex:outputfield>
+                        </apex:column>
+                        
+                    </apex:datatable>
+                </apex:tab>
+            </apex:tabPanel>
+        </apex:outputPanel>
+
+    </apex:form>
+</apex:page>

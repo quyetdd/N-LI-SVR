@@ -1,0 +1,84 @@
+<apex:page standardcontroller="wb_BudgetRate__c" extensions="wb_BudgetRateExt" id="thePage">
+    <apex:outputPanel >
+        <apex:pageBlock id="ThePageBlock" title="予算レート">
+            
+            <apex:form id="theForm" >   
+                
+                <apex:commandButton value="Save"  action="{!SaveRecords}"/>   
+                  <apex:pageBlockSection columns="2" id="theSection" >
+                
+                <apex:selectList id="selectedYear" value="{!currentDateRage.BudgetYear__c}" size="1" title="{!$ObjectType.wb_BudgetRate__c.fields.BudgetYear__c.label}">
+                    <apex:selectOptions value="{!YearsOptions}"></apex:selectOptions>
+                      <apex:actionSupport event="onchange" action="{!fetchBudgetRates}" reRender="theForm" /> 
+                </apex:selectList>
+                      <apex:pageBlockSectionItem > </apex:pageBlockSectionItem> 
+                
+                <apex:outputField value="{!currentDateRage.FromDate__c}" title="{!$ObjectType.wb_BudgetRate__c.fields.FromDate__c.label}"/>
+                <apex:outputField value="{!currentDateRage.ToDate__c}" title="{!$ObjectType.wb_BudgetRate__c.fields.ToDate__c.label}"/>
+                </apex:pageBlockSection>
+                <apex:dataTable value="{!BudgetRate}" var="BR" styleClass="sortable" columnswidth="10%, 10%, 50%, 10%, 10%" cellpadding="4" border="1" onRowClick="highlight(this);">
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_BudgetRate__c.fields.FromCurrency__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputField value="{!BR.FromCurrency__c}"></apex:outputField>
+                    </apex:column> 
+                     <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_BudgetRate__c.fields.ToCurrency__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputField value="{!BR.ToCurrency__c}"></apex:outputField>
+                    </apex:column> 
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_BudgetRate__c.fields.Rate__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputField value="{!BR.Rate__c}"></apex:inputField>
+                    </apex:column> 
+                 <!--   <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_BudgetRate__c.fields.CeilingUnit__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputField value="{!BR.CeilingUnit__c}"></apex:inputField>
+                    </apex:column> -->
+                                        <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_BudgetRate__c.fields.YearCeilingUnit__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputField value="{!BR.YearCeilingUnit__c}"></apex:inputField>
+                    </apex:column>
+                                        <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_BudgetRate__c.fields.MonthCeilingUnit__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputField value="{!BR.MonthCeilingUnit__c}"></apex:inputField>
+                    </apex:column>
+                </apex:dataTable>
+            </apex:form>
+        </apex:pageBlock>
+    </apex:outputPanel>
+</apex:page>

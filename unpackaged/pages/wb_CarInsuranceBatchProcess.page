@@ -1,0 +1,145 @@
+<apex:page standardController="Ichiroheian__c" recordSetVar="Ichiroheians" extensions="CarInsuranceBatchProcessController">
+    
+  <apex:form id="form">
+  
+    <script type="text/javascript">
+        window.onload = function() {
+          document.getElementById("back").focus();
+        };
+    </script>  
+  
+    <apex:pagemessages /> <!--error message if search picklist are null-->
+    <apex:pageBlock title="{!$Label.CarInsuranceBatchUpdate}" id="block">  
+        <apex:commandButton action="{!search}" value="{!$Label.Search}" id="search" reRender="form"/>    
+        <apex:commandButton action="{!back}" value="{!$Label.Cancel}" id="back" immediate="true"/>
+                      
+        <apex:pageBlockSection columns="1" id="searchPickList">
+            <apex:pageBlockSectionItem id="wOAgencyPick">
+                <!--20170125   {!$Label.PassengerContractStore} <apex:inputField value="{!Ichiroheian__c.WOAgency__c}"/>   -->
+                {!$Label.PassengerContractStore}
+                <apex:selectList id="WOAgency__c" value="{!SelectedWOAgency}" size="1" label="{!$ObjectType.Ichiroheian__c.fields.WOAgency__c.Label}">
+                    <apex:selectOptions value="{!WOAgencyOptions}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange" action="{!fetchKeiyakuCountryOptions}" reRender="searchPickList" /> 
+                </apex:selectList>
+            </apex:pageBlockSectionItem>  
+            <apex:pageBlockSectionItem id="KeiyakuCountryPick">
+                <!--20170125    {!$ObjectType.Ichiroheian__c.fields.KeiyakuCountry__c.Label} <apex:inputField value="{!Ichiroheian__c.KeiyakuCountry__c}"/>   -->  
+               {!$ObjectType.Ichiroheian__c.fields.KeiyakuCountry__c.Label}
+                <apex:selectList id="KeiyakuCountry__c" value="{!SelectedKeiyakuCountry}" size="1" label="{!$ObjectType.Ichiroheian__c.fields.KeiyakuCountry__c.Label}">
+                    <apex:selectOptions value="{!KeiyakuCountryOptions}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange" action="{!fetchKeiyakuAreaOptions}" reRender="searchPickList" /> 
+                </apex:selectList>
+            </apex:pageBlockSectionItem>            
+            <apex:pageBlockSectionItem id="keiyakuAreaPick">
+                <!--20170125   {!$ObjectType.Ichiroheian__c.fields.KeiyakuArea__c.Label} <apex:inputField value="{!Ichiroheian__c.KeiyakuArea__c}"/> -->    
+               {!$ObjectType.Ichiroheian__c.fields.KeiyakuArea__c.Label}
+                <apex:selectList id="KeiyakuArea__c" value="{!SelectedKeiyakuArea}" size="1" label="{!$ObjectType.Ichiroheian__c.fields.KeiyakuArea__c.Label}">
+                    <apex:selectOptions value="{!KeiyakuAreaOptions}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange" action="{!fetchWOInsuranceCompanyOptions}" reRender="searchPickList" /> 
+                </apex:selectList>
+            </apex:pageBlockSectionItem>            
+        <apex:pageBlockSectionItem id="InsuranceShukiPick">
+              {!$ObjectType.Ichiroheian__c.fields.InsuranceShuki__c.Label} <apex:inputField value="{!cs.InsuranceShuki__c}"/>  
+        </apex:pageBlockSectionItem>              
+            <apex:pageBlockSectionItem id="wOInsuranceCompanyPick">
+                <!--20170125  {!$ObjectType.Ichiroheian__c.fields.WOInsuranceCompany__c.Label} <apex:inputField value="{!Ichiroheian__c.WOInsuranceCompany__c}"/> -->     
+                {!$ObjectType.Ichiroheian__c.fields.WOInsuranceCompany__c.Label}
+                <apex:selectList id="WOInsuranceCompany__c" value="{!SelectedWOInsuranceCompany}" size="1" label="{!$ObjectType.Ichiroheian__c.fields.WOInsuranceCompany__c.Label}">
+                    <apex:selectOptions value="{!WOInsuranceCompanyOptions}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange" action="{!fetchWOCommodityNameOptions}" reRender="searchPickList" /> 
+                </apex:selectList>
+            </apex:pageBlockSectionItem>  
+            <apex:pageBlockSectionItem id="wOCommodityNamePick">
+                <!--20170125   {!$ObjectType.Ichiroheian__c.fields.WOCommodityName__c.Label} <apex:inputField value="{!Ichiroheian__c.WOCommodityName__c}"/> -->    
+               {!$ObjectType.Ichiroheian__c.fields.WOCommodityName__c.Label}
+                <apex:selectList id="WOCommodityName__c" value="{!SelectedWOCommodityName}" size="1" label="{!$ObjectType.Ichiroheian__c.fields.WOCommodityName__c.Label}">
+                    <apex:selectOptions value="{!WOCommodityNameOptions}"></apex:selectOptions>
+                    <!--<apex:actionSupport event="onchange" action="{!fetchCountryNameOptions}" reRender="form" /> -->
+                </apex:selectList>
+            </apex:pageBlockSectionItem>                                                                                              
+        </apex:pageBlockSection>         
+    </apex:pageBlock>
+      
+    <apex:pageBlock id="resultPage" rendered="{!showResults}">               
+        <apex:commandButton action="{!updateRecord}" value="{!$Label.Update}" id="update"/>  
+        <apex:commandButton action="{!closeSearchTable}" value="{!$Label.Cancel}" id="cancel" immediate="true"/>  
+        <apex:commandButton action="{!selectAll}" value="{!$Label.CheckAll}" id="selectAll"/> 
+        <apex:commandButton action="{!releaseAll}" value="{!$Label.AllUncheck}" id="releaseAll"/> 
+        
+        <br/><br/>
+        
+        <apex:pageBlockSection columns="4" id="InputTeaxLabel">
+            <apex:pageBlockSectionItem id="PresentInsuranceShikiLabel" dataStyle="width:10%">
+              {!$Label.New} {!$ObjectType.Ichiroheian__c.fields.PresentInsuranceShiki__c.Label}       
+            </apex:pageBlockSectionItem>  
+             <apex:pageBlockSectionItem id="InsuranceShukiLabel" dataStyle="width:10%">
+              {!$Label.New} {!$ObjectType.Ichiroheian__c.fields.InsuranceShuki__c.Label}  
+            </apex:pageBlockSectionItem>   
+            <apex:pageBlockSectionItem id="WOPresentInsuranceShikiAlphaLabel" dataStyle="width:10%">
+              {!$Label.New} {!$ObjectType.Ichiroheian__c.fields.WOPresentInsuranceShikiAlpha__c.Label}
+            </apex:pageBlockSectionItem>   
+            <apex:pageBlockSectionItem id="WOInsuranceShukiAlphaLabel" dataStyle="width:10%">
+              {!$Label.New} {!$ObjectType.Ichiroheian__c.fields.WOInsuranceShukiAlpha__c.Label}
+            </apex:pageBlockSectionItem>                        
+        </apex:pageBlockSection>                  
+        
+        <apex:pageBlockSection columns="4" id="inputTextBox">
+            <apex:pageBlockSectionItem id="presentInsuranceShikiInputText" dataStyle="width:10%">
+              <apex:inputfield value="{!inputText.PresentInsuranceShiki__c}" id="PresentInsuranceShiki"/>           
+            </apex:pageBlockSectionItem>  
+            <apex:pageBlockSectionItem id="insuranceShukiInputText" dataStyle="width:10%">
+             <apex:inputfield value="{!inputText.InsuranceShuki__c}" id="InsuranceShuki"/>           
+            </apex:pageBlockSectionItem>    
+            <apex:pageBlockSectionItem id="wOPresentInsuranceShikiAlphaInputText" dataStyle="width:10%">
+             <apex:inputfield value="{!inputText.WOPresentInsuranceShikiAlpha__c}"/>          
+            </apex:pageBlockSectionItem>               
+            <apex:pageBlockSectionItem id="wOInsuranceShukiAlphaInputText" dataStyle="width:10%">
+             <apex:inputfield value="{!inputText.WOInsuranceShukiAlpha__c}"/>          
+            </apex:pageBlockSectionItem>                         
+        </apex:pageBlockSection>     
+        
+        <br/>    
+        
+        <apex:pageBlockTable id="resultTable" value="{!newSearchResults}" var="row">         
+            <apex:column >
+                <apex:facet name="header">{!$Label.UpdatePassenger}</apex:facet>
+                <apex:inputCheckbox value="{!row.InchargeCheckbox}"/>
+            </apex:column>
+            <apex:column >
+                <apex:facet name="header">{!$ObjectType.Ichiroheian__c.fields.KeiyakuArea__c.Label}</apex:facet>
+                <apex:outputField value="{!row.IchiroheianData.KeiyakuArea__c}"/>  
+            </apex:column>             
+            <apex:column rendered="{!!IsEnglish}">
+                <apex:facet name="header">{!$ObjectType.Ichiroheian__c.fields.KeiyakuCompanyName__c.Label}</apex:facet> 
+                <apex:outputField value="{!row.IchiroheianData.KeiyakuCompanyName__c}"/> 
+            </apex:column>
+            <!-- show english if the profile is english -->
+            <apex:column rendered="{!IsEnglish}">
+                <apex:facet name="header">{!$ObjectType.Ichiroheian__c.fields.KeiyakuCompanyName__c.Label}</apex:facet> 
+                <apex:outputField value="{!row.IchiroheianData.KeiyakuCompanyName__r.CompanyNameEng__c}"/> 
+            </apex:column>                         
+            <apex:column rendered="{!!IsEnglish}">
+                <apex:facet name="header">{!$ObjectType.Ichiroheian__c.fields.ShiyoCompanyName__c.Label}</apex:facet>
+                <apex:outputField value="{!row.IchiroheianData.ShiyoCompanyName__c}"/> 
+            </apex:column>  
+            <!-- show english if the profile is english -->
+            <apex:column rendered="{!IsEnglish}">
+                <apex:facet name="header">{!$ObjectType.Ichiroheian__c.fields.ShiyoCompanyName__c.Label}</apex:facet>
+                <apex:outputField value="{!row.IchiroheianData.ShiyoCompanyName__r.CompanyNameEng__c}"/> 
+            </apex:column>             
+            <apex:column >
+                <apex:facet name="header">{!$ObjectType.Ichiroheian__c.fields.Name.Label}</apex:facet>  
+                <apex:outputField value="{!row.IchiroheianData.Name}"/> 
+            </apex:column>   
+            <apex:column >
+                <apex:facet name="header">{!$Label.OP_Update}</apex:facet>
+                <apex:inputCheckbox value="{!row.opCheckbox}"/>
+            </apex:column>   
+            <apex:column >
+                <apex:facet name="header">{!$ObjectType.Ichiroheian__c.fields.WOInsuranceShukiAlpha__c.Label}</apex:facet>
+                <apex:outputField value="{!row.IchiroheianData.WOInsuranceShukiAlpha__c}"/> 
+            </apex:column>                                                             
+        </apex:pageBlockTable>                
+    </apex:pageBlock>         
+  </apex:form>
+</apex:page>

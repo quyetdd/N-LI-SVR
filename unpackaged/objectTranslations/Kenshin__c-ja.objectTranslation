@@ -1,0 +1,743 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>健診</value>
+    </caseValues>
+    <fields>
+        <label><!-- キャンセル日 --></label>
+        <name>CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （勤務先）国名 --></label>
+        <name>Company_Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- 営業担当 --></label>
+        <name>Field1__c</name>
+    </fields>
+    <fields>
+        <label><!-- 健診結果保持 --></label>
+        <name>HealthCheckUpResult__c</name>
+    </fields>
+    <fields>
+        <label><!-- 受診地区 --></label>
+        <name>KenshinArea__c</name>
+        <picklistValues>
+            <masterLabel>Bangalore</masterLabel>
+            <translation><!-- Bangalore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chennai</masterLabel>
+            <translation><!-- Chennai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DaNang</masterLabel>
+            <translation><!-- DaNang --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gurgaon</masterLabel>
+            <translation><!-- Gurgaon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HaiPhong</masterLabel>
+            <translation><!-- HaiPhong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hanoi</masterLabel>
+            <translation><!-- Hanoi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HoChiMinh</masterLabel>
+            <translation><!-- HoChiMinh --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jakarta</masterLabel>
+            <translation><!-- Jakarta --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manila</masterLabel>
+            <translation><!-- Manila --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mumbai</masterLabel>
+            <translation><!-- Mumbai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中山</masterLabel>
+            <translation><!-- 中山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation><!-- 北京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南通</masterLabel>
+            <translation><!-- 南通 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>厦門</masterLabel>
+            <translation><!-- 厦門 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation><!-- 天津 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>寧波</masterLabel>
+            <translation><!-- 寧波 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation><!-- 常州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常熟</masterLabel>
+            <translation><!-- 常熟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成都</masterLabel>
+            <translation><!-- 成都 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation><!-- 昆山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州</masterLabel>
+            <translation><!-- 杭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation><!-- 東莞 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation><!-- 武漢 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation><!-- 深セン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation><!-- 無錫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>珠海</masterLabel>
+            <translation><!-- 珠海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation><!-- 青島 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 受診日 --></label>
+        <name>KenshinDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会場病院名 --></label>
+        <name>KenshinHospital__c</name>
+    </fields>
+    <fields>
+        <label><!-- 健診プラン --></label>
+        <name>KenshinPlan__c</name>
+        <picklistValues>
+            <masterLabel>04101</masterLabel>
+            <translation><!-- 04101 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04201</masterLabel>
+            <translation><!-- 04201 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04202</masterLabel>
+            <translation><!-- 04202 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04203</masterLabel>
+            <translation><!-- 04203 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04204</masterLabel>
+            <translation><!-- 04204 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04205</masterLabel>
+            <translation><!-- 04205 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04206</masterLabel>
+            <translation><!-- 04206 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04207</masterLabel>
+            <translation><!-- 04207 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04208</masterLabel>
+            <translation><!-- 04208 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04209</masterLabel>
+            <translation><!-- 04209 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04210</masterLabel>
+            <translation><!-- 04210 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04211</masterLabel>
+            <translation><!-- 04211 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04301</masterLabel>
+            <translation><!-- 04301 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04302</masterLabel>
+            <translation><!-- 04302 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04303</masterLabel>
+            <translation><!-- 04303 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04304</masterLabel>
+            <translation><!-- 04304 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04305</masterLabel>
+            <translation><!-- 04305 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04306</masterLabel>
+            <translation><!-- 04306 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04307</masterLabel>
+            <translation><!-- 04307 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04308</masterLabel>
+            <translation><!-- 04308 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04402</masterLabel>
+            <translation><!-- 04402 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04403</masterLabel>
+            <translation><!-- 04403 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04404</masterLabel>
+            <translation><!-- 04404 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04405</masterLabel>
+            <translation><!-- 04405 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04406</masterLabel>
+            <translation><!-- 04406 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04407</masterLabel>
+            <translation><!-- 04407 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04408</masterLabel>
+            <translation><!-- 04408 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04409</masterLabel>
+            <translation><!-- 04409 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04410</masterLabel>
+            <translation><!-- 04410 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04411</masterLabel>
+            <translation><!-- 04411 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04412</masterLabel>
+            <translation><!-- 04412 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04413</masterLabel>
+            <translation><!-- 04413 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04414</masterLabel>
+            <translation><!-- 04414 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04415</masterLabel>
+            <translation><!-- 04415 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04416</masterLabel>
+            <translation><!-- 04416 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04417</masterLabel>
+            <translation><!-- 04417 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04418</masterLabel>
+            <translation><!-- 04418 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04419</masterLabel>
+            <translation><!-- 04419 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04420</masterLabel>
+            <translation><!-- 04420 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04421</masterLabel>
+            <translation><!-- 04421 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04422</masterLabel>
+            <translation><!-- 04422 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04423</masterLabel>
+            <translation><!-- 04423 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04424</masterLabel>
+            <translation><!-- 04424 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04425</masterLabel>
+            <translation><!-- 04425 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05101</masterLabel>
+            <translation><!-- 05101 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05202</masterLabel>
+            <translation><!-- 05202 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05203</masterLabel>
+            <translation><!-- 05203 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05204</masterLabel>
+            <translation><!-- 05204 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05205</masterLabel>
+            <translation><!-- 05205 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05206</masterLabel>
+            <translation><!-- 05206 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05207</masterLabel>
+            <translation><!-- 05207 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05208</masterLabel>
+            <translation><!-- 05208 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05301</masterLabel>
+            <translation><!-- 05301 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05302</masterLabel>
+            <translation><!-- 05302 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05303</masterLabel>
+            <translation><!-- 05303 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05304</masterLabel>
+            <translation><!-- 05304 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05305</masterLabel>
+            <translation><!-- 05305 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05306</masterLabel>
+            <translation><!-- 05306 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05307</masterLabel>
+            <translation><!-- 05307 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05308</masterLabel>
+            <translation><!-- 05308 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05309</masterLabel>
+            <translation><!-- 05309 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05310</masterLabel>
+            <translation><!-- 05310 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05311</masterLabel>
+            <translation><!-- 05311 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05312</masterLabel>
+            <translation><!-- 05312 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05401</masterLabel>
+            <translation><!-- 05401 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05402</masterLabel>
+            <translation><!-- 05402 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05501</masterLabel>
+            <translation><!-- 05501 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05502</masterLabel>
+            <translation><!-- 05502 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05503</masterLabel>
+            <translation><!-- 05503 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06101</masterLabel>
+            <translation><!-- 06101 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06201</masterLabel>
+            <translation><!-- 06201 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06202</masterLabel>
+            <translation><!-- 06202 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06203</masterLabel>
+            <translation><!-- 06203 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06204</masterLabel>
+            <translation><!-- 06204 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06205</masterLabel>
+            <translation><!-- 06205 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06206</masterLabel>
+            <translation><!-- 06206 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06301</masterLabel>
+            <translation><!-- 06301 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06302</masterLabel>
+            <translation><!-- 06302 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06303</masterLabel>
+            <translation><!-- 06303 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06304</masterLabel>
+            <translation><!-- 06304 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06305</masterLabel>
+            <translation><!-- 06305 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06306</masterLabel>
+            <translation><!-- 06306 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06307</masterLabel>
+            <translation><!-- 06307 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06308</masterLabel>
+            <translation><!-- 06308 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06309</masterLabel>
+            <translation><!-- 06309 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06310</masterLabel>
+            <translation><!-- 06310 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06311</masterLabel>
+            <translation><!-- 06311 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06312</masterLabel>
+            <translation><!-- 06312 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06313</masterLabel>
+            <translation><!-- 06313 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>101</masterLabel>
+            <translation><!-- 101 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>102</masterLabel>
+            <translation><!-- 102 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>201</masterLabel>
+            <translation><!-- 201 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>202</masterLabel>
+            <translation><!-- 202 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>203</masterLabel>
+            <translation><!-- 203 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>204</masterLabel>
+            <translation><!-- 204 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>205</masterLabel>
+            <translation><!-- 205 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>206</masterLabel>
+            <translation><!-- 206 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>207</masterLabel>
+            <translation><!-- 207 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>222</masterLabel>
+            <translation><!-- 222 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>223</masterLabel>
+            <translation><!-- 223 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>224</masterLabel>
+            <translation><!-- 224 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>301</masterLabel>
+            <translation><!-- 301 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>302</masterLabel>
+            <translation><!-- 302 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>303</masterLabel>
+            <translation><!-- 303 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>304</masterLabel>
+            <translation><!-- 304 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3051</masterLabel>
+            <translation><!-- 3051 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3052</masterLabel>
+            <translation><!-- 3052 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>306</masterLabel>
+            <translation><!-- 306 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>307</masterLabel>
+            <translation><!-- 307 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>308</masterLabel>
+            <translation><!-- 308 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>309</masterLabel>
+            <translation><!-- 309 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>310</masterLabel>
+            <translation><!-- 310 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>311</masterLabel>
+            <translation><!-- 311 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>312</masterLabel>
+            <translation><!-- 312 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>313</masterLabel>
+            <translation><!-- 313 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>314</masterLabel>
+            <translation><!-- 314 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>315</masterLabel>
+            <translation><!-- 315 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>325</masterLabel>
+            <translation><!-- 325 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>326</masterLabel>
+            <translation><!-- 326 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>327</masterLabel>
+            <translation><!-- 327 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>328</masterLabel>
+            <translation><!-- 328 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>401</masterLabel>
+            <translation><!-- 401 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>402</masterLabel>
+            <translation><!-- 402 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>403</masterLabel>
+            <translation><!-- 403 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>501</masterLabel>
+            <translation><!-- 501 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>502</masterLabel>
+            <translation><!-- 502 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 選択リストではなくなりました
+手入力の際は、セミコロン区切りで、続けて入力してください
+（例： 101; 102; 201） --></help>
+        <label><!-- 受診プラン --></label>
+        <name>KenshinPlan_new__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務先会社コード --></label>
+        <name>KinmuCompanyCd__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務先会社 --></label>
+        <name>KinmuCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員（家族）氏名 --></label>
+        <name>MemberFamilyShimei__c</name>
+        <relationshipLabel><!-- 健診 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員番号 --></label>
+        <name>MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員氏名 --></label>
+        <name>MemberShimei__c</name>
+        <relationshipLabel><!-- 健診 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 個人受付番号 --></label>
+        <name>PersonalReceiptNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 受付番号 --></label>
+        <name>ReceiptNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 状態名 --></label>
+        <name>StatusName__c</name>
+    </fields>
+    <fields>
+        <label><!-- 状態 --></label>
+        <name>Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- wish_time --></label>
+        <name>wish_time__c</name>
+    </fields>
+    <layouts>
+        <layout>健診レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 受診情報 --></label>
+            <section>受診情報</section>
+        </sections>
+        <sections>
+            <label><!-- 受診者情報 --></label>
+            <section>受診者情報</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- 会員氏名、会員家族氏名のどちらか一方のみ入力できます。 --></errorMessage>
+        <name>MemberCheck</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Import --></label>
+        <name>Import</name>
+    </webLinks>
+</CustomObjectTranslation>

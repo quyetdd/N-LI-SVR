@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>国地区</value>
+    </caseValues>
+    <fields>
+        <label><!-- 所属 --></label>
+        <name>Affiliation__c</name>
+    </fields>
+    <fields>
+        <label><!-- 代理 --></label>
+        <name>Agent__c</name>
+    </fields>
+    <fields>
+        <label><!-- 国コード --></label>
+        <name>CountryCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- 国 --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- 地区 --></label>
+        <name>District__c</name>
+    </fields>
+    <fields>
+        <label><!-- 管轄 --></label>
+        <name>Jurisdiction__c</name>
+    </fields>
+    <fields>
+        <label><!-- 地域 --></label>
+        <name>Region__c</name>
+    </fields>
+    <fields>
+        <label><!-- サービス --></label>
+        <name>Service__c</name>
+    </fields>
+</CustomObjectTranslation>

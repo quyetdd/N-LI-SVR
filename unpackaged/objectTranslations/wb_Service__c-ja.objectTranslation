@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>サービス</value>
+    </caseValues>
+    <fields>
+        <label><!-- 短縮 --></label>
+        <name>Abbreviation__c</name>
+    </fields>
+    <fields>
+        <label><!-- 代理 --></label>
+        <name>Agency__c</name>
+    </fields>
+    <fields>
+        <label><!-- 支店 --></label>
+        <name>Branch__c</name>
+    </fields>
+    <fields>
+        <label><!-- カード接頭 --></label>
+        <name>CardPrefix__c</name>
+    </fields>
+    <fields>
+        <label><!-- 手数料率 --></label>
+        <name>CommissionRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 商品 --></label>
+        <name>Commodity__c</name>
+    </fields>
+    <fields>
+        <label><!-- 問い合わせ番号 --></label>
+        <name>ContactNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 国 --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）死亡後遺障害 --></label>
+        <name>Cps_AfterDeathImpediment__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）医療費用 --></label>
+        <name>Cps_MedicalCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任死亡後遺障害 --></label>
+        <name>Cps_NoLbtAfterDeathImpediment__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任医療費用 --></label>
+        <name>Cps_NoLbtAfterDeathMedicalCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任財産損失 --></label>
+        <name>Cps_NoLbtPropertyLoss__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）財産損失 --></label>
+        <name>Cps_PropertyLoss__c</name>
+    </fields>
+    <fields>
+        <label><!-- 通貨 --></label>
+        <name>Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- データタイプ --></label>
+        <name>DataType__c</name>
+    </fields>
+    <fields>
+        <label><!-- 割引有効 --></label>
+        <name>Discountable__c</name>
+    </fields>
+    <fields>
+        <label><!-- 表示順 --></label>
+        <name>DisplayOrder__c</name>
+    </fields>
+    <fields>
+        <label><!-- 運転手料金 --></label>
+        <name>DriverFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- 運転席保険 --></label>
+        <name>DriverSeatInsurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- 有効 --></label>
+        <name>Enable__c</name>
+    </fields>
+    <fields>
+        <label><!-- グループ --></label>
+        <name>Group__c</name>
+        <relationshipLabel><!-- サービス (グループ) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- メイン・タイプ --></label>
+        <name>MainType__c</name>
+        <picklistValues>
+            <masterLabel>固定</masterLabel>
+            <translation><!-- 固定 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>席数</masterLabel>
+            <translation><!-- 席数 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 最大席数 --></label>
+        <name>MaxSeat__c</name>
+    </fields>
+    <fields>
+        <label><!-- 最低付保座席数 --></label>
+        <name>MinSeat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Optタイプ --></label>
+        <name>OptionType__c</name>
+        <picklistValues>
+            <masterLabel>固定</masterLabel>
+            <translation><!-- 固定 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>席数</masterLabel>
+            <translation><!-- 席数 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 親サービス --></label>
+        <name>ParentService__c</name>
+        <relationshipLabel><!-- 子サービス --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 搭乗者料金 --></label>
+        <name>PassengerFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- プラン --></label>
+        <name>Plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- サービスエリアコード --></label>
+        <name>ServiceAreaCd__c</name>
+    </fields>
+    <fields>
+        <label><!-- 区分 --></label>
+        <name>ServiceClassification__c</name>
+        <picklistValues>
+            <masterLabel>BL</masterLabel>
+            <translation><!-- BL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>任意</masterLabel>
+            <translation><!-- 任意 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>会員</masterLabel>
+            <translation><!-- 会員 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>健診</masterLabel>
+            <translation><!-- 健診 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>強制</masterLabel>
+            <translation><!-- 強制 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搭乗</masterLabel>
+            <translation><!-- 搭乗 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現地医療</masterLabel>
+            <translation><!-- 現地医療 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>車保</masterLabel>
+            <translation><!-- 車保 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- サービス会社 --></label>
+        <name>ServiceCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- サービス費 --></label>
+        <name>ServiceFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- サービス --></label>
+        <name>Service__c</name>
+    </fields>
+</CustomObjectTranslation>

@@ -1,0 +1,16 @@
+<apex:page standardController="AffiliatedCompany__c" extensions="GroupReportController" action="{!Init}">
+
+<script type="text/javascript" src="/js/dojo/0.3.1/dojo.js"></script>
+<script src="/soap/ajax/16.0/connection.js"></script>
+
+  <apex:form >
+  
+    <apex:pageBlock title="グループ企業取引実績">
+    </apex:pageBlock>
+    
+  </apex:form>
+
+<c:JSGroupCreateExcel group="{! AffiliatedCompany__c}" data="{!data}" />
+
+
+</apex:page>

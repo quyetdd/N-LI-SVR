@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>対象車</value>
+    </caseValues>
+    <fields>
+        <label><!-- 自動車関連保険契約 --></label>
+        <name>CarInsurance__c</name>
+        <relationshipLabel><!-- 対象車 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 車両 --></label>
+        <name>Car__c</name>
+        <relationshipLabel><!-- 対象車 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- エンジン番号 --></label>
+        <name>EngineNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 初登年月 --></label>
+        <name>FirstRegistryDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 車台番号 --></label>
+        <name>FrameNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 法定座席数 --></label>
+        <name>LegalNumberofSeats__c</name>
+    </fields>
+    <fields>
+        <label><!-- 車型 --></label>
+        <name>Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- 前の対象番号 --></label>
+        <name>OriginalCar__c</name>
+        <relationshipLabel><!-- 入替対象車 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 所有区分 --></label>
+        <name>Ownership__c</name>
+        <picklistValues>
+            <masterLabel>リース／レンタル</masterLabel>
+            <translation><!-- リース／レンタル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>所有</masterLabel>
+            <translation><!-- 所有 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 形態 --></label>
+        <name>Pattern__c</name>
+    </fields>
+    <fields>
+        <label><!-- アクション待ち --></label>
+        <name>PendingAction__c</name>
+    </fields>
+    <fields>
+        <label><!-- 登録番号 --></label>
+        <name>RegistryNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 異動日0時 --></label>
+        <name>ReplacedDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 利用会社 --></label>
+        <name>UsingCompany__c</name>
+        <relationshipLabel><!-- 対象車 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 自動車退会区分 --></label>
+        <name>f_CarTaikaiKubun__c</name>
+    </fields>
+    <fields>
+        <label><!-- 情報 --></label>
+        <name>f_Info__c</name>
+    </fields>
+    <fields>
+        <label><!-- 前車両番号 --></label>
+        <name>f_PreviousCarNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 利用会社コード --></label>
+        <name>f_UsingCompCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）解約日24時 --></label>
+        <name>s_Cps_CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 強制最大終期日 --></label>
+        <name>s_Cps_MaxEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 搭乗最大終期日 --></label>
+        <name>s_Prgs_MaxEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）解約日24時 --></label>
+        <name>s_Psgr_CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）解約日 24時 --></label>
+        <name>s_Vlt_CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 任意最大終期日 --></label>
+        <name>s_Vlt_MaxEndDate__c</name>
+    </fields>
+    <layouts>
+        <layout>対象車レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

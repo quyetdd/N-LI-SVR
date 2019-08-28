@@ -1,0 +1,10 @@
+<apex:page controller="PDFFontsController" renderAs="pdf" showHeader="false">
+    <apex:repeat var="font" value="{!fonts}">
+        <div style="font-family: {!font}">
+            <div>{!font} 日本語</div>
+            <div style="font-weight: bold">{!font} bold 日本語</div>
+            <div style="font-style: italic">{!font} italic 日本語</div>
+            <div style="font-weight: bold; font-style: italic">{!font} bold italic 日本語</div>
+        </div>
+    </apex:repeat>
+</apex:page>

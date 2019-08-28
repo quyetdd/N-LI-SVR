@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>AffiliationArea</fullName>
+        <categories>MDMemberReportBatch</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Affiliation Area</shortDescription>
+        <value>Affiliation Area</value>
+    </labels>
+    <labels>
+        <fullName>AffilliationArea</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Affilliation Area</shortDescription>
+        <value>Affilliation Area</value>
+    </labels>
+    <labels>
+        <fullName>AggregateSheetAffiliation</fullName>
+        <categories>MDMemberReportBatch</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Aggregate Sheet ( Affiliation )</shortDescription>
+        <value>Aggregate Sheet（Affiliation）</value>
+    </labels>
+    <labels>
+        <fullName>AggregateSheetContract</fullName>
+        <categories>MDMemberReportBatch</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Aggregate Sheet ( Contract )</shortDescription>
+        <value>Aggregate Sheet（Contract）</value>
+    </labels>
+    <labels>
+        <fullName>AllClear</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>All Clear</shortDescription>
+        <value>全クリア</value>
+    </labels>
+    <labels>
+        <fullName>AllUncheck</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>All Uncheck</shortDescription>
+        <value>All Uncheck</value>
+    </labels>
+    <labels>
+        <fullName>Automotive</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Automotive</shortDescription>
+        <value>自動車関連</value>
+    </labels>
+    <labels>
+        <fullName>Back</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Back</shortDescription>
+        <value>Back</value>
+    </labels>
+    <labels>
+        <fullName>Cancel</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>キャンセル</value>
+    </labels>
+    <labels>
+        <fullName>CarInsuranceBatchUpdate</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Car Insurance Batch Process</shortDescription>
+        <value>Car Insurance Batch Update</value>
+    </labels>
+    <labels>
+        <fullName>CheckAll</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Check All</shortDescription>
+        <value>全チェック</value>
+    </labels>
+    <labels>
+        <fullName>Commodity</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Commodity</shortDescription>
+        <value>Product</value>
+    </labels>
+    <labels>
+        <fullName>CompanyGAPIC</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>(Company) GA PIC</shortDescription>
+        <value>(Company) GA PIC</value>
+    </labels>
+    <labels>
+        <fullName>CompanySalesPIC</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>(Company) Sales PIC</shortDescription>
+        <value>(Company) Sales PIC</value>
+    </labels>
+    <labels>
+        <fullName>CompanySalesPICBatchProcess</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Company Sales PIC Batch Process</shortDescription>
+        <value>Company Sales PIC Batch Update</value>
+    </labels>
+    <labels>
+        <fullName>Complete</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Complete</shortDescription>
+        <value>Complete</value>
+    </labels>
+    <labels>
+        <fullName>Contract</fullName>
+        <categories>MDMemberReportBatch</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract</shortDescription>
+        <value>Contract</value>
+    </labels>
+    <labels>
+        <fullName>ContractCompanyName</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract Company Name</shortDescription>
+        <value>Contract Company Name</value>
+    </labels>
+    <labels>
+        <fullName>ContractGAPIC</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>(Contract) GA PIC</shortDescription>
+        <value>(Contract) GA PIC</value>
+    </labels>
+    <labels>
+        <fullName>ContractInfoBatchProcess</fullName>
+        <categories>Batch Update</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>契約情報　営業担当一括更新</shortDescription>
+        <value>契約情報　営業担当一括更新</value>
+    </labels>
+    <labels>
+        <fullName>ContractNo</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Contract No</shortDescription>
+        <value>Contract No</value>
+    </labels>
+    <labels>
+        <fullName>ContractSalesPIC</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>(Contract) Sales PIC</shortDescription>
+        <value>(Contract) Sales PIC</value>
+    </labels>
+    <labels>
+        <fullName>Copied</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Copied</shortDescription>
+        <value>Copied</value>
+    </labels>
+    <labels>
+        <fullName>Copy</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Copy</shortDescription>
+        <value>Copy</value>
+    </labels>
+    <labels>
+        <fullName>Data</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Data</shortDescription>
+        <value>Data</value>
+    </labels>
+    <labels>
+        <fullName>DateOfExpire</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date of Expire</shortDescription>
+        <value>Date of Expire</value>
+    </labels>
+    <labels>
+        <fullName>DateOfExpireNow</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date of Expire Now</shortDescription>
+        <value>Date of Expire</value>
+    </labels>
+    <labels>
+        <fullName>EntrainedFamily</fullName>
+        <categories>MDMemberReportBatch</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Entrained Family</shortDescription>
+        <value>Entrained Family</value>
+    </labels>
+    <labels>
+        <fullName>ErrorMessageSearch</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please enter all search information</shortDescription>
+        <value>Please enter all search information</value>
+    </labels>
+    <labels>
+        <fullName>ExcelGenerateCompleted</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Excel Generate Completed</shortDescription>
+        <value>正常に終了しました。</value>
+    </labels>
+    <labels>
+        <fullName>ExcelGenerateError</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Excel Generate Error</shortDescription>
+        <value>Excel生成時にエラーが発生しました。</value>
+    </labels>
+    <labels>
+        <fullName>ExcelGenerating</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ExcelGenerating</shortDescription>
+        <value>Generating Excel</value>
+    </labels>
+    <labels>
+        <fullName>ExpiryDateBatchProcess</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Expiry Date Batch Process</shortDescription>
+        <value>Expiry Date Batch Process</value>
+    </labels>
+    <labels>
+        <fullName>ExpiryDateUpdate</fullName>
+        <categories>BatchUpdate</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Expiry Date Update</shortDescription>
+        <value>Expiry Date Update</value>
+    </labels>
+    <labels>
+        <fullName>Family</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Family</shortDescription>
+        <value>Family</value>
+    </labels>
+    <labels>
+        <fullName>From</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>From</shortDescription>
+        <value>From</value>
+    </labels>
+    <labels>
+        <fullName>From_ContractNum</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>From_ContractNum</shortDescription>
+        <value>From</value>
+    </labels>
+    <labels>
+        <fullName>GetAccountError</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Get Account Error</shortDescription>
+        <value>親会社取得時にエラーが発生しました。</value>
+    </labels>
+    <labels>
+        <fullName>GetChildAccountError</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Get Child Account Error</shortDescription>
+        <value>子会社取得時にエラーが発生しました。</value>
+    </labels>
+    <labels>
+        <fullName>GetMemberError</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Get Member Error</shortDescription>
+        <value>会員情報取得時にエラーが発生しました。</value>
+    </labels>
+    <labels>
+        <fullName>HealthExamination</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Health Examination</shortDescription>
+        <value>健診</value>
+    </labels>
+    <labels>
+        <fullName>IndividualContract</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Individual Contract</shortDescription>
+        <value>Individual Contract</value>
+    </labels>
+    <labels>
+        <fullName>InsuranceExpire</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insurance Expire</shortDescription>
+        <value>Date of Expire</value>
+    </labels>
+    <labels>
+        <fullName>InsuranceType</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Insurance Type</shortDescription>
+        <value>Insurance Type</value>
+    </labels>
+    <labels>
+        <fullName>Invoice</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Invoice</shortDescription>
+        <value>Invoice</value>
+    </labels>
+    <labels>
+        <fullName>Issue</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Issue</shortDescription>
+        <value>発行</value>
+    </labels>
+    <labels>
+        <fullName>IssueForPrinting</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Issue For Printing</shortDescription>
+        <value>発行(印刷用)</value>
+    </labels>
+    <labels>
+        <fullName>ItemClear</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Item Clear</shortDescription>
+        <value>Item Clear</value>
+    </labels>
+    <labels>
+        <fullName>Keiyaku</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Keiyaku</shortDescription>
+        <value>（契約先）</value>
+    </labels>
+    <labels>
+        <fullName>KenshinImportloadingMessage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Kenshin import loading message</shortDescription>
+        <value>The data uploading is processing.  An e-mail will send to you after the processing is finished. Please wait.</value>
+    </labels>
+    <labels>
+        <fullName>Kinmu</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Kinmu</shortDescription>
+        <value>（勤務先）</value>
+    </labels>
+    <labels>
+        <fullName>KinmuCompany</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>KinmuCompany</shortDescription>
+        <value>Company</value>
+    </labels>
+    <labels>
+        <fullName>LastYear</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Last Year</shortDescription>
+        <value>（昨年度）</value>
+    </labels>
+    <labels>
+        <fullName>MDHeader</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>MD Header</shortDescription>
+        <value>MDヘッダー</value>
+    </labels>
+    <labels>
+        <fullName>MDSpecification</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>MD Specification</shortDescription>
+        <value>MD明細</value>
+    </labels>
+    <labels>
+        <fullName>MankiDate</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MankiDate</shortDescription>
+        <value>Date of Expire</value>
+    </labels>
+    <labels>
+        <fullName>MaturityUpdate</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update PIC</shortDescription>
+        <value>Update PIC</value>
+    </labels>
+    <labels>
+        <fullName>MedicalMemberDistribution</fullName>
+        <categories>MDMemberReportBatch</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Medical member distribution</shortDescription>
+        <value>Medical member distribution / dispersion map</value>
+    </labels>
+    <labels>
+        <fullName>MemberCompany</fullName>
+        <categories>MDMemberReportBatch</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Member&apos;s Company</shortDescription>
+        <value>Member&apos;s Company</value>
+    </labels>
+    <labels>
+        <fullName>MemberDataFileName</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Member Data File Name</shortDescription>
+        <value>ウェルビーメディック会員データ</value>
+    </labels>
+    <labels>
+        <fullName>MemberName</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Member&apos;s Name</shortDescription>
+        <value>Member&apos;s Name</value>
+    </labels>
+    <labels>
+        <fullName>MembersList</fullName>
+        <categories>Member List</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Members List</shortDescription>
+        <value>Members list</value>
+    </labels>
+    <labels>
+        <fullName>MembersListTemplate_Eng</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MembersListTemplate_Eng</shortDescription>
+        <value>MembersListTemplate_Eng</value>
+    </labels>
+    <labels>
+        <fullName>MembershipNo</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Membership No</shortDescription>
+        <value>Member&apos;s No</value>
+    </labels>
+    <labels>
+        <fullName>New</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
+        <fullName>NewDateOfExpire</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>New Date of Expire</shortDescription>
+        <value>New Date of Expire</value>
+    </labels>
+    <labels>
+        <fullName>No_Result</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>No Result</shortDescription>
+        <value>No Result</value>
+    </labels>
+    <labels>
+        <fullName>NotIEBrowser</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Not IE Browser</shortDescription>
+        <value>お使いのブラウザでは処理できません。</value>
+    </labels>
+    <labels>
+        <fullName>OP_Update</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>(OP) Update</shortDescription>
+        <value>(OP) Update</value>
+    </labels>
+    <labels>
+        <fullName>OTAUpdate</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OTA Update</shortDescription>
+        <value>OTA Update</value>
+    </labels>
+    <labels>
+        <fullName>OutputForm</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Output Form</shortDescription>
+        <value>Output Form</value>
+    </labels>
+    <labels>
+        <fullName>OverRecords</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>OverRecords</shortDescription>
+        <value>Over 1000 records, Please enter more or changing value.</value>
+    </labels>
+    <labels>
+        <fullName>PIC</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PIC</shortDescription>
+        <value>PIC</value>
+    </labels>
+    <labels>
+        <fullName>PassengerContractStore</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>PassengerContractStore</shortDescription>
+        <value>(Passenger) Contract store</value>
+    </labels>
+    <labels>
+        <fullName>Refine</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Refine</shortDescription>
+        <value>Refine</value>
+    </labels>
+    <labels>
+        <fullName>RelevanceAccount</fullName>
+        <categories>Member List</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Relevance Account</shortDescription>
+        <value>Company Information</value>
+    </labels>
+    <labels>
+        <fullName>RenewalNotice</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Renewal Notice</shortDescription>
+        <value>Renewal Notice</value>
+    </labels>
+    <labels>
+        <fullName>RenewalNoticeBatchProcess</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Renewal Notice Batch Process</shortDescription>
+        <value>Renewal Notice Batch Process</value>
+    </labels>
+    <labels>
+        <fullName>Run</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Run</shortDescription>
+        <value>Run</value>
+    </labels>
+    <labels>
+        <fullName>Search</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Search</shortDescription>
+        <value>Search</value>
+    </labels>
+    <labels>
+        <fullName>Select</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Select</shortDescription>
+        <value>Select</value>
+    </labels>
+    <labels>
+        <fullName>Single</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Single</shortDescription>
+        <value>Single</value>
+    </labels>
+    <labels>
+        <fullName>Template</fullName>
+        <categories>Member List</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Template</shortDescription>
+        <value>Template</value>
+    </labels>
+    <labels>
+        <fullName>ThisYear</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>This Year</shortDescription>
+        <value>（今年度）</value>
+    </labels>
+    <labels>
+        <fullName>To</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To</shortDescription>
+        <value>To</value>
+    </labels>
+    <labels>
+        <fullName>To_ContractNum</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>To_ContractNum</shortDescription>
+        <value>To</value>
+    </labels>
+    <labels>
+        <fullName>TypeOfContract</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Type of Contract</shortDescription>
+        <value>Type of Contract</value>
+    </labels>
+    <labels>
+        <fullName>UnnamedEmployee</fullName>
+        <categories>Renewal Form</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Unnamed Employee</shortDescription>
+        <value>Unnamed Employee</value>
+    </labels>
+    <labels>
+        <fullName>Update</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Update</shortDescription>
+        <value>Update</value>
+    </labels>
+    <labels>
+        <fullName>UpdatePassenger</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UpdatePassenger</shortDescription>
+        <value>Update passenger</value>
+    </labels>
+    <labels>
+        <fullName>UpdateSalesPIC</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UpdateSalesPIC</shortDescription>
+        <value>Update sales PIC</value>
+    </labels>
+    <labels>
+        <fullName>Updated</fullName>
+        <categories>Batch Update</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Updated</shortDescription>
+        <value>Updated</value>
+    </labels>
+    <labels>
+        <fullName>ValidateCustomerData</fullName>
+        <categories>Member List</categories>
+        <language>ja</language>
+        <protected>false</protected>
+        <shortDescription>Validate Customer Data</shortDescription>
+        <value>有効会員がいない為、会員データの作成ができません</value>
+    </labels>
+    <labels>
+        <fullName>WBMedicalMemberList</fullName>
+        <categories>Member List</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>WB medical member list</shortDescription>
+        <value>WB medical member list</value>
+    </labels>
+</CustomLabels>

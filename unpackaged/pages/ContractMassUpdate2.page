@@ -1,0 +1,167 @@
+<apex:page standardController="ContractInfo__c" extensions="ContractMassUpdateControllerEx" >
+
+  <apex:sectionHeader title="会社契約No      {!ContractInfo__c.Name}"
+    subtitle="契約会社名称      {!ContractInfo__c.KeiyakuCompanyName__r.Name}" />
+
+  <apex:pageMessages ></apex:pageMessages>
+
+  <apex:form >
+  
+    <apex:pageBlock >
+        <apex:commandButton value="更新" action="{!save2}"  />
+        <apex:commandButton value="戻る" action="{!cancel2}"  />
+        <apex:commandButton value="コピー" action="{!copyCommon}"  />
+        <apex:commandButton value="終了" action="{!end}" />
+        <br /><br />
+ 
+      <table class="list" cellspacing="0">
+        <tr class="headerrow">
+          <td class="headercell"><div style="width:150px;">勤務先会社名</div></td>
+          <td class="headercell"><div style="width:120px;">会員番号</div></td>
+          <td class="headercell"><div style="width:120px;">会員氏名</div></td>
+          <td class="headercell"><div style="width:120px;">所属地区</div></td>
+          <td class="headercell">保険会社</td>
+          <td class="headercell">保険種類</td>
+          <td class="headercell">取扱</td>
+          <td class="headercell">証券番号</td>
+          <td class="headercell">証券入手状況</td>
+          <td class="headercell">保管場所</td>
+          <td class="headercell">医療費決済方法</td>
+          <td class="headercell"><div style="width:120px;">会員氏名</div></td>
+          <td class="headercell">初年度始期</td>
+          <td class="headercell">保険始期</td>
+          <td class="headercell">保険満期</td>
+          <td class="headercell">保険プラン</td>
+          <td class="headercell">保険金額通貨</td>
+          <td class="headercell">傷害死亡・後遺障害</td>
+          <td class="headercell">治療費用</td>
+          <td class="headercell">治療・救援者費用</td>
+          <td class="headercell">疾病治療費用</td>
+          <td class="headercell">傷害治療費用</td>
+          <td class="headercell">疾病死亡</td>
+          <td class="headercell">救援者費用</td>
+          <td class="headercell">賠償金額</td>
+          <td class="headercell">携行品損害</td>
+          <td class="headercell"><div style="width:100px;">一時帰国中担保</div></td>
+          <td class="headercell">OTA備考</td>
+          <td class="headercell"><div style="width:120px;">会員氏名</div></td>
+        </tr>
+          <tr style="border-bottom:2px solid black;background-color:#ffffff;">
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.KinmuCompany__r.Name}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.MemberNo__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.Name}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.ShozokuArea__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.OtaName__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.InsuranceKind__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.OtaAgency__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.ShokenNo__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.ShokenGetSituation__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.OtaKeepPlace__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.MedicalBillKessaiHouhou__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.Name}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.Shonendo_Shiki__c}" /></td> 
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.OtaInsuranceShiki__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.OtaInsuranceShuki__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.InsurancePlan__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.InsuranceCurrency__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.InjuryDeathCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.TreatmentCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.TreatmentRescueCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.DiseaseCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.InjuryCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.DiseaseDeathCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.RescueCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.DamagesCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.CarryCost__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;text-align:center;"><apex:inputField value="{!Common.HomeCountryCoverage__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputTextarea value="{!Common.OtaNote__c}" cols="40" rows="1" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.Name}" /></td>
+          </tr>
+        <apex:repeat value="{!Rows2}" var="r">
+	        <!-- <apex:repeat value="{!Rows2Member}" var="rM">-->
+		        <apex:outputpanel rendered="{!r.hasMember}"><!-- rendered="{!if(r.Member.id == rM.Member.id,true,false)}"-->
+		          <tr class="datarow">
+		            <td class="datacell"><apex:outputField value="{!r.Member.KinmuCompany__r.Name}" /></td>
+		            <td class="datacell"><apex:outputField value="{!r.Member.MemberNo__c}" /></td>
+		            <td class="datacell"><apex:outputField value="{!r.Member.Name}" /></td>
+		            <td class="datacell"><apex:outputField value="{!r.Member.ShozokuArea__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.OtaName__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.InsuranceKind__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.OtaAgency__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.ShokenNo__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.ShokenGetSituation__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.OtaKeepPlace__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.MedicalBillKessaiHouhou__c}" /></td>
+		            <td class="datacell"><apex:outputField value="{!r.Member.Name}" /></td>
+     				<td class="datacell"><apex:inputField value="{!r.Member.Shonendo_Shiki__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.OtaInsuranceShiki__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.OtaInsuranceShuki__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.InsurancePlan__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.InsuranceCurrency__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.InjuryDeathCost__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.TreatmentCost__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.TreatmentRescueCost__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.DiseaseCost__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.InjuryCost__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.DiseaseDeathCost__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.RescueCost__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.DamagesCost__c}" /></td>
+		            <td class="datacell"><apex:inputField value="{!r.Member.CarryCost__c}" /></td>
+		            <td class="datacell" style="text-align:center;"><apex:inputField value="{!r.Member.HomeCountryCoverage__c}" /></td>
+		            <td class="datacell"><apex:inputTextarea value="{!r.Member.OtaNote__c}" cols="40" rows="1" /></td>
+		            <td class="datacell"><apex:outputField value="{!r.Member.Name}" /></td>
+		          </tr>
+		        </apex:outputpanel>
+	        <!--</apex:repeat>-->
+	        <!--<apex:repeat value="{!Rows2FamilyMember}" var="rF">-->
+	        	<apex:outputpanel ><!-- rendered="{!if(r.Member.id == rF.Member.id,true,false)}" -->  
+		            <apex:repeat value="{!r.FamilyMembers}" var="fr">
+		              <tr class="datarow">
+		                <td class="datacell"><apex:outputField value="{!r.Member.KinmuCompany__r.Name}" /></td>
+		                <td class="datacell"><apex:outputField value="{!fr.Family.MemberNo__c}" /></td>
+		                <td class="datacell">&nbsp;&nbsp;<apex:outputField value="{!fr.Family.Name}" /></td>
+		                <td class="datacell"><apex:outputField value="{!fr.Family.ShozokuArea__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.OtaName__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.InsuranceKind__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.OtaAgency__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.ShokenNo__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.ShokenGetSituation__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.OtaKeepPlace__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.MedicalBillKessaiHouhou__c}" /></td>
+		                <td class="datacell">&nbsp;&nbsp;<apex:outputField value="{!fr.Family.Name}" /></td>
+                        <td class="datacell"><apex:inputField value="{!fr.Family.Shonendo_Shiki__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.OtaInsuranceShiki__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.OtaInsuranceShuki__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.InsurancePlan__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.InsuranceCurrency__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.InjuryDeathCost__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.TreatmentCost__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.TreatmentRescueCost__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.DiseaseCost__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.InjuryCost__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.DiseaseDeathCost__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.RescueCost__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.DamagesCost__c}" /></td>
+		                <td class="datacell"><apex:inputField value="{!fr.Family.CarryCost__c}" /></td>
+						<td class="datacell" style="text-align:center;"><apex:inputField value="{!fr.Family.HomeCountryCoverage__c}" /></td>
+		                <td class="datacell"><apex:inputTextarea value="{!fr.Family.OtaNote__c}" cols="40" rows="1" /></td>
+		                <td class="datacell">&nbsp;&nbsp;<apex:outputField value="{!fr.Family.Name}" /></td>
+		              </tr>
+		            </apex:repeat>
+	            </apex:outputpanel>  
+            <!--</apex:repeat>-->
+          
+        </apex:repeat>
+      </table>  
+    
+    </apex:pageBlock>
+  
+  </apex:form>
+  
+<apex:outputPanel rendered="{! PopupMessage!=''}">  
+<script>
+alert("{! PopupMessage}");
+</script>  
+</apex:outputPanel>
+  
+</apex:page>

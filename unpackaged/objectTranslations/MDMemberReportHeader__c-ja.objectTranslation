@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>MD Member Report Header</value>
+    </caseValues>
+    <fields>
+        <label><!-- FA --></label>
+        <name>FA__c</name>
+    </fields>
+    <fields>
+        <label><!-- FCV --></label>
+        <name>FCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- FC --></label>
+        <name>FC__c</name>
+    </fields>
+    <fields>
+        <label><!-- FX --></label>
+        <name>FX__c</name>
+    </fields>
+    <fields>
+        <label><!-- H --></label>
+        <name>H__c</name>
+    </fields>
+    <fields>
+        <label><!-- Key --></label>
+        <name>Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- MA --></label>
+        <name>MA__c</name>
+    </fields>
+    <fields>
+        <label><!-- MCV --></label>
+        <name>MCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- MC --></label>
+        <name>MC__c</name>
+    </fields>
+    <fields>
+        <label><!-- MX --></label>
+        <name>MX__c</name>
+    </fields>
+    <fields>
+        <label><!-- M --></label>
+        <name>M__c</name>
+    </fields>
+    <fields>
+        <label><!-- SA --></label>
+        <name>SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCV --></label>
+        <name>SCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- SC --></label>
+        <name>SC__c</name>
+    </fields>
+    <fields>
+        <label><!-- SX --></label>
+        <name>SX__c</name>
+    </fields>
+    <fields>
+        <label><!-- S --></label>
+        <name>S__c</name>
+    </fields>
+    <fields>
+        <label><!-- Seq --></label>
+        <name>Seq__c</name>
+    </fields>
+</CustomObjectTranslation>

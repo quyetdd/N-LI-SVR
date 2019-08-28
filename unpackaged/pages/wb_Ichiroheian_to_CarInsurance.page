@@ -1,0 +1,260 @@
+<apex:page standardcontroller="Account" extensions="wb_Ichiroheian_to_CarInsurance" id="thePage" sidebar="true" showHeader="true">
+    <apex:form id="theForm" >
+        <apex:pageBlock id="theBlock">
+            
+            
+            <apex:pageBlockSection columns="1" id="theCriteria" title="	満期検索条件">
+                
+                <apex:inputField value="{!FromDate.InsuranceShuki__c}" label="から"/>
+                <apex:inputField value="{!ToDate.InsuranceShuki__c}" label="まで"/>
+                
+                <apex:selectRadio value="{!selectedValue}">
+                    
+                    <apex:selectOption itemValue="1" itemLabel="搭乗">
+                        
+                    </apex:selectOption>
+
+                    <apex:selectOption itemValue="2" itemLabel="強制・任意"> 
+                        
+                    </apex:selectOption>
+                    
+                </apex:selectRadio>
+                
+                <apex:outputPanel >
+                    
+                    <apex:commandButton value="検索"  action="{!GetIchiroheian}" reRender="theResult"/> 
+                    <apex:commandButton value="全て選択"  action="{!IchiroheianSelectAll}" reRender="theResult,theSelectionSummary"/> 
+                    
+                </apex:outputPanel>
+            </apex:pageBlockSection>
+    
+            
+            <apex:pageBlockSection columns="1" id="theResult" title="旧データ：自動車保険関連">
+                
+                
+                <apex:datatable style="font-size: xx-small;" value="{!theIchiroheianRows}" var="a" columns="22" border="1" cellpadding="4"  >  
+                    
+                    <apex:column >
+                        <apex:outputtext value="{!a.isDone}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="選択">
+                        <apex:inputCheckbox value="{!a.isSelected}">
+                             <apex:actionSupport event="onchange" action="{!IchiroheianSelectedSummary}"
+                                                    reRender="theResult" /> 
+                        </apex:inputCheckbox>
+                         
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.Name.label}">{!a.theIchiroheian.Name}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.EngineNo__c.label}">{!a.theIchiroheian.EngineNo__c}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.OwnerKubun__c.label}">{!a.theIchiroheian.OwnerKubun__c}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.Seat__c.label}">{!a.theIchiroheian.Seat__c}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.CarModel__c.label}">{!a.theIchiroheian.CarModel__c}</apex:column>
+                    
+                    
+                    
+                    <!--<apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.CarNo__c.label}">{!a.theIchiroheian.CarNo__c}</apex:column>-->
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.ShiyoCompanyName__c.label}">{!a.theIchiroheian.ShiyoCompanyName__r.name}</apex:column>
+                    
+                    
+                    
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.InsuranceShuki__c.label}">
+                        <apex:outputField value="{!a.theIchiroheian.InsuranceShuki__c}" />
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.WOCommodityName__c.label}">{!a.theIchiroheian.WOCommodityName__c}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.InsurancePlan__c.label}">{!a.theIchiroheian.InsurancePlan__c}</apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.WOCommodityNameAlpha__c.label}">{!a.theIchiroheian.WOCommodityNameAlpha__c}</apex:column>            
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.WOInsurancePlanAlpha__c.label}">{!a.theIchiroheian.WOInsurancePlanAlpha__c}</apex:column>
+                    
+                    
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.WOInsuranceShukiAlpha__c.label}">
+                        <apex:outputField value="{!a.theIchiroheian.WOInsuranceShukiAlpha__c}" />
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.OI_InsuranceShuki__c.label}"><apex:outputField value="{!a.theIchiroheian.OI_InsuranceShuki__c}" /></apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.OI_CompanyName__c.label}">{!a.theIchiroheian.OI_CompanyName__c}</apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.VI_InsuranceShuki__c.label}"><apex:outputField value="{!a.theIchiroheian.VI_InsuranceShuki__c}" /></apex:column>
+                    <apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.VI_CompanyName__c.label}">{!a.theIchiroheian.VI_CompanyName__c}</apex:column>
+                    
+                    
+                    <!--
+<apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.KeiyakuCountry__c.label}">{!a.theIchiroheian.KeiyakuCountry__c}</apex:column>
+<apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.WOAgency__c.label}">{!a.theIchiroheian.WOAgency__c}</apex:column>
+
+<apex:column headerValue="{!$ObjectType.Ichiroheian__c.fields.IchiroHeianNo__c.label}">{!a.theIchiroheian.IchiroHeianNo__c}</apex:column>
+-->
+                </apex:datatable>
+                
+                <apex:datatable value="{!theSelectedSummary.Rows}" var="a"  border="1" cellpadding="2" >
+                    <apex:column headerValue="満期日">
+                        <apex:outputtext value="{!a.theString}"/><br/>
+                    </apex:column>
+                    <apex:column headerValue="台数" >
+                        <apex:outputtext value="{!a.theCount}"/><br/>
+                    </apex:column>
+                </apex:datatable>
+                
+                
+                <apex:commandButton action="{!Convert_to_New}" value="変換" reRender="theConvertionResult"/>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1" id="theSelectionSummary" >
+  
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1" id="theConvertionResult" title="新データ：自動車関連保険契約">
+                
+                <apex:datatable style="font-size: xx-small;" value="{!theCars}" var="a" columns="22" border="1" cellpadding="4"   >  
+                    
+                    <apex:column >
+                        <apex:outputtext value="{!IF((a.id==null), '新規' , '')}"/>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.wb_Vehicle__c.fields.Name.label}">{!a.Name}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Vehicle__c.fields.EngineNumber__c.label}">
+                        <apex:outputField value="{!a.EngineNumber__c}" rendered="{!IF((a.id==null), false , true)}"/>
+                        <apex:inputField value="{!a.EngineNumber__c}" rendered="{!IF((a.id==null), true , false)}">
+                            <apex:actionSupport event="onchange" action="{!fetchCarInfo}"
+                                                reRender="theConvertionResult"/>
+                        </apex:inputField>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Vehicle__c.fields.Ownership__c.label}">
+                        <apex:outputField value="{!a.Ownership__c}" rendered="{!IF((a.id==null), false , true)}"/>
+                        <apex:inputField value="{!a.Ownership__c}" rendered="{!IF((a.id==null), true , false)}">
+                            <apex:actionSupport event="onchange" action="{!fetchCarInfo}"
+                                                reRender="theConvertionResult"/> 
+                        </apex:inputField>
+                    </apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_Vehicle__c.fields.LegalNumberofSeats__c.label}">
+                        <apex:outputField value="{!a.LegalNumberofSeats__c}" rendered="{!IF((a.id==null), false , true)}"/>
+                        <apex:inputField value="{!a.LegalNumberofSeats__c}" rendered="{!IF((a.id==null), true , false)}">
+                            <apex:actionSupport event="onchange" action="{!fetchCarInfo}"
+                                                reRender="theConvertionResult"/>
+                        </apex:inputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.wb_Vehicle__c.fields.Model__c.label}">
+                        <apex:outputField value="{!a.Model__c}" rendered="{!IF((a.id==null), false , true)}"/>
+                        <apex:inputField value="{!a.Model__c}" rendered="{!IF((a.id==null), true , false)}">
+                            <apex:actionSupport event="onchange" action="{!fetchCarInfo}"
+                                                reRender="theConvertionResult"/>
+                        </apex:inputField>
+                    </apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.wb_Vehicle__c.fields.UsingCompany__c.label}">  <apex:outputField value="{!a.UsingCompany__c}"/></apex:column>
+                    
+                    <apex:column headerValue="{!$ObjectType.wb_Vehicle__c.fields.FrameNo__c.label}">
+                        <apex:outputField value="{!a.FrameNo__c}" rendered="{!IF((a.id==null), false , true)}"/>
+                        <apex:inputField value="{!a.FrameNo__c}" rendered="{!IF((a.id==null), true , false)}">
+                            <apex:actionSupport event="onchange" action="{!fetchCarInfo}"
+                                                reRender="theConvertionResult"/>
+                        </apex:inputField>
+                    </apex:column>
+                    
+                    
+                    
+                </apex:datatable>
+                
+                
+                <apex:datatable style="font-size: xx-small;" value="{!theCarInsurance}" var="a" columns="22" border="3" cellpadding="2"  >  
+                    
+                    
+                    <apex:column headerValue="新規 自動車関連保険契約">
+                        <apex:outputField value="{!a.Header.name}"/><br/>
+                        <apex:outputField value="{!a.Header.ContractCompany__c}"/><br/>
+                        <apex:outputField value="{!a.Header.ContractCountry__c}"/><br/>
+                        <apex:outputField value="{!a.Header.Agent__c}"/><br/>
+                        <apex:outputField value="{!a.Header.ContractDate__c}"/><br/>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:repeat value="{!a.Detail}" var="a" >
+                            <apex:datatable value="{!a}" var="b"  border="1" cellpadding="2" >
+                                <apex:column headerValue="対象車"  style="width:200px;">
+                                    <apex:outputField value="{!b.theRow.RegistryNumber__c}"/><br/>
+                                    <apex:outputField value="{!b.theRow.EngineNo__c}"/><br/>
+                                    <apex:outputField value="{!b.theRow.Ownership__c}"/><br/>
+                                    <apex:outputField value="{!b.theRow.LegalNumberofSeats__c}"/><br/>
+                                    <apex:outputField value="{!b.theRow.Model__c}"/><br/>
+                                    <apex:outputField value="{!b.theRow.UsingCompany__c}"/><br/>
+                                    <apex:outputField value="{!b.theRow.FrameNo__c}"/><br/>
+                                </apex:column>
+                                
+                                <apex:column headerValue="搭乗"  style="width:200px;">
+                                    <apex:repeat value="{!b.PRowBatch}" var="p" >
+                                        <apex:datatable value="{!p}" var="a"  border="0" cellpadding="2" >
+                                            <apex:column >
+                                                <apex:outputField value="{!a.thePassenger.Psgr_InsuranceCompany__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_CommodityName__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_InsurancePlan__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_StdPassengerSeatFee__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_StdDriverSeatFee__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_InitialStartDate__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_CurrentStartDate__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_CurrentEndDate__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_InsuranceFee__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_CommissionRate__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.Psgr_Commission__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_CommodityName__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_Plan__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_StdPassengerSeatFee__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_StdDriverSeatFee__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_InitialStartDate__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_CurrentStartDate__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_CurrentEndDate__c}"/><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_InsuranceFee__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_CommissionRate__c}" /><br/>
+                                                <apex:outputField value="{!a.thePassenger.OP_Commission__c}" /><br/>
+                                                
+                                            </apex:column>
+                                            
+                                            
+                                        </apex:datatable>
+                                    </apex:repeat>
+                                </apex:column>
+                                
+                                <apex:column headerValue="強制・任意"  style="width:200px;">
+                                    <apex:repeat value="{!b.CRowBatch}" var="cps" >
+                                        <apex:datatable value="{!cps}" var="a"  border="0" cellpadding="2" >
+                                            <apex:column >
+                                                <apex:outputField value="{!a.theCompulsory.Cps_InsuranceCompany__c}"/><br/>
+                                                <apex:outputField value="{!a.theCompulsory.Cps_CurrentStartDate__c}"/><br/>
+                                                <apex:outputField value="{!a.theCompulsory.Cps_CurrentEndDate__c}" /><br/>
+                                                <apex:outputField value="{!a.theCompulsory.Cps_AfterDeathImpediment__c}" /><br/>
+                                                <apex:outputField value="{!a.theCompulsory.Vlt_InsuranceCompany__c}"/><br/>
+                                                <apex:outputField value="{!a.theCompulsory.Vlt_StartDate__c}"/><br/>
+                                                <apex:outputField value="{!a.theCompulsory.Vlt_EndDate__c}"/><br/>
+                                                
+                                                
+                                            </apex:column>
+                                            
+                                        </apex:datatable>
+                                    </apex:repeat>
+                                </apex:column>
+                                
+                            </apex:datatable>
+                        </apex:repeat>
+                    </apex:column>
+                    
+                </apex:datatable>
+                
+                
+                <apex:commandButton action="{!SaveConvertion}" value="保存" reRender="theConvertionResult"/>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >{!$ObjectType.wb_CarInsurance__c.fields.name.label}</apex:outputLabel>
+                    <apex:outputLink value="/{!theHeader.id}">{!theHeader.name}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                
+                
+                
+            </apex:pageBlockSection>
+            
+            
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

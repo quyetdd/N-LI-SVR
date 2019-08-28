@@ -1,0 +1,1806 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sales Report</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sales Report</value>
+    </caseValues>
+    <fields>
+        <label>The Number of Cars)Lease</label>
+        <name>CarNumLease__c</name>
+    </fields>
+    <fields>
+        <label>The Number of Cars)Ownership</label>
+        <name>CarNumOwner__c</name>
+    </fields>
+    <fields>
+        <label>Company Name</label>
+        <name>CompanyName__c</name>
+        <relationshipLabel><!-- 営業報告 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Current)Assistance Company</label>
+        <name>CrrntAssistanceCompany__c</name>
+        <picklistValues>
+            <masterLabel>EAJ</masterLabel>
+            <translation>EAJ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PI</masterLabel>
+            <translation>PI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOS</masterLabel>
+            <translation>SOS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSC</masterLabel>
+            <translation>SSC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インタック</masterLabel>
+            <translation>INTAC</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Current)Assistance Exp. Date</label>
+        <name>CrrntAssistanceMankiDate__c</name>
+    </fields>
+    <fields>
+        <label>Current)BL Insurance Company_1</label>
+        <name>CrrntBlCompany_1__c</name>
+    </fields>
+    <fields>
+        <label>Current)BL Insurance Company_2</label>
+        <name>CrrntBlCompany_2__c</name>
+    </fields>
+    <fields>
+        <label>Current)BL Insurance Company_3</label>
+        <name>CrrntBlCompany_3__c</name>
+    </fields>
+    <fields>
+        <label>Estimate)BL Premium Currency_1</label>
+        <name>CrrntBlInsuranceFeeCurrency_1__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation><!-- HKD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOP</masterLabel>
+            <translation><!-- MOP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation><!-- RMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VTD（単位：1000）</masterLabel>
+            <translation><!-- VTD（単位：1000） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本円（単位：千円）</masterLabel>
+            <translation><!-- 日本円（単位：千円） --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estimate)BL Premium Currency_2</label>
+        <name>CrrntBlInsuranceFeeCurrency_2__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation><!-- HKD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOP</masterLabel>
+            <translation><!-- MOP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation><!-- RMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VTD（単位：1000）</masterLabel>
+            <translation><!-- VTD（単位：1000） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本円（単位：千円）</masterLabel>
+            <translation><!-- 日本円（単位：千円） --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estimate)BL Premium Currency_3</label>
+        <name>CrrntBlInsuranceFeeCurrency_3__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation><!-- HKD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOP</masterLabel>
+            <translation><!-- MOP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation><!-- RMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VTD（単位：1000）</masterLabel>
+            <translation><!-- VTD（単位：1000） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本円（単位：千円）</masterLabel>
+            <translation><!-- 日本円（単位：千円） --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estimate)BL Premium_1</label>
+        <name>CrrntBlInsuranceFee_1__c</name>
+    </fields>
+    <fields>
+        <label>Estimate)BL Premium_2</label>
+        <name>CrrntBlInsuranceFee_2__c</name>
+    </fields>
+    <fields>
+        <label>Estimate)BL Premium_3</label>
+        <name>CrrntBlInsuranceFee_3__c</name>
+    </fields>
+    <fields>
+        <label>Current)BL Exp. Date_1</label>
+        <name>CrrntBlMankiDate_1__c</name>
+    </fields>
+    <fields>
+        <label>Current)BL Exp. Date_2</label>
+        <name>CrrntBlMankiDate_2__c</name>
+    </fields>
+    <fields>
+        <label>Current)BL Exp. Date_3</label>
+        <name>CrrntBlMankiDate_3__c</name>
+    </fields>
+    <fields>
+        <help><!-- 日本負担？
+現法負担？
+個人負担あり？ --></help>
+        <label>Current)Checkup Expenses Contribution</label>
+        <name>CrrntKenshinCostIncur__c</name>
+    </fields>
+    <fields>
+        <help><!-- 健診の為の帰国制度または規定があるかどうか --></help>
+        <label>Current)Checkup Hardship Allowance</label>
+        <name>CrrntKenshinHardshipAllowances__c</name>
+    </fields>
+    <fields>
+        <label>Current)Checkup Place</label>
+        <name>CrrntKenshin__c</name>
+    </fields>
+    <fields>
+        <label>Current)Car(Compulsory)Insurance Company</label>
+        <name>CrrntOI_Company__c</name>
+    </fields>
+    <fields>
+        <label>Current)Car(Compulsory)Exp. Date</label>
+        <name>CrrntOI_MankiDate__c</name>
+    </fields>
+    <fields>
+        <label>Current)Local Insurance Company</label>
+        <name>CrrntOnSiteInsuranceCompany__c</name>
+    </fields>
+    <fields>
+        <label>Current)Local Insurance Exp. Date</label>
+        <name>CrrntOnSiteInsuranceMankiDate__c</name>
+    </fields>
+    <fields>
+        <label>Current)OTA Insurance Company</label>
+        <name>CrrntOtaCompany__c</name>
+        <picklistValues>
+            <masterLabel>AIOIND</masterLabel>
+            <translation><!-- AIOIND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AIU</masterLabel>
+            <translation><!-- AIU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HCP</masterLabel>
+            <translation><!-- HCP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JI</masterLabel>
+            <translation><!-- JI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MS</masterLabel>
+            <translation><!-- MS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NK</masterLabel>
+            <translation><!-- NK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SJ</masterLabel>
+            <translation><!-- SJ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TN</masterLabel>
+            <translation><!-- TN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Current)OTA Exp. Date</label>
+        <name>CrrntOtaMankiDate__c</name>
+    </fields>
+    <fields>
+        <label>Current)Passenger&apos;s Insurance Company</label>
+        <name>CrrntPassengerInsuranceCompany__c</name>
+    </fields>
+    <fields>
+        <label>Current)Passenger&apos;s Insurance Exp. Date</label>
+        <name>CrrntPassengerMankiDate__c</name>
+    </fields>
+    <fields>
+        <label>Current)Car(Option)Insurance Company</label>
+        <name>CrrntVI_Company__c</name>
+    </fields>
+    <fields>
+        <label>Current)Car(Option)Exp. Date</label>
+        <name>CrrntVI_MankiDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- フォロー日 --></label>
+        <name>DateOfResponse__c</name>
+    </fields>
+    <fields>
+        <label>Visiting Date</label>
+        <name>DateTime__c</name>
+    </fields>
+    <fields>
+        <label>Sales PIC</label>
+        <name>EigyoStaff__c</name>
+        <relationshipLabel><!-- 営業報告 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 国 --></label>
+        <name>Field8__c</name>
+    </fields>
+    <fields>
+        <label>Companion</label>
+        <name>GoWith__c</name>
+    </fields>
+    <fields>
+        <help><!-- 下記内容の場合に、チェックをつける。
+・大口企業に登録されている企業のみ入力する。
+・メディック新規提案・新種目追加の提案で見込みＣ以上
+・その他グループ内で共有すべき重要情報 --></help>
+        <label>Common Info within a group</label>
+        <name>GroupCommonInfo__c</name>
+    </fields>
+    <fields>
+        <help><!-- 非会員企業の場合、
+チェックします。 --></help>
+        <label>Member・Nonmember</label>
+        <name>Member__c</name>
+    </fields>
+    <fields>
+        <label>Report Content</label>
+        <name>Naiyo__c</name>
+    </fields>
+    <fields>
+        <label>Future Deployment</label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- 役員コメント --></label>
+        <name>OfficerComment__c</name>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)Anshin Seikatsu</label>
+        <name>PrspctAnshin__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)Anzen Banri</label>
+        <name>PrspctAnzen__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)BL_1</label>
+        <name>PrspctBl_1__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation>100%</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation>A</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation>B</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation>C</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation>D</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation>×</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation>Already</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation>Yet</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation>Nothing</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない 
+既契約・・・契約済み 
+無・・・対象無し --></help>
+        <label>Estimate)BL_2</label>
+        <name>PrspctBl_2__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない 
+既契約・・・契約済み 
+無・・・対象無し --></help>
+        <label>Estimate)BL_3</label>
+        <name>PrspctBl_3__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estimated Type)BL_1</label>
+        <name>PrspctItemBl_1__c</name>
+        <picklistValues>
+            <masterLabel>OTA（香港）</masterLabel>
+            <translation><!-- OTA（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PL保険</masterLabel>
+            <translation><!-- PL保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オフィスパッケージ</masterLabel>
+            <translation><!-- オフィスパッケージ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ゴルファー</masterLabel>
+            <translation><!-- ゴルファー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>住宅総合</masterLabel>
+            <translation><!-- 住宅総合 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>住宅賠償保険（ベトナム）</masterLabel>
+            <translation><!-- 住宅賠償保険（ベトナム） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人意外傷害</masterLabel>
+            <translation><!-- 個人意外傷害 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>傷害(日本)</masterLabel>
+            <translation><!-- 傷害(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>公衆責任保険</masterLabel>
+            <translation><!-- 公衆責任保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>利益保険</masterLabel>
+            <translation><!-- 利益保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>団体傷害/医療保険</masterLabel>
+            <translation><!-- 団体傷害/医療保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>建設工事保険</masterLabel>
+            <translation><!-- 建設工事保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搭乗者傷害保険（香港）</masterLabel>
+            <translation><!-- 搭乗者傷害保険（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>操業停止損害保険（香港）</masterLabel>
+            <translation><!-- 操業停止損害保険（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>機械保険</masterLabel>
+            <translation><!-- 機械保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>火災(日本)</masterLabel>
+            <translation><!-- 火災(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>物流</masterLabel>
+            <translation><!-- 物流 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現金保険</masterLabel>
+            <translation><!-- 現金保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>組立工事保険</masterLabel>
+            <translation><!-- 組立工事保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車(日本)</masterLabel>
+            <translation><!-- 自動車(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車保険(香港)</masterLabel>
+            <translation><!-- 自動車保険(香港) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産一切保険</masterLabel>
+            <translation><!-- 財産一切保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産保険</masterLabel>
+            <translation><!-- 財産保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>貨物運送(日本)</masterLabel>
+            <translation><!-- 貨物運送(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>賠償(日本)</masterLabel>
+            <translation><!-- 賠償(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>逆OTA</masterLabel>
+            <translation><!-- 逆OTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>運送賠償</masterLabel>
+            <translation><!-- 運送賠償 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主工傷</masterLabel>
+            <translation><!-- 雇主工傷 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主責任保険</masterLabel>
+            <translation><!-- 雇主責任保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>食品責任保険</masterLabel>
+            <translation><!-- 食品責任保険 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estimated Type)BL_2</label>
+        <name>PrspctItemBl_2__c</name>
+        <picklistValues>
+            <masterLabel>OTA（香港）</masterLabel>
+            <translation><!-- OTA（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PL保険</masterLabel>
+            <translation><!-- PL保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オフィスパッケージ</masterLabel>
+            <translation><!-- オフィスパッケージ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ゴルファー</masterLabel>
+            <translation><!-- ゴルファー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>住宅総合</masterLabel>
+            <translation><!-- 住宅総合 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>住宅賠償保険（ベトナム）</masterLabel>
+            <translation><!-- 住宅賠償保険（ベトナム） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人意外傷害</masterLabel>
+            <translation><!-- 個人意外傷害 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>傷害(日本)</masterLabel>
+            <translation><!-- 傷害(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>公衆責任保険</masterLabel>
+            <translation><!-- 公衆責任保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>利益保険</masterLabel>
+            <translation><!-- 利益保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>団体傷害/医療保険</masterLabel>
+            <translation><!-- 団体傷害/医療保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>建設工事保険</masterLabel>
+            <translation><!-- 建設工事保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搭乗者傷害保険（香港）</masterLabel>
+            <translation><!-- 搭乗者傷害保険（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>操業停止損害保険（香港）</masterLabel>
+            <translation><!-- 操業停止損害保険（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>機械保険</masterLabel>
+            <translation><!-- 機械保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>火災(日本)</masterLabel>
+            <translation><!-- 火災(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>物流</masterLabel>
+            <translation><!-- 物流 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現金保険</masterLabel>
+            <translation><!-- 現金保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>組立工事保険</masterLabel>
+            <translation><!-- 組立工事保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車(日本)</masterLabel>
+            <translation><!-- 自動車(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車保険(香港)</masterLabel>
+            <translation><!-- 自動車保険(香港) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産一切保険</masterLabel>
+            <translation><!-- 財産一切保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産保険</masterLabel>
+            <translation><!-- 財産保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>貨物運送(日本)</masterLabel>
+            <translation><!-- 貨物運送(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>賠償(日本)</masterLabel>
+            <translation><!-- 賠償(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>逆OTA</masterLabel>
+            <translation><!-- 逆OTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>運送賠償</masterLabel>
+            <translation><!-- 運送賠償 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主工傷</masterLabel>
+            <translation><!-- 雇主工傷 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主責任保険</masterLabel>
+            <translation><!-- 雇主責任保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>食品責任保険</masterLabel>
+            <translation><!-- 食品責任保険 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estimated Type)BL_3</label>
+        <name>PrspctItemBl_3__c</name>
+        <picklistValues>
+            <masterLabel>OTA（香港）</masterLabel>
+            <translation><!-- OTA（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PL保険</masterLabel>
+            <translation><!-- PL保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オフィスパッケージ</masterLabel>
+            <translation><!-- オフィスパッケージ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ゴルファー</masterLabel>
+            <translation><!-- ゴルファー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>住宅総合</masterLabel>
+            <translation><!-- 住宅総合 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>住宅賠償保険（ベトナム）</masterLabel>
+            <translation><!-- 住宅賠償保険（ベトナム） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人意外傷害</masterLabel>
+            <translation><!-- 個人意外傷害 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>傷害(日本)</masterLabel>
+            <translation><!-- 傷害(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>公衆責任保険</masterLabel>
+            <translation><!-- 公衆責任保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>利益保険</masterLabel>
+            <translation><!-- 利益保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>団体傷害/医療保険</masterLabel>
+            <translation><!-- 団体傷害/医療保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>建設工事保険</masterLabel>
+            <translation><!-- 建設工事保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搭乗者傷害保険（香港）</masterLabel>
+            <translation><!-- 搭乗者傷害保険（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>操業停止損害保険（香港）</masterLabel>
+            <translation><!-- 操業停止損害保険（香港） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>機械保険</masterLabel>
+            <translation><!-- 機械保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>火災(日本)</masterLabel>
+            <translation><!-- 火災(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>物流</masterLabel>
+            <translation><!-- 物流 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現金保険</masterLabel>
+            <translation><!-- 現金保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>組立工事保険</masterLabel>
+            <translation><!-- 組立工事保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車(日本)</masterLabel>
+            <translation><!-- 自動車(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車保険(香港)</masterLabel>
+            <translation><!-- 自動車保険(香港) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産一切保険</masterLabel>
+            <translation><!-- 財産一切保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産保険</masterLabel>
+            <translation><!-- 財産保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>貨物運送(日本)</masterLabel>
+            <translation><!-- 貨物運送(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>賠償(日本)</masterLabel>
+            <translation><!-- 賠償(日本) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>逆OTA</masterLabel>
+            <translation><!-- 逆OTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>運送賠償</masterLabel>
+            <translation><!-- 運送賠償 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主工傷</masterLabel>
+            <translation><!-- 雇主工傷 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主責任保険</masterLabel>
+            <translation><!-- 雇主責任保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>食品責任保険</masterLabel>
+            <translation><!-- 食品責任保険 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)Health Checkup</label>
+        <name>PrspctKenshin__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち
+A・・・これから請求書発行
+　　　又は これから書類手続き
+B・・・内諾を頂いている
+　　　又は これから詳細内容決定作業
+C・・・提案済み かつ検討中
+D・・・今年度は無理だが次年度は
+　　　見込あり（再アプローチ）
+×・・・提案済みだが全く見込なし
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)MD</label>
+        <name>PrspctMD__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Estimated Number)Anshin Seikatsu</label>
+        <name>PrspctNumAnshin__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)Anzen Banri</label>
+        <name>PrspctNumAnzen__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)CB</label>
+        <name>PrspctNumCB__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)Health Checkup</label>
+        <name>PrspctNumKenshin__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)MD Asian_F</label>
+        <name>PrspctNumMDAsianF__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)MD Asian_M</label>
+        <name>PrspctNumMDAsianM__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)MD Asian_S</label>
+        <name>PrspctNumMDAsianS__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)MD C&amp;V_F</label>
+        <name>PrspctNumMDCVF__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)MD C&amp;V_M</label>
+        <name>PrspctNumMDCVM__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)MD C&amp;V_S</label>
+        <name>PrspctNumMDCVS__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)Car(Compulsory)</label>
+        <name>PrspctNumOI__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)OTA</label>
+        <name>PrspctNumOta__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)Self Insurance etc.</label>
+        <name>PrspctNumSelfInsuranceEtc__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)Chuzai Chugoku</label>
+        <name>PrspctNumTyuzai__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)Car(Option)</label>
+        <name>PrspctNumVI__c</name>
+    </fields>
+    <fields>
+        <label>Estimated Number)You You</label>
+        <name>PrspctNumYuYou__c</name>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)Car (Compulsory)</label>
+        <name>PrspctOI__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 別働体代理店
+その他代理店
+保険会社直扱 --></help>
+        <label>Estimate)OTA Agency</label>
+        <name>PrspctOtaAgency__c</name>
+    </fields>
+    <fields>
+        <label>Estimate)OTA Premium Currency</label>
+        <name>PrspctOtaInsuranceFeeCurrency__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation><!-- HKD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOP</masterLabel>
+            <translation><!-- MOP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation><!-- RMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VTD（単位：1000）</masterLabel>
+            <translation><!-- VTD（単位：1000） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本円（単位：千円）</masterLabel>
+            <translation><!-- 日本円（単位：千円） --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 本社負担？
+現法負担？（現地保険のケースと、日本で支払った後現地法人に費用振り替えをするケースがあります） --></help>
+        <label>Estimate)OTA Premium Contribution</label>
+        <name>PrspctOtaInsuranceFeeIncur__c</name>
+    </fields>
+    <fields>
+        <label>Estimate)OTA Premium</label>
+        <name>PrspctOtaInsuranceFee__c</name>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)OTA</label>
+        <name>PrspctOta__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない 
+既契約・・・契約済み 
+無・・・対象無し --></help>
+        <label>Estimate)Self Insurance etc.</label>
+        <name>PrspctSelfInsuranceEtc__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)Chuizai Chugoku</label>
+        <name>PrspctTyuzai__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)Car(Option)</label>
+        <name>PrspctVI__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 100%・・・入金待ち　または書類待ち 
+A・・・これから請求書発行 
+　　　又は これから書類手続き 
+B・・・内諾を頂いている 
+　　　又は これから詳細内容決定作業 
+C・・・提案済み かつ検討中 
+D・・・今年度は無理だが次年度は 
+　　　見込あり（再アプローチ） 
+×・・・提案済みだが全く見込なし 
+未・・・まだ提案できていない
+既契約・・・契約済み
+無・・・対象無し --></help>
+        <label>Estimate)You You</label>
+        <name>PrspctYuYou__c</name>
+        <picklistValues>
+            <masterLabel>100%</masterLabel>
+            <translation><!-- 100% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>×</masterLabel>
+            <translation><!-- × --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>既契約</masterLabel>
+            <translation><!-- 既契約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未</masterLabel>
+            <translation><!-- 未 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無</masterLabel>
+            <translation><!-- 無 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- フォロー状況 --></label>
+        <name>ResponseStatus__c</name>
+    </fields>
+    <fields>
+        <label>Interviewee</label>
+        <name>TantoName__c</name>
+    </fields>
+    <fields>
+        <label>Type of Visiting</label>
+        <name>VisitItem__c</name>
+        <picklistValues>
+            <masterLabel>BL</masterLabel>
+            <translation><!-- BL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OM-S</masterLabel>
+            <translation><!-- OM-S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTA</masterLabel>
+            <translation><!-- OTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>しおり説明</masterLabel>
+            <translation><!-- しおり説明 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>クレーム対応</masterLabel>
+            <translation><!-- クレーム対応 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チャイナボウル</masterLabel>
+            <translation><!-- チャイナボウル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メディック</masterLabel>
+            <translation><!-- メディック --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>リスクマネジメント</masterLabel>
+            <translation><!-- リスクマネジメント --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>事故対応</masterLabel>
+            <translation><!-- 事故対応 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>保険関連商品</masterLabel>
+            <translation><!-- 保険関連商品 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>健診</masterLabel>
+            <translation><!-- 健診 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>勉強会</masterLabel>
+            <translation><!-- 勉強会 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>医療対応</masterLabel>
+            <translation><!-- 医療対応 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搭乗者保険</masterLabel>
+            <translation><!-- 搭乗者保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現地医療保険</masterLabel>
+            <translation><!-- 現地医療保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車保険</masterLabel>
+            <translation><!-- 自動車保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>集金_書類お届け</masterLabel>
+            <translation><!-- 集金_書類お届け --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>電話_メール</masterLabel>
+            <translation><!-- 電話_メール --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>営業報告レイアウト</layout>
+        <sections>
+            <label><!-- 1 --></label>
+            <section>1</section>
+        </sections>
+        <sections>
+            <label><!-- BL --></label>
+            <section>BL</section>
+        </sections>
+        <sections>
+            <label><!-- MD --></label>
+            <section>MD</section>
+        </sections>
+        <sections>
+            <label><!-- OTA --></label>
+            <section>OTA</section>
+        </sections>
+        <sections>
+            <label><!-- ○訪問内容情報 --></label>
+            <section>○訪問内容情報</section>
+        </sections>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 健診 --></label>
+            <section>健診</section>
+        </sections>
+        <sections>
+            <label><!-- 現地保険 --></label>
+            <section>現地保険</section>
+        </sections>
+        <sections>
+            <label><!-- 訪問先情報 --></label>
+            <section>訪問先情報</section>
+        </sections>
+        <sections>
+            <label><!-- 訪問先情報2 --></label>
+            <section>訪問先情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 訪問内容 --></label>
+            <section>訪問内容</section>
+        </sections>
+        <sections>
+            <label><!-- 車 --></label>
+            <section>車</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>営業報告レイアウト20131219</layout>
+        <sections>
+            <label>1</label>
+            <section>1</section>
+        </sections>
+        <sections>
+            <label>BL</label>
+            <section>BL</section>
+        </sections>
+        <sections>
+            <label>BL_2</label>
+            <section>BL_2</section>
+        </sections>
+        <sections>
+            <label>BL_3</label>
+            <section>BL_3</section>
+        </sections>
+        <sections>
+            <label>MD</label>
+            <section>MD</section>
+        </sections>
+        <sections>
+            <label>OTA・Self Insurance</label>
+            <section>OTA・自家保険等</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting</label>
+            <section>○訪問内容情報</section>
+        </sections>
+        <sections>
+            <label>Custom Link</label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- フォロー状況 --></label>
+            <section>フォロー状況</section>
+        </sections>
+        <sections>
+            <label>Medical Checkup</label>
+            <section>健診</section>
+        </sections>
+        <sections>
+            <label>Local Insurance</label>
+            <section>現地保険</section>
+        </sections>
+        <sections>
+            <label>Vehicle Related Information</label>
+            <section>自動車関連</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting Company</label>
+            <section>訪問先情報</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting Company 2</label>
+            <section>訪問先情報2</section>
+        </sections>
+        <sections>
+            <label>Details of Visiting</label>
+            <section>訪問内容</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>営業報告レイアウト20151003</layout>
+        <sections>
+            <label>1</label>
+            <section>1</section>
+        </sections>
+        <sections>
+            <label>BL</label>
+            <section>BL</section>
+        </sections>
+        <sections>
+            <label>BL_2</label>
+            <section>BL_2</section>
+        </sections>
+        <sections>
+            <label>BL_3</label>
+            <section>BL_3</section>
+        </sections>
+        <sections>
+            <label>MD</label>
+            <section>MD</section>
+        </sections>
+        <sections>
+            <label>OTA・Self Insurance</label>
+            <section>OTA・自家保険等</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting</label>
+            <section>○訪問内容情報</section>
+        </sections>
+        <sections>
+            <label>Custom Link</label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- フォロー状況 --></label>
+            <section>フォロー状況</section>
+        </sections>
+        <sections>
+            <label>Medical Checkup</label>
+            <section>健診</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label>Local Insurance</label>
+            <section>現地保険</section>
+        </sections>
+        <sections>
+            <label><!-- 紹介取付 --></label>
+            <section>紹介取付</section>
+        </sections>
+        <sections>
+            <label>Vehicle Related Information</label>
+            <section>自動車関連</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting Company</label>
+            <section>訪問先情報</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting Company 2</label>
+            <section>訪問先情報2</section>
+        </sections>
+        <sections>
+            <label>Details of Visiting</label>
+            <section>訪問内容</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>営業報告レイアウト20151029</layout>
+        <sections>
+            <label>1</label>
+            <section>1</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting</label>
+            <section>○訪問内容情報</section>
+        </sections>
+        <sections>
+            <label>Custom Link</label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- フォロー状況 --></label>
+            <section>フォロー状況</section>
+        </sections>
+        <sections>
+            <label><!-- 役員コメント --></label>
+            <section>役員コメント</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting Company</label>
+            <section>訪問先情報</section>
+        </sections>
+        <sections>
+            <label>Information about Visiting Company 2</label>
+            <section>訪問先情報2</section>
+        </sections>
+        <sections>
+            <label>Details of Visiting</label>
+            <section>訪問内容</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Sales Report No.</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- 営業社員または訪問日が入力されていません。 --></errorMessage>
+        <name>Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 訪問日が未来です。 --></errorMessage>
+        <name>DateofVisit_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 非会員企業の場合は、非会員にチェックをつけてください。 --></errorMessage>
+        <name>NonMemberCheck</name>
+    </validationRules>
+</CustomObjectTranslation>

@@ -1,0 +1,78 @@
+<apex:page controller="wb_MemberData" contentType="txt/xml#{!filename}" cache="true">
+    <apex:outputText value="{!xlsHeader}"/>
+    <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:o="urn:schemas-microsoft-com:office:office"
+              xmlns:x="urn:schemas-microsoft-com:office:excel"
+              xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:html="http://www.w3.org/TR/REC-html40">
+        <Styles>
+            <Style ss:ID="s1">
+                <Alignment/>
+                <Borders/>
+                <Font ss:Bold="1"/>
+                <Interior/>
+                <NumberFormat/>
+                <Protection/>
+            </Style>
+        </Styles>
+        <Worksheet ss:Name="MDヘッダー">
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:Width="170"/>
+                <!--   <Row>
+<Cell ss:StyleID="s1"><Data ss:Type="String" >MDヘッダー</Data></Cell>
+</Row> -->
+                <apex:repeat value="{!MDHeaderList}" var="h">
+                    <Row>
+                        <Cell><Data ss:Type="String">{!h.C1}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.C2}</Data></Cell>
+                    </Row>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        <Worksheet ss:Name="MD明細">
+            <Table x:FullColumns="1" x:FullRows="1">
+                 <Column ss:Width="50"/>
+                <Column ss:Width="170"/>
+                <Column ss:Width="170"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="100"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="100"/>
+                <Row>
+                      <Cell><Data ss:Type="String">No</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.ContractCompany__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.MemberNo__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.Individual__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.MembershipEndDate__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.Address__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.Tel__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.Mobile__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.EmailAddress__c.label}</Data></Cell>
+                </Row>
+                <apex:repeat value="{!MDDetailList}" var="d">
+                    <Row>
+                        <Cell><Data ss:Type="String">{!d.membership__r.name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.Membership__r.ContractCompany__r.name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.WorkingCompany__r.name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.MemberNo__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.Individual__r.name}</Data></Cell>
+                         <Cell><Data ss:Type="String">
+                             <apex:outputText value="{0, date, yyyy-MM-dd}">
+                                 <apex:param value="{!d.MembershipEndDate__c}" />
+                             </apex:outputText>
+                             </Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.Individual__r.Address__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.Individual__r.Tel__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.Individual__r.Mobile__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.Individual__r.EmailAddress__c}</Data></Cell>
+                    </Row>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        
+    </Workbook>
+</apex:page>

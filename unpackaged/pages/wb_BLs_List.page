@@ -1,0 +1,70 @@
+<apex:page standardcontroller="BL__c" extensions="wb_BLs_List" id="thePage" sidebar="true" showHeader="true">
+    
+    <apex:outputText rendered="{!openPopup}" id="openPopup">
+        <script>
+        try {
+            
+             window.open('{!myTargetUrl}');
+            
+          
+        } catch(e)
+        {
+            alert(e);
+        }
+        </script>
+    </apex:outputText>
+            
+                    
+    <apex:form id="theForm" >
+        <apex:pageBlock id="theBlock">
+            <apex:pageBlockSection columns="1" id="theHeader" title="BL List">
+                <div style="width:150px;">
+                    <apex:selectList id="selectedShozokuAreaOption" value="{!selectedShozokuAreaOption}" size="1" label="{!$ObjectType.BL__c.fields.ShozokuArea__c.label}">
+                        <apex:selectOptions value="{!ShozokuAreaOption}"></apex:selectOptions>
+                 
+                    </apex:selectList>
+                </div>
+                 <apex:commandButton value="抽出" action="{!getBLs}" />  
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1" id="theList" title="BL">
+                
+                  <apex:dataTable value="{!BLList}" var="row"  cellpadding="4" border="0" onRowClick="highlight(this);">
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="選択"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!row.isSelected}" style="width:100px;"></apex:inputCheckbox>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="{!$ObjectType.BL__c.fields.Name.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputtext value="{!row.theBL.Name}" style="width:100px;"></apex:outputtext>
+                    </apex:column>
+                    
+    
+         
+                </apex:dataTable>
+                
+                <apex:commandButton value="BLs List" action="{!BLsList}" />  
+        
+
+
+                
+            
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

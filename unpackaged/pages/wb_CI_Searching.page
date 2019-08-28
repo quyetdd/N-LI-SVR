@@ -1,0 +1,64 @@
+<apex:page standardcontroller="Account" extensions="wb_CI_Searching" id="thePage" sidebar="true" showHeader="true">
+    
+    <apex:form id="theForm" >
+        <apex:pageBlock id="theBlock">
+            
+            <apex:pageBlockSection columns="1" id="theHeader" >
+                
+                <apex:outputfield value="{!theCompany.name}" style="width:100px;" label="{!$ObjectType.wb_CarInsurance__c.fields.ContractCompany__c.label}"></apex:outputfield>
+                
+                <apex:actionFunction name="doSearchAF" action="{!createtheList}" reRender="theForm"  />
+                
+                    <apex:inputtext value="{!CarFilter}" style="width:150px;" label="登録番号検索：" onkeypress="return noenter(event);">
+                        <apex:actionSupport event="onchange" action="{!createtheList}"
+                                                    reRender="theForm" /> 
+                        <script type='text/javascript'>
+                        function noenter(ev)  {
+                            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                                doSearchAF();
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                        </script>
+                    </apex:inputtext><br/>
+            </apex:pageBlockSection>
+                      
+            <apex:pageBlockSection columns="1" id="theResult" >
+                <apex:datatable style="font-size: xx-small;" value="{!datalist}" var="a" columns="22" border="1" cellpadding="4"  >  
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurance__c.fields.Name.label}">
+                        
+                        
+                        <apex:outputLink value="{!a.theURL}">{!a.No}</apex:outputLink>
+                        
+                    </apex:column> 
+                    <!--
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurance__c.fields.ContractCompany__c.label}">{!a.ContractCompany}</apex:column>
+-->
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}">{!a.UsingCompany}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.RegistryNumber__c.label}">{!a.RegistryNumber}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}">{!a.LegalNumberofSeats}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.Ownership__c.label}">{!a.Ownership}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CurrentEndDate__c.label}">{!a.Psgr_CurrentEndDate}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceCompany__c.label}">{!a.Psgr_InsuranceCompany}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CommodityName__c.label}">{!a.Psgr_CommodityName}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsurancePlan__c.label}">{!a.Psgr_InsurancePlan}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceFee__c.label}">{!a.Psgr_InsuranceFee}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_Plan__c.label}">{!a.OP_Plan}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_InsuranceFee__c.label}">{!a.OP_InsuranceFee}</apex:column>            
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceCompany__c.label}">{!a.Cps_InsuranceCompany}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_CurrentEndDate__c.label}">{!a.Cps_EndDate}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceAmount__c.label}">{!a.Cps_InsuranceAmount}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceCompany__c.label}">{!a.Vlt_InsuranceCompany}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_EndDate__c.label}">{!a.Vlt_EndDate}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceAmount__c.label}">{!a.Vlt_InsuranceAmount}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurance__c.fields.Agent__c.label}">{!a.Agent}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurance__c.fields.AcctPIC__c.label}">{!a.AcctPIC}</apex:column>
+                    <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.Name.label}">{!a.CICName}</apex:column>
+                </apex:datatable>
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

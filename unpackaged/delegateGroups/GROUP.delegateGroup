@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DelegateGroup xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>ユーザー追加</label>
+    <loginAccess>false</loginAccess>
+    <profiles>AC-スタッフ</profiles>
+    <profiles>営業(AC付)</profiles>
+    <profiles>財務P</profiles>
+    <profiles>営業P</profiles>
+    <profiles>総務P</profiles>
+    <roles>管理本部</roles>
+    <roles>サービス部</roles>
+    <roles>営業本部</roles>
+</DelegateGroup>

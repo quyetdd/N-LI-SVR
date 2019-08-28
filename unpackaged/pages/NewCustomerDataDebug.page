@@ -1,0 +1,86 @@
+<apex:page standardController="Account" extensions="NewCustomerDataControllerEx" action="{!init}">
+
+<style type="text/css"> 
+  .boldify { font-weight: bolder; } 
+</style>
+
+<script type="text/javascript" src="/js/dojo/0.3.1/dojo.js" />
+<script src="/soap/ajax/16.0/connection.js" />
+<script src="{!URLFOR($Resource.jquery, 'jquery-2.1.4.min.js')}"></script>
+
+  <apex:outputField value="{!account.ParentId}" rendered="false" />
+  <apex:outputField value="{!account.CompanyCd__c}" rendered="false" />
+  <apex:outputField value="{!account.CompanyPopularName__c}" rendered="false" />
+  <apex:outputField value="{!account.Jurisdiction__c}" rendered="false" />
+  <apex:outputField value="{!account.CompanyNameEng__c}" rendered="false" />  
+ 
+  
+  <apex:form >
+    <apex:sectionHeader title="{!$Label.RelevanceAccount}" subtitle="{!account.Name}"/>
+    
+    <apex:pageMessages />
+    
+    <apex:pageBlock mode="edit">
+    
+      <apex:pageBlockButtons >
+        <apex:commandButton disabled="{!disableButtons}" value="{!$Label.Issue}" action="{!execute1}" />
+        <apex:commandButton disabled="{!disableButtons}" value="{!$Label.IssueForPrinting}" action="{!execute2}" />
+        <apex:commandButton disabled="{!disableButtons}" value="{!$Label.CheckAll}" action="{!checkAll}" />
+        <apex:commandButton disabled="{!disableButtons}" value="{!$Label.AllClear}" action="{!uncheckAll}" />
+        <apex:commandButton value="{!$Label.Cancel}" action="{!cancel}" />
+      </apex:pageBlockButtons>
+    
+      <apex:pageBlockTable columns="5" value="{!AccSelections}" var="r" rowClasses="odd,even" styleClass="AccTable">
+        <apex:column headerValue="-">
+          <apex:inputCheckbox value="{!r.Selected}" />
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.Account.fields.Jurisdiction__c.Label}" value="{!r.Acc.Jurisdiction__c}" />
+        <apex:column headerValue="{!$ObjectType.Account.fields.Name.Label}">
+          <apex:outputText value="{!r.Indent}" escape="false"/>
+          
+          <apex:commandLink action="{!appendParentsParentAccount}">
+              <apex:image url="{!URLFOR($Resource.CompanyHierarchyIcon,'Up.png')}" width="20" height="20" rendered="{!r.isParent}" styleClass="UpIcon"/>
+              <apex:param name="accountsId" value="{!r.Acc.Id}" assignTo="{!accountsId}"/>
+              <apex:param name="indent" value="{!r.indent}" assignTo="{!indent}"/>
+          </apex:commandLink>
+           
+            <apex:commandLink action="{!appendOneLevelChildAccountUnderParent}">
+                <apex:image url="{!URLFOR($Resource.CompanyHierarchyIcon,'plus.png')}" width="20" height="20" rendered="{!AND(r.expandPlus==false,r.hasChild==true)}"/>  
+                <apex:param name="accountId" value="{!r.Acc.Id}" assignTo="{!accountId}"/>
+                <apex:param name="indent" value="{!r.indent}" assignTo="{!indent}"/>
+            </apex:commandLink> 
+            <apex:commandLink action="{!removeChildAccount}">
+                <apex:image url="{!URLFOR($Resource.CompanyHierarchyIcon,'minus.png')}" width="20" height="20" rendered="{!r.expandPlus}"/>  
+                <apex:param name="accountId" value="{!r.Acc.Id}" assignTo="{!accountId}"/>
+            </apex:commandLink>      
+            <apex:image url="{!URLFOR($Resource.CompanyHierarchyIcon,'blank.png')}" width="20" height="20" rendered="{!!r.hasChild}"/>   
+          <apex:outputLink target="_top" value="/{!r.Acc.Id}">
+            <apex:outputText value="{!r.Acc.Name}" styleClass="{!IF(r.Acc.Id==account.Id,'boldify','')}" />
+          </apex:outputLink>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.Account.fields.CompanyNameEng__c.Label}">
+          <apex:outputText value="{!r.Indent}" escape="false"/>
+          <apex:outputLink target="_top" value="/{!r.Acc.Id}">
+            <apex:outputText value="{!r.Acc.CompanyNameEng__c}" styleClass="{!IF(r.Acc.Id==account.Id,'boldify','')}" />
+          </apex:outputLink>
+        </apex:column>       
+        <apex:column headerValue="{!$ObjectType.Account.fields.CompanyPopularName__c.Label}" value="{!r.Acc.CompanyPopularName__c}" />
+      </apex:pageBlockTable>      
+   
+
+
+    </apex:pageBlock>
+
+  </apex:form>
+  
+  <apex:outputPanel layout="none" rendered="{!AND(dataReady,NOT(hasData))}" >
+      <script>
+          alert('{!$Label.ValidateCustomerData}');
+      </script>
+  </apex:outputPanel>
+
+
+
+  <c:NewJSCustomerDataCreateExcelbugfix rendered="{!NOT(forPrinting) && dataReady && hasData}" account="{!Account}" data="{!Data}" isEnglish="{!isEnglish}"/>
+  <c:NewJSCustomerDataCreateExcel4PrintBugFix rendered="{!forPrinting && dataReady && hasData}" account="{!Account}" data="{!Data}" isEnglish="{!isEnglish}"/>
+</apex:page>

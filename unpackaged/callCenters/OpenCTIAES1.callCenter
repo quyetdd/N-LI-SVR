@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CallCenter xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <adapterUrl>http://172.16.100.35/Default.html</adapterUrl>
+    <customSettings>{&quot;reqSoftphoneHeight&quot;:&quot;320&quot;,&quot;reqUseApi&quot;:&quot;true&quot;,&quot;reqSoftphoneWidth&quot;:&quot;210&quot;}</customSettings>
+    <displayName>OpenCTIAES1</displayName>
+    <displayNameLabel>Display Name</displayNameLabel>
+    <internalNameLabel>InternalName</internalNameLabel>
+    <sections>
+        <items>
+            <label>CTI Adapter URL</label>
+            <name>reqAdapterUrl</name>
+            <value>http://172.16.100.35/Default.html</value>
+        </items>
+        <items>
+            <label>Use CTI API</label>
+            <name>reqUseApi</name>
+            <value>true</value>
+        </items>
+        <items>
+            <label>Softphone Height</label>
+            <name>reqSoftphoneHeight</name>
+            <value>320</value>
+        </items>
+        <items>
+            <label>Softphone Width</label>
+            <name>reqSoftphoneWidth</name>
+            <value>210</value>
+        </items>
+        <label>General Information</label>
+        <name>reqGeneralInfo</name>
+    </sections>
+    <sections>
+        <items>
+            <label>Outside Prefix</label>
+            <name>reqOutsidePrefix</name>
+            <value xsi:nil="true"/>
+        </items>
+        <items>
+            <label>Long Distance Prefix</label>
+            <name>reqLongDistPrefix</name>
+            <value>1</value>
+        </items>
+        <items>
+            <label>International Prefix</label>
+            <name>reqInternationalPrefix</name>
+            <value>01</value>
+        </items>
+        <label>Dialing Options</label>
+        <name>reqDialingOptions</name>
+    </sections>
+    <sections>
+        <items>
+            <label>Total Code Count</label>
+            <name>Count</name>
+            <value>9</value>
+        </items>
+        <items>
+            <label>1</label>
+            <name>Code1</name>
+            <value>1 入力作業</value>
+        </items>
+        <items>
+            <label>2</label>
+            <name>Code2</name>
+            <value>2 休憩</value>
+        </items>
+        <items>
+            <label>3</label>
+            <name>Code3</name>
+            <value>3 トイレ</value>
+        </items>
+        <items>
+            <label>4</label>
+            <name>Code4</name>
+            <value>4 食事</value>
+        </items>
+        <items>
+            <label>5</label>
+            <name>Code5</name>
+            <value>5 アドバイザー業務</value>
+        </items>
+        <items>
+            <label>6</label>
+            <name>Code6</name>
+            <value>6 研修</value>
+        </items>
+        <items>
+            <label>7</label>
+            <name>Code7</name>
+            <value>7 会議</value>
+        </items>
+        <items>
+            <label>8</label>
+            <name>Code8</name>
+            <value>8 専門業務</value>
+        </items>
+        <items>
+            <label>9</label>
+            <name>Code9</name>
+            <value>9 打ち合わせ</value>
+        </items>
+        <label>Not Ready Reason Codes</label>
+        <name>NotReadyReasonCodes</name>
+    </sections>
+    <sections>
+        <items>
+            <label>IVR Number</label>
+            <name>reqIVRNumber</name>
+            <value>46050</value>
+        </items>
+        <label>Other Options</label>
+        <name>reqOtherOptions</name>
+    </sections>
+</CallCenter>

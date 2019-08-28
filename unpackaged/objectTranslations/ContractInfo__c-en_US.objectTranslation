@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contract Info</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contract Info</value>
+    </caseValues>
+    <fields>
+        <label>Budget Rate</label>
+        <name>BudgetRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 部署 --></label>
+        <name>Busho__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract Number --></label>
+        <name>ContractNumVal__c</name>
+    </fields>
+    <fields>
+        <help><!-- 日本＝81
+中国＝86
+香港＝852
+ベトナム＝84
+インド＝91 --></help>
+        <label><!-- 国際電話国番号 --></label>
+        <name>CountryCallingCodes__c</name>
+    </fields>
+    <fields>
+        <label><!-- （会社情報）国名 --></label>
+        <name>CountryName__c</name>
+    </fields>
+    <fields>
+        <label>Currency</label>
+        <name>Currency__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation>HKD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IDR</masterLabel>
+            <translation>IDR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INR</masterLabel>
+            <translation>INR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JPY</masterLabel>
+            <translation>JPY</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LKR</masterLabel>
+            <translation><!-- LKR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MMK</masterLabel>
+            <translation><!-- MMK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MXN</masterLabel>
+            <translation><!-- MXN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MYR</masterLabel>
+            <translation><!-- MYR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PHP</masterLabel>
+            <translation>PHP</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation>RMB</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SGD</masterLabel>
+            <translation><!-- SGD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>THB</masterLabel>
+            <translation><!-- THB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>USD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VND</masterLabel>
+            <translation>VND</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- パーセント表示です。
+例）  5%　→　5
+     10%　→　10 --></help>
+        <label>Premium Discount Rate</label>
+        <name>DiscountPer__c</name>
+    </fields>
+    <fields>
+        <help>Describe the reason for the special discount.</help>
+        <label>Reason of Discount</label>
+        <name>DiscountReason__c</name>
+    </fields>
+    <fields>
+        <label>Type of application discount rate</label>
+        <name>DiscountShubetsu__c</name>
+        <picklistValues>
+            <masterLabel>グループ</masterLabel>
+            <translation>Group</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>グループ・団体</masterLabel>
+            <translation><!-- グループ・団体 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>優良</masterLabel>
+            <translation>Special</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>団体</masterLabel>
+            <translation>Corporate</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>The date that the discount rate is valid from. Enter the date of the rate updated.</help>
+        <label>Date of Application Prm Discount Rate</label>
+        <name>DiscountTekiyouDate__c</name>
+    </fields>
+    <fields>
+        <label>Sales PIC</label>
+        <name>EigyoTanto__c</name>
+        <relationshipLabel>Contract Info (Sales PIC)</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Email</label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label>Ext.</label>
+        <name>ExtNo__c</name>
+    </fields>
+    <fields>
+        <label>Fax</label>
+        <name>Fax__c</name>
+    </fields>
+    <fields>
+        <label>Former Discount Rate</label>
+        <name>GroupDiscountPerLasttime__c</name>
+    </fields>
+    <fields>
+        <help><!-- グループ割引に対しての新割引率です。
+新・割引適用日付以降から、この新・割引率が適用になります --></help>
+        <label>New Discount Rate</label>
+        <name>GroupDiscountPer__c</name>
+    </fields>
+    <fields>
+        <help><!-- 新・割引率の適用日です --></help>
+        <label>New Date of Discount Application</label>
+        <name>GroupTekiyouDiscountDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 取込用契約No --></label>
+        <name>ImportCntractNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 取込コメント --></label>
+        <name>ImportComm__c</name>
+    </fields>
+    <fields>
+        <label><!-- （会社情報）管轄地区 --></label>
+        <name>Jurisdiction__c</name>
+    </fields>
+    <fields>
+        <label>Contract Area</label>
+        <name>KeiyakuArea__c</name>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation>Kuala Lumpur</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コロンボ</masterLabel>
+            <translation>Colombo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation>Singapore</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation>Jakarta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェンナイ</masterLabel>
+            <translation>Chennai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニューデリー</masterLabel>
+            <translation>New Delhi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation>Hanoi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンコク</masterLabel>
+            <translation>Bangkok</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プノンペン</masterLabel>
+            <translation>Phnom Penh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation>Ho Chi Minh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation>Manila</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコシティ</masterLabel>
+            <translation><!-- メキシコシティ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヤンゴン</masterLabel>
+            <translation>Yangon</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation>Shanghai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中山</masterLabel>
+            <translation>Zhongshan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation>Beijing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南京</masterLabel>
+            <translation>Nanjing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南通</masterLabel>
+            <translation>Nantong</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>厦門</masterLabel>
+            <translation>Xiamen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>合肥</masterLabel>
+            <translation>Hefei</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>名古屋</masterLabel>
+            <translation>Nagoya</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation>Dalian</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大阪</masterLabel>
+            <translation>Osaka</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation>Tianjin</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation>Changzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常熟</masterLabel>
+            <translation>Changshu</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation>Guangzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation>Kunshan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京</masterLabel>
+            <translation>Tokyo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation>Dongguan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation>Wuhan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation>Shenzhen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation>Wuxi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>珠海</masterLabel>
+            <translation>Zhuhai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation>Suzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation>Qingdao</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 契約会社名称（テキスト） --></label>
+        <name>KeiyakuCompanyName_Txt__c</name>
+    </fields>
+    <fields>
+        <help><!-- 法人契約の場合は、
+虫メガネから契約会社名称を
+検索して選択します。
+
+個人契約の場合は、
+虫メガネから「個人契約」を
+検索して選択します。 --></help>
+        <label>Contract Company Name</label>
+        <name>KeiyakuCompanyName__c</name>
+        <relationshipLabel>Contract Info (Contract Company)</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 契約枠 --></label>
+        <name>KeiyakuCount__c</name>
+    </fields>
+    <fields>
+        <label>Date of Contract</label>
+        <name>KeiyakuDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約会社)現地医療保険 --></label>
+        <name>Keyaku_Medical_Insurance__c</name>
+        <relationshipLabel><!-- 契約情報 ((契約会社)現地医療保険) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- メールを配信する場合は、チェックをつけます。 --></help>
+        <label>Email Newsletters</label>
+        <name>MailHaishin__c</name>
+    </fields>
+    <fields>
+        <label>Date of Expire</label>
+        <name>MankiDate__c</name>
+    </fields>
+    <fields>
+        <label>Member Category B</label>
+        <name>MenberKubunB__c</name>
+    </fields>
+    <fields>
+        <label>Date of application</label>
+        <name>MoushikomiDate__c</name>
+    </fields>
+    <fields>
+        <label>Clerk PIC</label>
+        <name>NaimuTanto__c</name>
+        <relationshipLabel>Contract Info (Clerk PIC)</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Remarks</label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Child Birth --></label>
+        <name>OMS_Child_Birth__c</name>
+        <picklistValues>
+            <masterLabel>Not Payable</masterLabel>
+            <translation><!-- Not Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payable</masterLabel>
+            <translation><!-- Payable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Dental --></label>
+        <name>OMS_Dental__c</name>
+        <picklistValues>
+            <masterLabel>Not Payable</masterLabel>
+            <translation><!-- Not Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payable</masterLabel>
+            <translation><!-- Payable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Examination --></label>
+        <name>OMS_Examination__c</name>
+        <picklistValues>
+            <masterLabel>Not Payable</masterLabel>
+            <translation><!-- Not Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payable</masterLabel>
+            <translation><!-- Payable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Medical --></label>
+        <name>OMS_Medical__c</name>
+        <picklistValues>
+            <masterLabel>Not Payable</masterLabel>
+            <translation><!-- Not Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payable</masterLabel>
+            <translation><!-- Payable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Vaccination --></label>
+        <name>OMS_Vaccination__c</name>
+        <picklistValues>
+            <masterLabel>Not Payable</masterLabel>
+            <translation><!-- Not Payable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payable</masterLabel>
+            <translation><!-- Payable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （会社情報）エリア --></label>
+        <name>Region_and_Area__c</name>
+    </fields>
+    <fields>
+        <label>Invoice Issuing Area</label>
+        <name>SeikyuArea__c</name>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コロンボ</masterLabel>
+            <translation>Colombo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation>Singapore</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation>Jakarta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェンナイ</masterLabel>
+            <translation>Chennai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニューデリー</masterLabel>
+            <translation>New Delhi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation>Hanoi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンコク</masterLabel>
+            <translation><!-- バンコク --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プノンペン</masterLabel>
+            <translation>Phnom Penh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation>Manila</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコシティ</masterLabel>
+            <translation><!-- メキシコシティ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヤンゴン</masterLabel>
+            <translation>Yangon</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation>Shanghai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation>Beijing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>名古屋</masterLabel>
+            <translation>Nagoya</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation>Dalian</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大阪</masterLabel>
+            <translation>Osaka</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation>Tianjin</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation>Guangzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京</masterLabel>
+            <translation>Tokyo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation>Dongguan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation>Shenzhen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation>Suzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation>Qingdao</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Billing Department</label>
+        <name>SeikyuBusho__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求会社名称（テキスト） --></label>
+        <name>SeikyuCompanyName_Txt__c</name>
+    </fields>
+    <fields>
+        <help><!-- 法人契約の場合は、
+虫メガネから請求会社名称を
+検索して選択します。
+
+個人契約の場合は、
+虫メガネから「個人契約」を
+検索して選択します。 --></help>
+        <label>Billing Company Name</label>
+        <name>SeikyuCompanyName__c</name>
+        <relationshipLabel>Contract Info (Billing Company)</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Country Code</label>
+        <name>SeikyuCountryCode__c</name>
+    </fields>
+    <fields>
+        <label>Ext.</label>
+        <name>SeikyuExtNo__c</name>
+    </fields>
+    <fields>
+        <label>Fax</label>
+        <name>SeikyuFax__c</name>
+    </fields>
+    <fields>
+        <label>Date of Invoice Issuing</label>
+        <name>SeikyuIssueDate__c</name>
+    </fields>
+    <fields>
+        <help><!-- メディック年会費の精算方法に関する事項を入力・記録します。
+　例）一括精算/増員・減員発生毎に
+　　　請求・返戻　etc　
+　　　（その他精算方法の場合は
+　　　　具体的な精算方法を入力) --></help>
+        <label>Invoice Remarks</label>
+        <name>SeikyuNote__c</name>
+    </fields>
+    <fields>
+        <help><!-- 法人契約の場合は、
+担当者名を入力します。 
+
+個人契約の場合は、
+契約個人名を入力します。 --></help>
+        <label>Billing Name</label>
+        <name>SeikyuShimei__c</name>
+    </fields>
+    <fields>
+        <label>Tel</label>
+        <name>SeikyuTel__c</name>
+    </fields>
+    <fields>
+        <label>Billing Post</label>
+        <name>SeikyuYakushoku__c</name>
+    </fields>
+    <fields>
+        <help><!-- 法人契約の場合は、
+担当者名を入力します。
+
+個人契約の場合は、
+契約個人名を入力します。 --></help>
+        <label><!-- 氏名 --></label>
+        <name>Shimei__c</name>
+    </fields>
+    <fields>
+        <label><!-- 使用枠（家族） --></label>
+        <name>ShiyoCountFamily__c</name>
+    </fields>
+    <fields>
+        <label><!-- 使用枠（包括） --></label>
+        <name>ShiyoCountHoukatsu__c</name>
+    </fields>
+    <fields>
+        <label><!-- 使用枠（無記名） --></label>
+        <name>ShiyoCountMukimei__c</name>
+    </fields>
+    <fields>
+        <label><!-- 使用枠（単身） --></label>
+        <name>ShiyoCountSingle__c</name>
+    </fields>
+    <fields>
+        <label><!-- （会社情報）所属地区 --></label>
+        <name>ShozokuArea__c</name>
+    </fields>
+    <fields>
+        <label>Date of Withdrawal</label>
+        <name>TaikaiDate__c</name>
+    </fields>
+    <fields>
+        <label>Tel</label>
+        <name>Tel__c</name>
+    </fields>
+    <fields>
+        <label>Discount Remarks</label>
+        <name>WaribikiNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- 役職 --></label>
+        <name>Yakushoku__c</name>
+    </fields>
+    <fields>
+        <label><!-- o_Id --></label>
+        <name>o_Id__c</name>
+    </fields>
+    <layouts>
+        <layout>テスト用レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- テスト用レイアウト --></label>
+            <section>テスト用レイアウト</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 割引情報 --></label>
+            <section>割引情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約会社情報 --></label>
+            <section>契約会社情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約会社情報2 --></label>
+            <section>契約会社情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報4 --></label>
+            <section>契約情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 請求先会社情報 --></label>
+            <section>請求先会社情報</section>
+        </sections>
+        <sections>
+            <label><!-- 請求先会社情報2 --></label>
+            <section>請求先会社情報2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>契約レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- ケイズ取込 --></label>
+            <section>ケイズ取込</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約会社情報 --></label>
+            <section>契約会社情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約会社情報2 --></label>
+            <section>契約会社情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報3 --></label>
+            <section>契約情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報4 --></label>
+            <section>契約情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 請求先会社情報 --></label>
+            <section>請求先会社情報</section>
+        </sections>
+        <sections>
+            <label><!-- 請求先会社情報2 --></label>
+            <section>請求先会社情報2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>契約レイアウト2</layout>
+        <sections>
+            <label><!-- OMS情報 --></label>
+            <section>OMS情報</section>
+        </sections>
+        <sections>
+            <label>Custom Link</label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label>Remarks</label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label>Information of Discount</label>
+            <section>割引情報</section>
+        </sections>
+        <sections>
+            <label>Contract Company Information</label>
+            <section>契約会社情報</section>
+        </sections>
+        <sections>
+            <label>Contract Company Information 2</label>
+            <section>契約会社情報2</section>
+        </sections>
+        <sections>
+            <label>Contract Information</label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label>Contract Information 2</label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label>New Section</label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label>Invoice Remarks</label>
+            <section>請求備考</section>
+        </sections>
+        <sections>
+            <label>Billing Company Information</label>
+            <section>請求先会社情報</section>
+        </sections>
+        <sections>
+            <label>Billing Company Information 2</label>
+            <section>請求先会社情報2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>契約レイアウトシステム</layout>
+        <sections>
+            <label><!-- OMS情報 --></label>
+            <section>OMS情報</section>
+        </sections>
+        <sections>
+            <label>Custom Link</label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label>Remarks</label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label>Information of Discount</label>
+            <section>割引情報</section>
+        </sections>
+        <sections>
+            <label>Contract Company Information</label>
+            <section>契約会社情報</section>
+        </sections>
+        <sections>
+            <label>Contract Company Information 2</label>
+            <section>契約会社情報2</section>
+        </sections>
+        <sections>
+            <label>Contract Information</label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label>Contract Information 2</label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label>Contract Information 4</label>
+            <section>契約情報4</section>
+        </sections>
+        <sections>
+            <label>New Section</label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label>Invoice Remarks</label>
+            <section>請求備考</section>
+        </sections>
+        <sections>
+            <label>Billing Company Information</label>
+            <section>請求先会社情報</section>
+        </sections>
+        <sections>
+            <label>Billing Company Information 2</label>
+            <section>請求先会社情報2</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Contract No.</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- &quot;グループ・団体&quot;は登録できません。
+他の種別を選んでください。 --></errorMessage>
+        <name>TekiyouWaribikiristuShubetu_CHK</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- BatchUpdateOTAInsuranceData --></label>
+        <name>BatchUpdateOTAInsuranceData</name>
+    </webLinks>
+    <webLinks>
+        <label>Contract PIC Batch Update</label>
+        <name>ContractInfoBatchProcess</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ContractInfoBatchProcessList --></label>
+        <name>ContractInfoBatchProcessList</name>
+    </webLinks>
+    <webLinks>
+        <label>Insurance Update</label>
+        <name>ContractMassUpdate</name>
+    </webLinks>
+    <webLinks>
+        <label>New Member</label>
+        <name>CreateContractor</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CreateSeikyuNyukin --></label>
+        <name>CreateSeikyuNyukin</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CustomerList --></label>
+        <name>CustomerList</name>
+    </webLinks>
+    <webLinks>
+        <label>Date of Expire Update</label>
+        <name>ExpirationMassUpdate</name>
+    </webLinks>
+    <webLinks>
+        <label>Global Member Card (Family)</label>
+        <name>Global_Card_Family_C</name>
+    </webLinks>
+    <webLinks>
+        <label>Global Member Card (Member)</label>
+        <name>Global_Card_M</name>
+    </webLinks>
+    <webLinks>
+        <label>Insurance Update</label>
+        <name>InsuranceInformationMassUpdate</name>
+    </webLinks>
+    <webLinks>
+        <label>Invoice</label>
+        <name>Invoice</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- IssueMemberCard --></label>
+        <name>IssueMemberCard</name>
+    </webLinks>
+    <webLinks>
+        <label>Member Card(Family)</label>
+        <name>MDMemberCardDataFamily</name>
+    </webLinks>
+    <webLinks>
+        <label>Member Card(Member)</label>
+        <name>MDMemberCardDataMember</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewContractMassUpdate --></label>
+        <name>NewContractMassUpdate</name>
+    </webLinks>
+    <webLinks>
+        <label>Update Expiration Date (New)</label>
+        <name>NewExpirationMassUpdate</name>
+    </webLinks>
+    <webLinks>
+        <label>New Invoice</label>
+        <name>NewInvoice</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- NewRenewalBatchProcess --></label>
+        <name>NewRenewalBatchProcess</name>
+    </webLinks>
+    <webLinks>
+        <label>New Renewal Notice</label>
+        <name>NewRenewalForm</name>
+    </webLinks>
+    <webLinks>
+        <label>Insurance Infomation(Member)</label>
+        <name>OTAInfoMember</name>
+    </webLinks>
+    <webLinks>
+        <label>Renewal Notice</label>
+        <name>RenewalForm</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- RenewalNoticeBatchProcess --></label>
+        <name>RenewalNoticeBatchProcess</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SalesToAC --></label>
+        <name>SalesToAC</name>
+    </webLinks>
+</CustomObjectTranslation>

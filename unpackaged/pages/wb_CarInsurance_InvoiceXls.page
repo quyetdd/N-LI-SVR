@@ -1,0 +1,31 @@
+<apex:page controller="wb_CarInsurance_InvoiceXls" 
+           contentType="application/vnd.ms-excel; charset=UTF-8#CarInsuranceInvoiceExport.xls"
+           showHeader="true"
+           cache="true">
+
+ <!--   <apex:pageBlock title="請求書データ " >
+        <apex:outputText value="{!InvoiceNo}"></apex:outputText> -->
+        <apex:datatable value="{!theInvoice}" var="a">
+            <apex:column headerValue="保険始期"
+                         value="{!a.StartDate}">
+            </apex:column>
+            <apex:column headerValue="保険満期" value="{!a.EndDate}"/>
+            <apex:column headerValue="契約タイプ" value="{!a.ContractStatus}"/>
+            <apex:column headerValue="地区" value="{!a.AffiliationDistrict}"/>
+            <apex:column headerValue="営業担当" value="{!a.PIC}"/>
+            <apex:column headerValue="会社名" value="{!a.ContractCompany}"/>
+            <apex:column headerValue="車番" value="{!a.RegistryNumber}"/>
+            <apex:column headerValue="エンジン番号"  value="{!a.EngineNo}"/>
+            <apex:column headerValue="区分" value="{!a.Ownership}"/>
+            <apex:column headerValue="商品名" value="{!a.Insurance}"/>
+            <apex:column headerValue="プラン" value="{!a.Plan}"/>
+            <apex:column headerValue="核定座席数" value="{!a.LegalNumberofSeats}"/>
+            <apex:column headerValue="契約座席数" value="{!a.NumberofInsuranceSeat}"/>
+            <apex:column headerValue="保険料" value="{!a.InsuranceFee}"/>
+            <apex:column headerValue="OP商品名" value="{!a.OP_Insurance}"/>
+            <apex:column headerValue="プラン" value="{!a.OP_Plan}"/>
+             <apex:column headerValue="OP保険料"  value="{!a.OP_InsuranceFee}"/>
+        </apex:datatable>
+ 
+
+</apex:page>

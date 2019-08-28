@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>wb_CarInsurance</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <content>wb_CarInsurance</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Large</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <formFactor>Small</formFactor>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>WellBe Car related Insurance Contract</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableLicensing>false</enableLicensing>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>AcctPIC__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>担当（計上）</label>
+        <referenceTo>Shimei__c</referenceTo>
+        <relationshipLabel>自動車関連保険契約</relationshipLabel>
+        <relationshipName>StaffCarInsurance</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>AffiliationDistrict__c</fullName>
+        <externalId>false</externalId>
+        <label>所属地区</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Agent__c</fullName>
+        <externalId>false</externalId>
+        <label>契約店</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attribute__c</fullName>
+        <externalId>false</externalId>
+        <label>属性</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>会員企業</fullName>
+                    <default>false</default>
+                    <label>会員企業</label>
+                </value>
+                <value>
+                    <fullName>非会員企業</fullName>
+                    <default>false</default>
+                    <label>非会員企業</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>CommissionCurrency__c</fullName>
+        <externalId>false</externalId>
+        <label>手数料通貨</label>
+        <length>5</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContractCompany__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>契約会社</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>自動車関連保険契約</relationshipLabel>
+        <relationshipName>CompanyCarInsurance</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ContractCountry__c</fullName>
+        <externalId>false</externalId>
+        <label>契約国</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ContractDate__c</fullName>
+        <externalId>false</externalId>
+        <label>契約日</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>ContractDistrict__c</fullName>
+        <externalId>false</externalId>
+        <label>契約地区</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PreriousContract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>前の契約番号</label>
+        <referenceTo>wb_CarInsurance__c</referenceTo>
+        <relationshipLabel>自動車関連保険契約</relationshipLabel>
+        <relationshipName>ChildContract</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Status__c</fullName>
+        <externalId>false</externalId>
+        <label>状況</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>未確定</fullName>
+                    <default>false</default>
+                    <label>未確定</label>
+                </value>
+                <value>
+                    <fullName>確定</fullName>
+                    <default>false</default>
+                    <label>確定</label>
+                </value>
+                <value>
+                    <fullName>キャンセル</fullName>
+                    <default>false</default>
+                    <label>キャンセル</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>f_ContractCompCode__c</fullName>
+        <externalId>false</externalId>
+        <formula>ContractCompany__r.CompanyCd__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>契約会社コード</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>f_ContractCompEigyoTanto__c</fullName>
+        <externalId>false</externalId>
+        <formula>ContractCompany__r.EigyoTanto__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>契約会社WB営業担当</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>f_ContractCompFax__c</fullName>
+        <externalId>false</externalId>
+        <formula>ContractCompany__r.Fax</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>契約会社FAX</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>f_ContractCompOfficeAdd__c</fullName>
+        <externalId>false</externalId>
+        <formula>ContractCompany__r.OfficeAdd__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>契約会社住所</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>f_ContractCompOfficePostcd__c</fullName>
+        <externalId>false</externalId>
+        <formula>ContractCompany__r.OfficePostcd__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>契約会社郵便番号</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>f_ContractCompOrgMechNo__c</fullName>
+        <externalId>false</externalId>
+        <formula>ContractCompany__r.OrgMechNo__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>契約会社組織機構代碼</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>f_ContractCompPhone__c</fullName>
+        <externalId>false</externalId>
+        <formula>ContractCompany__r.Phone</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>契約会社電話</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>f_ContractCompVehicleShimei__c</fullName>
+        <externalId>false</externalId>
+        <formula>ContractCompany__r.VehicleShimei__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>契約会社自動車担当者</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>自動車関連保険契約</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>すべて選択</label>
+    </listViews>
+    <nameField>
+        <displayFormat>{000000}</displayFormat>
+        <label>自動車関連保険契約</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <searchLayouts>
+        <customTabListAdditionalFields>ContractCountry__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ContractDistrict__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ContractDate__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>ContractCompany__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <listViewButtons>UpdPolicyNumber</listViewButtons>
+        <lookupDialogsAdditionalFields>ContractCountry__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ContractDistrict__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ContractDate__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ContractCompany__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>PreriousContract__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ContractCountry__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ContractDistrict__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ContractDate__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ContractCompany__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Status__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>PreriousContract__c</lookupPhoneDialogsAdditionalFields>
+        <searchResultsAdditionalFields>ContractCountry__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContractDistrict__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContractDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ContractCompany__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PreriousContract__c</searchResultsAdditionalFields>
+        <searchResultsCustomButtons>UpdPolicyNumber</searchResultsCustomButtons>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>ContractCopy</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>契約のコピー</masterLabel>
+        <openType>sidebar</openType>
+        <page>wb_CarInsuranceClone</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>ContractExtend</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>契約の継続</masterLabel>
+        <openType>sidebar</openType>
+        <page>wb_CarInsuranceContinue</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
+        <fullName>CustomLink1</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>キャンセル</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+
+var cur_status = &quot;{!wb_CarInsurance__c.Status__c}&quot;;
+
+
+
+if ( cur_status == &quot;確定&quot;) {
+
+
+var result = sforce.apex.execute(&quot;wb_CarInsuranceBilling&quot;,&quot;CancelBilling&quot;,{c_id:&quot;{!wb_CarInsurance__c.Id}&quot;});
+alert(result);
+
+
+} else
+{
+alert(&quot;無効です。確定契約のみをキャンセルします。&quot;);
+}
+
+
+
+window.location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>InvoiceXls</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>請求書データ（Xls)</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>try {
+
+var baseURL = getBaseURL();
+
+	//	alert(&apos;{!wb_CarInsurance__c.Id}&apos;);
+var para = &apos;?&apos;+&apos;Id=&apos; +&apos;{!wb_CarInsurance__c.Id}&apos;;
+
+baseURL = baseURL + &apos;apex/wb_CarInsurance_InvoiceXls&apos;;
+ window.open(baseURL + para );
+		
+	
+	
+}catch(e)
+{
+	alert(e);
+}
+
+function getBaseURL() {
+	var url = location.href;  // entire url including querystring - also: window.location.href;
+	var baseURL = url.substring(0, url.indexOf(&apos;/&apos;, 14));
+	
+	
+	if (baseURL.indexOf(&apos;http://localhost&apos;) != -1) {
+		// Base Url for localhost
+		var url = location.href;  // window.location.href;
+		var pathname = location.pathname;  // window.location.pathname;
+		var index1 = url.indexOf(pathname);
+		var index2 = url.indexOf(&quot;/&quot;, index1 + 1);
+		var baseLocalUrl = url.substr(0, index2);
+		
+		return baseLocalUrl + &quot;/&quot;;
+	}
+	else {
+		// Root Url for domain name
+		return baseURL + &quot;/&quot;;
+	}
+}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>SalesPosting</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>確定（売り上げ）</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+
+var cur_status = &quot;{!wb_CarInsurance__c.Status__c}&quot;;
+
+
+
+if ( cur_status == &quot;未確定&quot;) {
+
+
+var result = sforce.apex.execute(&quot;wb_CarInsuranceBilling&quot;,&quot;Billing&quot;,{c_id:&quot;{!wb_CarInsurance__c.Id}&quot;});
+alert(result);
+
+
+} else
+{
+alert(&quot;無効です。未確定契約のみを確定します。&quot;);
+}
+
+
+
+window.location.reload();</url>
+    </webLinks>
+    <webLinks>
+        <fullName>UpdPolicyNumber</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>証券番号入力</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>try {
+
+var baseURL = getBaseURL();
+
+	baseURL = baseURL + &apos;apex/wb_CI_PolicyNumber&apos;;
+       
+
+
+	window.open(baseURL,&quot;_self&quot;);
+		
+	
+	
+}catch(e)
+{
+	alert(e);
+}
+
+
+function getBaseURL() {
+							var url = location.href;  // entire url including querystring - also: window.location.href;
+							var baseURL = url.substring(0, url.indexOf(&apos;/&apos;, 14));
+							
+							
+							if (baseURL.indexOf(&apos;http://localhost&apos;) != -1) {
+								// Base Url for localhost
+								var url = location.href;  // window.location.href;
+								var pathname = location.pathname;  // window.location.pathname;
+								var index1 = url.indexOf(pathname);
+								var index2 = url.indexOf(&quot;/&quot;, index1 + 1);
+								var baseLocalUrl = url.substr(0, index2);
+								
+								return baseLocalUrl + &quot;/&quot;;
+							}
+							else {
+								// Root Url for domain name
+								return baseURL + &quot;/&quot;;
+							}
+}</url>
+    </webLinks>
+</CustomObject>

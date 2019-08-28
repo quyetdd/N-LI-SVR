@@ -1,0 +1,170 @@
+<apex:component >
+
+<script>
+
+function fileToBase64(path, filename)
+{
+  var file;
+  var objFso = new ActiveXObject("Scripting.FileSystemObject");
+  if (objFso.FileExists(path))
+  {
+    file = objFso.getFile(path);
+  }
+  else
+  { // 存在しない場合は、処理を中断
+    alert("作成したファイルが削除されています。");
+    return '';
+  }
+
+  if (file.Size > 5000000)
+  { // 5M以上の場合はファイル添付不可
+    alert("ファイルサイズが大きいため、添付できません。");
+    return '';
+  }
+                
+  var bin;
+  var stream;
+  try
+  {
+    // Stramオブジェクト生成
+    stream = new ActiveXObject("ADODB.Stream");
+    // バイナリ
+    stream.type = 1;
+    // Stramを開く
+    stream.open();
+    // ファイル読込
+    stream.loadFromFile(path);
+    bin = stream.read();
+  }
+  catch (e)
+  {
+    alert(e.description);
+    alert("ファイル読込に失敗しました。\n" + "ドメイン間でのデータソースのアクセスが無効になっている可能性があります。");
+    // エラー発生時にファイルが残らないように作成したファイルを削除
+    //deleteFileIfExist(path);
+    return '';
+  }
+  finally
+  {
+    if (stream != null) 
+    {
+      try
+      {
+        stream.close();
+      }
+      catch (e)
+      {
+        // クローズエラーは無視
+      }
+      stream = null;
+    }
+  }
+  
+  // 作成したファイルを削除
+  deleteFileIfExist(path);
+                
+  // XMLドキュメントととして添付
+  var objDom = new ActiveXObject("Microsoft.XMLDOM");
+  var element = objDom.createElement("data"); // ルートノードを生成
+  element.dataType = "bin.base64";
+  // バイナリ情報を書き込む
+  element.nodeTypedValue = bin;
+  
+  return element.text;
+}
+  
+function attachFile(parentId, path, filename)
+{
+  var data = fileToBase64(path,filename);
+  
+  if(data=='') return false;
+
+  // ファイルを添付
+  sforce.connection.sessionId = "{!$Api.Session_ID}";
+  var sobj = new sforce.SObject("Attachment");
+  sobj.Body  = data;
+  sobj.Name = filename;
+  sobj.ParentId = parentId;
+                
+  var saveResult = sforce.connection.create([sobj]);
+  if (!saveResult[0].getBoolean("success"))
+  { // 添付失敗
+    alert("ファイル添付に失敗しました。" + saveResult[0]);
+    return false;
+  }
+  
+  return true;
+}
+
+function findAttachment(parentId, name)
+{
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var doc = sforce.connection.query("select Id from Attachment where ParentId='" + parentId + "' and Name='" + name + "'");
+    if (doc.size == 0) return '';
+    return doc.getArray("records")[0].Id;
+}
+
+function findAttachmentByCreator(parentId)
+{
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var doc = sforce.connection.query("select Id from Attachment where ParentId='" + parentId + "' and CreatedById='{!$User.Id}' order by CreatedDate desc");
+    if (doc.size == 0) return '';
+    return doc.getArray("records")[0].Id;
+}
+
+function findAttachmentByCreatorAndPrefix(parentId, prefix)
+{
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var doc = sforce.connection.query("select Id, Name from Attachment where ParentId='" + parentId + "' and Name like '" + prefix + "%' and CreatedById='{!$User.Id}' order by CreatedDate desc");
+    if (doc.size == 0) return '';    
+    
+    for(i = 0; i < doc.size; i++)
+    {
+        var n = doc.getArray("records")[i].Name;
+        if(n.length < 13) continue;
+        if(n.substring(0,n.length-12)==prefix) return doc.getArray("records")[i].Id;    
+    }
+    return '';
+}
+  
+function findAttachmentByCreatorAndFilename(parentId, name)
+{
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var doc = sforce.connection.query("select Id from Attachment where ParentId='" + parentId + "' and Name='" + name + "' and CreatedById='{!$User.Id}'");
+    if (doc.size == 0) return '';
+    return doc.getArray("records")[0].Id;
+}
+  
+function replaceAttachment(attachmentId, path, filename)
+{
+  var data = fileToBase64(path,filename);
+  
+  if(data=='') return false;
+
+  // ファイルを添付
+  sforce.connection.sessionId = "{!$Api.Session_ID}";
+  var sobj = new sforce.SObject("Attachment");
+  sobj.Id = attachmentId;
+  sobj.Name = filename;
+  sobj.Body  = data;
+                
+  var saveResult = sforce.connection.update([sobj]);
+  if (!saveResult[0].getBoolean("success"))
+  { // 添付失敗
+    alert("ファイル添付に失敗しました。" + saveResult[0]);
+    return false;
+  }
+  
+  return true;
+}
+
+function deleteFileIfExist(path)
+{
+  var objFso = new ActiveXObject("Scripting.FileSystemObject");
+  if(objFso.FileExists(path))
+    objFso.DeleteFile(path, true);
+}
+
+</script>
+
+</apex:component>

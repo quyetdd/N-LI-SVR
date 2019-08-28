@@ -1,0 +1,39 @@
+<apex:page standardController="ContractInfo__c" extensions="ContractInvoiceController" action="{!Init}">
+
+<script type="text/javascript" src="/js/dojo/0.3.1/dojo.js"></script>
+<script src="/soap/ajax/16.0/connection.js"></script>
+
+  <apex:form id="form">
+  
+    <apex:pageBlock title="請求書" id="block">
+      
+      <apex:pageBlockButtons >
+        <apex:commandButton value="OK" action="{!complete}" onclick="return createExcel();" />
+        <apex:commandButton value="戻る" action="{!cancel}" />
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection columns="2" id="section">
+        <apex:pageBlockSectionItem id="sectionItem">
+          <apex:outputLabel value="出力フォーム" for="selectListTemplate"/>
+          <apex:selectList value="{!selectedTemplate}" size="1" id="selectListTemplate" >
+            <apex:selectOptions value="{!templateOptions}" />
+          </apex:selectList>
+        </apex:pageBlockSectionItem>
+        
+      </apex:pageBlockSection>
+      
+    </apex:pageBlock>
+    
+  </apex:form>
+
+<c:JSInvoiceCreateExcel contract="{!ContractInfo__c}" IsPersonal="{!IsPersonal}" 
+    Member="{!Member}" MankiDateP="{! MankiDateP}" 
+    KeitaiCdS1="{! KeitaiCdS1}" KeitaiCdF1="{! KeitaiCdF1}" KeitaiCdM1="{! KeitaiCdM1}" 
+    KeitaiCdS2="{! KeitaiCdS2}" KeitaiCdF2="{! KeitaiCdF2}" KeitaiCdM2="{! KeitaiCdM2}" 
+    KeitaiCdS3="{! KeitaiCdS3}" KeitaiCdF3="{! KeitaiCdF3}" KeitaiCdM3="{! KeitaiCdM3}" 
+    data="{!Data}" templateSelectListId="{!$Component.form.block.section.sectionItem.selectListTemplate}" />
+
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.Name}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.MankiDate__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuIssueDate__c}" rendered="false"/>
+  
+</apex:page>

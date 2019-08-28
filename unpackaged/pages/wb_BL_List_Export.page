@@ -1,0 +1,34 @@
+<apex:page standardcontroller="BL__c" extensions="wb_BL_List" cache="true" contenttype="application/vnd.ms-excel#BL_List_{!myName}.xls" showheader="false">
+
+<!-- head tag required (and showheader="false" also required in order to specify UTF-8 charset as output -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<style> 
+		br {mso-data-placement:same-cell;}	<!-- MSFT style causes Excel to treat <br/> as soft carriage return 'ALT-ENTER' when constructing cells from SFDC HTML output-->
+	</style>
+</head>
+	<apex:pageBlock >
+
+        <apex:datatable style="font-size: xx-small;" value="{!theHeader}" var="a" columns="2" border="1" >  
+             <apex:column style="font-weight:800;background-color:#c9c1b8" >{!a.Item}</apex:column>
+              <apex:column > {!a.value}</apex:column>
+        </apex:datatable>
+        <br/>
+        <apex:datatable style="font-size: xx-small;" value="{!InsuraceList}" var="a" columns="5" border="1" >  
+            <apex:column headerValue="{!$ObjectType.BL__c.fields.InsuranceCompanyName__c.label}">{!a.theCompany}</apex:column>
+            <apex:column headerValue="{!$ObjectType.BL__c.fields.Insurance__c.label}">{!a.Name}</apex:column>
+            <apex:column headerValue="{!$ObjectType.BL__c.fields.InsuranceShiki__c.label}">{!a.sDateFr}</apex:column>
+            <apex:column headerValue="{!$ObjectType.BL__c.fields.InsuranceManki__c.label}">{!a.sDateTo}</apex:column>
+            <apex:column headerValue="保険内容">
+                <apex:repeat value="{!a.theContent}" var="a" >
+                    <apex:datatable value="{!a}" var="b"  border="1">
+                        <apex:column style="font-weight:800;background-color:#c9c1b8" value="{!b.ItemName}"/>
+                        <apex:column value="{!b.Value}"/>
+                    </apex:datatable>
+                </apex:repeat>
+            </apex:column>
+        </apex:datatable>
+        
+
+	</apex:pageBlock>
+</apex:page>

@@ -1,0 +1,419 @@
+<apex:page standardcontroller="wb_CarInsurance__c" extensions="wb_CIC_CompulsoryDT" id="thePage" sidebar="false" showHeader="false">
+ <apex:dataTable id="CompulsoryRead"  
+                 value="{!CompulsoryDT}" var="row" rendered="{!IF((CompulsoryDTSize>0), true , false)}"
+                 cellpadding="4" border="1" onRowClick="highlight(this);" >
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceCompany__c.label}"></apex:outputtext><br/>
+                                </div>
+                                <div >
+                                    <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceCompany__c.label}"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <div >
+                            <apex:outputField id="Cps_InsuranceCompany__c" value="{!row.theCompulsory.Cps_InsuranceCompany__c}" style="width:100px;">
+                            </apex:outputField>
+                        </div>
+                        <div >
+                            <apex:outputField id="Vlt_InsuranceCompany__c" value="{!row.theCompulsory.Vlt_InsuranceCompany__c}" style="width:100px;">
+                            </apex:outputField>
+                        </div>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_PolicyNumber__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div  style="width:100px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_PolicyNumber__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputField id="Cps_PolicyNumber__c" value="{!row.theCompulsory.Cps_PolicyNumber__c}" style="width:100px;"></apex:outputField>
+                        <apex:outputField id="Vlt_PolicyNumber__c" value="{!row.theCompulsory.Vlt_PolicyNumber__c}" style="width:100px;"></apex:outputField>
+                    </apex:column>  
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_CurrentStartDate__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_StartDate__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div style="width:100px;">
+                                <apex:outputField id="Cps_CurrentStartDate__c" value="{!row.theCompulsory.Cps_CurrentStartDate__c}" style="width:100px;">
+                                    
+                                </apex:outputField>
+                            </div>
+                            <div style="width:100px;">
+                                <apex:outputField id="Vlt_StartDate__c" value="{!row.theCompulsory.Vlt_StartDate__c}" style="width:100px;">
+                                    
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column>    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_CurrentEndDate__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_EndDate__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div style="width:100px;">
+                                <apex:outputField id="Cps_CurrentEndDate__c" style="width:100px;"
+                                                  value="{!row.theCompulsory.Cps_CurrentEndDate__c}" ></apex:outputField>
+                            </div>
+                            <div style="width:100px;">
+                                <apex:outputField id="Vlt_EndDate__c" style="width:100px;"
+                                                  value="{!row.theCompulsory.Vlt_EndDate__c}" ></apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column>  
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div  >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!SUBSTITUTE($ObjectType.wb_CIC_Compulsory__c.fields.Cps_CancelDate__c.label,'（24時迄）','')}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!SUBSTITUTE($ObjectType.wb_CIC_Compulsory__c.fields.Vlt_CancelDate__c.label,'（24時迄）','')}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div >
+                                <apex:outputField id="Cps_CancelDate__c" value="{!row.theCompulsory.Cps_CancelDate__c}" style="width:100px;"></apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_CancelDate__c" value="{!row.theCompulsory.Vlt_CancelDate__c}" style="width:100px;"></apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column>  
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceAmount__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceAmount__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div style="width:100px;">
+                                <apex:outputField id="Cps_InsuranceAmount__c" value="{!row.theCompulsory.Cps_InsuranceAmount__c}" style="width:100px;">
+                                    
+                                </apex:outputField>
+                            </div>
+                            <div style="width:100px;">
+                                <apex:outputField id="Vlt_InsuranceAmount__c" value="{!row.theCompulsory.Vlt_InsuranceAmount__c}" style="width:100px;">
+                                    
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_CommissionRate__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_CommissionRate__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div >
+                                <apex:outputField id="Cps_CommissionRate__c" value="{!row.theCompulsory.Cps_CommissionRate__c}" style="width:80px;">
+                                    
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_CommissionRate__c" value="{!row.theCompulsory.Vlt_CommissionRate__c}" style="width:80px;">
+                                    
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_Commission__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Commission__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div>
+                                <apex:outputField id="Cps_Commission__c" value="{!row.theCompulsory.Cps_Commission__c}" style="width:80px;">
+                                    
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_Commission__c" value="{!row.theCompulsory.Vlt_Commission__c}" style="width:80px;">
+                                    
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_Currency__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Currency__c.label}"></apex:outputText><br/>
+                                </div>                                  
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div >
+                                <apex:outputField id="Cps_Currency__c" value="{!row.theCompulsory.Cps_Currency__c}" style="width:60px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_Currency__c" value="{!row.theCompulsory.Vlt_Currency__c}" style="width:60px;">
+                                </apex:outputField>
+                            </div>
+                            
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <!-- 1 -->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_AfterDeathImpediment__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.VIt_VehicleDamage__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_DriverInjury__c.label}"></apex:outputText><br/>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div style="width:90px;">
+                                <apex:outputField id="Cps_AfterDeathImpediment__c" value="{!row.theCompulsory.Cps_AfterDeathImpediment__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div style="width:90px;">
+                                <apex:outputField id="VIt_VehicleDamage__c" value="{!row.theCompulsory.VIt_VehicleDamage__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div style="width:90px;">
+                                <apex:outputField id="Vlt_DriverInjury__c" value="{!row.theCompulsory.Vlt_DriverInjury__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <!--2-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtAfterDeathImpediment__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_GlassBreakage__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_PassengerInjury__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div >
+                                <apex:outputField id="Cps_NoLbtAfterDeathImpediment__c" value="{!row.theCompulsory.Cps_NoLbtAfterDeathImpediment__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_GlassBreakage__c" value="{!row.theCompulsory.Vlt_GlassBreakage__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_PassengerInjury__c" value="{!row.theCompulsory.Vlt_PassengerInjury__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <!--3-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_MedicalCost__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_3rdPartyDamage__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Selfburning__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div >
+                                <apex:outputField id="Cps_MedicalCost__c" value="{!row.theCompulsory.Cps_MedicalCost__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_3rdPartyDamage__c" value="{!row.theCompulsory.Vlt_3rdPartyDamage__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_Selfburning__c" value="{!row.theCompulsory.Vlt_Selfburning__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <!--4-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtAfterDeathMedicalCost__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.VIt_VehicleTheft__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Submersion__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div >
+                                <apex:outputField id="Cps_NoLbtAfterDeathMedicalCost__c" value="{!row.theCompulsory.Cps_NoLbtAfterDeathMedicalCost__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="VIt_VehicleTheft__c" value="{!row.theCompulsory.VIt_VehicleTheft__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_Submersion__c" value="{!row.theCompulsory.Vlt_Submersion__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <!--5-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_PropertyLoss__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.VIt_ScratchDamage__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_OtherItems__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div >
+                                <apex:outputField id="Cps_PropertyLoss__c" value="{!row.theCompulsory.Cps_PropertyLoss__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="VIt_ScratchDamage__c" value="{!row.theCompulsory.VIt_ScratchDamage__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_OtherItems__c" value="{!row.theCompulsory.Vlt_OtherItems__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                    <!--6-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtPropertyLoss__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_PsgrPersonalAccident__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div >
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Remark__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputPanel >
+                            <div >
+                                <apex:outputField id="Cps_NoLbtPropertyLoss__c" value="{!row.theCompulsory.Cps_NoLbtPropertyLoss__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_PsgrPersonalAccident__c" value="{!row.theCompulsory.Vlt_PsgrPersonalAccident__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                            <div >
+                                <apex:outputField id="Vlt_Remark__c" value="{!row.theCompulsory.Vlt_Remark__c}" style="width:90px;">
+                                </apex:outputField>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:column> 
+                </apex:dataTable>  
+</apex:page>

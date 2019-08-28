@@ -1,0 +1,236 @@
+<apex:page standardController="account"  extensions="wb_MemberData" action="{!defautvalue}" id="pg">
+
+                
+    <apex:form id="theForm" >
+        <apex:actionFunction name="CallApexMethod2toggleChild" action="{!toggleChild}" reRender="theForm" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!toggleChildIdx}" value="" />
+        </apex:actionFunction>        
+        <apex:actionFunction name="CallApexMethod2ExportAsAttachment" action="{!ExportAsAttachment}"  status="myStatus">
+        </apex:actionFunction>
+        
+        <style>
+            .pageBlockCss {
+            border-collapse:collapse;
+            border-width: 1px;
+            border-color: #F8F8F8;
+            }
+            .pageBlockCss tr {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #F8F8F8;
+            }
+            .pageBlockCss td {
+            border-width: 1px;
+            border-style: solid;
+            border-color: #F8F8F8;
+            }
+            .sign-class{
+            font-size: 10px;
+            font-weight: 700;
+            padding: 0px 5px;
+            margin-right: 2px;
+            border: 1px solid blue;
+            background: blue;
+            color: whitesmoke;
+            margin-bottom:2px;
+            cursor:pointer;
+            }
+        </style>
+        
+        <apex:selectRadio value="{!selectedValue}"  style="width:250px;">
+            <apex:selectOption itemValue="1" itemLabel="ダウンロード">
+            </apex:selectOption>
+            <apex:selectOption itemValue="2" itemLabel="アタッチメント"> 
+            </apex:selectOption>
+                <apex:actionSupport event="onchange" 
+                                                    reRender="theForm" /> 
+        </apex:selectRadio>
+        
+
+        <apex:commandButton value="発行(データ)"  onclick="Export('1');" rendered="{!IF((selectedValue=='1'), true , false)}" />  
+        <apex:commandButton value="発行(データ)"  action="{!ExportAsAttachment}" rendered="{!IF((selectedValue=='2'), true , false)}" /> 
+        <apex:commandButton value="発行（印刷用）"  onclick="GetTemplate();" /> 
+       <!-- <apex:commandButton value="発行（印刷用）"  action="{!ExportData}"/> -->
+        <br/>
+        <script>
+        function  Export(opt) {
+            var tbl = document.getElementById("tbl");
+            var compid;
+            for (var i=1, iLen=tbl.getElementsByTagName("tr").length; i<iLen; i++) {
+                var checkBox = tbl.rows[i].cells[0];
+                var j = i - 1;
+                
+                var CBvalue = document.getElementById('pg:theForm:CF:' + j +':isSelected').checked;
+                // document.getElementById('pg:theForm:pb:theDetail:dateTable:' + theInd  + ':Individual__c_lkwgt')
+                if (CBvalue){
+                    if (compid == null )
+                        compid = tbl.rows[i].cells[6].innerHTML;
+                    else 
+                        compid = compid + ',' + tbl.rows[i].cells[6].innerHTML;
+                    
+                }
+                // alert(compid);
+                // alert(tbl.rows[i].cells[6].innerHTML);
+            }
+                    
+            if (opt==1){
+                // alert('1');
+                 
+                try {
+                    var tbl = document.getElementById("tbl");
+                    var compid;
+                    for (var i=1, iLen=tbl.getElementsByTagName("tr").length; i<iLen; i++) {
+                       var checkBox = tbl.rows[i].cells[0];
+                        var j = i - 1;
+              
+                         var CBvalue = document.getElementById('pg:theForm:CF:' + j +':isSelected').checked;
+                        // document.getElementById('pg:theForm:pb:theDetail:dateTable:' + theInd  + ':Individual__c_lkwgt')
+                        if (CBvalue){
+                            if (compid == null )
+                               compid = tbl.rows[i].cells[6].innerHTML;
+                            else 
+                                compid = compid + ',' + tbl.rows[i].cells[6].innerHTML;
+                                
+                        }
+                        // alert(compid);
+                        // alert(tbl.rows[i].cells[6].innerHTML);
+                    }
+                    
+                    // alert({!selectedValue});
+                    if ({!selectedValue}==1){
+                        var baseURL = getBaseURL(); 
+                        var para = '?'+'pv0=' +compid; 
+                        baseURL = baseURL + 'apex/wb_MemberDataExport'; 
+                        window.open(baseURL + para );
+                    }
+                    if ({!selectedValue}==2){
+                        //  try { 
+                                alert('CallApexMethod2ExportAsAttachment');
+                                // sforce.apex.execute("wb_MemberData","saveAsAttachment",{pv0:"{!Account.Id}"}); 
+                                CallApexMethod2ExportAsAttachment();
+                        //   } 
+                        //    catch(e) { 
+                        //        alert(e.message); 
+                        //     } 
+                    }
+                    //ExportMembershipData(compid);
+                    /*
+                    var baseURL = getBaseURL(); 
+                    var para = '?'+'pv0=' +compid; 
+                    baseURL = baseURL + 'apex/wb_MemberDataExport'; 
+                    //alert(baseURL + para );
+                    window.open(baseURL + para ); */
+                }
+                catch(e)
+                {
+                    alert(e);
+                }   
+            }
+            if (opt==2) 
+            {
+                GetTemplate();
+                if ({!selectedValue}==1){
+                    var baseURL = getBaseURL(); 
+                     var para = '?'+'pv0=' +compid; 
+                    baseURL = baseURL + 'apex/wb_MemberDataExport'; 
+                    window.open(baseURL + para );
+                    
+              
+                
+                    //baseURL = baseURL + '/servlet/servlet.FileDownload'; 
+                    //var para='?file=0155D0000002Ftb'; 
+                    //window.open(baseURL + para ); 
+
+                        
+                }
+            }
+        }
+        
+        function  GetTemplate()
+        {
+            var baseURL = getBaseURL(); 
+            baseURL = baseURL + '/servlet/servlet.FileDownload'; 
+            var para='?file=0155D0000002Ftb'; 
+            window.open(baseURL + para ); 
+        }
+        
+        function  ExportToFile(){
+             try {
+                     alert("{!theSelectedCompanyIDs}");
+                }
+                catch(e)
+                { 
+                    alert(e);
+                }   
+        }
+        
+        function getBaseURL() { 
+            var url = location.href; // entire url including querystring - also: window.location.href; 
+            var baseURL = url.substring(0, url.indexOf('/', 14)); 
+            
+            
+            if (baseURL.indexOf('http://localhost') != -1) { 
+                // Base Url for localhost 
+                var url = location.href; // window.location.href; 
+                var pathname = location.pathname; // window.location.pathname; 
+                var index1 = url.indexOf(pathname); 
+                var index2 = url.indexOf("/", index1 + 1); 
+                var baseLocalUrl = url.substr(0, index2); 
+                
+                return baseLocalUrl + "/"; 
+            } 
+            else { 
+                // Root Url for domain name 
+                return baseURL + "/"; 
+            } 
+            
+        }
+        </script>
+        <br/>
+        <table width="100%" class="pageBlockCss" id="tbl" >
+            <tr>
+                <td width="10"><b><apex:outputText value="" /></b></td>
+                <td width="120"><b><apex:outputText value="{!$ObjectType.Account.fields.Jurisdiction__c.label}" /></b></td>
+                <td width="8"><b><apex:outputText value="" /></b> </td>
+                <td width="150"><b><apex:outputText value="{!$ObjectType.Account.fields.Name.label}" /></b> </td>
+                <td width="150"><b><apex:outputText value="{!$ObjectType.Account.fields.CompanyNameEng__c.label}" /></b> </td>
+                <td width="150"><b><apex:outputText value="{!$ObjectType.Account.fields.CompanyPopularName__c.label}" /></b> </td>
+                <td width="10"><apex:outputText value="" /> </td>
+            </tr>
+            <apex:repeat value="{!CompanyFamily}" var="a" id="CF" >
+                <tr>
+                    <td><apex:inputcheckbox value="{!a.isSelected}" id="isSelected"/></td>
+                    <td><b><apex:outputText value="{!a.Jurisdiction}" /></b></td>
+                    <td> 
+                        <b>
+                            <apex:outputPanel rendered="{!IF(a.ChildSign != null, true , false)}" >
+                                <span id="Child-sign-{!a.index}" 
+                                      class="sign-class" 
+                                      onclick="toggleChildTable('{!a.index}');" 
+                                      >{!a.ChildSign}</span> 
+                            </apex:outputPanel>
+                            <script>
+                            function toggleChildTable(Ridx){
+                                
+                                try {
+                                   
+                                    CallApexMethod2toggleChild(Ridx);
+                                }
+                                catch(e)
+                                {
+                                    alert(e);
+                                } 
+                            }
+                            </script>
+                            
+                        </b>
+                    </td>
+                    <td><b><apex:outputText value="{!a.Name}" /></b></td>
+                    <td><b><apex:outputText value="{!a.CompanyNameEng}" /></b></td>
+                    <td><b><apex:outputText value="{!a.CompanyPopularName}" /></b></td>
+                    <td style="display:none;">{!a.theID}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </apex:form>      
+</apex:page>

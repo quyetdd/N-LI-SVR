@@ -1,0 +1,18 @@
+<script type="text/javascript"> 
+var locationOfcurrentPage = document.URL ; 
+alert(locationOfcurrentPage); 
+var first = getUrlVars()["retURL"]; 
+var id = first.substring(first.length -15, first.length); 
+//alert(id); 
+window.location="/apex/NewRenewal"+"?id="+ id; 
+
+
+function getUrlVars() { 
+var vars = {}; 
+var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, 
+function(m,key,value) { 
+vars[key] = value; 
+}); 
+return vars; 
+} 
+</script>

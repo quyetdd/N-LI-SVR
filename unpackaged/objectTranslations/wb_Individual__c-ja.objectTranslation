@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>個人</value>
+    </caseValues>
+    <fields>
+        <label><!-- AC用顧客情報 --></label>
+        <name>AC_Information__c</name>
+    </fields>
+    <fields>
+        <label><!-- 住所 --></label>
+        <name>Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- 所属地区 --></label>
+        <name>AffiliationDistrict__c</name>
+    </fields>
+    <fields>
+        <label><!-- 持病 --></label>
+        <name>ChronicDisease__c</name>
+    </fields>
+    <fields>
+        <label><!-- 苦情区分 --></label>
+        <name>Complaint__c</name>
+        <picklistValues>
+            <masterLabel>なし</masterLabel>
+            <translation><!-- なし --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>やや多い</masterLabel>
+            <translation><!-- やや多い --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>多い</masterLabel>
+            <translation><!-- 多い --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>少ない</masterLabel>
+            <translation><!-- 少ない --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 国際電話国番号 --></label>
+        <name>CountryCallingCodes__c</name>
+    </fields>
+    <fields>
+        <label><!-- 現メンバー番号 --></label>
+        <name>CurrentMemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 生年月日 --></label>
+        <name>DateOfBirth__c</name>
+    </fields>
+    <fields>
+        <label><!-- メールアドレス --></label>
+        <name>EmailAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- 家族番号 --></label>
+        <name>FamilyNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 家族関係 --></label>
+        <name>FamilyRelationship__c</name>
+        <picklistValues>
+            <masterLabel>三女</masterLabel>
+            <translation><!-- 三女 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三男</masterLabel>
+            <translation><!-- 三男 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>会員本人</masterLabel>
+            <translation><!-- 会員本人 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>兄弟</masterLabel>
+            <translation><!-- 兄弟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>四女</masterLabel>
+            <translation><!-- 四女 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>四男</masterLabel>
+            <translation><!-- 四男 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>夫</masterLabel>
+            <translation><!-- 夫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>妹</masterLabel>
+            <translation><!-- 妹 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>妻</masterLabel>
+            <translation><!-- 妻 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>娘</masterLabel>
+            <translation><!-- 娘 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>孫</masterLabel>
+            <translation><!-- 孫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>弟</masterLabel>
+            <translation><!-- 弟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>従妹</masterLabel>
+            <translation><!-- 従妹 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>息子</masterLabel>
+            <translation><!-- 息子 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>次女</masterLabel>
+            <translation><!-- 次女 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>次男</masterLabel>
+            <translation><!-- 次男 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>母</masterLabel>
+            <translation><!-- 母 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>父</masterLabel>
+            <translation><!-- 父 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>甥</masterLabel>
+            <translation><!-- 甥 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>知人</masterLabel>
+            <translation><!-- 知人 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>義妹</masterLabel>
+            <translation><!-- 義妹 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>義母</masterLabel>
+            <translation><!-- 義母 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>義父</masterLabel>
+            <translation><!-- 義父 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>親戚</masterLabel>
+            <translation><!-- 親戚 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長女</masterLabel>
+            <translation><!-- 長女 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長男</masterLabel>
+            <translation><!-- 長男 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 名（カナ） --></label>
+        <name>FirstNameKana__c</name>
+    </fields>
+    <fields>
+        <label><!-- 名（ローマ字） --></label>
+        <name>FirstNameRoma__c</name>
+    </fields>
+    <fields>
+        <label><!-- 健診システム番号 --></label>
+        <name>HealthCheckSystemNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 管轄地区 --></label>
+        <name>Jurisdiction__c</name>
+    </fields>
+    <fields>
+        <label><!-- 姓（カナ） --></label>
+        <name>LastNameKana__c</name>
+    </fields>
+    <fields>
+        <label><!-- 姓（ローマ字） --></label>
+        <name>LastNameRoma__c</name>
+    </fields>
+    <fields>
+        <label><!-- メール配信 --></label>
+        <name>MailDelivery__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員 --></label>
+        <name>Member__c</name>
+        <relationshipLabel><!-- 個人 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員終了日 --></label>
+        <name>MembershipEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員開始日 --></label>
+        <name>MembershipStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 携帯TEL --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- 備考 --></label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧ID --></label>
+        <name>Old_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- 親 --></label>
+        <name>Parent__c</name>
+        <relationshipLabel><!-- 家族 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 役職 --></label>
+        <name>Position__c</name>
+    </fields>
+    <fields>
+        <label><!-- 郵便番号 --></label>
+        <name>PostalCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- 性別 --></label>
+        <name>Sex__c</name>
+        <picklistValues>
+            <masterLabel>女</masterLabel>
+            <translation><!-- 女 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>男</masterLabel>
+            <translation><!-- 男 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- TEL --></label>
+        <name>Tel__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務会社 --></label>
+        <name>WorkingCompany__c</name>
+        <relationshipLabel><!-- 雇員 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 区分 --></label>
+        <name>f_Classification__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社 --></label>
+        <name>f_ContractCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約国 --></label>
+        <name>f_ContractCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約番号 --></label>
+        <name>f_MDContractNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員番号 --></label>
+        <name>f_MemberNo_c__c</name>
+    </fields>
+    <layouts>
+        <layout>個人レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <section>会員情報</section>
+        </sections>
+        <sections>
+            <label><!-- 医療保険 --></label>
+            <section>医療保険</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

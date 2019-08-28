@@ -1,0 +1,6 @@
+<apex:page controller="exportCSVController" cache="true" contentType="text/csv#Export.csv" language="en-US">
+Id,name,Old_Id__c
+    <apex:repeat value="{!sortList}" var="a">
+{!a.Id},'{!a.name}
+    </apex:repeat>
+</apex:page>

@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>CS報告</value>
+    </caseValues>
+    <fields>
+        <label><!-- 回答／メモ --></label>
+        <name>Answer__c</name>
+    </fields>
+    <fields>
+        <label><!-- 対象エリア --></label>
+        <name>Area__c</name>
+        <picklistValues>
+            <masterLabel>CIS</masterLabel>
+            <translation><!-- CIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アジア</masterLabel>
+            <translation><!-- アジア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アフリカ</masterLabel>
+            <translation><!-- アフリカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アメリカ大陸</masterLabel>
+            <translation><!-- アメリカ大陸 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オセアニア</masterLabel>
+            <translation><!-- オセアニア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヨーロッパ</masterLabel>
+            <translation><!-- ヨーロッパ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中東</masterLabel>
+            <translation><!-- 中東 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CS分類 --></label>
+        <name>CSKubun__c</name>
+        <picklistValues>
+            <masterLabel>Thank you</masterLabel>
+            <translation><!-- Thank you --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>苦情</masterLabel>
+            <translation><!-- 苦情 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 対象地区 --></label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会社名 --></label>
+        <name>CompanyName__c</name>
+        <relationshipLabel><!-- CS報告 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 苦情度 --></label>
+        <name>ComplaintLevel__c</name>
+        <picklistValues>
+            <masterLabel>中</masterLabel>
+            <translation><!-- 中 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>低</masterLabel>
+            <translation><!-- 低 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>高</masterLabel>
+            <translation><!-- 高 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 対象管轄地区 --></label>
+        <name>Control_Area__c</name>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コロンボ</masterLabel>
+            <translation><!-- コロンボ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>サンパウロ</masterLabel>
+            <translation><!-- サンパウロ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation><!-- シンガポール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation><!-- ジャカルタ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェンナイ</masterLabel>
+            <translation><!-- チェンナイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>トロント</masterLabel>
+            <translation><!-- トロント --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニューデリー</masterLabel>
+            <translation><!-- ニューデリー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation><!-- ハノイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンコク</masterLabel>
+            <translation><!-- バンコク --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>パリ</masterLabel>
+            <translation><!-- パリ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プノンペン</masterLabel>
+            <translation><!-- プノンペン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation><!-- ホーチミン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコシティ</masterLabel>
+            <translation><!-- メキシコシティ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヤンゴン</masterLabel>
+            <translation><!-- ヤンゴン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>名古屋</masterLabel>
+            <translation><!-- 名古屋 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大阪</masterLabel>
+            <translation><!-- 大阪 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京</masterLabel>
+            <translation><!-- 東京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江蘇</masterLabel>
+            <translation><!-- 江蘇 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華中</masterLabel>
+            <translation><!-- 華中 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華北東部</masterLabel>
+            <translation><!-- 華北東部 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華北西部</masterLabel>
+            <translation><!-- 華北西部 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華南</masterLabel>
+            <translation><!-- 華南 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 所属部門 --></label>
+        <name>Divisions__c</name>
+        <picklistValues>
+            <masterLabel>AC</masterLabel>
+            <translation><!-- AC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS</masterLabel>
+            <translation><!-- CS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Business</masterLabel>
+            <translation><!-- Global Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ILA</masterLabel>
+            <translation><!-- ILA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>システム</masterLabel>
+            <translation><!-- システム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダイナプロ</masterLabel>
+            <translation><!-- ダイナプロ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ブローカー</masterLabel>
+            <translation><!-- ブローカー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>人事総務</masterLabel>
+            <translation><!-- 人事総務 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>健診</masterLabel>
+            <translation><!-- 健診 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>営業</masterLabel>
+            <translation><!-- 営業 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>業務統括部</masterLabel>
+            <translation><!-- 業務統括部 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>総合サービス</masterLabel>
+            <translation><!-- 総合サービス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財務</masterLabel>
+            <translation><!-- 財務 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 発生地区 --></label>
+        <name>HasseiArea__c</name>
+        <picklistValues>
+            <masterLabel>NCR</masterLabel>
+            <translation><!-- NCR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アスタナ</masterLabel>
+            <translation><!-- アスタナ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アブダビ</masterLabel>
+            <translation><!-- アブダビ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アンカラ</masterLabel>
+            <translation><!-- アンカラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アーメダバード</masterLabel>
+            <translation><!-- アーメダバード --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>イスタンブール</masterLabel>
+            <translation><!-- イスタンブール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>イラプアト</masterLabel>
+            <translation><!-- イラプアト --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>キエフ</masterLabel>
+            <translation><!-- キエフ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コロンボ</masterLabel>
+            <translation><!-- コロンボ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>サンクトペテルブルク</masterLabel>
+            <translation><!-- サンクトペテルブルク --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation><!-- ジャカルタ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スラバヤ</masterLabel>
+            <translation><!-- スラバヤ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セブ</masterLabel>
+            <translation><!-- セブ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タシケント</masterLabel>
+            <translation><!-- タシケント --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダナン</masterLabel>
+            <translation><!-- ダナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェンナイ</masterLabel>
+            <translation><!-- チェンナイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ドバイ</masterLabel>
+            <translation><!-- ドバイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ナイロビ</masterLabel>
+            <translation><!-- ナイロビ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハイフォン</masterLabel>
+            <translation><!-- ハイフォン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation><!-- ハノイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンガロール</masterLabel>
+            <translation><!-- バンガロール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>パリ</masterLabel>
+            <translation><!-- パリ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プネ</masterLabel>
+            <translation><!-- プネ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プノンペン</masterLabel>
+            <translation><!-- プノンペン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation><!-- ホーチミン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ミンスク</masterLabel>
+            <translation><!-- ミンスク --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ムンバイ</masterLabel>
+            <translation><!-- ムンバイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコシティ</masterLabel>
+            <translation><!-- メキシコシティ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>モスクワ</masterLabel>
+            <translation><!-- モスクワ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヤンゴン</masterLabel>
+            <translation><!-- ヤンゴン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>リッポーチカラン</masterLabel>
+            <translation><!-- リッポーチカラン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中山</masterLabel>
+            <translation><!-- 中山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>仏山</masterLabel>
+            <translation><!-- 仏山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation><!-- 北京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>十堰</masterLabel>
+            <translation><!-- 十堰 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南京</masterLabel>
+            <translation><!-- 南京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南通</masterLabel>
+            <translation><!-- 南通 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>厦門</masterLabel>
+            <translation><!-- 厦門 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>合肥</masterLabel>
+            <translation><!-- 合肥 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>名古屋</masterLabel>
+            <translation><!-- 名古屋 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>唐山</masterLabel>
+            <translation><!-- 唐山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>嘉興</masterLabel>
+            <translation><!-- 嘉興 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>塘沽</masterLabel>
+            <translation><!-- 塘沽 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大阪</masterLabel>
+            <translation><!-- 大阪 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation><!-- 天津 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>寧波</masterLabel>
+            <translation><!-- 寧波 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation><!-- 常州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常熟</masterLabel>
+            <translation><!-- 常熟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平湖</masterLabel>
+            <translation><!-- 平湖 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>張家港</masterLabel>
+            <translation><!-- 張家港 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>恵州</masterLabel>
+            <translation><!-- 恵州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成都</masterLabel>
+            <translation><!-- 成都 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation><!-- 昆山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆明</masterLabel>
+            <translation><!-- 昆明 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州</masterLabel>
+            <translation><!-- 杭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京</masterLabel>
+            <translation><!-- 東京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation><!-- 東莞 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>桂林</masterLabel>
+            <translation><!-- 桂林 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation><!-- 武漢 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汕頭</masterLabel>
+            <translation><!-- 汕頭 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation><!-- 深セン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>済南</masterLabel>
+            <translation><!-- 済南 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>瀋陽</masterLabel>
+            <translation><!-- 瀋陽 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation><!-- 無錫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>煙台</masterLabel>
+            <translation><!-- 煙台 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>珠海</masterLabel>
+            <translation><!-- 珠海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>番禺</masterLabel>
+            <translation><!-- 番禺 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福州</masterLabel>
+            <translation><!-- 福州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>花都</masterLabel>
+            <translation><!-- 花都 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>襄陽</masterLabel>
+            <translation><!-- 襄陽 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鄭州</masterLabel>
+            <translation><!-- 鄭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>重慶</masterLabel>
+            <translation><!-- 重慶 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長春</masterLabel>
+            <translation><!-- 長春 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation><!-- 青島 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>韶関</masterLabel>
+            <translation><!-- 韶関 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 対象国 --></label>
+        <name>HasseiCountry__c</name>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他（CIS）</masterLabel>
+            <translation><!-- その他（CIS） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他（アフリカ）</masterLabel>
+            <translation><!-- その他（アフリカ） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他（アメリカ大陸）</masterLabel>
+            <translation><!-- その他（アメリカ大陸） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他（オセアニア）</masterLabel>
+            <translation><!-- その他（オセアニア） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他（ヨーロッパ）</masterLabel>
+            <translation><!-- その他（ヨーロッパ） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他（中東）</masterLabel>
+            <translation><!-- その他（中東） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アメリカ</masterLabel>
+            <translation><!-- アメリカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アラブ首長国連邦</masterLabel>
+            <translation><!-- アラブ首長国連邦 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>イタリア</masterLabel>
+            <translation><!-- イタリア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation><!-- インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ウクライナ</masterLabel>
+            <translation><!-- ウクライナ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ウズベキスタン</masterLabel>
+            <translation><!-- ウズベキスタン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オランダ</masterLabel>
+            <translation><!-- オランダ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オーストラリア</masterLabel>
+            <translation><!-- オーストラリア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カザフスタン</masterLabel>
+            <translation><!-- カザフスタン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カナダ</masterLabel>
+            <translation><!-- カナダ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カンボジア</masterLabel>
+            <translation><!-- カンボジア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ケニア</masterLabel>
+            <translation><!-- ケニア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation><!-- シンガポール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スリランカ</masterLabel>
+            <translation><!-- スリランカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タイ</masterLabel>
+            <translation><!-- タイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェコ</masterLabel>
+            <translation><!-- チェコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>トルコ</masterLabel>
+            <translation><!-- トルコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニュージーランド</masterLabel>
+            <translation><!-- ニュージーランド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バングラデシュ</masterLabel>
+            <translation><!-- バングラデシュ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>パプアニューギニア</masterLabel>
+            <translation><!-- パプアニューギニア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フランス</masterLabel>
+            <translation><!-- フランス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ブラジル</masterLabel>
+            <translation><!-- ブラジル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベラルーシ</masterLabel>
+            <translation><!-- ベラルーシ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ポーランド</masterLabel>
+            <translation><!-- ポーランド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マカオ</masterLabel>
+            <translation><!-- マカオ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ミャンマー</masterLabel>
+            <translation><!-- ミャンマー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコ</masterLabel>
+            <translation><!-- メキシコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ラオス</masterLabel>
+            <translation><!-- ラオス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ロシア</masterLabel>
+            <translation><!-- ロシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台湾</masterLabel>
+            <translation><!-- 台湾 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大韓民国</masterLabel>
+            <translation><!-- 大韓民国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 会員番号 --></label>
+        <name>ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- 内容 --></label>
+        <name>Naiyo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 所属事務所 --></label>
+        <name>Office__c</name>
+    </fields>
+    <fields>
+        <label><!-- 対策／コメント --></label>
+        <name>Plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- 受理日 --></label>
+        <name>ReceiptDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 報告者氏名 --></label>
+        <name>Receipt__c</name>
+    </fields>
+    <fields>
+        <help><!-- 入手手段に 「その他」を選択した場合に詳細を記入してください --></help>
+        <label><!-- 入手手段（その他） --></label>
+        <name>ReceivedHouhouOther__c</name>
+    </fields>
+    <fields>
+        <label><!-- 入手手段 --></label>
+        <name>ReceivedHouhou__c</name>
+        <picklistValues>
+            <masterLabel>AC電話</masterLabel>
+            <translation><!-- AC電話 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FAX</masterLabel>
+            <translation><!-- FAX --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アテンド時</masterLabel>
+            <translation><!-- アテンド時 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メール</masterLabel>
+            <translation><!-- メール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>営業時</masterLabel>
+            <translation><!-- 営業時 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>来社</masterLabel>
+            <translation><!-- 来社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>電話</masterLabel>
+            <translation><!-- 電話 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 報告地区 --></label>
+        <name>ReportArea__c</name>
+        <picklistValues>
+            <masterLabel>NCR</masterLabel>
+            <translation><!-- NCR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アーメダバード</masterLabel>
+            <translation><!-- アーメダバード --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>イラプアト</masterLabel>
+            <translation><!-- イラプアト --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コロンボ</masterLabel>
+            <translation><!-- コロンボ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation><!-- ジャカルタ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スラバヤ</masterLabel>
+            <translation><!-- スラバヤ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セブ</masterLabel>
+            <translation><!-- セブ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダナン</masterLabel>
+            <translation><!-- ダナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェンナイ</masterLabel>
+            <translation><!-- チェンナイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハイフォン</masterLabel>
+            <translation><!-- ハイフォン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation><!-- ハノイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンガロール</masterLabel>
+            <translation><!-- バンガロール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>パリ</masterLabel>
+            <translation><!-- パリ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プネ</masterLabel>
+            <translation><!-- プネ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プノンペン</masterLabel>
+            <translation><!-- プノンペン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation><!-- ホーチミン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ムンバイ</masterLabel>
+            <translation><!-- ムンバイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコシティ</masterLabel>
+            <translation><!-- メキシコシティ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヤンゴン</masterLabel>
+            <translation><!-- ヤンゴン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>リッポーチカラン</masterLabel>
+            <translation><!-- リッポーチカラン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中山</masterLabel>
+            <translation><!-- 中山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation><!-- 北京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>十堰</masterLabel>
+            <translation><!-- 十堰 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南京</masterLabel>
+            <translation><!-- 南京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南通</masterLabel>
+            <translation><!-- 南通 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>厦門</masterLabel>
+            <translation><!-- 厦門 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>合肥</masterLabel>
+            <translation><!-- 合肥 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>名古屋</masterLabel>
+            <translation><!-- 名古屋 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>塘沽</masterLabel>
+            <translation><!-- 塘沽 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大阪</masterLabel>
+            <translation><!-- 大阪 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation><!-- 天津 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>寧波</masterLabel>
+            <translation><!-- 寧波 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation><!-- 常州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常熟</masterLabel>
+            <translation><!-- 常熟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平湖</masterLabel>
+            <translation><!-- 平湖 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>恵州</masterLabel>
+            <translation><!-- 恵州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成都</masterLabel>
+            <translation><!-- 成都 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation><!-- 昆山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州</masterLabel>
+            <translation><!-- 杭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京</masterLabel>
+            <translation><!-- 東京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation><!-- 東莞 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation><!-- 武漢 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汕頭</masterLabel>
+            <translation><!-- 汕頭 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation><!-- 深セン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>瀋陽</masterLabel>
+            <translation><!-- 瀋陽 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation><!-- 無錫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>煙台</masterLabel>
+            <translation><!-- 煙台 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>珠海</masterLabel>
+            <translation><!-- 珠海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>番禺</masterLabel>
+            <translation><!-- 番禺 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福州</masterLabel>
+            <translation><!-- 福州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>花都</masterLabel>
+            <translation><!-- 花都 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>襄陽</masterLabel>
+            <translation><!-- 襄陽 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鄭州</masterLabel>
+            <translation><!-- 鄭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>重慶</masterLabel>
+            <translation><!-- 重慶 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長春</masterLabel>
+            <translation><!-- 長春 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation><!-- 青島 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 報告国 --></label>
+        <name>ReportCountry__c</name>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation><!-- インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カンボジア</masterLabel>
+            <translation><!-- カンボジア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スリランカ</masterLabel>
+            <translation><!-- スリランカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フランス</masterLabel>
+            <translation><!-- フランス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ミャンマー</masterLabel>
+            <translation><!-- ミャンマー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコ</masterLabel>
+            <translation><!-- メキシコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 氏名 --></label>
+        <name>Shimei__c</name>
+    </fields>
+    <fields>
+        <label><!-- 対象区分詳細 --></label>
+        <name>TargetKubunDetail__c</name>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>サービス全般</masterLabel>
+            <translation><!-- サービス全般 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スタッフの対応</masterLabel>
+            <translation><!-- スタッフの対応 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>施設環境・ルール</masterLabel>
+            <translation><!-- 施設環境・ルール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療内容</masterLabel>
+            <translation><!-- 治療内容 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>職員の対応</masterLabel>
+            <translation><!-- 職員の対応 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 対象区分 --></label>
+        <name>TargetKubun__c</name>
+        <picklistValues>
+            <masterLabel>WB</masterLabel>
+            <translation><!-- WB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>委託業者</masterLabel>
+            <translation><!-- 委託業者 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>病院</masterLabel>
+            <translation><!-- 病院 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 対象詳細に 「その他」を選択した場合は詳細記入してください --></help>
+        <label><!-- 対象詳細（その他） --></label>
+        <name>TargetOther__c</name>
+    </fields>
+    <fields>
+        <label><!-- 電話番号 --></label>
+        <name>Tel__c</name>
+    </fields>
+    <fields>
+        <label><!-- 件名 --></label>
+        <name>Title__c</name>
+    </fields>
+    <layouts>
+        <layout>CS報告レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 再発防止策（Thank you Letterの場合はコメント） --></label>
+            <section>再発防止策（Thank you Letterの場合はコメント）</section>
+        </sections>
+        <sections>
+            <label><!-- 受付情報 --></label>
+            <section>受付情報</section>
+        </sections>
+        <sections>
+            <label><!-- 申立人情報 --></label>
+            <section>申立人情報</section>
+        </sections>
+        <sections>
+            <label><!-- 詳細内容 --></label>
+            <section>詳細内容</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CS報告（報告者用）20170621</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 再発防止策（Thank you Letterの場合はコメントを記入） --></label>
+            <section>再発防止策（Thank you Letterの場合はコメントを記入）</section>
+        </sections>
+        <sections>
+            <label><!-- 受付情報 --></label>
+            <section>受付情報</section>
+        </sections>
+        <sections>
+            <label><!-- 申立人情報 --></label>
+            <section>申立人情報</section>
+        </sections>
+        <sections>
+            <label><!-- 詳細内容 --></label>
+            <section>詳細内容</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CS報告（責任者用）20130724</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 再発防止策（Thank you Letterの場合はコメントを記入） --></label>
+            <section>再発防止策（Thank you Letterの場合はコメントを記入）</section>
+        </sections>
+        <sections>
+            <label><!-- 受付情報 --></label>
+            <section>受付情報</section>
+        </sections>
+        <sections>
+            <label><!-- 申立人情報 --></label>
+            <section>申立人情報</section>
+        </sections>
+        <sections>
+            <label><!-- 詳細内容 --></label>
+            <section>詳細内容</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

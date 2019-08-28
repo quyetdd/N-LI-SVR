@@ -1,0 +1,158 @@
+<apex:page standardController="Account" extensions="CompanyBatchProcessController">
+<apex:form id="form">
+
+
+    <apex:pagemessages /> <!--error message if search picklist are null-->
+    <apex:pageBlock title="{!$Label.CompanySalesPICBatchProcess}" id="block">  
+        <apex:commandButton action="{!search}" value="{!$Label.Search}" id="search" reRender="form"/>    
+        <apex:commandButton action="{!back}" value="{!$Label.Cancel}" id="back"/>              
+        <apex:pageBlockSection columns="1" id="searchPickList">
+            <apex:pageBlockSectionItem id="Region_and_AreaPick" >
+                {!$ObjectType.Account.fields.Region_and_Area__c.Label}
+                <apex:selectList id="Region_and_Area__c" value="{!SelectedRegion_and_Area}" size="1" label="{!$ObjectType.Account.fields.Region_and_Area__c.Label}">
+                    <apex:selectOptions value="{!Region_and_AreaOptions}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange" action="{!fetchCountryNameOptions}" reRender="searchPickList" /> 
+                </apex:selectList>
+            </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem id="countryNamePick" >
+            {!$ObjectType.Account.fields.CountryName__c.Label}
+            <apex:selectList id="CountryName__c" value="{!SelectedCountryName}" size="1" label="{!$ObjectType.Account.fields.CountryName__c.Label}">
+                <apex:selectOptions value="{!CountryNameOptions}"></apex:selectOptions>
+                <apex:actionSupport event="onchange" action="{!fetchJurisdictionOptions}" reRender="searchPickList" /> 
+            </apex:selectList>
+            <!-- 20160912
+            {!$ObjectType.Account.fields.CountryName__c.Label} <apex:inputField value="{!Account.CountryName__c}"/>    
+			-->
+        </apex:pageBlockSectionItem>
+            
+        <apex:pageBlockSectionItem id="jurisdictionPick">
+            {!$ObjectType.Account.fields.Jurisdiction__c.Label}
+            <apex:selectList id="Jurisdiction__c" value="{!SelectedJurisdiction}" size="1" title="Jurisdiction__c">
+                <apex:selectOptions value="{!JurisdictionOptions}"></apex:selectOptions>
+                 <apex:actionSupport event="onchange" action="{!fetchShozokuAreaOptions}" reRender="form" />
+            </apex:selectList>
+            <!--20160912
+			{!$ObjectType.Account.fields.Jurisdiction__c.Label} <apex:inputField value="{!Account.Jurisdiction__c}"/>  -->   
+        </apex:pageBlockSectionItem>            
+        <apex:pageBlockSectionItem id="shozokuAreaPick">
+            {!$ObjectType.Account.fields.ShozokuArea__c.Label}
+            <apex:selectList id="ShozokuArea__c" value="{!SelectedShozokuArea}" size="1" title="ShozokuArea__c">
+                <apex:selectOptions value="{!ShozokuAreaOptions}"></apex:selectOptions>
+                 <apex:actionSupport event="onchange" action="{!fetchEigyoTantoOptions}" reRender="block" /> 
+            </apex:selectList>
+           <!-- {!$ObjectType.Account.fields.ShozokuArea__c.Label} <apex:inputField value="{!Account.ShozokuArea__c}"/>  -->   
+        </apex:pageBlockSectionItem>              
+        <apex:pageBlockSectionItem id="eigyoTantoPick">
+            {!$ObjectType.Account.fields.EigyoTanto__c.Label}
+            <apex:selectList id="EigyoTanto__c" value="{!SelectedEigyoTanto}" size="1" title="EigyoTanto__c">
+                <apex:selectOptions value="{!EigyoTantoOptions}"></apex:selectOptions>
+            </apex:selectList>
+            <!--
+            {!$ObjectType.Account.fields.EigyoTanto__c.Label} <apex:inputField value="{!Account.EigyoTanto__c}"/>     -->
+        </apex:pageBlockSectionItem>  
+        <apex:pageBlockSectionItem id="naimuTantoPick">
+            {!$ObjectType.Account.fields.NaimuTanto__c.Label} 
+             <apex:selectList id="NaimuTanto__c" value="{!SelectedNaimuTanto}" size="1" title="NaimuTanto__c">
+                <apex:selectOptions value="{!NaimuTantoOptions}"></apex:selectOptions>
+            </apex:selectList>
+           <!-- {!$ObjectType.Account.fields.NaimuTanto__c.Label} <apex:inputField value="{!Account.NaimuTanto__c}"/>   -->  
+        </apex:pageBlockSectionItem>  
+        <apex:pageBlockSectionItem id="blEigyoTantoPick">
+            {!$ObjectType.Account.fields.BlEigyoTanto__c.Label}
+             <apex:selectList id="BlEigyoTanto__c" value="{!SelectedBlEigyoTanto}" size="1" title="BlEigyoTanto__c">
+                <apex:selectOptions value="{!BlEigyoTantoOptions}"></apex:selectOptions>
+            </apex:selectList>
+           <!-- {!$ObjectType.Account.fields.BlEigyoTanto__c.Label} <apex:inputField value="{!Account.BlEigyoTanto__c}"/>  -->   
+        </apex:pageBlockSectionItem>                                                                                                                
+        </apex:pageBlockSection>         
+    </apex:pageBlock>
+
+    <apex:pageBlock id="resultPage" rendered="{!showResults}">   
+
+     
+        <apex:commandButton action="{!updateRecord}" value="{!$Label.Update}" id="update"/>  
+        <apex:commandButton action="{!closeSearchTable}" value="{!$Label.Cancel}" id="cancel"/>  
+        <apex:commandButton action="{!selectAll}" value="{!$Label.CheckAll}" id="selectAll"/> 
+        <apex:commandButton action="{!releaseAll}" value="{!$Label.AllUncheck}" id="releaseAll"/> 
+
+        <br/><br/>
+        
+        <apex:pageBlockSection columns="4" id="InputLookUp1">
+            <apex:pageBlockSectionItem id="InputLookUpItem1">
+               {!$Label.New} {!$ObjectType.Account.fields.EigyoTanto__c.Label} <apex:inputField value="{!inputLookUp.EigyoTanto__c}"/>
+            </apex:pageBlockSectionItem>               
+        </apex:pageBlockSection>      
+        <apex:pageBlockSection columns="4" id="InputLookUpItem1">
+            <apex:pageBlockSectionItem id="InputLookUpItem2">
+               {!$Label.New} {!$ObjectType.Account.fields.NaimuTanto__c.Label} <apex:inputField value="{!inputLookUp.NaimuTanto__c}"/>
+            </apex:pageBlockSectionItem>                   
+        </apex:pageBlockSection>   
+        <apex:pageBlockSection columns="4" id="InputLookUp3">
+            <apex:pageBlockSectionItem id="InputLookUpItem3">
+               {!$Label.New} {!$ObjectType.Account.fields.BlEigyoTanto__c.Label}   <apex:inputField value="{!inputLookUp.BlEigyoTanto__c}"/>
+            </apex:pageBlockSectionItem>                   
+        </apex:pageBlockSection>        
+        
+        <br/><br/>
+    
+        <apex:pageBlockTable id="resultTable" value="{!newSearchResults}" var="row"> 
+            <apex:column >
+                <apex:facet name="header">{!$Label.MaturityUpdate}</apex:facet>
+                <apex:inputCheckbox value="{!row.InchargeCheckbox }"/>
+            </apex:column> 
+            <apex:column >       
+                <apex:facet name="header">{!$ObjectType.Account.fields.ShozokuArea__c.Label}</apex:facet>
+                <apex:outputField value="{!row.accountData.ShozokuArea__c}"/>  
+            </apex:column>   
+            <apex:column >     
+                <apex:facet name="header">{!$ObjectType.Account.fields.CompanyCd__c.Label}</apex:facet>
+                <apex:outputField value="{!row.accountData.CompanyCd__c}"/>  
+            </apex:column> 
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.Account.fields.Name.Label}</apex:facet>
+                <apex:outputField value="{!row.accountData.Name}"/>  
+            </apex:column>                    
+            <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.Account.fields.Name.Label}</apex:facet>
+                <apex:outputLink value="/{!row.accountData.id}" id="Namelink">
+                    <apex:outputField value="{!row.accountData.CompanyNameEng__c}"/>  
+                </apex:outputLink>  
+            </apex:column>                    
+            <apex:column >                        
+                <apex:facet name="header">{!$ObjectType.Account.fields.OfficeAdd__c.Label}</apex:facet>
+                <apex:outputField value="{!row.accountData.OfficeAdd__c}"/>  
+            </apex:column>          
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.Account.fields.EigyoTanto__c.Label}</apex:facet>
+                <apex:outputField value="{!row.accountData.EigyoTanto__c}"/>  
+            </apex:column>        
+            <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.Account.fields.EigyoTanto__c.Label}</apex:facet>
+                <apex:outputLink value="/{!row.accountData.EigyoTanto__c}" id="EigyoTantolink">
+                    <apex:outputField value="{!row.accountData.EigyoTanto__r.SeiMeiRoma__c}"/>  
+                </apex:outputLink>
+            </apex:column>                 
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.Account.fields.NaimuTanto__c.Label}</apex:facet>
+                <apex:outputField value="{!row.accountData.NaimuTanto__c}"/>  
+            </apex:column>     
+            <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.Account.fields.NaimuTanto__c.Label}</apex:facet>
+                <apex:outputLink value="/{!row.accountData.NaimuTanto__c}" id="NaimuTantolink">
+                    <apex:outputField value="{!row.accountData.NaimuTanto__r.SeiMeiRoma__c}"/>  
+                </apex:outputLink>
+            </apex:column>                       
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.Account.fields.BlEigyoTanto__c.Label}</apex:facet>
+                <apex:outputField value="{!row.accountData.BlEigyoTanto__c}"/>  
+            </apex:column> 
+            <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.Account.fields.BlEigyoTanto__c.Label}</apex:facet>
+                <apex:outputLink value="/{!row.accountData.BlEigyoTanto__c}" id="BlEigyoTantolink">
+                    <apex:outputField value="{!row.accountData.BlEigyoTanto__r.SeiMeiRoma__c}"/>  
+                </apex:outputLink>
+            </apex:column>                       
+        </apex:pageBlockTable>              
+    </apex:pageBlock>  
+</apex:form>
+</apex:page>

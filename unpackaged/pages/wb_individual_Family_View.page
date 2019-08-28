@@ -1,0 +1,29 @@
+<apex:page standardController="wb_Individual__c" extensions="wb_Individual">
+
+   
+    
+    <style>
+        .panelWrapper {
+        background-color: white;
+        }
+    </style>
+    
+    <apex:outputPanel styleClass="panelWrapper" layout="block">
+            <apex:datatable value="{!WholeFamily}" var="a" columns="9" border="1" cellpadding="4"  >  
+                
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.Name.label}" styleClass="greyColour">{!a.Name}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.Sex__c.label}">{!a.Sex__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FamilyRelationship__c.label}">{!a.FamilyRelationship__c}</apex:column>
+            
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FamilyNo__c.label}">{!a.FamilyNo__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FirstNameKana__c.label}">{!a.FirstNameKana__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.LastNameKana__c.label}">{!a.LastNameKana__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FirstNameRoma__c.label}">{!a.FirstNameRoma__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.LastNameRoma__c.label}">{!a.LastNameRoma__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.DateOfBirth__c.label}">
+                    <apex:outputField value="{!a.DateOfBirth__c}"/>
+                </apex:column>
+      
+            </apex:datatable>
+      </apex:outputPanel>
+</apex:page>

@@ -1,0 +1,60 @@
+<apex:page standardController="ContractInfo__c" extensions="ContractRenewalController" action="{!Init}">
+
+<script type="text/javascript" src="/js/dojo/0.3.1/dojo.js"></script>
+<script src="/soap/ajax/16.0/connection.js"></script>
+
+  <apex:form id="form">
+  
+    <apex:pageBlock title="継続申込書" id="block">
+      
+      <apex:pageBlockButtons >
+        <apex:commandButton value="OK" action="{!cancel}" onclick="javascript:createExcel();" />
+        <apex:commandButton value="戻る" action="{!cancel}" />
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection columns="2" id="section">
+        <apex:pageBlockSectionItem id="sectionItem">
+          <apex:outputLabel value="出力フォーム" for="selectListTemplate"/>
+          <apex:selectList value="{!selectedTemplate}" size="1" id="selectListTemplate" >
+            <apex:selectOptions value="{!templateOptions}" />
+          </apex:selectList>
+        </apex:pageBlockSectionItem>
+        
+      </apex:pageBlockSection>
+      
+    </apex:pageBlock>
+    
+  </apex:form>
+
+<c:JSRenewalCreateExcel contract="{!ContractInfo__c}" IsPersonal="{!IsPersonal}" 
+    Member="{!Member}" MankiDateN="{! MankiDateN}" 
+    KeitaiCdS1="{! KeitaiCdS1}" KeitaiCdF1="{! KeitaiCdF1}" KeitaiCdM1="{! KeitaiCdM1}" 
+    KeitaiCdS2="{! KeitaiCdS2}" KeitaiCdF2="{! KeitaiCdF2}" KeitaiCdM2="{! KeitaiCdM2}" 
+    KeitaiCdS3="{! KeitaiCdS3}" KeitaiCdF3="{! KeitaiCdF3}" KeitaiCdM3="{! KeitaiCdM3}" 
+    data="{!Data}" templateSelectListId="{!$Component.form.block.section.sectionItem.selectListTemplate}" />
+
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.Name}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.MankiDate__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuCompanyName__r.Name}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.OfficePostcd__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuCompanyName__r.OfficePostcd__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.OfficeAdd__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuCompanyName__r.OfficeAdd__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.Busho__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuBusho__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.Yakushoku__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuYakushoku__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.Shimei__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuShimei__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.Phone}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuTel__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.KeiyakuCompanyName__r.Fax}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.SeikyuFax__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.Email__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.Busho__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.Yakushoku__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.Shimei__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.Tel__c}" rendered="false"/>
+<apex:outputField value="{!ContractInfo__c.Fax__c}" rendered="false"/>
+
+
+</apex:page>

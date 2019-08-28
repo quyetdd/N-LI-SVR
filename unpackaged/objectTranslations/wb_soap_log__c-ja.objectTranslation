@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SOAPログ</value>
+    </caseValues>
+    <fields>
+        <label><!-- JStr --></label>
+        <name>JStr__c</name>
+    </fields>
+    <fields>
+        <label><!-- LastAcessDate --></label>
+        <name>LastAcessDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- LogIn --></label>
+        <name>LogIn__c</name>
+    </fields>
+    <fields>
+        <label><!-- MemberID --></label>
+        <name>MemberID__c</name>
+    </fields>
+    <fields>
+        <label><!-- MemberInfo --></label>
+        <name>MemberInfo__c</name>
+    </fields>
+    <fields>
+        <label><!-- MemberNo --></label>
+        <name>MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+</CustomObjectTranslation>

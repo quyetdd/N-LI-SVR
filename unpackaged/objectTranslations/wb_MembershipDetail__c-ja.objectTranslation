@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>会員契約詳細</value>
+    </caseValues>
+    <fields>
+        <label><!-- 金額（割引後） --></label>
+        <name>Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- 追返金額 --></label>
+        <name>BalanceAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求金額 --></label>
+        <name>BillingAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- キャンセル日付 --></label>
+        <name>CancellationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 分類 --></label>
+        <name>Classification__c</name>
+        <picklistValues>
+            <masterLabel>交替</masterLabel>
+            <translation><!-- 交替 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>変更</masterLabel>
+            <translation><!-- 変更 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新規</masterLabel>
+            <translation><!-- 新規 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>移行</masterLabel>
+            <translation><!-- 移行 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>継続</masterLabel>
+            <translation><!-- 継続 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>解約変更</masterLabel>
+            <translation><!-- 解約変更 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>追加</masterLabel>
+            <translation><!-- 追加 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- クロス参照 --></label>
+        <name>CrossReference__c</name>
+        <relationshipLabel><!-- 会員契約詳細 (参考先) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員 --></label>
+        <name>Individual__c</name>
+        <relationshipLabel><!-- 会員契約詳細 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員氏名 --></label>
+        <name>MemberName__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員番号 --></label>
+        <name>MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員 --></label>
+        <name>Member__c</name>
+        <relationshipLabel><!-- 会員契約詳細 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員終了日 --></label>
+        <name>MembershipEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員プラン --></label>
+        <name>MembershipPlan__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員開始日 --></label>
+        <name>MembershipStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員異動日 --></label>
+        <name>MembershipStopDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員契約 --></label>
+        <name>Membership__c</name>
+        <relationshipLabel><!-- 会員契約詳細 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 月単価 --></label>
+        <name>MonthlyUnitAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- 親会員契約詳細 --></label>
+        <name>ParentDetail__c</name>
+        <relationshipLabel><!-- 会員契約詳細 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- アクション待ち --></label>
+        <name>PendingAction__c</name>
+    </fields>
+    <fields>
+        <label><!-- 前詳細 --></label>
+        <name>PreviousRecord__c</name>
+        <relationshipLabel><!-- 会員契約詳細 (前詳細) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 人数 --></label>
+        <name>Quantity__c</name>
+    </fields>
+    <fields>
+        <label><!-- レート --></label>
+        <name>Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 備考 --></label>
+        <name>Remarks__c</name>
+    </fields>
+    <fields>
+        <label><!-- 次タイプ --></label>
+        <name>SecondType__c</name>
+    </fields>
+    <fields>
+        <label><!-- サービス --></label>
+        <name>Service__c</name>
+        <relationshipLabel><!-- 会員契約詳細 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- タイプ --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>仮名</masterLabel>
+            <translation><!-- 仮名 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>入会金</masterLabel>
+            <translation><!-- 入会金 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>単身</masterLabel>
+            <translation><!-- 単身 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>家族</masterLabel>
+            <translation><!-- 家族 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無記名</masterLabel>
+            <translation><!-- 無記名 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 年単価 --></label>
+        <name>UnitAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務会社 --></label>
+        <name>WorkingCompany__c</name>
+        <relationshipLabel><!-- 会員契約詳細 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 請求金額 --></label>
+        <name>f_BillingAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約形態 --></label>
+        <name>f_ContractStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務会社 --></label>
+        <name>f_FamilyWorkingCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- NameforOrderingTxt --></label>
+        <name>f_NameforOrderingTxt__c</name>
+    </fields>
+    <fields>
+        <label><!-- NameforOrdering --></label>
+        <name>f_NameforOrdering__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員・家族 --></label>
+        <name>f_member_or_family__c</name>
+    </fields>
+</CustomObjectTranslation>

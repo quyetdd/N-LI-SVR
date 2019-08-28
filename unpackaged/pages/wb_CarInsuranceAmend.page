@@ -1,0 +1,1314 @@
+<apex:page standardcontroller="wb_CarInsurance__c" extensions="wb_CarInsuranceAmend" id="thePage" sidebar="false" showHeader="false">
+    
+    <apex:form id="theForm" >  
+        
+        
+        <apex:actionFunction name="CallApexMethod2DeletePassenger" action="{!AdditionalPassengerDT_remove}" reRender="theAddtionPassengerSection" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theAdditionalPassengerIdx}" value="" />
+        </apex:actionFunction>   
+        <apex:actionFunction name="CallApexMethod2DeleteCompulsory" action="{!AdditionalCompulsoryDT_remove}" reRender="theAddtionCompulsorySection" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theAdditionalCompulsoryIdx}" value="" />
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="CallApexMethod2ResetReplacementDateValidationStatus" action="{!ResetReplacementDateValidationStatus}" reRender="theForm" status="myStatus">
+        </apex:actionFunction>
+        
+        <apex:pageBlock id="theBlock">
+            
+            <apex:commandButton value="Cancel"  action="{!Cancel}"/>  
+            
+            <apex:commandButton value="Save as Draft"  rendered="{!IF((CIC_ID='null'), true , false)}"
+                                action="{!ValidateSaveAddtionalCarasDraft}" reRender="theForm"/>
+            <apex:commandButton value="Save and Confirm"  rendered="{!IF(AND((CIC_ID='null'),(CarInsuranceAdditionalCar.PendingAction__c=null)), true , false)}"
+                                onclick="if(!confirm('Are you sure?')){return false};"
+                                action="{!ValidateSaveAddtionalCar}" reRender="theForm"/>
+            <apex:commandButton value="Save and Confirm"  rendered="{!IF(AND((CIC_ID='null'),(CarInsuranceAdditionalCar.PendingAction__c='増車待ち')), true , false)}"
+                                onclick="if(!confirm('Are you sure?')){return false};"
+                                action="{!ValidateConfirmAddtionalCarasDraft}" reRender="theForm"/>
+
+            
+           <apex:outputText rendered="{!QuitMe}" id="Quit">
+                <script>
+                try {
+                    
+                    window.opener.location.href = window.opener.location.href;
+                    
+                    self.close();
+                } catch(e)
+                {
+                    alert(e);
+                }
+                </script>
+            </apex:outputText>
+            
+            <apex:pageBlockSection columns="1" id="theHeader" >
+                
+                <apex:outputText id="Name" value="{!CarInsurance.Name}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Name.label}"/>
+                <apex:outputText value="{!CarInsurance.Status__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Status__c.label}"/>
+                
+            </apex:pageBlockSection>
+
+            <apex:pageBlockSection id="theOriginalSection" columns="1"
+                                   rendered="{!IF((CIC_ID!='null'), true , false)}"
+                                   title="変更前" >
+                
+                <apex:pageBlockSection id="theOriginalCarSection" >
+                    
+                    
+                    <apex:dataTable value="{!CarInsurancedCar}" var="row"  cellpadding="4" border="0" onRowClick="highlight(this);">
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Name.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.Name}" style="width:100px;"></apex:outputfield>
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Car__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.Car__c}"  style="width:80px;"></apex:outputfield>
+                            
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:180px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.UsingCompany__c}" style="width:180px;"></apex:outputfield>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Model__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.Model__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>    
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.LegalNumberofSeats__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>  
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.EngineNo__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.EngineNo__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>  
+
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.ReplacedDate__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.ReplacedDate__c}" style="width:100px;"></apex:outputfield>
+                        </apex:column>                         
+                    </apex:dataTable>
+                    
+                    
+                </apex:pageBlockSection>  
+                
+                <apex:pageBlockSection id="theOriginalPassengerSection">
+                    
+                    <apex:include pageName="wb_CIC_PassengerDT"/>
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection id="theOriginalCompulsorySection">
+                    
+                    <apex:include pageName="wb_CIC_CompulsoryDT"/>
+                    
+                </apex:pageBlockSection>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="theChangeOptionSection"
+                                   rendered="{!IF((CIC_ID!='null'), true , false)}"
+                                   columns="1" title="変更種類" >
+                
+                <apex:dataTable id="optionCancel" value="{!ChangeOption}" var="o"  cellpadding="4" border="0" onRowClick="highlight(this);">                   
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="解約"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!o.OpnCarTerminate}" style="width:100px;">
+                            <apex:actionSupport event="onchange" action="{!o.fetchOpnCarTerminate}"
+                                                rerender="theForm"/>
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    
+                    <apex:column rendered="{!IF((ChangeOption.OpnCarTerminate==true), true , false)}" >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:150px;">
+                                    <apex:outputText value="解約日０時"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputfield id="TerminateDate" value="{!o.NewCar.ReplacedDate__c}" style="width:100px;"/>
+                    </apex:column>
+                    
+                    <apex:column rendered="{!IF((ChangeOption.OpnCarTerminate==true), true , false)}"  >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="解約理由"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputtext id="CancellationReason" value="{!o.CancellationReason}"/>
+                    </apex:column>
+                    <apex:column rendered="{!IF((ChangeOption.OpnCarTerminate==true&&ChangeOption.ValidPsgr==true), true , false)}"  >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="搭乗解約"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputcheckbox id="PsgrTerminate" value="{!o.PsgrTerminate}"/>
+                    </apex:column>
+                    
+                    <apex:column rendered="{!IF((ChangeOption.OpnCarTerminate==true&&ChangeOption.ValidCps==true), true , false)}"  >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="強制解約"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputcheckbox id="CpsTerminate" value="{!o.CpsTerminate}"/>
+                    </apex:column>                        
+                    
+                    <apex:column rendered="{!IF((ChangeOption.OpnCarTerminate==true&&ChangeOption.ValidVlt==true), true , false)}"  >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="任意解約"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputcheckbox id="VltTerminate" value="{!o.VltTerminate}"/>
+                    </apex:column>                        
+                    
+                </apex:dataTable>
+                
+                <apex:dataTable id="optionChange" value="{!ChangeOption}" var="o"  cellpadding="4" border="0" onRowClick="highlight(this);">                   
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="入れ替え"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputCheckbox value="{!o.OpnCarExchange}" style="width:100px;">
+                            <apex:actionSupport event="onchange" action="{!o.fetchOpnCarExchange}"
+                                                rerender="theForm"/>
+                        </apex:inputCheckbox>
+                    </apex:column>
+                    
+                    <apex:column rendered="{!IF((ChangeOption.OpnCarExchange==true), true , false)}">
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:150px;">
+                                    <apex:outputText value="異動開始日0時"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputfield id="ReplacedDate__c" value="{!o.NewCar.ReplacedDate__c}" style="width:100px;"/>
+                    </apex:column>
+                    
+                    
+                </apex:dataTable>
+                
+                <apex:commandButton value="Apply" action="{!ApplyChange}" reRender="theForm" rendered="{!IF((ChangeOption.OpnCarTerminate==true), true , false)}"/> 
+                <!--
+<div style="width:900px;">
+<apex:outputText value="{!theMessage}"></apex:outputText><br/>
+</div>
+-->
+                <apex:pageBlockSection id="theRefundSection" title="返金情報"
+                                       rendered="{!IF((CIC_ID!='null'&& ChangeOption.OpnCarTerminate==true), true , false)}" >
+                    <apex:variable var="index" value="{!0}" />  <br/> 
+                
+                    <br/>     
+                    
+                    <apex:dataTable id="RefundList"  value="{!RefundList}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);">
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.Date__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.Refund.Date__c}" style="width:100px;"></apex:outputfield>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.ServiceName__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.Refund.ServiceName__c}" style="width:100px;"></apex:outputfield>
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.ServiceAmount__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputfield value="{!row.Refund.ServiceAmount__c}" style="width:100px;">
+                                 <apex:actionSupport event="onchange" action="{!row.fetchServiceCommission}"
+                                                    reRender="ServiceCommission__c"/> 
+                            </apex:inputfield>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.ServiceCommission__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputfield id="ServiceCommission__c" value="{!row.Refund.ServiceCommission__c}" style="width:100px;"></apex:inputfield>
+                        </apex:column>
+                        
+
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.OptionName__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.Refund.OptionName__c}" style="width:100px;"></apex:outputfield>
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.OptionAmount__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputfield value="{!row.Refund.OptionAmount__c}" style="width:100px;"  rendered="{!IF((row.Refund.OptionName__c!=null), true , false)}"></apex:inputfield>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.OptionCommission__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputfield id="OptionCommission__c" value="{!row.Refund.OptionCommission__c}" style="width:100px;"  rendered="{!IF((row.Refund.OptionName__c!=null), true , false)}"></apex:inputfield>
+                        </apex:column>
+                        <!--
+                         <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:700px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.Memo__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputtext value="{!row.Memo}" style="font-size:9pt;font-weight:bold!important;width:700px;"></apex:inputtext>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:700px;">
+                                        <apex:outputText value="{!$ObjectType.wb_ReceivableServiceFee__c.fields.Memo__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputtext value="{!row.OpMemo}" style="font-size:9pt;font-weight:bold!important;width:700px;"
+                                            rendered="{!IF((row.Refund.OptionName__c!=null), true , false)}"></apex:inputtext>
+                        </apex:column>
+					-->
+                    </apex:dataTable>
+                    <br/> 
+                    <apex:commandButton value="Confirm and Save Refund"
+                                        onclick="if(!confirm('Are you sure?')){return false};"
+                                        action="{!SaveRefund}" reRender="replacementPsgr,theForm" /> 
+                    
+                </apex:pageBlockSection>   
+                
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1" id="theAddtionSection" rendered="{!IF((CIC_ID=='null'||ChangeOption.OpnCarExchange==true), true , false)}"
+                                   title="{!IF((CIC_ID=='null'), '増車詳細' , '入れ替え車')}">  
+                
+                <apex:pageBlockSection columns="1" id="theAddtionCarSection"  >
+                    
+                    <apex:dataTable value="{!CarInsuranceAdditionalCar}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);">
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Name.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.Name}" style="width:100px;"></apex:outputfield>
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Car__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputfield id="Car__c" value="{!row.Car__c}"  style="width:80px;" >
+                                <apex:actionSupport event="onchange" action="{!RetriveAddtionalCarInfo}"
+                                                    reRender="theAddtionSection"/>
+                            </apex:inputfield>
+                            
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputfield value="{!row.UsingCompany__c}" style="width:80px;"></apex:inputfield>
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Model__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.Model__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>   
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Ownership__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputfield value="{!row.Ownership__c}" style="width:80px;"></apex:inputfield>
+                        </apex:column>   
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.LegalNumberofSeats__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>  
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.EngineNo__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.EngineNo__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>  
+                    </apex:dataTable>
+                    <!--<apex:commandButton value="Apply" action="{!ApplyChange}" /> -->
+                    <apex:commandButton value="Apply"
+                                        rendered="{!IF((ChangeOption.OpnCarExchange==true), true , false)}"
+                                        action="{!ReplacementDateValidation}" reRender="theForm" />
+                    
+                </apex:pageBlockSection>
+                
+                <apex:outputText rendered="{!InvalidReplacementDate}" id="InvalidReplacementDate">
+                    <script>
+                    
+                    try {
+                        alert('{!InvalidReplacementDateMessage}');
+                        CallApexMethod2ResetReplacementDateValidationStatus();
+                        
+                    }catch(e)
+                    {
+                        alert(e);
+                    }      
+                    //self.close();
+                    </script>
+                </apex:outputText>
+                
+                <apex:pageBlockSection id="theAddtionPassengerSection"  rendered="{!IF((CarInsuranceAdditionalCar.Car__c!=null), true , false)}">
+                    
+                    <apex:commandButton action="{!NewAdditionalPassengerInsurance}" value="追加" /> 
+                    
+                    <div>
+                        <apex:variable var="index" value="{!0}" /> 
+                    </div>
+                    
+                    
+                    <script>
+                    function confirmation(id) {  
+                        if (!confirm('Do you want to delete row:' +id +'?')) return false;
+                        else return true;
+                    }
+                    function openPopupConfirmDeletePassenger(idx){
+                        try {
+                            if (confirmation(idx)) {
+                                //alert(id);
+                                CallApexMethod2DeletePassenger(idx);
+                            }
+                            
+                        }catch(e)
+                        {
+                            alert(e);
+                        }                       
+                        return false;
+                    }
+                    
+                    </script>
+                    
+                    <apex:dataTable id="Passenger" value="{!PassengerAdditionalDT}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);" >
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:50px;">
+                                        <apex:outputText value="Action"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:variable var="index" value="{!index + 1}" /> 
+                            <apex:commandButton value="削除" onClick="openPopupConfirmDeletePassenger('{!index}');return false;" />
+                            
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:120px;">
+                                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceCompany__c.label}"></apex:outputtext><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            
+                            <apex:selectList id="Psgr_InsuranceCompany__c" value="{!row.thePassenger.Psgr_InsuranceCompany__c}" style="width:120px;" size="1" title="Psgr_InsuranceCompany__c" >
+                                <apex:selectOptions value="{!row.InsuranceCompanyOptions}"></apex:selectOptions>
+                                <apex:actionSupport event="onchange" action="{!row.fetchCommodityOptions}" reRender="Psgr_CommodityName__c,Psgr_InsurancePlan__c,OP_CommodityName__c,OP_Plan__c"/>
+                            </apex:selectList> <br/>
+                            
+                        </apex:column>
+                        
+                        <apex:column rendered="{!IF((CarInsurance.ContractCountry__c=='中国'), false , true)}">
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:120px;">
+                                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_PolicyNumber__c.label}"></apex:outputtext><br/>
+                                    </div>
+                                    <div style="width:120px;">
+                                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_PolicyNumber__c.label}"></apex:outputtext><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            
+                            <apex:inputField value="{!row.thePassenger.Psgr_PolicyNumber__c}" style="width:100px;">
+                            </apex:inputField>
+                            <apex:inputField value="{!row.thePassenger.OP_PolicyNumber__c}" style="width:100px;">
+                            </apex:inputField>
+                            
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:120px;">
+                                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;" 
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CommodityName__c.label}"></apex:outputtext><br/>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CommodityName__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <div style="width:120px;">
+                                <apex:selectList id="Psgr_CommodityName__c" value="{!row.thePassenger.Psgr_CommodityName__c}" style="width:120px;" size="1" title="Psgr_CommodityName__c">
+                                    <apex:selectOptions value="{!row.InsuranceCompanyCommodityOptions}"></apex:selectOptions>
+                                    <apex:actionSupport event="onchange" action="{!row.fetchCompanyCommodityPlan}"
+                                                        reRender="Psgr_InsurancePlan__c,OP_CommodityName__c,OP_Plan__c"/> 
+                                </apex:selectList>
+                            </div>
+                            <div style="width:120px;">
+                                <apex:selectList id="OP_CommodityName__c" value="{!row.thePassenger.OP_CommodityName__c}" style="width:120px;" size="1" title="OP_CommodityName__c">
+                                    <apex:selectOptions value="{!row.OP_CommodityOptions}"></apex:selectOptions>
+                                    <apex:actionSupport event="onchange" action="{!row.fetchOP_CommodityPlan}"
+                                                        reRender="OP_Plan__c"/> 
+                                </apex:selectList>
+                            </div>
+                        </apex:column>    
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsurancePlan__c.label}"></apex:outputtext><br/>
+                                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_Plan__c.label}"></apex:outputtext><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <div style="width:100px;">
+                                <apex:selectList id="Psgr_InsurancePlan__c" value="{!row.thePassenger.Psgr_InsurancePlan__c}" style="width:100px;" size="1" title="Psgr_InsurancePlan__c">
+                                    <apex:selectOptions value="{!row.InsuranceCompanyCommodityPlanOptions}"></apex:selectOptions>
+                                    <apex:actionSupport event="onchange" action="{!row.fetchPlanFee}"
+                                                        reRender="DriverSeatInsurance__o,DriverSeatInsurance__i,PassagerSeatInsurance__c,Psgr_StdPassengerSeatFee__c,Psgr_StdDriverSeatFee__c,Psgr_InsuranceFee__c,Psgr_CommissionRate__c,Psgr_Commission__c,
+                                                                  OP_CommodityName__c,OP_Plan__c,thePsgrBillingAmount,theOPBillingAmount"/> 
+                                </apex:selectList>
+                            </div>
+                            <div style="width:100px;">
+                                <apex:selectList id="OP_Plan__c" value="{!row.thePassenger.OP_Plan__c}" style="width:100px;" size="1" title="OP_Plan__c">
+                                    <apex:selectOptions value="{!row.OP_CommodityPlanOptions}"></apex:selectOptions>
+                                    <apex:actionSupport event="onchange" action="{!row.fetchOPPlanFee}" reRender="OP_StdPassengerSeatFee__c,OP_StdDriverSeatFee__c,OP_InsuranceFee__c,OP_CommissionRate__c,OP_Commission__c,
+                                                                                                                  thePsgrBillingAmount,theOPBillingAmount"/> 
+                                </apex:selectList>
+                            </div>
+                            
+                        </apex:column>     
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;width:100px;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CurrentStartDate__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:100px;">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;width:100px;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CurrentStartDate__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:inputField value="{!row.thePassenger.Psgr_CurrentStartDate__c}" style="width:90px;">
+                                        
+                                        <apex:actionSupport event="onchange" action="{!row.fetchPsgr_EndDate}" rerender="Psgr_CurrentEndDate__c,Psgr_InsuranceFee__c,Psgr_Commission__c"/>
+                                    </apex:inputField>
+                                </div>
+                                <div style="width:100px;">
+                                    <apex:inputField id="OP_CurrentStartDate__c" value="{!row.thePassenger.OP_CurrentStartDate__c}" style="width:90px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchOP_EndDate}" rerender="OP_CurrentEndDate__c,OP_InsuranceFee__c,OP_Commission__c"/>
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column>  
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CurrentEndDate__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:100px;">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CurrentEndDate__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:inputField id="Psgr_CurrentEndDate__c" value="{!row.thePassenger.Psgr_CurrentEndDate__c}" style="width:90px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchPlanFee}" rerender="Psgr_InsuranceFee__c,Psgr_Commission__c"/>
+                                    </apex:inputField>
+                                </div>
+                                <div style="width:100px;">
+                                    <apex:inputField id="OP_CurrentEndDate__c" value="{!row.thePassenger.OP_CurrentEndDate__c}" style="width:90px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchOPPlanFee}" rerender="OP_InsuranceFee__c,OP_Commission__c"/>
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column>  
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:130px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_StdPassengerSeatFee__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:130px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_StdPassengerSeatFee__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputField id="Psgr_StdPassengerSeatFee__c" value="{!row.thePassenger.Psgr_StdPassengerSeatFee__c}" style="width:130px;">
+                                <apex:actionSupport event="onchange" action="{!row.fetchPlanFeeManual}" rerender="Psgr_InsuranceFee__c"/>
+                            </apex:inputField>
+                            <apex:inputField id="OP_StdPassengerSeatFee__c" value="{!row.thePassenger.OP_StdPassengerSeatFee__c}" style="width:130px;"></apex:inputField>
+                        </apex:column>  
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel style="word-wrap" >
+                                    <div style="width:130px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_StdDriverSeatFee__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:130px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_StdDriverSeatFee__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputField id="Psgr_StdDriverSeatFee__c" value="{!row.thePassenger.Psgr_StdDriverSeatFee__c}" style="width:130px;">
+                                <apex:actionSupport event="onchange" action="{!row.fetchPlanFeeManual}" rerender="Psgr_InsuranceFee__c"/>
+                            </apex:inputField>
+                            <apex:inputField id="OP_StdDriverSeatFee__c" value="{!row.thePassenger.OP_StdDriverSeatFee__c}" style="width:130px;"></apex:inputField>
+                        </apex:column>  
+
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    
+                                    <div style="width:100px">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.PassagerSeatInsurance__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:100px">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.DriverSeatInsurance__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputField id="PassagerSeatInsurance__c" value="{!row.thePassenger.PassagerSeatInsurance__c}" style="width:50px;">
+                                <apex:actionSupport event="onchange" action="{!row.ChangetheNumberofPassagerSeats}" 
+                                                    rerender="Psgr_StdPassengerSeatFee__c,Psgr_InsuranceFee__c,Psgr_Commission__c,OP_Commission__c"/> 
+                            </apex:inputField>
+                            
+                            <apex:outputText value=" + ">
+                            </apex:outputText>
+                            
+                            <apex:outputField id="DriverSeatInsurance__o" value="{!row.thePassenger.DriverSeatInsurance__c}" style="width:10px;" rendered="{!IF((CarInsurance.ContractCountry__c<>'マレーシア'), true , false)}">
+                            </apex:outputField> 
+                            
+                            <apex:inputField id="DriverSeatInsurance__i" value="{!row.thePassenger.DriverSeatInsurance__c}" style="width:20px;" rendered="{!IF((CarInsurance.ContractCountry__c=='マレーシア'), true , false)}">
+                                <apex:actionSupport event="onchange" action="{!row.ChangetheNumberofPassagerSeats}"
+                                                    rerender="Psgr_StdPassengerSeatFee__c,Psgr_InsuranceFee__c,Psgr_Commission__c,OP_Commission__c"/> 
+                            </apex:inputField> 
+                            
+                        </apex:column>  
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel style="word-wrap" >
+                                    <div style="width:100px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="（搭乗）残り保険料"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:100px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="（OP）残り保険料"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <div>
+                                <apex:inputfield id="thePsgrRemainedAmount" value="{!row.thePassenger.Psgr_RemainInsuranceFee__c}" style="width:100px;">
+                                    <apex:actionSupport event="onchange" action="{!row.fetchBillAmount}" reRender="thePsgrBillingAmount,theOPBillingAmount"/>
+                                </apex:inputfield>
+                            </div>
+                            <div>
+                                <apex:inputfield id="theOPRemainedAmount" value="{!row.thePassenger.OP_RemainInsuranceFee__c}" style="width:100px;">
+                                    <apex:actionSupport event="onchange" action="{!row.fetchBillAmount}" reRender="thePsgrBillingAmount,theOPBillingAmount"/>
+                                </apex:inputfield>
+                            </div>
+ 
+                        </apex:column>  
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel style="word-wrap" >
+                                    <div style="width:100px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceFee__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:100px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_InsuranceFee__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputField id="Psgr_InsuranceFee__c" value="{!row.thePassenger.Psgr_InsuranceFee__c}" style="width:100px;">
+                                <apex:actionSupport event="onchange" action="{!row.fetchBillAmount}" reRender="thePsgrBillingAmount,theOPBillingAmount,Psgr_Commission__c,OP_Commission__c"/> 
+                            </apex:inputField>
+                            <apex:inputField id="OP_InsuranceFee__c" value="{!row.thePassenger.OP_InsuranceFee__c}" style="width:100px;">
+                                <apex:actionSupport event="onchange" action="{!row.fetchBillAmount}" reRender="thePsgrBillingAmount,theOPBillingAmount,Psgr_Commission__c,OP_Commission__c"/> 
+                            </apex:inputField>
+                        </apex:column>  
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel style="word-wrap" >
+                                    <div style="width:100px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="（搭乗）保険料差分"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:100px;word-wrap:break-word">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="（OP）保険料差分"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <div>
+                                <apex:outputtext id="thePsgrBillingAmount" value="{!row.thePsgrBillingAmount}" style="width:100px;"></apex:outputtext>
+                            </div>
+                            <div>
+                                <apex:outputtext id="theOPBillingAmount" value="{!row.theOPBillingAmount}" style="width:100px;"></apex:outputtext>
+                            </div>
+
+                        </apex:column>  
+                        
+                                      <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel style="word-wrap" >
+                                <div style="width:100px;word-wrap:break-word">
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CommissionRate__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div style="width:100px;word-wrap:break-word">
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CommissionRate__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputField id="Psgr_CommissionRate__c" value="{!row.thePassenger.Psgr_CommissionRate__c}" style="width:100px;"></apex:outputField><br/>
+                        <apex:outputField id="OP_CommissionRate__c" value="{!row.thePassenger.OP_CommissionRate__c}" style="width:100px;"></apex:outputField>
+                    </apex:column>  
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel style="word-wrap" >
+                                <div style="width:100px;word-wrap:break-word">
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_Commission__c.label}"></apex:outputText><br/>
+                                </div>
+                                <div style="width:100px;word-wrap:break-word">
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_Commission__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputField id="Psgr_Commission__c" value="{!row.thePassenger.Psgr_Commission__c}" style="width:100px;">
+                             <apex:actionSupport event="onchange" action="{!row.ChangethePsgrCommission}" rerender="Psgr_Commission__c,Psgr_CommissionRate__c"/> 
+                        </apex:inputField><br/>
+                        <apex:inputField id="OP_Commission__c" value="{!row.thePassenger.OP_Commission__c}" style="width:100px;">
+                             <apex:actionSupport event="onchange" action="{!row.ChangetheOPCommission}" rerender="OP_Commission__c,OP_CommissionRate__c"/> 
+                        </apex:inputField>
+                    </apex:column>  
+                    
+                        
+                    </apex:dataTable>
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="2" id="theAddtionCompulsorySection" rendered="{!IF((CarInsuranceAdditionalCar.Car__c!=null), true , false)}" >
+                    <apex:commandButton action="{!NewAdditionalCompulsoryInsurance}" value="追加" />  <br/>
+                    <div>
+                        <apex:variable var="index" value="{!0}" /> 
+                    </div>
+                    <apex:dataTable id="Compulsory"  value="{!CompulsoryAdditionalDT}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);">
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:50px;">
+                                        <apex:outputText value="Action"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:variable var="index" value="{!index + 1}" /> 
+                            <apex:commandButton value="削除" onClick="openPopupConfirmDeleteWin('{!index}');return false;" />
+                            
+                            <script>
+                            function confirmation(idx) {  
+                                if (!confirm('Do you want to delete row ' + idx + '?')) return false;
+                                else return true;
+                            }
+                            function openPopupConfirmDeleteWin(idx){
+                                try {
+                                    if (confirmation(idx)) {
+                                        // alert(idx +' ' +id);
+                                        CallApexMethod2DeleteCompulsory(idx);
+                                    }
+                                    
+                                }catch(e)
+                                {
+                                    alert(e);
+                                }                       
+                                return false;
+                            }
+                            
+                            </script>
+                            
+                        </apex:column>
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div >
+                                        <apex:outputtext value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceCompany__c.label}"></apex:outputtext><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputtext value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceCompany__c.label}"></apex:outputtext><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            
+                            <apex:selectList id="Cps_InsuranceCompany__c" value="{!row.theCompulsory.Cps_InsuranceCompany__c}" style="width:120px;" size="1" title="Cps_InsuranceCompany__c">
+                                <apex:selectOptions value="{!row.Cps_InsuranceCompanyOptions}"></apex:selectOptions>
+                                <apex:actionSupport event="onchange" action="{!row.fetchComplusoryInsuranceFee}"
+                                                    reRender="Cps_AfterDeathImpediment__c,Cps_MedicalCost__c,
+                                                              Cps_PropertyLoss__c,Cps_NoLbtAfterDeathImpediment__c,Cps_NoLbtAfterDeathMedicalCost__c,
+                                                              Cps_NoLbtPropertyLoss__c,Cps_InsuranceAmount__c,Cps_CommissionRate__c,Cps_Commission__c,Cps_Service__c,Cps_Currency__c"/> 
+                            </apex:selectList> <br/>
+                            <apex:selectList id="Vlt_InsuranceCompany__c" value="{!row.theCompulsory.Vlt_InsuranceCompany__c}" style="width:120px;" size="1" title="Cps_InsuranceCompany__c">
+                                <apex:selectOptions value="{!row.Vlt_InsuranceCompanyOptions}"></apex:selectOptions>
+                                <apex:actionSupport event="onchange" action="{!row.fetchVoluntaryInsuranceFee}"
+                                                    reRender="Vlt_Currency__c"/> 
+                            </apex:selectList> <br/>
+                            
+                        </apex:column>          
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div  style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_PolicyNumber__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div  style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_PolicyNumber__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <div  style="width:100px;">
+                                <apex:inputField id="Cps_PolicyNumber__c" value="{!row.theCompulsory.Cps_PolicyNumber__c}" style="width:100px;"></apex:inputField>
+                            </div>
+                            <div style="width:100px;">
+                                <apex:inputField id="Vlt_PolicyNumber__c" value="{!row.theCompulsory.Vlt_PolicyNumber__c}" style="width:100px;"></apex:inputField>
+                            </div>
+                        </apex:column>  
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_CurrentStartDate__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div style="width:80px;">
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_StartDate__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:inputField id="Cps_CurrentStartDate__c" value="{!row.theCompulsory.Cps_CurrentStartDate__c}" style="width:80px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchCps_EndDate}" reRender="Cps_CurrentEndDate__c,Cps_CancelDate__c"/> 
+                                    </apex:inputField>
+                                </div>
+                                <div style="width:80px;">
+                                    <apex:inputField id="Vlt_StartDate__c" value="{!row.theCompulsory.Vlt_StartDate__c}" style="width:80px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchVlt_EndDate}" reRender="Vlt_EndDate__c,Vlt_CancelDate__c"/> 
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column>    
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!SUBSTITUTE($ObjectType.wb_CIC_Compulsory__c.fields.Cps_CurrentEndDate__c.label,'（強制）','')}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!SUBSTITUTE($ObjectType.wb_CIC_Compulsory__c.fields.Vlt_EndDate__c.label,'（任意）','')}"></apex:outputText><br/>
+                                        
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div style="width:70px;">
+                                    <apex:inputField id="Cps_CurrentEndDate__c" value="{!row.theCompulsory.Cps_CurrentEndDate__c}" style="width:70px;"></apex:inputField>
+                                </div>
+                                <div style="width:70px;">
+                                    <apex:inputField id="Vlt_EndDate__c" value="{!row.theCompulsory.Vlt_EndDate__c}" style="width:70px;"></apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column>  
+
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!SUBSTITUTE($ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceAmount__c.label,'（強制）','')}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!SUBSTITUTE($ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceAmount__c.label,'（任意）','')}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div style="width:60px;">
+                                    <apex:inputField id="Cps_InsuranceAmount__c" value="{!row.theCompulsory.Cps_InsuranceAmount__c}" style="width:60px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchCpsCommissionFee}" reRender="Cps_Commission__c"/> 
+                                    </apex:inputField>
+                                </div>
+                                <div style="width:60px;">
+                                    <apex:inputField id="Vlt_InsuranceAmount__c" value="{!row.theCompulsory.Vlt_InsuranceAmount__c}" style="width:60px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchVltCommissionFee}" reRender="Vlt_Commission__c"/> 
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Cps_CommissionRate__c.label,4)}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Vlt_CommissionRate__c.label,4)}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:inputField id="Cps_CommissionRate__c" value="{!row.theCompulsory.Cps_CommissionRate__c}" style="width:60px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchCpsCommissionFee}" reRender="Cps_Commission__c"/> 
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_CommissionRate__c" value="{!row.theCompulsory.Vlt_CommissionRate__c}" style="width:60px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchVltCommissionFee}" reRender="Vlt_Commission__c"/> 
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_Commission__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Commission__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:inputField id="Cps_Commission__c" value="{!row.theCompulsory.Cps_Commission__c}" style="width:70px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchCpsCommissionRate}" reRender="Cps_CommissionRate__c"/> 
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_Commission__c" value="{!row.theCompulsory.Vlt_Commission__c}" style="width:70px;">
+                                        <apex:actionSupport event="onchange" action="{!row.fetchVltCommissionRate}" reRender="Vlt_CommissionRate__c"/> 
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Cps_Currency__c.label,2)}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;" value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Currency__c.label,2)}"></apex:outputText><br/>
+                                    </div>                                  
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:outputField id="Cps_Currency__c" value="{!row.theCompulsory.Cps_Currency__c}" style="width:50px;">
+                                    </apex:outputField>
+                                </div>
+                                <div >
+                                    <apex:outputField id="Vlt_Currency__c" value="{!row.theCompulsory.Vlt_Currency__c}" style="width:50px;">
+                                    </apex:outputField>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <!-- 1-->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Cps_AfterDeathImpediment__c.label,LEN($ObjectType.wb_CIC_Compulsory__c.fields.Cps_AfterDeathImpediment__c.label))}"></apex:outputText><br/>
+                                    </div>
+                                    
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.VIt_VehicleDamage__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_DriverInjury__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:inputField id="Cps_AfterDeathImpediment__c" value="{!row.theCompulsory.Cps_AfterDeathImpediment__c}" style="width:80px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="VIt_VehicleDamage__c" value="{!row.theCompulsory.VIt_VehicleDamage__c}" style="width:80px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_DriverInjury__c" value="{!row.theCompulsory.Vlt_DriverInjury__c}" style="width:80px;">
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <!-- 2-->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtAfterDeathImpediment__c.label,LEN($ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtAfterDeathImpediment__c.label))}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_GlassBreakage__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_PassengerInjury__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:inputField id="Cps_NoLbtAfterDeathImpediment__c" value="{!row.theCompulsory.Cps_NoLbtAfterDeathImpediment__c}" style="width:80px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_GlassBreakage__c" value="{!row.theCompulsory.Vlt_GlassBreakage__c}" style="width:80px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_PassengerInjury__c" value="{!row.theCompulsory.Vlt_PassengerInjury__c}" style="width:80px;">
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <!-- 3-->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Cps_MedicalCost__c.label,LEN($ObjectType.wb_CIC_Compulsory__c.fields.Cps_MedicalCost__c.label))}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_3rdPartyDamage__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div >
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Selfburning__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div >
+                                    
+                                    <apex:inputField id="Cps_MedicalCost__c" value="{!row.theCompulsory.Cps_MedicalCost__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_3rdPartyDamage__c" value="{!row.theCompulsory.Vlt_3rdPartyDamage__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_Selfburning__c" value="{!row.theCompulsory.Vlt_Selfburning__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <!-- 4-->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtAfterDeathMedicalCost__c.label,LEN($ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtAfterDeathMedicalCost__c.label))}"></apex:outputText><br/>
+                                    </div>
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.VIt_VehicleTheft__c.label}"></apex:outputText><br/>
+                                    </div>                               
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Submersion__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div>
+                                    <apex:inputField id="Cps_NoLbtAfterDeathMedicalCost__c" value="{!row.theCompulsory.Cps_NoLbtAfterDeathMedicalCost__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="VIt_VehicleTheft__c" value="{!row.theCompulsory.VIt_VehicleTheft__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_Submersion__c" value="{!row.theCompulsory.Vlt_Submersion__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <!-- 5-->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Cps_PropertyLoss__c.label,LEN($ObjectType.wb_CIC_Compulsory__c.fields.Cps_PropertyLoss__c.label))}"></apex:outputText><br/>
+                                    </div>
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.VIt_ScratchDamage__c.label}"></apex:outputText><br/>
+                                    </div>
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_OtherItems__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div >
+                                    <apex:inputField id="Cps_PropertyLoss__c" value="{!row.theCompulsory.Cps_PropertyLoss__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="VIt_ScratchDamage__c" value="{!row.theCompulsory.VIt_ScratchDamage__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                                <div >
+                                    <apex:inputField id="Vlt_OtherItems__c" value="{!row.theCompulsory.Vlt_OtherItems__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                        <!-- 6-->
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!RIGHT($ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtPropertyLoss__c.label,LEN($ObjectType.wb_CIC_Compulsory__c.fields.Cps_NoLbtPropertyLoss__c.label))}"></apex:outputText><br/>
+                                    </div>
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_PsgrPersonalAccident__c.label}"></apex:outputText><br/>
+                                    </div>                                
+                                    <div>
+                                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                         value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_Remark__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputPanel >
+                                <div>
+                                    <apex:inputField id="Cps_NoLbtPropertyLoss__c" value="{!row.theCompulsory.Cps_NoLbtPropertyLoss__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                                <div>
+                                    <apex:inputField id="Vlt_PsgrPersonalAccident__c" value="{!row.theCompulsory.Vlt_PsgrPersonalAccident__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                                <div>
+                                    <apex:inputField id="Vlt_Remark__c" value="{!row.theCompulsory.Vlt_Remark__c}" style="width:90px;">
+                                    </apex:inputField>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:column> 
+                    </apex:dataTable>   
+                </apex:pageBlockSection> 
+                <apex:commandButton value="Cancel"  action="{!Cancel}"/>  
+                <apex:commandButton value="入替を保存"
+                                    rendered="{!IF((ChangeOption.OpnCarExchange==true), true , false)}"
+                                    action="{!SaveCarReplacementAsDrift}" reRender="theForm" />
+                <apex:commandButton value="入替を確認"
+                                    rendered="{!IF(AND((ChangeOption.OpnCarExchange==true),(CarInsuranceAdditionalCar.PendingAction__c=null)), true , false)}"
+                                    onclick="if(!confirm('Are you sure?')){return false};"    
+                                    action="{!SaveCarReplacement}" reRender="theForm" />
+                <apex:commandButton value="入替を確認"
+                                    rendered="{!IF(AND((ChangeOption.OpnCarExchange==true),(CarInsuranceAdditionalCar.PendingAction__c='入替待ち')), true , false)}"
+                                    onclick="if(!confirm('Are you sure?')){return false};"    
+                                    action="{!ValidateConfirmCarReplacementDrift}" reRender="theForm" />
+                
+            </apex:pageBlockSection> 
+            
+            
+            
+            
+        </apex:pageBlock>
+        <style type="text/css">
+            .dateFormat{
+            visibility:hidden;
+            }
+        </style>
+    </apex:form>
+</apex:page>

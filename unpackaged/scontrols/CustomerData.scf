@@ -1,0 +1,2731 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<script src="/soap/ajax/12.0/connection.js" type="text/javascript"></script>
+		<style type="text/css">
+			body {
+				font-family:'MS UI Gothic','MS PGothic','Hiragino Kaku Gothic Pro','Osaka','Arial','Helvetica',sans-serif;
+				font-size:82%;
+				background-color:#FFFFFF;
+				background-position:left top;
+				background-repeat:repeat-x;
+				margin: 0px 0px 0px 0px;
+			}
+			.bPageTitle {
+				margin-bottom:15px;
+			}
+			body .bPageTitle .secondaryPalette {
+				color:#FFFFFF;
+			}
+			.accountTab .secondaryPalette {
+				background-color:#236FBD;
+				border-color:#236FBD;
+			}
+			.bPageTitle .ptBody {
+				overflow:hidden;
+				padding-bottom:5px;
+				padding-top:5px;
+				width:100%;
+			}
+			.bPageTitle .ptBody .content {
+				display:inline;
+				float:left;
+				padding-left:5px;
+				vertical-align:middle;
+				width:40%;
+			}
+			.accountTab .bPageTitle .pageTitleIcon {
+				background-image:url(/img/icon/accounts32.gif);
+				height:32px;
+				width:32px;
+			}
+			.pageTitleIcon {
+				display:inline;
+				float:left;
+				margin-right:5px;
+				width:32px;
+			}
+			img {
+				border:0pt none;
+			}
+			h1, h2, h3, h4, h5, h6 {
+				margin:0px;
+			}
+			.bPageTitle .ptBody .pageType {
+				font-size:91%;
+			}
+			.bPageTitle h1, .bPageTitle h2 {
+				display:block;
+			}
+			.titleSeparatingColon {
+				display:none;
+			}
+			.bPageTitle .ptBody .pageDescription {
+				font-size:109%;
+				font-weight:bold;
+			}
+			.bPageTitle .content .blank {
+				clear:both;
+				font-size:0%;
+			}
+			.bPageBlock {
+				background-color:#222222;
+				background-image:url(/img/bgPageBlockLeft.gif);
+				background-position:left bottom;
+				background-repeat:no-repeat;
+				border-top:4px solid #222222;
+				clear:both;
+				margin-bottom:9px;
+				padding-bottom:9px;
+			}
+			.bPageBlock .pbHeader {
+				background-color:#EEECD1;
+				border-bottom:1px solid #FFFFFF;
+				margin:0px 2px 0px 0px;
+				padding-bottom:2px;
+			}
+			.bPageBlock .pbBody {
+				background-color:#F3F3EC;
+				margin-right:2px;
+				padding:6px 20px 4px;
+			}
+			.bPageBlock .list {
+				width:100%;
+			}
+			.pbBody, .pbBody a {
+				color:#000000;
+			}
+			th {
+				text-align:left;
+			}
+			.list td, .list th, body.oldForecast .list .last td, body.oldForecast .list .last th {
+				border-bottom:1px solid #E3DEB8;
+				color:#333333;
+				padding:4px 2px 4px 5px;
+			}
+			.list .headerRow th {
+				border-bottom:2px solid #CCCCCC;
+				white-space:nowrap;
+			}
+			.bRelatedList .relatedAccountHierarchy .list th.dataCell {
+				white-space:nowrap;
+			}
+			.list tr.even th, .list tr.odd th, .list tr.even td, .list tr.odd td {
+				vertical-align:top;
+				font-weight:normal;
+			}
+			.bPageBlock .list .last td, .bPageBlock .list .last th {
+				border-bottom-width:0pt;
+			}
+			a {
+				vertical-align:baseline;
+			}
+			.bPageBlock .pbFooter {
+				background-image:url(/img/bgPageBlockRight.gif);
+				background-position:right bottom;
+				background-repeat:repeat-x;
+				display:block;
+				float:right;
+				height:9px;
+				width:9px;
+			}
+			.bPageBlock .pbHeader table, .bPageBlock .pbBottomButtons table {
+				border-spacing:0pt;
+			}
+			.bPageBlock .pbTitle {
+				color:#222222;
+				font-size:91%;
+				margin:0px;
+				vertical-align:middle;
+				width:30%;
+			}
+			.bPageBlock .pbTitle img.minWidth {
+				border:0pt none;
+				display:block;
+				height:1px;
+				margin:0pt 0pt -1px;
+				padding:0pt;
+				visibility:hidden;
+				width:190px;
+			}
+			.pbHeader .pbTitle h2, .pbHeader .pbTitle h3 {
+				color:#333333;
+				display:block;
+				margin:0pt 0pt 0pt 4px;
+				padding:0pt;
+			}
+			.bPageBlock .pbButton {
+				padding:1px 0px;
+				vertical-align:middle;
+				white-space:nowrap;
+			}
+			.btn {
+				background-image:url("/img/bgButton.gif");
+				background-repeat: repeat-x;
+				background-position: left top;
+				border-right:1px solid #5C5D61;
+				border-bottom:1px solid #5C5D61;
+				border-top:none;
+				border-left:none;
+				color:#FFFFFF;
+				margin:0pt 2pt;
+				padding:2px 3px 1px;
+				cursor:pointer;
+				display:inline;
+				font-size:93%;
+				font-family:'MS UI Gothic','MS PGothic','Hiragino Kaku Gothic Pro','Osaka','Arial','Helvetica',sans-serif;
+			}
+			.highlight td, .highlight th {
+				background-color:#FFF;
+			}
+			.btnDisabled {
+				background-image:  url("/img/bgButtonDisabled.gif");
+				background-repeat: repeat-x;
+				background-position: left top;
+				border-right:1px solid #999999;
+				border-bottom:1px solid #999999;
+				border-top:1px solid #CCCCCC;
+				border-left:1px solid #CCCCCC;
+				font-size: 93%;
+				color:#C1C1C1;
+				padding:0 3px 1px 3px;
+				cursor:default;
+				font-size:93%;
+				font-family:'MS UI Gothic','MS PGothic','Hiragino Kaku Gothic Pro','Osaka','Arial','Helvetica',sans-serif;
+			}
+		</style>
+		<script type="text/javascript">
+			<!--
+			window.onload = init;
+			
+			/** 取得データ（配列） */
+			var accountData;
+			/** クエリ発行カウント（同期用） */
+			var queryCount;
+			/** 結果カウント（同期用） */
+			var resultCount;
+			/** 同期フラグ */
+			var queryFlg;
+			/** 同期タイマー */
+			var syncQueryTimer;
+			/** 表示データ（配列）　*/
+			var dispData;
+			/** 階層ランク（連想配列　キー:Id 値:ランク */
+			var dispRank;
+			
+			/** 会員情報取得クエリカウント（同期用） */
+			var queryMemCount;
+			/** 会員情報結果カウント（同期用） */
+			var resultMemCount;
+			/** 会員情報同期フラグ */
+			var queryMemFlg;
+			/** 会員情報同期タイマー */
+			var syncQueryMemTimer;
+			/** 会員情報データ（配列） */
+			var memData;
+
+			/** 会員（家族）情報取得クエリカウント（同期用） */
+			var queryFamiCount;
+			/** 会員（家族）情報結果カウント（同期用） */
+			var resultFamiCount;
+			/** 会員（家族）情報同期フラグ */
+			var queryFamiFlg;
+			/** 会員（家族）情報同期タイマー */
+			var syncQueryFamiTimer;
+			/** 会員（家族）情報データ */
+			var famiData;
+			
+			/** 会員情報取得完了フラグ */
+			var endDataMem;
+			/** 会員（家族）情報取得完了フラグ */
+			var endDataFami;
+			/** 会員情報・会員（家族）情報取得同期タイマー */
+			var syncEndDataTimer;
+			
+			/** Excel出力No配列 */
+			var noArray;
+			
+			/** Excel最大列数 */
+			var EXCLE_MAX_COLUMN = 256;
+			/** Excel最大行数 */
+			var EXCLE_MAX_ROW = 65536;
+			
+			/** Excelヘッダータイトル */
+			var HERADER_TITLE = new Array("No", "WB管轄地区", "契約地区", "（勤務先）会社名称", "（勤務先）住所", "（勤務先）TEL",
+										  "（勤務先）FAX", "（勤務先）担当者", "（勤務先）部署", "（勤務先）役職", "（勤務先）WB営業担当者",
+										  "（勤務先）WB内務担当者", "（契約先）会社名称", "（契約先）住所", "（契約先）TEL", "（契約先）FAX",
+										  "（契約先）担当者", "（契約先）部署", "（契約先）役職", "（契約先）WB営業担当者", "（契約先）WB内務担当者",
+										  "請求先会社名称", "団体名称");
+			/** Excel明細タイトル */
+			var DETAIL_TITLE = new Array("No", "契約先会社名称", "勤務先会社名称", "会員番号", "会員氏名", "担当", "商品",
+										 "契約形態", "契約満期日", "自宅住所", "自宅TEL", "携帯番号", "保険会社", "取扱",
+										 "証券番号", "保険満期日");
+
+			/** 一時保存フォルダ */
+			var FOLDER_NAME = "c:\\temp";
+			/** Excelファイル名 */
+			var FILE_NAME = "ウェルビーメディック会員データ";
+
+// 2008/08/12 moriyama Add Start
+			/** 印刷用Excelファイル名 */
+			var LIST_FILE_NAME = "ウェルビーメディック会員リスト";
+
+			/** テンプレート名 */
+			var DOC_NAME = "memberList";
+
+			/** 取扱判定用定数 */
+			var WB_ATSUKAI = "WB扱い";
+
+			/** ボタン判定用フラグ */
+			var btnFlg;
+
+			/** 表示判定用 */
+			var detailCnt;
+
+// 2008/08/12 moriyama Add End
+
+			/** ヘッダーデータ保持クラス */
+			var HeaderData = function () {
+				this.no;
+				this.kankatsu;
+				this.keiyakuBasyo;
+				this.kinmu_kaisya;
+				this.kinmu_jyusyo;
+				this.kinmu_tel;
+				this.kinmu_fax;
+				this.kinmu_tanto;
+				this.kinmu_busyo;
+				this.kinmu_yakusyoku;
+				this.kinmu_eigyoTanto;
+				this.kinmu_naimuTanto;
+				this.keiyaku_kaisya;
+				this.keiyaku_jyusyo;
+				this.keiyaku_tel;
+				this.keiyaku_fax;
+				this.keiyaku_tanto;
+				this.keiyaku_busyo;
+				this.keiyaku_yakusyoku;
+				this.keiyaku_eigyoTanto;
+				this.keiyaku_naimuTanto;
+				this.seikyusaki;
+				this.dantaimei;
+			}
+			/** 明細データ保持クラス */
+			var DetailData = function () {
+				this.no;
+				this.keiyakuKaisya;
+				this.kinmuKaisya;
+				this.kaiinBango;
+				this.simei;
+				this.tanto;
+				this.syouhin;
+				this.keiyakuKeitai;
+				this.keiyakuManki;
+				this.jyusyo;
+				this.tel;
+				this.keitai;
+				this.hokenKaisya;
+				this.toriatsukai;
+				this.syoukenBango;
+				this.hokenManki;
+				this.hokenKaisyaRyaku;  // 2008/08/12 moriyama Add
+			}
+			/**
+			 * 初期化処理
+			 */
+			function init() {
+				accountData = new Array();
+				queryCount = 0;
+				resultCount = 0;
+				queryFlg = false;
+				
+				// 遷移元の親取引先Idを取得
+				var parentId = "{!Account.ParentId}";
+				if (parentId != null && parentId != "") {
+					// 親取引先がある場合、最上位の取引先を取得
+					getParentData(parentId);
+				} else {
+					// 親取引先が未設定の場合、最上位の取引先とし、子取引先を取得
+					// 遷移元の各情報を初期設定し、データ配列に格納
+					var account = new sforce.SObject("Account");
+					account.Id = "{!Account.Id}";
+					account.Name = "{!Account.Name}";
+					account.ParentId = "{!Account.ParentId}";
+					account.CompanyPopularName__c = "{!Account.CompanyPopularName__c}";
+					account.CompanyCd__c = "{!Account.CompanyCd__c}";
+					account.Jurisdiction__c = "{!Account.Jurisdiction__c}";
+					
+					accountData.push(account);
+					// 子取引先を取得
+					getChildData(account.Id);
+				}
+
+			}
+			/**
+			 * 親取引先を取得する
+			 *
+			 * @param {String} parentId 親取引先Id
+			 */
+			function getParentData(parentId) {
+
+				var query = "Select Id, Name, ParentId, CompanyPopularName__c, Jurisdiction__c, CompanyCd__c From Account Where Id = '" + parentId + "'";
+
+				// クエリ発行
+				var result = sforce.connection.query(query, {
+					onSuccess : successParent,
+					onFailure : failureParent
+				});
+			}
+			/**
+			 * 親取引先取得クエリ成功時<BR>
+			 * 取得した親取引先に更に親取引先がある場合は、クエリを再度発行する<BR>
+			 * 最上位の親取引先を見つけるまで繰り返す
+			 * 
+			 * @param {Object} result
+			 */
+			function successParent(result) {
+
+				var records = result.getArray("records");
+				var record = records[0];
+				if (record.ParentId != null && record.ParentId != "") {
+					// 親会社がある場合、再度親会社を検索
+					getParentData(record.ParentId);
+				} else {
+					// 親会社がなければ、最上位として保持
+					var topParentId = record.Id;
+					// データ配列に格納
+					accountData.push(record);
+					// 子取引先取得
+					getChildData(topParentId);
+				}
+			}
+			/**
+			 * 親取引先取得クエリエラー
+			 * 
+			 * @param {Object} error
+			 */
+			function failureParent(error) {
+				alert("親会社取得時にエラーが発生しました。\n" + error);
+			}
+			/**
+			 * 子取引先取得
+			 * 
+			 * @param {String} parentId 親取引先
+			 */
+			function getChildData(parentId) {
+				
+				var query = "Select Id, Name, ParentId, CompanyPopularName__c, Jurisdiction__c, CompanyCd__c From Account Where ParentId = '" + parentId + "'";
+				
+				// 同期の設定を行う
+				queryCount++;
+				if (!queryFlg) {
+					// 同期のためのタイマー設定
+					syncQueryTimer = setInterval("syncQuery()", 500);
+					queryFlg = true;
+				}
+				// クエリ発行
+				var result = sforce.connection.query(query, {
+					onSuccess : successChild,
+					onFailure : failureChild
+				});
+			}
+			/**
+			 * 子取引先取得クエリ成功時<BR>
+			 * 取得した子取引先に更に子取引先がいないか再度クエリを発行する
+			 * 
+			 * @param {Object} result
+			 */
+			function successChild(result) {
+				
+				var records = result.getArray("records");
+				for (var i = 0; i < records.length; i++) {
+					// データ配列に格納
+					accountData.push(records[i])
+					var id = records[i].Id;
+					// 更に子取引先がいないか再度クエリを発行する
+					getChildData(id);
+				}
+				
+				if (result.queryLocator) {
+					queryCount++;
+					sforce.connection.queryMore(result.queryLocator, {
+						onSuccess : successChild,
+						onFailure : failureChild
+					});
+				}
+				// 同期のために結果カウントをインクリメント
+				resultCount++;
+			}
+			/**
+			 * 子取引先取得クエリエラー
+			 * 
+			 * @param {Object} error
+			 */
+			function failureChild(error) {
+				alert("子会社取得時にエラーが発生しました。\n" + error);
+			}
+			/**
+			 * 子取引先クエリ同期<BR>
+			 * 発行したクエリ数と結果数が同一の場合、終了と判断し、次処理へ
+			 */
+			function syncQuery() {
+				
+				if (queryCount == resultCount) {
+					// クエリ発行数と結果取得が一致した場合
+					// タイマーをクリア
+					clearTimeout(syncQueryTimer);
+					// 表示用データ生成
+					careateDispData();
+				}
+			}
+			/**
+			 * 表示データ生成
+			 */
+			function careateDispData() {
+				
+				dispData = new Array();
+				dispRank = new Array();
+				
+				// 最初の１件目（最上位の取引先）を取得
+				var topAccount = accountData[0];
+				dispData.push(topAccount);
+				dispRank[topAccount.Id] = 0;
+				
+				// 会社コードにてソート
+				for (var i = 0; i < accountData.length; i++) {
+					for (j = i + 1; j < accountData.length - 1; j++) {
+						if (accountData[i].CompanyCd__c > accountData[j].CompanyCd__c) {
+							var temp = accountData[i];
+							accountData[i] = accountData[j];
+							accountData[j] = temp;
+						}
+					}
+				}
+				// 実際の処理へ
+				setDispData(topAccount, 1);
+				// テーブルを生成
+				createTable();
+				
+				if (navigator.userAgent.indexOf("MSIE") == -1) {
+					alert("お使いのブラウザでは処理できません。");
+					return;
+				}
+				
+				try {
+					var obj = new ActiveXObject("Excel.Application");
+				} catch (e) {
+					alert("ActiveXコントロールを有効にしてください。");
+					return;
+				}
+				
+				// ボタンを活性
+				document.getElementById("btnPrint").disabled = false;
+				document.getElementById("btnCheck").disabled = false;
+				document.getElementById("btnUnCheck").disabled = false;
+				document.getElementById("btnCancel").disabled = false;
+				document.getElementById("btnPrint").className = "btn";
+				document.getElementById("btnCheck").className = "btn";
+				document.getElementById("btnUnCheck").className = "btn";
+				document.getElementById("btnCancel").className = "btn";
+// 2008/08/12 moriyama Add Start
+				document.getElementById("btnListPrint").disabled = false;
+				document.getElementById("btnListPrint").className = "btn";
+// 2008/08/12 moriyama Add End
+			}
+			/**
+			 * 親取引先より子取引先を表示配列に設定する<BR>
+			 * 子取引先の更に子取引先がないか再帰呼び出しにて順次設定する
+			 * 
+			 * @param {Object} account 親取引先
+			 * @param {Number} rank 階層ランク
+			 */
+			function setDispData(account, rank) {
+				
+				// 親取引先となるIdを取得
+				var parentId = cutParentId(account.Id);
+				
+				for (var i = 0; i < accountData.length; i++) {
+					data = accountData[i];
+					if (parentId == cutParentId(data.ParentId)) {
+						// 親取引先が同一の場合
+						// 表示配列に格納
+						dispData.push(accountData[i]);
+						// ランクを連想配列に格納
+						dispRank[accountData[i].Id] = rank;
+						// 再帰呼び出しにて更に子取引先がないかチェック
+						setDispData(accountData[i], rank + 1);
+					}
+				}
+				
+			}
+			/**
+			 * idを18桁から15桁へ変換<BR>
+			 * 遷移元のIdは15桁のため
+			 * 
+			 * @param {String} id Id
+			 */
+			function cutParentId(id) {
+				if (id != null && id.length > 15) {
+					id = id.substring(0, 15);
+				}
+				return id;
+			}
+			/**
+			 * テーブル生成<br>
+			 * １件ごとに行を作成し、テーブルに追加する
+			 */
+			function createTable() {
+				
+				var tbody = document.getElementById("listBody");
+				
+				for (var i = 0; i < dispData.length; i++) {
+					
+					var account = dispData[i];
+					
+					// 行を生成し、取得
+					var tr = createRow(account);
+					
+					if ((i % 2) == 1) {
+						// 偶数の場合のCSS
+						tr.className = "dataRow odd";
+					} else {
+						// 奇数の場合のCSS
+						tr.className = "dataRow even";
+					}
+					if (i == 0) {
+						// １件目の場合
+						tr.className = tr.className + " first";
+					}
+					
+					if (i == dispData.length - 1) {
+						// 最後のデータの場合（１件しかない場合も、ここの分岐を実行）
+						tr.className = tr.className + " last";
+					}
+
+					tbody.appendChild(tr);
+					
+				}
+				
+			}
+			/**
+			 * 行生成<BR>
+			 * 各列の生成を行う<br>
+			 * イベントの登録を行う
+			 * 
+			 * @param {Object} account
+			 * @return {Object} 生成された行
+			 */
+			function createRow(account) {
+				
+				var tr = document.createElement("tr");
+				
+				// チェックボックスの列を生成
+				tr.appendChild(createCheckBoxCol(account.Id));
+				// 管轄地区
+				tr.appendChild(createJurisdictionCol(account));
+				// 取引先名の列を生成
+				tr.appendChild(createNameCol(account));
+				// 通称の列を生成
+				tr.appendChild(createCompanyPopularNameCol(account));
+				// イベントを登録
+				tr.onmouseover = function() {if (window.hiOn){hiOn(this);}};
+				tr.onfocus = function() {if (window.hiOn){hiOn(this);}};
+				tr.onmouseout = function() {if (window.hiOff){hiOff(this);}};
+				tr.onblur = function() {if (window.hiOff){hiOff(this);}};
+
+				return tr;
+				
+			}
+			/**
+			 * チェックボックスの列を生成
+			 * 
+			 * @param {Object} id
+			 * @return {Object} 生成された列
+			 */
+			function createCheckBoxCol(id) {
+
+				var td = document.createElement("td");
+				td.className = "actionColumn";
+				
+				var check = document.createElement("input");
+				check.type = "checkbox";
+				check.id = id;
+				
+				td.appendChild(check);
+				
+				return td;
+			}
+			/**
+			 * 管轄地区の列を設定
+			 * 
+			 * @param {Object} account
+			 */
+			function createJurisdictionCol(account) {
+				
+				var td = document.createElement("td");
+				td.className = "dataCell";
+				td.innerHTML = convertNullSpace(convertEscapeSequence(account.Jurisdiction__c));
+				
+				return td;
+
+			}
+			/**
+			 * 取引先名の列を設定<BR>
+			 * リンクを貼り、階層ランクによって前方にスペースを入れる
+			 * 
+			 * @param {Object} account
+			 * @return {Object} 生成された列
+			 */
+			function createNameCol(account) {
+				
+				// 階層ランクを取得
+				var rank = dispRank[account.Id];
+				
+				var th = document.createElement("th");
+				th.className = "dataCell";
+				th.setAttribute("scope", "row");
+				
+				var span = document.createElement("span");
+				span.setAttribute("nowrap", "nowrap");
+				
+				span.innerHTML = "";
+				for (var i = 0; i < rank; i++) {
+					// 階層ランク分スペースを入れる
+					span.innerHTML = span.innerHTML + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+				}
+				
+				th.appendChild(span);
+				
+				// リンク設定
+				var a = document.createElement("a");
+				a.href = "/" + account.Id;
+				a.target = "_top";
+				a.innerHTML = convertEscapeSequence(account.Name);
+				a.setAttribute("nowrap", "nowrap");
+				if (cutParentId(account.Id) == cutParentId("{!Account.Id}")) {
+					// 遷移元の場合は、太字にする
+					a.style.fontWeight = "bold";
+				}
+				th.appendChild(a);
+				
+				return th;
+				
+			}
+			/**
+			 * 通称の列を設定
+			 * 
+			 * @param {Object} account
+			 */
+			function createCompanyPopularNameCol(account) {
+				
+				var td = document.createElement("td");
+				td.className = "dataCell";
+				td.innerHTML = convertNullSpace(convertEscapeSequence(account.CompanyPopularName__c));
+				
+				return td;
+
+			}
+			function convertNullSpace(val) {
+				
+				if (val == null) {
+					return "&nbsp;";
+				}
+				
+				return val;
+			}
+			function convertEscapeSequence(val) {
+				if (val == null) {
+					return val;
+				}
+				val = val.replace(/&/g, "&amp;");
+				val = val.replace(/</g, "&lt;");
+				val = val.replace(/>/g, "&gt;");
+				val = val.replace(/"/g, "&quot;");
+				return val;
+			}
+			/**
+			 * チェックボックスの全チェック・全クリアを行います。
+			 *
+			 * @param {boolean} check 
+			 */
+			function allCheck(check) {
+				var elements = document.getElementsByTagName("input");
+				for (var i =0 ; i < elements.length; i++) {
+					if (elements[i].type == "checkbox") {
+						elements[i].checked = check;
+					}
+				}
+			}
+			/**
+			 * マウスオーバーにて背景色を変更
+			 * 
+			 * @param {Object} row 行オブジェクト
+			 */
+			function hiOn(row) {
+				if (row != null) {
+					addStyleClass(row, 'highlight');
+				}
+			}
+			/**
+			 * マウスアウトにて背景色を元に戻す
+			 * 
+			 * @param {Object} row 行オブジェクト
+			 */
+			function hiOff(row) {
+				if (row != null) {
+					delStyleClass(row, 'highlight');
+				}
+			}
+			/**
+			 * スタイルシート追加
+			 * 
+			 * @param {Object} elem　対象オブジェクト
+			 * @param {Object} clazzName スタイルシートクラス名
+			 */
+			function addStyleClass(elem, clazzName) {
+				var n = " " + elem.className + " ";
+				if (n.indexOf(" " + clazzName + " ") < 0) {
+					var append = (elem.className && elem.className.length > 0) ? " " + clazzName : clazzName;
+					elem.className += append;
+				}
+			}
+			/**
+			 * スタイルシート削除
+			 * 
+			 * @param {Object} elem 対象オブジェクト
+			 * @param {Object} clazzName スタイルシートクラス名
+			 */
+			function delStyleClass(elem, clazzName) {
+				var n = " " + elem.className + " ";
+				var len = clazzName.length;
+				var start = n.indexOf(" " + clazzName + " ");
+				if (start >= 0) {
+					var end = start + len + 1;
+					elem.className = trim(n.substring(0, start) + n.substring(end, n.length));
+					return;
+				}
+			}
+			/**
+			 * 前方トリム
+			 * 
+			 * @param {Object} s 文字列
+			 */
+			function ltrim(s) {
+				return s.replace( /^\s*/, "" );
+			}
+			/**
+			 * 後方トリム
+			 * 
+			 * @param {Object} s 文字列
+			 */
+			function rtrim(s) {
+				return s.replace( /\s*$/, "" );
+			}
+			/**
+			 * トリム
+			 * 
+			 * @param {Object} s　文字列
+			 */
+			function trim(s){
+				return rtrim(ltrim(s));
+			}
+			/**
+			 * ボタンを活性
+			 */
+			function btnEnabled() {
+				// ボタンを活性
+				document.getElementById("btnPrint").disabled = false;
+				document.getElementById("btnCheck").disabled = false;
+				document.getElementById("btnUnCheck").disabled = false;
+				document.getElementById("btnCancel").disabled = false;
+				document.getElementById("btnPrint").className = "btn";
+				document.getElementById("btnCheck").className = "btn";
+				document.getElementById("btnUnCheck").className = "btn";
+				document.getElementById("btnCancel").className = "btn";
+				document.getElementById("btnPrint").value = "発行";
+				document.getElementById("btnCheck").value = "全チェック";
+				document.getElementById("btnUnCheck").value = "全クリア";
+				document.getElementById("btnCancel").value = "キャンセル";
+// 2008/08/12 moriyama Add Start
+				document.getElementById("btnListPrint").disabled = false;
+				document.getElementById("btnListPrint").className = "btn";
+				document.getElementById("btnListPrint").value = "発行(印刷用)";
+// 2008/08/12 moriyama Add End
+			}
+			/**
+			 * 発行処理
+			 */
+// 2008/08/12 moriyama Mod Start
+//			function execute() {
+			function execute(btn) {
+// 2008/08/12 moriyama Mod End
+
+// 2008/08/12 moriyama Add Start
+				btnFlg = btn;
+// 2008/08/12 moriyama Add End
+
+				// 発行対象データ取得
+				var target = getTargetData();
+				if (target.length == 0) {
+					alert("チェックありません。");
+					return;
+				}
+				
+				// ボタンを非活性にする
+				document.getElementById("btnPrint").disabled = true;
+				document.getElementById("btnCheck").disabled = true;
+				document.getElementById("btnUnCheck").disabled = true;
+				document.getElementById("btnCancel").disabled = true;
+				document.getElementById("btnPrint").className = "btnDisabled";
+				document.getElementById("btnCheck").className = "btnDisabled";
+				document.getElementById("btnUnCheck").className = "btnDisabled";
+				document.getElementById("btnCancel").className = "btnDisabled";
+				document.getElementById("btnPrint").value = "処理中...";
+				document.getElementById("btnCheck").value = "処理中...";
+				document.getElementById("btnUnCheck").value = "処理中...";
+				document.getElementById("btnCancel").value = "処理中...";
+// 2008/08/12 moriyama Add Start
+				document.getElementById("btnListPrint").disabled = true;
+				document.getElementById("btnListPrint").className = "btnDisabled";
+				document.getElementById("btnListPrint").value = "処理中...";
+// 2008/08/12 moriyama Add End
+
+				// データ取得同期設定
+				endDataMem = false;
+				endDataFami = false;
+				syncEndDataTimer = setInterval("syncEndData()", 500);
+
+				// 会員（家族）情報取得（件数が多いので、先に実行）
+				getFamilyData(target);
+				// 会員情報取得
+				getMemberData(target);
+			}
+
+			/**
+			 * 発行対象データ取得
+			 * 
+			 * @return {Array} 対象データ
+			 */
+			function getTargetData() {
+				
+				var target = new Array();
+				var elements = document.getElementsByTagName("input");
+				for (var i = 0; i < elements.length; i++) {
+					var element = elements[i];
+					if (element.type == "checkbox") {
+						if (element.checked){
+							// チェックがあるデータのIdを格納
+							target.push(element.id);
+						}
+					}
+				}
+				
+				return target;
+
+			}
+			/**
+			 * 会員情報より出力データを取得
+			 * 
+			 * @param {Array} target 発行対象データ
+			 */
+			function getMemberData(target) {
+				
+				memData = new Array();
+				
+				// 同期設定
+				queryMemCount = 0;
+				resultMemCount = 0;
+				queryMemFlg = false;
+				syncQueryMemTimer = setInterval("syncMemQuery()", 500);
+
+// 2008/08/12 moriyama Mod Start
+				// 実行日の年月日取得
+				var today = getTodayDate(1);
+
+				var query = "SELECT Id,KeiyakuCompanyName__r.Name,KinmuCompany__r.Name,MemberNo__c,Name,Tanto__c,Commodity__c,KeiyakuKeitai__c,"
+						  + "MankiDate__c,Address__c,Tel__c,Mobile__c,OtaName__c,OtaAgency__c,ShokenNo__c,OtaInsuranceShuki__c,OtaRyaku__c,"
+						  + "KinmuCompany__r.Jurisdiction__c,CompanyKeiyakuNo__r.KeiyakuArea__c,KinmuCompany__r.OfficeAdd__c,KinmuCompany__r.Phone," 
+						  + "KinmuCompany__r.Fax,KinmuCompany__r.Shimei__c,KinmuCompany__r.Busho__c,KinmuCompany__r.Yakushoku__c,KinmuCompany__r.EigyoTanto__r.Name,"
+						  + "KinmuCompany__r.NaimuTanto__r.Name,CompanyKeiyakuNo__r.KeiyakuCompanyName__r.OfficeAdd__c,CompanyKeiyakuNo__r.Tel__c,"
+						  + "CompanyKeiyakuNo__r.Fax__c,CompanyKeiyakuNo__r.Shimei__c,CompanyKeiyakuNo__r.Busho__c,CompanyKeiyakuNo__r.Yakushoku__c,"
+						  + "CompanyKeiyakuNo__r.EigyoTanto__r.Name,CompanyKeiyakuNo__r.NaimuTanto__r.Name,CompanyKeiyakuNo__r.SeikyuCompanyName__r.Name,"
+						  + "CompanyKeiyakuNo__r.KeiyakuCompanyName__r.GroupName__r.Name,KinmuCompany__c "
+						  + "FROM MemberInfo__c WHERE (TaikaiDate__c=null or TaikaiDate__c>" + today + ") AND KinmuCompany__c IN ";
+//				var query = "SELECT Id,KeiyakuCompanyName__r.Name,KinmuCompany__r.Name,MemberNo__c,Name,Tanto__c,Commodity__c,KeiyakuKeitai__c,"
+//						  + "MankiDate__c,Address__c,Tel__c,Mobile__c,OtaName__c,OtaAgency__c,ShokenNo__c,OtaInsuranceShuki__c,"
+//						  + "KinmuCompany__r.Jurisdiction__c,CompanyKeiyakuNo__r.KeiyakuArea__c,KinmuCompany__r.OfficeAdd__c,KinmuCompany__r.Phone," 
+//						  + "KinmuCompany__r.Fax,KinmuCompany__r.Shimei__c,KinmuCompany__r.Busho__c,KinmuCompany__r.Yakushoku__c,KinmuCompany__r.EigyoTanto__r.Name,"
+//						  + "KinmuCompany__r.NaimuTanto__r.Name,CompanyKeiyakuNo__r.KeiyakuCompanyName__r.OfficeAdd__c,CompanyKeiyakuNo__r.Tel__c,"
+//						  + "CompanyKeiyakuNo__r.Fax__c,CompanyKeiyakuNo__r.Shimei__c,CompanyKeiyakuNo__r.Busho__c,CompanyKeiyakuNo__r.Yakushoku__c,"
+//						  + "CompanyKeiyakuNo__r.EigyoTanto__r.Name,CompanyKeiyakuNo__r.NaimuTanto__r.Name,CompanyKeiyakuNo__r.SeikyuCompanyName__r.Name,"
+//						  + "CompanyKeiyakuNo__r.KeiyakuCompanyName__r.GroupName__r.Name,KinmuCompany__c "
+//						  + "FROM MemberInfo__c WHERE KinmuCompany__c IN ";
+// 2008/08/12 moriyama Mod End
+
+				var where = "(";
+				var flg = false;
+				for (var i = 0; i < target.length; i++) {
+					if (!flg) {
+						where = where + "'" + target[i] + "'";
+						flg = true;
+					} else {
+						where = where + ",'" + target[i] + "'";
+					}
+					if ((query.length + where.length) > 9900) {
+						// 10000文字を超えないように一旦クエリ発行
+						queryMemCount++;
+						var result = sforce.connection.query(query + where + ")", {
+							onSuccess : successMember,
+							onFailure : failureMember
+						});
+						where = "(";
+						flg = false;
+					}
+				}
+				if (flg) {
+					queryMemCount++;
+					// クエリ発行
+					var result = sforce.connection.query(query + where + ")", {
+						onSuccess : successMember,
+						onFailure : failureMember
+					});
+				}
+				// 同期フラグをOn
+				queryMemFlg = true;
+
+			}
+			/**
+			 * 会員情報データ取得正常時
+			 * 
+			 * @param {Object} result 取得結果
+			 */
+			function successMember(result) {
+				
+				var records = result.getArray("records");
+				for (var i = 0; i < records.length; i++) {
+					// 取得したデータを配列に格納
+					memData.push(records[i]);
+				}
+				if (result.queryLocator) {
+					queryMemCount++;
+					sforce.connection.queryMore(result.queryLocator, {
+						onSuccess : successMember,
+						onFailure : failureMember
+					});
+				}
+				// 結果取得カウントをインクリメント
+				resultMemCount++;
+			}
+			/**
+			 * 会員情報データ取得エラー時
+			 * 
+			 * @param {Object} error
+			 */
+			function failureMember(error) {
+				alert("会員情報取得時にエラーが発生しました。\n" + error);
+				btnEnabled();
+			}
+			/**
+			 * 会員情報取得同期化
+			 */
+			function syncMemQuery() {
+				if (queryMemFlg && queryMemCount == resultMemCount) {
+					// 発行したクエリと結果が同一の場合
+					// タイマークリア
+					clearTimeout(syncQueryMemTimer);
+					// 取得完了フラグ
+					endDataMem = true;
+				}
+			}
+			/**
+			 * 会員（家族）情報より出力データ取得
+			 *
+			 * @param {Array} target　対象データ
+			 */
+			function getFamilyData(target) {
+
+				famiData = new Array();
+				
+				// 同期設定
+				queryFamiCount = 0;
+				resultFamiCount = 0;
+				queryFamiFlg = false;
+				syncQueryFamiTimer = setInterval("syncFamiQuery()", 500);
+
+// 2008/09/12 moriyama Mod Start
+				// 実行日の年月日取得
+				var today = getTodayDate(1);
+				var query = "SELECT Id,MemberNo__c,Name,Commodity__c,KeiyakuKeitai__c,Mobile__c,OtaName__c,OtaAgency__c,ShokenNo__c,OtaInsuranceShuki__c,MemberShimei__c,OtaRyaku__c "
+						  + "From FamilyInfo__c Where (TaikaiDate__c=null or TaikaiDate__c>" + today + ") And MemberShimei__r.KinmuCompany__c IN ";
+// 2008/08/12 moriyama Mod Start
+//				var query = "SELECT Id,MemberNo__c,Name,Commodity__c,KeiyakuKeitai__c,Mobile__c,OtaName__c,OtaAgency__c,ShokenNo__c,OtaInsuranceShuki__c,MemberShimei__c,OtaRyaku__c "
+//						  + "From FamilyInfo__c Where MemberShimei__r.KinmuCompany__c IN ";
+//				var query = "SELECT Id,MemberNo__c,Name,Commodity__c,KeiyakuKeitai__c,Mobile__c,OtaName__c,OtaAgency__c,ShokenNo__c,OtaInsuranceShuki__c,MemberShimei__c "
+//						  + "From FamilyInfo__c Where MemberShimei__r.KinmuCompany__c IN ";
+// 2008/08/12 moriyama Mod End
+// 2008/09/12 moriyama Mod End
+
+				var where = "(";
+				var flg = false;
+				for (var i = 0; i < target.length; i++) {
+					if (!flg) {
+						where = where + "'" + target[i] + "'";
+						flg = true;
+					} else {
+						where = where + ",'" + target[i] + "'";
+					}
+					if ((query.length + where.length) > 9900) {
+						// 10000文字を超えないように一旦クエリ発行
+						queryFamiCount++;
+						var result = sforce.connection.query(query + where + ") ORDER BY MemberNo__c", {
+							onSuccess : successFamily,
+							onFailure : failureFamily
+						});
+						where = "(";
+						flg = false;
+					}
+				}
+				if (flg) {
+					queryFamiCount++;
+					// クエリ発行
+					var result = sforce.connection.query(query + where + ") ORDER BY MemberNo__c", {
+						onSuccess : successFamily,
+						onFailure : failureFamily
+					});
+				}
+				// 同期フラグをOn
+				queryFamiFlg = true;
+				
+			}
+			/**
+			 * 会員（家族）情報データ取得正常時
+			 * 
+			 * @param {Object} result 取得結果
+			 */
+			function successFamily(result) {
+				
+				var records = result.getArray("records");
+				for (var i = 0; i < records.length; i++) {
+					famiData.push(records[i]);
+				}
+				if (result.queryLocator) {
+					queryFamiCount++;
+					sforce.connection.queryMore(result.queryLocator, {
+						onSuccess : successFamily,
+						onFailure : failureFamily
+					});
+				}
+				resultFamiCount++;
+			}
+			/**
+			 * 会員（家族）情報データ取得エラー時
+			 * 
+			 * @param {Object} error
+			 */
+			function failureFamily(error) {
+				alert("会員（家族）情報取得時にエラーが発生しました。\n" + error);
+				btnEnabled();
+			}
+			/**
+			 * 会員（家族）情報同期化
+			 */
+			function syncFamiQuery() {
+				if (queryFamiFlg && queryFamiCount == resultFamiCount) {
+					// 発行したクエリと結果が同一の場合
+					// タイマークリア
+					clearTimeout(syncQueryFamiTimer);
+					// 完了フラグ
+					endDataFami = true;
+				}
+			}
+			/**
+			 * 会員情報・会員（家族）情報取得の同期化
+			 * 
+			 */
+			function syncEndData() {
+				if (endDataMem && endDataFami) {
+					// 会員情報・会員（家族）情報の取得が完了した場合
+
+					// タイマークリア
+					clearTimeout(syncEndDataTimer);
+
+					if (memData.length == 0) {
+						// データが存在しなかった場合
+						alert("対象データが存在しません。");
+						btnEnabled();
+						return;
+					}
+					// Excel生成
+// 2008/08/12 moriyama Mod Start
+//					createExcel();
+					if (btnFlg == 1) {
+						createExcel();
+					} else {
+						createExcelList();
+					}
+// 2008/08/12 moriyama Mod End
+				}
+			}
+			/**
+			 * Excel生成
+			 */
+			function createExcel() {
+				
+				// ヘッダー情報生成
+				var headerData = createHeaderData();
+				// 明細情報生成
+				var detailData = createDetailData();
+
+				// ファイル名用日付設定
+				var date = new Date();
+				var year = date.getFullYear().toString();
+				var month = (date.getMonth() + 1).toString();
+				var day = date.getDate().toString();
+				if (month.length == 1) {
+					month = "0" + month;
+				}
+				if (day.length == 1) {
+					day = "0" + day;
+				}
+				// ファイル名を設定
+				var file_full_name = FILE_NAME + year + month + day + ".xls";
+				// フルパス
+				var path = FOLDER_NAME + "\\" + file_full_name;
+				
+				var objFso = new ActiveXObject("Scripting.FileSystemObject");
+				if(!objFso.FolderExists(FOLDER_NAME)) {
+					// 出力対象フォルダが無い場合は作成
+					objFso.CreateFolder(FOLDER_NAME);
+				}
+				if(objFso.FileExists(path)) {
+					// 既に同一ファイルがある場合、削除
+					objFso.DeleteFile(path, true);
+				}
+				
+				var excel;
+				var book;
+				var sheet;
+				
+				try {
+					// Excelオブジェクト生成
+					excel = new ActiveXObject("Excel.Application");
+					// 表示無効
+					excel.visible = false;
+					// ダイアログ無効
+					excel.DisplayAlerts = false;
+					// WorkBookを追加
+					book = excel.workbooks.Add();
+					
+					// シートを１つのみにする
+					var sheetCount = excel.Worksheets.Count;
+					for (var i = 0; i < sheetCount - 1; i++) {
+						book.Sheets(1).Delete;
+					}
+					// シートを取得
+					sheet = book.Worksheets(1);
+					// ヘッダータイトル出力
+					createHeaderTitle(sheet);
+					// ヘッダー情報出力
+					sheet = createHeader(sheet, headerData, excel, book);
+
+					// シート追加
+					book.Sheets.Add(null, sheet, null, null);
+					
+					sheet = book.Worksheets(excel.Worksheets.Count);
+					// 明細タイトル出力
+					createDetailTitle(sheet);
+					// 明細出力
+					sheet = createDetail(sheet, detailData , excel, book);
+					
+					// 最初のシートを選択
+					book.Worksheets(1).Select;
+					
+					// 保存
+					book.SaveAs(path, -4143);
+					
+				} catch (e) {
+					alert("Excel生成時にエラーが発生しました。");
+					btnEnabled();
+					return;
+				} finally {
+					try {
+						if (sheet != null) {
+							sheet = null;
+						}
+						if (book != null) {
+							book.Close();
+							book = null;
+						}
+						if (excel != null) {
+							excel.Quit();
+							excel = null;
+						}
+					} catch (e) {
+						alert("Excel生成時にエラーが発生しました。");
+						btnEnabled();
+						return;
+					}
+				}
+				
+				var file;
+				if (objFso.FileExists(path)) {
+					// 念のために存在チェック
+					// ファイルオブジェクトを取得
+					file = objFso.getFile(path);
+				} else {
+					// 存在しない場合は、処理を中断
+					alert("作成したファイルが削除されています。");
+					btnEnabled();
+					return;
+				}
+
+				if (file.Size > 5000000) {
+					// 5M以上の場合はファイル添付不可
+					alert("ファイルサイズが大きいため、添付できません。");
+					btnEnabled();
+					return;
+				}
+				
+				var bin;
+				var stream;
+				try {
+					// Stramオブジェクト生成
+					stream = new ActiveXObject("ADODB.Stream");
+					// バイナリ
+					stream.type = 1;
+					// Stramを開く
+					stream.open();
+					// ファイル読込
+					stream.loadFromFile(path);
+					bin = stream.read();
+				} catch (e) {
+					alert("ファイル読込に失敗しました。\n" + "ドメイン間でのデータソースのアクセスが無効になっている可能性があります。");
+					// エラー発生時にファイルが残らないように作成したファイルを削除
+					if(objFso.FileExists(path)) {
+						objFso.DeleteFile(path, true);
+					}
+					btnEnabled();
+					return;
+				} finally {
+					if (stream != null) {
+						try {
+							stream.close();
+						} catch (e) {
+							// クローズエラーは無視
+						}
+						stream = null;
+					}
+				}
+				
+				// 既存の添付ファイルを削除
+				deleteAttachment();
+				
+				// XMLドキュメントととして添付
+				var objDom = new ActiveXObject("Microsoft.XMLDOM");
+				var element = objDom.createElement("data");	// ルートノードを生成
+				element.dataType = "bin.base64";
+				// バイナリ情報を書き込む
+				element.nodeTypedValue = bin;
+
+				// 作成したファイルを削除
+				if(objFso.FileExists(path)) {
+					objFso.DeleteFile(path, true);
+				}
+
+				// ファイルを添付
+				var sobj = new sforce.SObject("Attachment");
+				sobj.Body  = element.text;
+				sobj.Name = file_full_name;
+				sobj.ParentId = "{!Account.Id}";
+				
+				var saveResult = sforce.connection.create([sobj]);
+				if (!saveResult[0].getBoolean("success")) {
+					// 添付失敗
+					alert("ファイル添付に失敗しました。" + saveResult[0]);
+					btnEnabled();
+					return;
+				}
+				
+				alert("正常に終了しました。");
+				window.top.location.href = "/{!Account.Id}";
+
+			}
+
+// 2008/08/12 moriyama Add Start
+			/**
+			 * Excel生成
+			 */
+			function createExcelList() {
+				
+				// ヘッダー情報生成
+				var headerData = createHeaderData();
+				// 明細情報生成
+				var detailData = createDetailData();
+				// ソート用
+				var temp = new Array();
+
+				// 会社コードにてソート
+				for (var i = 0; i < headerData.length; i++) {
+					for (var j = 0; j < detailData.length; j++) {
+						if (headerData[i].no == detailData[j].no) {
+							temp.push(detailData[j]);
+						}
+					}
+				}
+				// ソート後、入れ替え
+				detailData = temp;
+
+				// ファイル名用日付設定
+				var today = getTodayDate(0);
+
+				// 添付用ファイル名を設定
+				var file_full_name = LIST_FILE_NAME + today + ".xls";
+				// フルパス
+				var path = FOLDER_NAME + "\\" + file_full_name;
+				// 編集用ファイル名を設定
+				var temp_path = FOLDER_NAME + "\\" + DOC_NAME + ".xls";
+
+				var objFso = new ActiveXObject("Scripting.FileSystemObject");
+				var stream;
+				try {
+
+					// Stramオブジェクト生成
+					stream = new ActiveXObject("ADODB.Stream");
+					// XMLドキュメントとして取得
+					var objDom = new ActiveXObject("Microsoft.XMLDOM");
+					// テンプレートの取得
+					var getResult = true;
+					getResult = getTempFile(objDom, objFso, stream, temp_path);
+					if (!getResult) {
+						return;
+					}
+
+					var excel;
+					var book;
+					var sheet;
+					var sheetName;
+					var tempSheet1;
+					var tempSheet2;
+
+					try {
+						// Excelオブジェクト生成
+						excel = new ActiveXObject("Excel.Application");
+						// 表示無効
+						excel.visible = false;
+						// ダイアログ無効
+						excel.DisplayAlerts = false;
+						// WorkBookを追加
+						book = excel.workbooks.Add(temp_path);
+
+						tempSheet1 = book.Worksheets("テンプレート1");
+						tempSheet2 = book.Worksheets("テンプレート2");
+						sheetName = "テンプレート2";
+						sheet = book.Worksheets(sheetName);
+						detailCnt = 0;
+
+						// 作成日を取得
+						var makeDate = getTodayDate(1);
+						for (var i = 0; i < headerData.length; i++) {
+							// シート追加
+							book.Worksheets("テンプレート1").Copy(null, sheet);  //アクティブシートの後へ追加する
+							// 新規シートの取得
+							sheet = book.Worksheets(excel.Worksheets.Count);
+							// シート名
+							sheet.Name = "会員リスト" + (i+1);
+
+							// 作成日の設定
+							setCell(sheet.Cells(2, 56), makeDate);
+
+							// ヘッダー情報出力
+							sheet = createHeaderList(sheet, headerData[i]);
+							// 明細出力
+							sheet = createDetailList(sheet, detailData, excel.Worksheets.Count, tempSheet2, makeDate, headerData[i].no, book);
+						}
+
+						// テンプレートシートを削除
+						tempSheet1.Delete;
+						tempSheet2.Delete;
+
+						// 最初のシートを選択
+						book.Worksheets(1).Select;
+
+						// 保存
+						book.SaveAs(path, -4143);
+
+					} catch (e) {
+						alert("Excel生成時にエラーが発生しました。");
+						btnEnabled();
+						return;
+					} finally {
+						try {
+							if (sheet != null) {
+								sheet = null;
+							}
+							if (book != null) {
+								book.Close();
+								book = null;
+							}
+							if (excel != null) {
+								excel.Quit();
+								excel = null;
+							}
+						} catch (e) {
+							alert("Excel生成時にエラーが発生しました。");
+							btnEnabled();
+							return;
+						}
+					}
+
+					var file;
+					if (objFso.FileExists(path)) {
+						// 念のために存在チェック
+						// ファイルオブジェクトを取得
+						file = objFso.getFile(path);
+					} else {
+						// 存在しない場合は、処理を中断
+						alert("作成したファイルが削除されています。");
+						btnEnabled();
+						return;
+					}
+
+					if (file.Size > 5000000) {
+						// 5M以上の場合はファイル添付不可
+						alert("ファイルサイズが大きいため、添付できません。");
+						btnEnabled();
+						return;
+					}
+
+					// Stramを開く
+					stream.open();
+					// ファイル読込
+					stream.loadFromFile(path);
+					bin = stream.read();
+				} catch (e) {
+					alert("ファイル読込に失敗しました。\n" + "ドメイン間でのデータソースのアクセスが無効になっている可能性があります。");
+					// エラー発生時にファイルが残らないように作成したファイルを削除
+					if(objFso.FileExists(temp_path)) {
+						objFso.DeleteFile(temp_path, true);
+					}
+					if(objFso.FileExists(path)) {
+						objFso.DeleteFile(path, true);
+					}
+					btnEnabled();
+					return;
+				} finally {
+					if (stream != null) {
+						try {
+							stream.close();
+						} catch (e) {
+							// クローズエラーは無視
+						}
+						stream = null;
+					}
+				}
+				
+				// 既存の添付ファイルを削除
+				deleteAttachment();
+				
+				// XMLドキュメントとして添付
+				element = null
+				element = objDom.createElement("data");	// ルートノードを生成
+				element.dataType = "bin.base64";
+				// バイナリ情報を書き込む
+				element.nodeTypedValue = bin;
+
+				// ファイルを添付
+				var sobj = new sforce.SObject("Attachment");
+				sobj.Body  = element.text;
+				sobj.Name = file_full_name;
+				sobj.ParentId = "{!Account.Id}";
+
+				// ローカルのファイルを削除
+				if(objFso.FileExists(temp_path)) {
+					objFso.DeleteFile(temp_path, true);
+				}
+				if(objFso.FileExists(path)) {
+					objFso.DeleteFile(path, true);
+				}
+				var saveResult = sforce.connection.create([sobj]);
+				if (!saveResult[0].getBoolean("success")) {
+					// 添付失敗
+					alert("ファイル添付に失敗しました。" + saveResult[0]);
+					btnEnabled();
+					return;
+				}
+				
+				alert("正常に終了しました。");
+				window.top.location.href = "/{!Account.Id}";
+
+			}
+// 2008/08/12 moriyama Add End
+
+// 2008/08/12 moriyama Add Start
+			/**
+			 * テンプレートの取得<br>
+			 * 
+			 */
+			function getTempFile(objDom, objFso, stream, temp_path) {
+
+				// テンプレートを取得
+				var doc = sforce.connection.query("select Id, Type, Body from Document where Name='" + DOC_NAME + "'");
+				if (doc.size == 0) {
+					// テンプレートの取得失敗
+					alert("テンプレートの取得に失敗しました。");
+					btnEnabled();
+					return false;
+				}
+
+				// テンプレートを取得
+				var record = doc.getArray("records")[0];
+
+				// XMLドキュメントとして取得
+				var element = objDom.createElement(DOC_NAME);	// ルートノードを生成
+				element.dataType = "bin.base64";
+				element.text = record.Body;
+				var bin = element.nodeTypedValue;
+
+				if(!objFso.FolderExists(FOLDER_NAME)) {
+					// 出力対象フォルダが無い場合は作成
+					objFso.CreateFolder(FOLDER_NAME);
+				} else {
+					// フォルダのファイルを検索
+					// 既に同一ファイルがある場合、削除
+					if(objFso.FileExists(temp_path)) {
+						objFso.DeleteFile(temp_path, true);
+					}
+				}
+				try {
+
+					// テンプレートをローカルに保持
+					// バイナリ
+					stream.type = 1;
+					// Stramを開く
+					stream.open();
+					// ファイル読込
+					stream.write(bin);
+					stream.savetoFile(temp_path);
+					return true;
+				} catch (e) {
+					// エラー発生時にファイルが残らないように作成したファイルを削除
+					if(objFso.FileExists(temp_path)) {
+						objFso.DeleteFile(temp_path, true);
+					}
+					btnEnabled();
+					return false;
+				} finally {
+					if (stream != null) {
+						try {
+							stream.close();
+						} catch (e) {
+							// クローズエラーは無視
+						}
+						stream = null;
+					}
+				}
+
+			}
+// 2008/08/12 moriyama Add End
+
+			/**
+			 * 添付を削除<br>
+			 * ファイル名に「ウェルビーメディック会員データ」を含むファイルを削除
+			 */
+			function deleteAttachment() {
+
+// 2008/08/12 moriyama Mod Start
+//				var result = sforce.connection.query("SELECT Id FROM Attachment WHERE Name Like '" + FILE_NAME + "%'");
+				if (btnFlg == 1) {
+					var result = sforce.connection.query("SELECT Id FROM Attachment WHERE Name Like '" + FILE_NAME + "%' AND ParentId='{!Account.Id}'");
+				} else {
+					var result = sforce.connection.query("SELECT Id FROM Attachment WHERE Name Like '" + LIST_FILE_NAME + "%' AND ParentId='{!Account.Id}'");
+				}
+// 2008/08/12 moriyama Mod End
+
+				var deleteIds = new Array();
+
+				var queryMore = true;
+				while (queryMore) {
+					var records = result.getArray("records");
+
+					for (var i = 0; i < records.length; i++) {
+						deleteIds.push(records[i].Id);
+					}
+
+					if (result.getBoolean("done")) {
+						queryMore = false;
+					} else {
+						result = sforce.connection.queryMore(result.queryLocator);
+					}
+				}
+
+				var ids = new Array();
+				var count = 0;
+				for (var i = 0; i < deleteIds.length; i++) {
+					ids.push(deleteIds[i]);
+					count++;
+					if (count >= 200) {
+						// 200件ごとに削除
+						sforce.connection.deleteIds(ids);
+						count = 0;
+						ids = new Array();
+					}
+				}
+				if (count > 0) {
+					sforce.connection.deleteIds(ids);
+				}
+
+			}
+			/**
+			 * ヘッダー表示データを生成
+			 * 
+			 * @return {Array} ヘッダー表示データ
+			 */
+			function createHeaderData() {
+				
+				var temp = new Array();
+				
+				// 画面の表示順にソート
+				for (var i = 0; i < dispData.length; i++) {
+					for (var j = 0; j < memData.length; j++) {
+						if (cutParentId(dispData[i].Id) == cutParentId(memData[j].KinmuCompany__c)) {
+							temp.push(memData[j]);
+						}
+					}
+				}
+				// ソート後、データ入れ替え
+				memData = temp;
+
+				noArray = new Array();
+				var headerData = new Array();
+				var no = 1;
+				// ヘッダー情報生成
+				for (var i = 0; i < memData.length; i++) {
+					var flg = false;
+					var j;
+					for (j = 0; j < headerData.length; j++) {
+						if (compareHeaderData(memData[i], headerData[j])) {
+							// 既に同一データがある場合
+							flg = true;
+							break;
+						}
+					}
+					if (!flg) {
+						// 同一データが無い場合、新規に作成し、配列に追加
+						headerData.push(setHeaderData(memData[i], no));
+						// Noを配列に格納
+						noArray[i] = no;
+						// Noをインクリメント
+						no++;
+					} else {
+						// 同一データがある場合は追加しない
+						var header = headerData[j];
+						// Noのみ格納
+						noArray[i] = header.no;
+					}
+				}
+				
+				return headerData;
+				
+			}
+			/**
+			 * 取得データとヘッダー情報を比較
+			 * 
+			 * @param {Object} data 取得データ
+			 * @param {Object} header ヘッダー情報
+			 * @return {boolean} true:一致 false:不一致
+			 */
+			function compareHeaderData(data, header) {
+
+				var temp;
+				// WB管轄地区
+				if (data.KinmuCompany__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.Jurisdiction__c);
+				}
+				if (header.kankatsu != temp) {
+					return false;
+				}
+				// 契約場所
+				if (data.CompanyKeiyakuNo__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.KeiyakuArea__c);
+				}
+				if (header.keiyakuBasyo != temp) {
+					return false;
+				}
+				// （勤務先）会社名称
+				if (data.KinmuCompany__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.Name);
+				}
+				if (header.kinmu_kaisya != temp) {
+					return false;
+				}
+				// （勤務先）住所
+				if (data.KinmuCompany__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.OfficeAdd__c);
+				}
+				if (header.kinmu_jyusyo != temp) {
+					return false;
+				}
+				// （勤務先）TEL
+				if (data.KinmuCompany__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.Phone);
+				}
+				if (header.kinmu_tel != temp) {
+					return false;
+				}
+				// （勤務先）FAX
+				if (data.KinmuCompany__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.Fax);
+				}
+				if (header.kinmu_fax != temp) {
+					return false;
+				}
+				// （勤務先）担当者
+				if (data.KinmuCompany__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.Shimei__c);
+				}
+				if (header.kinmu_tanto != temp) {
+					return false;
+				}
+				// （勤務先）部署
+				if (data.KinmuCompany__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.Busho__c);
+				}
+				if (header.kinmu_busyo != temp) {
+					return false;
+				}
+				// （勤務先）役職
+				if (data.KinmuCompany__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.Yakushoku__c);
+				}
+				if (header.kinmu_yakusyoku != temp) {
+					return false;
+				}
+				// （勤務先）WB営業担当者
+				if (data.KinmuCompany__r == null || data.KinmuCompany__r.EigyoTanto__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.EigyoTanto__r.Name);
+				}
+				if (header.kinmu_eigyoTanto != temp) {
+					return false;
+				}
+				// （勤務先）WB内務担当者
+				if (data.KinmuCompany__r == null || data.KinmuCompany__r.NaimuTanto__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KinmuCompany__r.NaimuTanto__r.Name);
+				}
+				if (header.kinmu_naimuTanto != temp) {
+					return false;
+				}
+				// （契約先）会社名称
+				if (data.KeiyakuCompanyName__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.KeiyakuCompanyName__r.Name);
+				}
+				if (header.keiyaku_kaisya != temp) {
+					return false;
+				}
+				// （契約先）住所
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r.OfficeAdd__c);
+				}
+				if (header.keiyaku_jyusyo != temp) {
+					return false;
+				}
+				// （契約先）TEL
+				if (data.CompanyKeiyakuNo__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.Tel__c);
+				}
+				if (header.keiyaku_tel != temp) {
+					return false;
+				}
+				// （契約先）FAX
+				if (data.CompanyKeiyakuNo__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.Fax__c);
+				}
+				if (header.keiyaku_fax != temp) {
+					return false;
+				}
+				// （契約先）担当者
+				if (data.CompanyKeiyakuNo__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.Shimei__c);
+				}
+				if (header.keiyaku_tanto != temp) {
+					return false;
+				}
+				// （契約先）部署
+				if (data.CompanyKeiyakuNo__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.Busho__c);
+				}
+				if (header.keiyaku_busyo != temp) {
+					return false;
+				}
+				// （契約先）役職
+				if (data.CompanyKeiyakuNo__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.Yakushoku__c);
+				}
+				if (header.keiyaku_yakusyoku != temp) {
+					return false;
+				}
+				// （契約先）WB営業担当者
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.EigyoTanto__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.EigyoTanto__r.Name);
+				}
+				if (header.keiyaku_eigyoTanto != temp) {
+					return false;
+				}
+				// （契約先）WB内務担当者
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.NaimuTanto__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.NaimuTanto__r.Name);
+				}
+				if (header.keiyaku_naimuTanto != temp) {
+					return false;
+				}
+				// 請求先
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.SeikyuCompanyName__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.SeikyuCompanyName__r.Name);
+				}
+				if (header.seikyusaki != temp) {
+					return false;
+				}
+				// 団体名
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r == null || data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r.GroupName__r == null) {
+					temp = "";
+				} else {
+					temp = convertNullBlank(data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r.GroupName__r.Name);
+				}
+				if (header.dantaimei != temp) {
+					return false;
+				}
+				
+				return true;
+				
+			}
+			/**
+			 * 取得データよりヘッダー情報を作成
+			 * 
+			 * @param {Object} data　取得データ
+			 * @param {Object} no No
+			 * @return ヘッダー情報
+			 */
+			function setHeaderData(data, no) {
+
+				var header = new HeaderData();
+				
+				header.no = no;
+				// WB管轄地区
+				if (data.KinmuCompany__r == null) {
+					header.kankatsu = "";
+				} else {
+					header.kankatsu = convertNullBlank(data.KinmuCompany__r.Jurisdiction__c);
+				}
+				// 契約場所
+				if (data.CompanyKeiyakuNo__r == null) {
+					header.keiyakuBasyo = "";
+				} else {
+					header.keiyakuBasyo = convertNullBlank(data.CompanyKeiyakuNo__r.KeiyakuArea__c);
+				}
+				// （勤務先）会社名称
+				if (data.KinmuCompany__r == null) {
+					header.kinmu_kaisya = "";
+				} else {
+					header.kinmu_kaisya = convertNullBlank(data.KinmuCompany__r.Name);
+				}
+				// （勤務先）住所
+				if (data.KinmuCompany__r == null) {
+					header.kinmu_jyusyo = "";
+				} else {
+					header.kinmu_jyusyo = convertNullBlank(data.KinmuCompany__r.OfficeAdd__c);
+				}
+				// （勤務先）TEL
+				if (data.KinmuCompany__r == null) {
+					header.kinmu_tel = "";
+				} else {
+					header.kinmu_tel = convertNullBlank(data.KinmuCompany__r.Phone);
+				}
+				// （勤務先）FAX
+				if (data.KinmuCompany__r == null) {
+					header.kinmu_fax = "";
+				} else {
+					header.kinmu_fax = convertNullBlank(data.KinmuCompany__r.Fax);
+				}
+				// （勤務先）担当者
+				if (data.KinmuCompany__r == null) {
+					header.kinmu_tanto = "";
+				} else {
+					header.kinmu_tanto = convertNullBlank(data.KinmuCompany__r.Shimei__c);
+				}
+				// （勤務先）部署
+				if (data.KinmuCompany__r == null) {
+					header.kinmu_busyo = "";
+				} else {
+					header.kinmu_busyo = convertNullBlank(data.KinmuCompany__r.Busho__c);
+				}
+				// （勤務先）役職
+				if (data.KinmuCompany__r == null) {
+					header.kinmu_yakusyoku = "";
+				} else {
+					header.kinmu_yakusyoku = convertNullBlank(data.KinmuCompany__r.Yakushoku__c);
+				}
+				// （勤務先）WB営業担当者
+				if (data.KinmuCompany__r == null || data.KinmuCompany__r.EigyoTanto__r == null) {
+					header.kinmu_eigyoTanto = "";
+				} else {
+					header.kinmu_eigyoTanto = convertNullBlank(data.KinmuCompany__r.EigyoTanto__r.Name);
+				}
+				// （勤務先）WB内務担当者
+				if (data.KinmuCompany__r == null || data.KinmuCompany__r.NaimuTanto__r == null) {
+					header.kinmu_naimuTanto = "";
+				} else {
+					header.kinmu_naimuTanto = convertNullBlank(data.KinmuCompany__r.NaimuTanto__r.Name);
+				}
+				// （契約先）会社名称
+				if (data.KeiyakuCompanyName__r == null) {
+					header.keiyaku_kaisya = "";
+				} else {
+					header.keiyaku_kaisya = convertNullBlank(data.KeiyakuCompanyName__r.Name);
+				}
+				// （契約先）住所
+				if (data.CompanyKeiyakuNo__r  == null || data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r == null) {
+					header.keiyaku_jyusyo = "";
+				} else {
+					header.keiyaku_jyusyo = convertNullBlank(data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r.OfficeAdd__c);
+				}
+				// （契約先）TEL
+				if (data.CompanyKeiyakuNo__r == null) {
+					header.keiyaku_tel = "";
+				} else {
+					header.keiyaku_tel = convertNullBlank(data.CompanyKeiyakuNo__r.Tel__c);
+				}
+				// （契約先）FAX
+				if (data.CompanyKeiyakuNo__r == null) {
+					header.keiyaku_fax = "";
+				} else {
+					header.keiyaku_fax = convertNullBlank(data.CompanyKeiyakuNo__r.Fax__c);
+				}
+				// （契約先）担当者
+				if (data.CompanyKeiyakuNo__r == null) {
+					header.keiyaku_tanto = "";
+				} else {
+					header.keiyaku_tanto = convertNullBlank(data.CompanyKeiyakuNo__r.Shimei__c);
+				}
+				// （契約先）部署
+				if (data.CompanyKeiyakuNo__r == null) {
+					header.keiyaku_busyo = "";
+				} else {
+					header.keiyaku_busyo = convertNullBlank(data.CompanyKeiyakuNo__r.Busho__c);
+				}
+				// （契約先）役職
+				if (data.CompanyKeiyakuNo__r == null) {
+					header.keiyaku_yakusyoku = "";
+				} else {
+					header.keiyaku_yakusyoku = convertNullBlank(data.CompanyKeiyakuNo__r.Yakushoku__c);
+				}
+				// （契約先）WB営業担当者
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.EigyoTanto__r == null) {
+					header.keiyaku_eigyoTanto = "";
+				} else {
+					header.keiyaku_eigyoTanto = convertNullBlank(data.CompanyKeiyakuNo__r.EigyoTanto__r.Name);
+				}
+				// （契約先）WB内務担当者
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.NaimuTanto__r == null) {
+					header.keiyaku_naimuTanto = "";
+				} else {
+					header.keiyaku_naimuTanto = convertNullBlank(data.CompanyKeiyakuNo__r.NaimuTanto__r.Name);
+				}
+				// 請求先
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.SeikyuCompanyName__r == null) {
+					header.seikyusaki = "";
+				} else {
+					header.seikyusaki = convertNullBlank(data.CompanyKeiyakuNo__r.SeikyuCompanyName__r.Name);
+				}
+				// 団体名
+				if (data.CompanyKeiyakuNo__r == null || data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r == null || data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r.GroupName__r == null) {
+					header.dantaimei = "";
+				} else {
+					header.dantaimei = convertNullBlank(data.CompanyKeiyakuNo__r.KeiyakuCompanyName__r.GroupName__r.Name);
+				}
+
+				return header;
+			}
+			/**
+			 * 明細データ生成
+			 * 
+			 * @return {Array} 明細データ
+			 */
+			function createDetailData() {
+				
+				var detailData = new Array();
+				
+				for (var i = 0; i < memData.length; i++) {
+					// Noを取得
+					var no = noArray[i];
+					// 会員情報を配列に追加
+					detailData.push(setMemeberData(memData[i], no));
+					for (var j = 0; j < famiData.length; j++) {
+						if (memData[i].Id == famiData[j].MemberShimei__c) {
+							// 会員情報に紐づく会員（家族）情報を配列に追加
+							detailData.push(setFamilyData(memData[i], famiData[j], no));
+						}
+					}
+				}
+				
+				return detailData;
+			}
+			/**
+			 * 会員情報取得データより明細データを作成
+			 * 
+			 * @param {Object} data 取得データ
+			 * @param {Object} no No
+			 * @return 明細データ
+			 */
+			function setMemeberData(data, no) {
+				
+				var detailData = new DetailData();
+				// No
+				detailData.no = no;
+				// 契約会社名称
+				if (data.KeiyakuCompanyName__r == null) {
+					detailData.keiyakuKaisya = "";
+				} else {
+					detailData.keiyakuKaisya = convertNullBlank(data.KeiyakuCompanyName__r.Name);
+				}
+				// 勤務会社名称
+				if (data.KinmuCompany__r == null) {
+					detailData.kinmuKaisya = "";
+				} else {
+					detailData.kinmuKaisya = convertNullBlank(data.KinmuCompany__r.Name);
+				}
+				// 会員番号
+				detailData.kaiinBango = convertNullBlank(data.MemberNo__c);
+				// 会員氏名
+				detailData.simei = convertNullBlank(data.Name);
+				// 担当
+				if (eval(data.Tanto__c)) {
+					detailData.tanto = "○";
+				} else {
+					detailData.tanto = "";
+				}
+				// 商品
+				detailData.syouhin = convertNullBlank(data.Commodity__c);
+				// 契約形態
+				detailData.keiyakuKeitai = convertNullBlank(data.KeiyakuKeitai__c);
+				// 契約満期日
+				detailData.keiyakuManki = convertNullBlank(data.MankiDate__c);
+				// 自宅住所
+				detailData.jyusyo = convertNullBlank(data.Address__c);
+				// 自宅TEL
+				detailData.tel = convertNullBlank(data.Tel__c);
+				// 携帯番号
+				detailData.keitai = convertNullBlank(data.Mobile__c);
+				// 保険会社
+				detailData.hokenKaisya = convertNullBlank(data.OtaName__c);
+				// 取り扱い
+// 2008/08/12 moriyama Mod Start
+//				detailData.toriatsukai = convertNullBlank(data.OtaAgency__c);
+				if (btnFlg == 1) {
+					detailData.toriatsukai = convertNullBlank(data.OtaAgency__c);
+				} else {
+					if (convertNullBlank(data.OtaAgency__c) == WB_ATSUKAI) {
+						detailData.toriatsukai = "☆";
+					} else {
+						detailData.toriatsukai = "";
+					}
+				}
+// 2008/08/12 moriyama Mod End
+				// 証券番号
+				detailData.syoukenBango = convertNullBlank(data.ShokenNo__c);
+				// 保険満期日
+				detailData.hokenManki = convertNullBlank(data.OtaInsuranceShuki__c);
+
+// 2008/08/12 moriyama Add Start
+				// 保険会社略称
+				detailData.hokenKaisyaRyaku = convertNullBlank(data.OtaRyaku__c);
+// 2008/08/12 moriyama Add End
+
+				return detailData;
+			}
+			/**
+			 * 会員（家族）情報取得データより明細データを作成
+			 * 
+			 * @param {Object} memData 取得データ（会員）
+			 * @param {Object} famiData 取得データ（家族）
+			 * @param {Object} no No
+			 * @return 明細データ
+			 */
+			function setFamilyData(memData, famiData, no) {
+				
+				var detailData = new DetailData();
+				// No
+				detailData.no = no;
+				// 契約会社名称
+				if (memData.KeiyakuCompanyName__r == null) {
+					detailData.keiyakuKaisya = "";
+				} else {
+					detailData.keiyakuKaisya = convertNullBlank(memData.KeiyakuCompanyName__r.Name);
+				}
+				// 勤務会社名称
+				if (memData.KinmuCompany__r == null) {
+					detailData.kinmuKaisya = "";
+				} else {
+					detailData.kinmuKaisya = convertNullBlank(memData.KinmuCompany__r.Name);
+				}
+				// 会員番号
+				detailData.kaiinBango = convertNullBlank(famiData.MemberNo__c);
+				// 会員氏名
+				detailData.simei = convertNullBlank(famiData.Name);
+				// 担当
+				detailData.tanto = "";
+				// 商品
+				detailData.syouhin = convertNullBlank(famiData.Commodity__c);
+				// 契約形態
+				detailData.keiyakuKeitai = convertNullBlank(famiData.KeiyakuKeitai__c);
+				// 契約満期日
+				detailData.keiyakuManki = convertNullBlank(memData.MankiDate__c);
+				// 自宅住所
+				detailData.jyusyo = "";
+				// 自宅TEL
+				detailData.tel = "";
+				// 携帯番号
+				detailData.keitai = convertNullBlank(famiData.Mobile__c);
+				// 保険会社
+				detailData.hokenKaisya = convertNullBlank(famiData.OtaName__c);
+				// 取り扱い
+// 2008/08/12 moriyama Mod Start
+//				detailData.toriatsukai = convertNullBlank(famiData.OtaAgency__c);
+				if (btnFlg == 1) {
+					detailData.toriatsukai = convertNullBlank(famiData.OtaAgency__c);
+				} else {
+					if (convertNullBlank(famiData.OtaAgency__c) == WB_ATSUKAI) {
+						detailData.toriatsukai = "☆";
+					} else {
+						detailData.toriatsukai = "";
+					}
+				}
+// 2008/08/12 moriyama Mod End
+				// 証券番号
+				detailData.syoukenBango = convertNullBlank(famiData.ShokenNo__c);
+				// 保険満期日
+				detailData.hokenManki = convertNullBlank(famiData.OtaInsuranceShuki__c);
+
+// 2008/08/12 moriyama Add Start
+				// 保険会社略称
+				detailData.hokenKaisyaRyaku = convertNullBlank(famiData.OtaRyaku__c);
+// 2008/08/12 moriyama Add End
+				
+				return detailData;
+				
+			}
+			/**
+			 * ヘッダータイトルを出力
+			 * 
+			 * @param {Object} sheet　WorkSheetオブジェクト
+			 */
+			function createHeaderTitle(sheet) {
+				
+				for (var i = 0; i < HERADER_TITLE.length; i++) {
+					sheet.Cells(i + 1, 1).Value = HERADER_TITLE[i];
+				}
+			}
+			/**
+			 * ヘッダー情報を出力
+			 * 
+			 * @param {Object} sheet　WorkSheetオブジェクト
+			 * @param {Array} headerData　ヘッダーデータ
+			 * @param {Object} excel　Excelオブジェクト
+			 * @param {Object} book WorkBookオブジェクト
+			 * @return {Object} WorkSheetオブジェクト
+			 */
+			function createHeader(sheet, headerData, excel, book) {
+				
+				var col = 2;
+				var row = 1;
+				for (var i = 0; i < headerData.length; i++) {
+					if (col > EXCLE_MAX_COLUMN) {
+						// 最大列数を超えた場合
+						// 表示形式を文字列
+						sheet.Range(sheet.Cells(2, 2), sheet.Cells(23, col - 1)).NumberFormatLocal = "@";
+						// Noを中央揃え
+						sheet.Range(sheet.Cells(1, 1), sheet.Cells(1, col - 1)).HorizontalAlignment = -4108;
+						// フォント設定
+						sheet.Cells.Font.Name = "SimSun";
+						sheet.Cells.Font.Size = 10;
+						// 幅合わせ
+						sheet.Cells.EntireColumn.AutoFit;
+						// シート名
+						sheet.Name = "ヘッダー" + excel.Worksheets.Count;
+						// シート追加
+						book.Sheets.Add(null, sheet, null, null);
+						// シート取得
+						sheet = book.Worksheets(excel.Worksheets.Count);
+						// タイトル出力
+						createHeaderTitle(sheet);
+						// 列カウンタクリア
+						col = 2;
+					}
+					var header = headerData[i];
+					row = 1;
+					// No
+					setCell(sheet.Cells(row++, col), header.no);
+					// WB管轄地区
+					setCell(sheet.Cells(row++, col), header.kankatsu);
+					// 契約場所
+					setCell(sheet.Cells(row++, col), header.keiyakuBasyo);
+					// （勤務先）会社名称
+					setCell(sheet.Cells(row++, col), header.kinmu_kaisya);
+					// （勤務先）住所
+					setCell(sheet.Cells(row++, col), header.kinmu_jyusyo);
+					// （勤務先）TEL
+					setCell(sheet.Cells(row++, col), header.kinmu_tel);
+					// （勤務先）FAX
+					setCell(sheet.Cells(row++, col), header.kinmu_fax);
+					// （勤務先）担当者
+					setCell(sheet.Cells(row++, col), header.kinmu_tanto);
+					// （勤務先）部署
+					setCell(sheet.Cells(row++, col), header.kinmu_busyo);
+					// （勤務先）役職
+					setCell(sheet.Cells(row++, col), header.kinmu_yakusyoku);
+					// （勤務先）WB営業担当者
+					setCell(sheet.Cells(row++, col), header.kinmu_eigyoTanto);
+					// （勤務先）WB内務担当者
+					setCell(sheet.Cells(row++, col), header.kinmu_naimuTanto);
+					// （契約先）会社名称
+					setCell(sheet.Cells(row++, col), header.keiyaku_kaisya);
+					// （契約先）住所
+					setCell(sheet.Cells(row++, col), header.keiyaku_jyusyo);
+					// （契約先）TEL
+					setCell(sheet.Cells(row++, col), header.keiyaku_tel);
+					// （契約先）FAX
+					setCell(sheet.Cells(row++, col), header.keiyaku_fax);
+					// （契約先）担当者
+					setCell(sheet.Cells(row++, col), header.keiyaku_tanto);
+					// （契約先）部署
+					setCell(sheet.Cells(row++, col), header.keiyaku_busyo);
+					// （契約先）役職
+					setCell(sheet.Cells(row++, col), header.keiyaku_yakusyoku);
+					// （契約先）WB営業担当者
+					setCell(sheet.Cells(row++, col), header.keiyaku_eigyoTanto);
+					// （契約先）WB内務担当者
+					setCell(sheet.Cells(row++, col), header.keiyaku_naimuTanto);
+					// 請求先
+					setCell(sheet.Cells(row++, col), header.seikyusaki);
+					// 団体名
+					setCell(sheet.Cells(row++, col), header.dantaimei);
+					
+					col++;
+					
+				}
+				// 表示形式を文字列にする
+				sheet.Range(sheet.Cells(2, 2), sheet.Cells(23, col - 1)).NumberFormatLocal = "@";
+				// Noを中央揃え
+				sheet.Range(sheet.Cells(1, 1), sheet.Cells(1, col - 1)).HorizontalAlignment = -4108;
+				// フォント設定
+				sheet.Cells.Font.Name = "SimSun";
+				sheet.Cells.Font.Size = 10;
+				// 幅合わせ
+				sheet.Cells.EntireColumn.AutoFit;
+				// シート名
+				if (excel.Worksheets.Count == 1) {
+					sheet.Name = "ヘッダー";
+				} else {
+					sheet.Name = "ヘッダー" + excel.Worksheets.Count;
+				}
+				
+				return sheet;
+				
+			}
+
+// 2008/08/12 moriyama Add Start
+			/**
+			 * リストのヘッダー情報を出力
+			 * 
+			 * @param {Object} sheet　WorkSheetオブジェクト
+			 * @param {Array} headerData　ヘッダーデータ
+			 * @param {Object} excel　Excelオブジェクト
+			 * @param {Object} book WorkBookオブジェクト
+			 * @return {Object} WorkSheetオブジェクト
+			 */
+			function createHeaderList(sheet, header) {
+
+				var col = 8;
+				var colS = 32;
+				var row = 4;
+
+				// WB管轄地区
+				setCell(sheet.Cells(row, col), header.kankatsu);
+				// 契約地区
+				setCell(sheet.Cells(++row, col), header.keiyakuBasyo);
+				// （契約先）会社名称
+				setCell(sheet.Cells(++row, col), header.keiyaku_kaisya);
+				// （契約先）住所
+				setCell(sheet.Cells(++row, col), header.keiyaku_jyusyo);
+				// （契約先）TEL
+				setCell(sheet.Cells(++row, col), header.keiyaku_tel);
+				// （契約先）FAX
+				setCell(sheet.Cells(row, col+12), header.keiyaku_fax);
+				// （契約先）担当者
+				setCell(sheet.Cells(row-=2, colS), header.keiyaku_tanto);
+				// （契約先）部署
+				setCell(sheet.Cells(++row, colS), header.keiyaku_busyo);
+				// （契約先）役職
+				setCell(sheet.Cells(++row, colS), header.keiyaku_yakusyoku);
+				// （契約先）WB営業担当者
+				setCell(sheet.Cells(row-=2, colS+14), header.keiyaku_eigyoTanto);
+				// （契約先）WB内務担当者
+				setCell(sheet.Cells(++row, colS+14), header.keiyaku_naimuTanto);
+				// （勤務先）会社名称
+				setCell(sheet.Cells(row+=2, col), header.kinmu_kaisya);
+				// （勤務先）住所
+				setCell(sheet.Cells(++row, col), header.kinmu_jyusyo);
+				// （勤務先）TEL
+				setCell(sheet.Cells(++row, col), header.kinmu_tel);
+				// （勤務先）FAX
+				setCell(sheet.Cells(row, col+12), header.kinmu_fax);
+				// （勤務先）担当者
+				setCell(sheet.Cells(row-=2, colS), header.kinmu_tanto);
+				// （勤務先）部署
+				setCell(sheet.Cells(++row, colS), header.kinmu_busyo);
+				// （勤務先）役職
+				setCell(sheet.Cells(++row, colS), header.kinmu_yakusyoku);
+				// （勤務先）WB営業担当者
+				setCell(sheet.Cells(row-=2, colS+14), header.kinmu_eigyoTanto);
+				// （勤務先）WB内務担当者
+				setCell(sheet.Cells(++row, colS+14), header.kinmu_naimuTanto);
+				// 請求先
+				setCell(sheet.Cells(row+=2, col), header.seikyusaki);
+				// 団体名
+				setCell(sheet.Cells(++row, col), header.dantaimei);
+
+				return sheet;
+
+			}
+// 2008/08/12 moriyama Add End
+
+			/**
+			 * 明細タイトルを出力
+			 * 
+			 * @param {Object} sheet　WorkSheetオブジェクト
+			 */
+			function createDetailTitle(sheet) {
+
+				for (var i = 0; i < DETAIL_TITLE.length; i++) {
+					sheet.Cells(1, i + 1).Value = DETAIL_TITLE[i];
+				}
+				// 中央揃え
+				sheet.Range(sheet.Cells(1, 1), sheet.Cells(1, DETAIL_TITLE.length)).HorizontalAlignment = -4108;
+			}
+			/**
+			 * 明細情報を出力
+			 * 
+			 * @param {Object} sheet　WorkSheetオブジェクト
+			 * @param {Array} detailData　明細データ
+			 * @param {Object} excel Excelオブジェクト
+			 * @param {Object} book WorkBookオブジェクト
+			 */
+			function createDetail(sheet, detailData, excel, book) {
+				
+				var row = 2;
+				var col = 1;
+				
+				// 明細の開始シート番号を保持
+				sheetCount = excel.Worksheets.Count;
+				
+				for (var i = 0; i < detailData.length; i++) {
+					if (row > EXCLE_MAX_ROW) {
+						// 最大行数を超えた場合
+						// フォント設定
+						sheet.Cells.Font.Name = "SimSun";
+						sheet.Cells.Font.Size = 10;
+						// 幅合わせ
+						sheet.Cells.EntireColumn.AutoFit;
+						// シート名
+						sheet.Name = "明細" + (excel.Worksheets.Count - sheetCount + 1);
+						// シート追加
+						book.Sheets.Add(null, sheet, null, null);
+						// シート取得
+						sheet = book.Worksheets(excel.Worksheets.Count);
+						// 明細タイトル出力
+						createDetailTitle(sheet);
+						// 行カウンタクリア
+						row = 2;
+					}
+					
+					var detail = detailData[i];
+					col = 1;
+					// No
+					setCell(sheet.Cells(row, col++), detail.no);
+					// 契約先会社名称
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.keiyakuKaisya);
+					// 勤務先会社名称
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.kinmuKaisya);
+					// 会員番号
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					sheet.Cells(row, col).HorizontalAlignment = -4108;
+					setCell(sheet.Cells(row, col++), detail.kaiinBango);
+					// 会員氏名
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.simei);
+					// 担当
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					sheet.Cells(row, col).HorizontalAlignment = -4108;
+					setCell(sheet.Cells(row, col++), detail.tanto);
+					// 商品
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					sheet.Cells(row, col).HorizontalAlignment = -4108;
+					setCell(sheet.Cells(row, col++), detail.syouhin);
+					// 契約形態
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					sheet.Cells(row, col).HorizontalAlignment = -4108;
+					setCell(sheet.Cells(row, col++), detail.keiyakuKeitai);
+					// 契約満期日
+					setCell(sheet.Cells(row, col++), detail.keiyakuManki);
+					// 自宅住所
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.jyusyo);
+					// 自宅TEL
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.tel);
+					// 携帯番号
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.keitai);
+					// 保険会社
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.hokenKaisya);
+					// 取り扱い
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.toriatsukai);
+					// 証券番号
+					sheet.Cells(row, col).NumberFormatLocal = "@";
+					setCell(sheet.Cells(row, col++), detail.syoukenBango);
+					//　保険満期日
+					setCell(sheet.Cells(row, col++), detail.hokenManki);
+					
+					row++;
+				}
+				// フォント設定
+				sheet.Cells.Font.Name = "SimSun";
+				sheet.Cells.Font.Size = 10;
+				// 幅合わせ
+				sheet.Cells.EntireColumn.AutoFit;
+				// シート名
+				if (excel.Worksheets.Count - sheetCount == 0) {
+					sheet.Name = "明細";
+				} else {
+					sheet.Name = "明細" + (excel.Worksheets.Count - sheetCount + 1);
+				}
+				
+			}
+//2008/08/12 moriyama Add Start
+			/**
+			 * 明細情報を出力
+			 * 
+			 * @param {Object} sheet　WorkSheetオブジェクト
+			 * @param {Array} detailData　明細データ
+			 * @param {Object} excel Excelオブジェクト
+			 * @param {Object} book WorkBookオブジェクト
+			 */
+			function createDetailList(sheet, detailData, sheetCnt, tempSheet2, makeDate, headerNo, book) {
+
+				var row = 17;
+				var pageRow = 37;
+
+				for (var i = detailCnt; i < detailData.length; i++) {
+
+					if (detailData[i].no != headerNo) {
+						// detailDataの終了位置を保持
+						detailCnt = i;
+						break;
+					}
+
+					if (row > EXCLE_MAX_ROW) {
+						// 最大行数を超えた場合
+						book.Worksheets("テンプレート2").Copy(null, sheet);  //アクティブシートの後へ追加する
+						// 新規シートの取得
+						sheet = book.Worksheets(++sheetCnt);
+						// シート名
+						sheet.Name = "会員リスト" + (sheetCnt-1);
+						// 行カウンタクリア
+						row = 5;
+					}
+					if (row == pageRow) {
+						pageRow += 36;
+						// 2ページ目以降の追加
+						tempSheet2.Rows("1:36").copy;
+						sheet.Cells(row, 1).Insert;
+						setCell(sheet.Cells(row+1, 56), makeDate);
+						row += 4;
+					}
+					var detail = detailData[i];
+
+					// 会員番号
+					setCell(sheet.Cells(row, 1), detail.kaiinBango);
+					// 会員氏名
+					setCell(sheet.Cells(row, 6), detail.simei);
+					// 担当
+					setCell(sheet.Cells(row, 13), detail.tanto);
+					// 契約満期日
+					setCell(sheet.Cells(row, 14), detail.keiyakuManki);
+					// 自宅住所
+					setCell(sheet.Cells(row, 18), detail.jyusyo);
+					// 自宅TEL
+					setCell(sheet.Cells(row, 35), detail.tel);
+					// 携帯番号
+					setCell(sheet.Cells(row, 40), detail.keitai);
+					// 保険会社
+					setCell(sheet.Cells(row, 45), detail.hokenKaisyaRyaku);
+					// 取扱
+					setCell(sheet.Cells(row, 48), detail.toriatsukai);
+					// 証券番号
+					setCell(sheet.Cells(row, 49), detail.syoukenBango);
+					// 保険満期日
+					setCell(sheet.Cells(row, 56), detail.hokenManki);
+
+					row++;
+				}
+				return sheet;
+			}
+//2008/08/12 moriyama Add End
+
+			/**
+			 * Excelセルにデータを表示
+			 * @param {Object} cell　セルオブジェクト
+			 * @param {Object} data 表示データ
+			 */
+			function setCell(cell, data) {
+				cell.Value = data;
+			}
+			/**
+			 * nullを空文字に変換
+			 * 
+			 * @param {Object} val　対象
+			 * @return {String} 変換後データ
+			 */
+			function convertNullBlank(val) {
+				if (val == null) {
+					return "";
+				}
+				return val;
+			}
+			/**
+			 * 現在、年月日の生成
+			 * 
+			 * @param {Object} val　対象
+			 * @return {String} 変換後データ
+			 */
+			function getTodayDate(formFlg) {
+
+				// ファイル名用日付設定
+				var date = new Date();
+				var year = date.getFullYear().toString();
+				var month = (date.getMonth() + 1).toString();
+				var day = date.getDate().toString();
+				if (month.length == 1) {
+					month = "0" + month;
+				}
+				if (day.length == 1) {
+					day = "0" + day;
+				}
+				if (formFlg == 0) {
+					return year + month + day;
+				} else {
+					return year + "-" + month + "-" + day;
+				}
+			}
+			//-->
+		</script>
+	</head>
+	<body class="accountTab">
+		<DIV class="bPageTitle">
+			<DIV class="ptBody secondaryPalette">
+				<DIV class="content"><IMG class="pageTitleIcon" alt="Entity_Name" src="/s.gif">
+					<H1 class="pageType">関連会社情報<SPAN class="titleSeparatingColon">:</SPAN></H1>
+					<H2 class="pageDescription">{!Account.Name}</H2>
+				</DIV>
+			</DIV>
+			<div class="ptBreadcrumb"></div>
+		</DIV>
+		<br>
+		<div class="bRelatedList">
+			<div class="relatedAccountHierarchy">
+				<div class="bPageBlock secondaryPalette"><div class="pbHeader">
+					<table cellspacing="0" cellpadding="0" border="0">
+						<tbody>
+							<tr>
+								<td class="pbTitle">
+									<img class="minWidth" width="1" height="1" title="" alt="" src="/s.gif"/>
+									<h2 class="mainTitle"></h2>
+								</td>
+								<td id="topButtonRow" class="pbButton">
+<!-- 2008/08/12 moriyama Mod Start -->
+<!--									<input id="btnPrint" class="btnDisabled" disabled="true" type="button" title="発行" value="発行" onclick="execute();"/>-->
+									<input id="btnPrint" class="btnDisabled" disabled="true" type="button" title="発行" value="発行" onclick="execute(1);"/>
+									<input id="btnListPrint" class="btnDisabled" disabled="true" type="button" title="発行(印刷用)" value="発行(印刷用)" onclick="execute(2);"/>
+<!-- 2008/08/12 moriyama Mod End -->
+									<input id="btnCheck" class="btnDisabled" disabled="true" type="button" title="全チェック" value="全チェック" onclick="allCheck(true);"/>
+									<input id="btnUnCheck" class="btnDisabled" disabled="true" type="button" title="全クリア" value="全クリア" onclick="allCheck(false);"/>
+									<input id="btnCancel" class="btnDisabled" disabled="true" type="button" title="キャンセル" value="キャンセル" onclick="history.back();"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+					<div class="pbBody">
+						<table class="list" cellspacing="0" cellpadding="0" border="0">
+							<tbody id="listBody">
+								<tr class="headerRow">
+									<th class="" scope="col" style="width:20px;">&nbsp;</th>
+									<th class="" scope="col">管轄地区</th>
+									<th class="" scope="col">会社名</th>
+									<th class="" scope="col">通称</th>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="pbFooter secondaryPalette">
+						<div class="bg"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

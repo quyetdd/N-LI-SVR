@@ -1,0 +1,330 @@
+if(confirm("会員証を発行しますか？")){
+    var date = new Date();
+    var year = date.getFullYear().toString();
+    var month = (date.getMonth() + 1).toString();
+    var day = date.getDate().toString();
+    if (month <= 9) {
+        month = "0" + month;
+    }
+    if (day <= 9) {
+        day = "0" + day;
+    }
+    var fileName = "membercd_" + year + month + day + ".xls";
+
+    var folderName =  "C:\\temp";
+    var tempFile = folderName + "\\membercd_template.xls";
+    var saveFile = folderName + "\\" + fileName;
+    var doc = sforce.connection.query("select Id, Type, Body from Document where Name='membercd_template'");
+    if(doc.size != 0){
+        var record = doc.getArray("records")[0];
+        if(record.Type == "xls"){
+            var dom = new ActiveXObject("Microsoft.XMLDOM");
+            var elm = dom.createElement("membercd_template");
+            elm.dataType = "bin.base64";
+            elm.text = record.Body;
+            var bin = elm.nodeTypedValue;
+            var fso_del = new ActiveXObject("Scripting.FileSystemObject");
+
+            if(!fso_del.FolderExists(folderName)){
+                fso_del.CreateFolder(folderName);
+            }
+
+            var folder = fso_del.GetFolder(folderName);
+            var fc = new Enumerator(folder.files);
+            for (; !fc.atEnd(); fc.moveNext()){
+                var f = fc.item();
+
+                if(f.Name.search(/membercd_/) != -1){
+                    var file_del = fso_del.getFile(folderName + "\\" + f.Name);
+                    file_del.Delete();
+                }
+            }
+
+            fso_del = null;
+            var stream = new ActiveXObject("ADODB.Stream");
+            stream.type = 1; //Binary
+            stream.open();
+            stream.write(bin);
+            stream.savetoFile(tempFile);
+            stream.close();  
+
+            if("{!ContractInfo__c.Id}" != "" && "{!MemberInfo__c.Id}" == ""){
+// 2008/08/11 moriyama Mod Start
+// 契約番号の主従関係から参照関係に変更対応
+//                 var mInfo = sforce.connection.query("select Id, MemberNo__c, Name, KinmuCompany__c, KeiyakuDate__c, Commodity__c, Keiyakukeitai__c from MemberInfo__c where CompanyKeiyakuNo__c='{!ContractInfo__c.Id}' and (TaikaiDate__c=null or TaikaiDate__c>" + year + "-" + month + "-" + day + ") order by MemberNo__c");
+                 var mInfo = sforce.connection.query("select Id, MemberNo__c, Name, KinmuCompany__c, KeiyakuDate__c, Commodity__c, Keiyakukeitai__c, CompanyKeiyakuNo__r.KeiyakuCompanyName__r.Name from MemberInfo__c where CompanyKeiyakuNo__c='{!ContractInfo__c.Id}' and (TaikaiDate__c=null or TaikaiDate__c>" + year + "-" + month + "-" + day + ") order by MemberNo__c");
+// 2008/08/11 moriyama Mod End
+
+            }else if("{!MemberInfo__c.Id}" != ""){
+// 2008/08/11 moriyama Mod Start
+// 契約番号の主従関係から参照関係に変更対応
+//                var mInfo = sforce.connection.query("select Id, MemberNo__c, Name, KinmuCompany__c, KeiyakuDate__c, Commodity__c, KeiyakuKeitai__c from MemberInfo__c where Id='{!MemberInfo__c.Id}' and (TaikaiDate__c=null or TaikaiDate__c>" + year + "-" + month + "-" + day + ") order by MemberNo__c");
+                var mInfo = sforce.connection.query("select Id, MemberNo__c, Name, KinmuCompany__c, KeiyakuDate__c, Commodity__c, KeiyakuKeitai__c, CompanyKeiyakuNo__r.KeiyakuCompanyName__r.Name from MemberInfo__c where Id='{!MemberInfo__c.Id}' and (TaikaiDate__c=null or TaikaiDate__c>" + year + "-" + month + "-" + day + ") order by MemberNo__c");
+// 2008/08/11 moriyama Mod End
+
+            }
+
+            if(mInfo.size != 0){
+                var excel = new ActiveXObject('Excel.Application');
+                excel.visible = false;
+                excel.FeatureInstall = 0;
+                var workbook = excel.workbooks.Add(tempFile);
+                var worksheet = workbook.Worksheets(1);
+
+                var reMInfo = mInfo.getArray("records");
+                var line = "H";
+//                var lineS = "C";   2008/08/11 moriyama Del
+                var row = 5;
+
+
+                for(i=0; i<reMInfo.length; i++){
+
+                    if((row >= 85) && (line == "H")){
+                        worksheet.Rows((row - 20) + ":" + (row - 5)).Copy;
+                        worksheet.Range("A" + (row - 4)).Insert;
+
+                        worksheet.Range("AL"+ row).Value = null;
+                        row += 1;
+                        worksheet.Range("AL"+ row).Value = null;
+
+// 2008/08/11 moriyiama Mod Start
+// テンプレートレイアウト変更
+//                        row += 2;
+//                        worksheet.Range("AG"+ row).Value = null;
+//                        row += 2;
+//                        worksheet.Range("AG"+ row).Value = null;
+//                        row += 1;
+                        row += 1;
+                        worksheet.Range("AL"+ row).Value = null;
+                        row += 1;
+                        worksheet.Range("AL"+ row).Value = null;
+                        row += 3;
+// 2008/08/11 moriyiama Mod End
+
+                        worksheet.Range("AL"+ row).Value = null;
+                        row += 1;
+                        worksheet.Range("AL"+ row).Value = null;
+                        row += 1;
+                        worksheet.Range("AL"+ row).Value = null;
+                        row += 1;
+
+                        row -=9;
+                    }
+
+                    var kinmuC = null;
+
+                    if(reMInfo[i].KinmuCompany__c){
+                        var comName = sforce.connection.query("select Id, Name from Account where Id='" + reMInfo[i].KinmuCompany__c + "'");
+                        var reComName = comName.getArray("records");
+                        kinmuC = reComName[0].Name;
+
+                    }
+                    worksheet.Range(line + row).Value = reMInfo[i].MemberNo__c;
+                    row += 1;
+                    worksheet.Range(line + row).Value = reMInfo[i].Name;
+
+// 2008/08/11 moriyama Mod Start
+// テンプレートレイアウト変更
+//                    row += 2;
+//                    worksheet.Range(lineS + row).Value = kinmuC;
+//                    row += 2;
+//                    worksheet.Range(lineS + row).Value = "{!ContractInfo__c.KeiyakuCompanyName__c}";
+//                    row += 1;
+                    row += 1;
+                    worksheet.Range(line + row).Value = kinmuC;
+                    row += 1;
+                    worksheet.Range(line + row).Value = reMInfo[i].CompanyKeiyakuNo__r.KeiyakuCompanyName__r.Name;
+                    row += 3;
+// 2008/08/11 moriyama Mod End
+
+                    if(reMInfo[i].KeiyakuDate__c != null){
+                        worksheet.Range(line + row).Value = "=TEXT(\"" + reMInfo[i].KeiyakuDate__c + "\",\"yyyy/mm/dd～\")";
+                    }else{
+                        worksheet.Range(line + row).Value = null;
+                    }
+                    row += 1;
+                    worksheet.Range(line + row).Value = reMInfo[i].Commodity__c;
+                    row += 1;
+                    worksheet.Range(line + row).Value = reMInfo[i].KeiyakuKeitai__c;
+                    row += 1;
+
+                    if(line == "H"){
+                        line = "AL";
+//                        lineS = "AG";    2008/08/11 moriyama Del
+                        row -= 9;
+                    }else if(line == "AL"){
+                        line = "H";
+//                        lineS = "C";     2008/08/11 moriyama Del
+                        row += 7;
+                    }
+
+// 2008/09/12 moriyama Mod Start
+                    var fInfo = sforce.connection.query("select Id, MemberNo__c, Name, Commodity__c, Keiyakukeitai__c from FamilyInfo__c where (TaikaiDate__c=null or TaikaiDate__c>" + year + "-" + month + "-" + day + ") And MemberShimei__c='" + reMInfo[i].Id + "'");
+//                    var fInfo = sforce.connection.query("select Id, MemberNo__c, Name, Commodity__c, Keiyakukeitai__c from FamilyInfo__c where MemberShimei__c='" + reMInfo[i].Id + "'");
+// 2008/09/12 moriyama Mod End
+
+                    if(fInfo.size != 0){
+
+                        var reFInfo = fInfo.getArray("records");
+
+                        for(j = 0; j<reFInfo.length; j++){
+                            if((row >= 85) && (line == "H")){
+                                worksheet.Rows((row - 20) + ":" + (row - 5)).Copy;
+                                worksheet.Range("A" + (row - 4)).Insert;
+
+                                worksheet.Range("AL"+ row).Value = null;
+                                row += 1;
+                                worksheet.Range("AL"+ row).Value = null;
+
+// 2008/08/11 moriyama Mod Start
+// テンプレートレイアウト変更
+//                                row += 2;
+//                                worksheet.Range("AG"+ row).Value = null;
+//                                row += 2;
+//                                worksheet.Range("AG"+ row).Value = null;
+//                                row += 1;
+                                row += 1;
+                                worksheet.Range("AL"+ row).Value = null;
+                                row += 1;
+                                worksheet.Range("AL"+ row).Value = null;
+                                row += 3;
+// 2008/08/11 moriyama Mod End
+
+                                worksheet.Range("AL"+ row).Value = null;
+                                row += 1;
+                                worksheet.Range("AL"+ row).Value = null;
+                                row += 1;
+                                worksheet.Range("AL"+ row).Value = null;
+                                row += 1;
+
+                                row -= 9;
+                            }
+
+                            worksheet.Range(line + row).Value = reFInfo[j].MemberNo__c;
+                            row += 1;
+                            worksheet.Range(line + row).Value = reFInfo[j].Name;
+
+// 2008/08/11 moriyama Start
+// テンプレートレイアウト変更
+//                            row += 2;
+//                            worksheet.Range(lineS + row).Value = kinmuC;
+//                            row += 2;
+//                            worksheet.Range(lineS + row).Value = "{!ContractInfo__c.KeiyakuCompanyName__c}";
+//                            row += 1;
+                            row += 1;
+                            worksheet.Range(line + row).Value = kinmuC;
+                            row += 1;
+                            worksheet.Range(line + row).Value = reMInfo[i].CompanyKeiyakuNo__r.KeiyakuCompanyName__r.Name;
+                            row += 3;
+// 2008/08/11 moriyama End
+
+                            if(reMInfo[i].KeiyakuDate__c != null){
+                                worksheet.Range(line + row).Value = "=TEXT(\"" + reMInfo[i].KeiyakuDate__c + "\",\"yyyy/mm/dd～\")";
+                            }else{
+                                worksheet.Range(line + row).Value = null;
+                            }
+                            row += 1;
+                            worksheet.Range(line + row).Value = reFInfo[j].Commodity__c;
+                            row += 1;
+                            worksheet.Range(line + row).Value = reFInfo[j].KeiyakuKeitai__c;
+                            row += 1;
+
+                            if(line == "H"){
+                                line = "AL";
+//                                lineS = "AG";     2008/08/11 moriyama Del
+                                row -= 9;
+                            }else if(line == "AL"){
+                                line = "H";
+//                                lineS = "C";      2008/08/11 moriyama Del
+                                row += 7;
+                            }
+
+                        }
+                    }
+
+                }
+                excel.DisplayAlerts = false;
+                workbook.SaveAs(saveFile, -4143);
+                excel.DisplayAlerts = true;
+                workbook.Close(false);
+                excel.Quit();
+                excel = null;
+                var fso = new ActiveXObject("Scripting.FileSystemObject");
+                if(fso.FileExists(saveFile)){
+                    var fl = fso.getFile(saveFile);
+                    if(eval(fl.Size)>=5000000){
+                        alert("会員情報が多すぎるので、会員証ファイルを添付できません。\nシステム担当に連絡してください。");
+                    }else{
+                        stream.type = 1;
+                        stream.open();
+                        stream.loadFromFile(saveFile);
+                        bin = stream.read();
+                        stream.close();
+                        elm = dom.createElement("tmp");
+                        elm.dataType = "bin.base64";
+                        elm.nodeTypedValue = bin;
+                        var enc = elm.text;
+
+                        if("{!ContractInfo__c.Id}" != "" && "{!MemberInfo__c.Id}" == ""){
+                            var att = sforce.connection.query("select Id from Attachment where ParentId = '{!ContractInfo__c.Id}' and Name like 'member_%'");
+
+                        }else if("{!MemberInfo__c.Id}" != ""){
+                            var att = sforce.connection.query("select Id from Attachment where ParentId ='{!MemberInfo__c.Id}' and Name like 'member_%'");
+
+                        }
+                        var sobj = new sforce.SObject("Attachment");
+                        if (att.size != 0) {
+                            sobj.Id  = att.getArray("records")[0].Id;
+                        }
+                        sobj.Body  = enc;
+                        sobj.Name = fl.Name;
+                        if("{!ContractInfo__c.Id}" == "" && "{!MemberInfo__c.Id}" == ""){
+                            alert("画面IDが取得できません。\nシステム担当に連絡してください。");
+                        }else{
+                            if("{!ContractInfo__c.Id}" != "" && "{!MemberInfo__c.Id}" == ""){
+                                sobj.ParentId = "{!ContractInfo__c.Id}";
+                            }else if("{!MemberInfo__c.Id}" != ""){
+                                sobj.ParentId = "{!MemberInfo__c.Id}";
+                            }
+                            var result = sforce.connection.upsert("Id", [sobj]);
+                            if(!result[0].getBoolean("success")){
+                                alert("添付ファイルの更新に失敗しました。\n他ユーザによりデータが削除された可能性があります。\nシステム担当に連絡してください。");
+                            }else{
+                                var attS = sforce.connection.query("select Id from Attachment where ParentId ='" + sobj.ParentId + "' and Name like 'member_%' order by SystemModstamp desc");
+
+                                if(attS.size > 1){
+                                    var reAttS = attS.getArray("records");
+                                    for(k=1; k<reAttS.length; k++){
+                                        sforce.connection.deleteIds([reAttS[k].Id]);
+                                    }
+                                }
+
+                                alert("会員証の発行が完了しました。");
+ 
+                            }
+                            location.reload(true);
+                        }
+                    }
+                }else{
+                    alert("ファイル名が無効です。\nシステム担当に連絡してください。");
+                }
+            }else{
+                alert("対象の会員が存在しません。");
+            }
+        }else{
+            alert("テンプレートファイルが存在しません。\nシステム担当に連絡して下さい。");
+        }
+    }else{
+        alert("テンプレートファイルが存在しません。\nシステム担当に連絡して下さい。");
+    }
+    var eFso_del = new ActiveXObject("Scripting.FileSystemObject");
+    var eFolder = eFso_del.GetFolder(folderName);
+    var eFc = new Enumerator(eFolder.files);
+    for (; !eFc.atEnd(); eFc.moveNext()){
+        var eF = eFc.item();
+        if(eF.Name.search(/membercd_/) != -1){
+            var eFile_del = eFso_del.getFile(folderName + "\\" + eF.Name);
+            eFile_del.Delete();
+        }
+    }
+}

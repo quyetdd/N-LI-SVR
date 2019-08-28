@@ -1,0 +1,183 @@
+<apex:page standardController="MemberInfo__c" extensions="wb_MemberInfo_Edit" >
+    <apex:sectionHeader title="MemberInfo Edit" subtitle="{!MemberInfo.Name}"/>
+    <apex:form id="theForm">
+        <apex:pageBlock title="MemberInfo Edit" mode="edit">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!Save}"/>
+                <apex:commandButton value="Save & New" action="{!doFullSave1}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+            </apex:pageBlockButtons>
+            
+            <apex:pageBlockSection title="契約情報" columns="2">
+                <apex:inputField value="{!MemberInfo.CompanyKeiyakuNo__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.OtherMemberNo__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.MemberNo__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.Healthcheck_NOT_WB__c}" required="true"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.KeiyakuDate__c}" required="true"/>
+                <apex:outputField value="{!MemberInfo.KeiyakuNo__c}" />
+                <apex:inputField value="{!MemberInfo.MankiDate__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.TaikaiDate__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Commodity__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.Region_and_Area__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.KeiyakuKeitai__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.CountryName__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.CountryOfDeparture_Object__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Jurisdiction__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.Country_or_Region__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ShozokuArea__c}" required="true"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!MemberInfo.KeiyakuCompanyName__c}" style="width:500px" required="true"/>
+                <apex:inputField value="{!MemberInfo.Issues_To_AC__c}" style="width:500px" required="false"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="会員情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。" columns="2">
+                <apex:inputField value="{!MemberInfo.KinmuCompany__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.staff__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Name}" required="true"/>
+                <apex:inputField value="{!MemberInfo.Yakushoku__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.SeiRoma__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.Relationship__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.MeiRoma__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.Sex__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.SeiKana__c}" required="true"/>
+                <apex:inputField value="{!MemberInfo.DateOfBirth__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.MeiKana__c}" required="true"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="自宅住所情報　　※自宅住所が変更の場合は、BL手配の可能性がある為、契約地（日本以外）・管轄地区のBL担当者または内務へ通達する事！" >
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="住所には ''''マークは入力しないで下さい。　　请不要在住址前加（ ''''）双引号" columns="2" >
+                <apex:inputField value="{!MemberInfo.Postcd__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.Address__c}" style="width:500px"  required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.CountryCallingCodes__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Email__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Tel__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.MailHaishin__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Mobile__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.Fax__c}" required="false"/>
+                
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="保険情報" columns="2" >
+                <apex:inputField value="{!MemberInfo.OtaName__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.InsuranceCurrency__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.InsuranceKind__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.InjuryDeathCost__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.OtaAgency__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.TreatmentCost__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ShokenNo__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.TreatmentRescueCost__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ShokenGetSituation__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.InjuryCost__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.OtaKeepPlace__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.DiseaseCost__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Shonendo_Shiki__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.DiseaseDeathCost__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.OtaInsuranceShiki__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.RescueCost__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.OtaInsuranceShuki__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.DamagesCost__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.MedicalBillKessaiHouhou__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.CarryCost__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.HomeCountryCoverage__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.DentalTherapy__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.IDN_Attibute__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.OtaNote__c}"  style="width:500px" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.InsuranceCancelDate__c}"   required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.InsuranceCancelContact__c}"  style="width:500px" required="false"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="現地医療保険情報" columns="2" >
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.InsurancePlan__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.PassportNo__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.Nationality__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                 <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.IDN_KITAS_NO__c}" required="false"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="その他情報" columns="2" >
+                <apex:inputField value="{!MemberInfo.Formar_Healthcheck_Date__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Formar_Healthcheck_Facility__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.Formar_Healthcheck_Country__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.Issues_from_Sales__c}"  style="width:500px" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.Jibyo__c}"  style="width:500px" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.Note__c}"  style="width:500px" required="false"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="緊急連絡先①" columns="2" >
+                <apex:inputField value="{!MemberInfo.ContactShimei_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactRelationship_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactCompanyName_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactBusho_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactPostcd_1__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.ContactAddress_1__c}" style="width:500px" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.ContactCountryCode_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactMobile_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactTel_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactHolidayTel_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactExtNo_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactEmail_1__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactFax_1__c}" required="false"/>
+            </apex:pageBlockSection>
+              <apex:pageBlockSection title="緊急連絡先②" columns="2" >
+                <apex:inputField value="{!MemberInfo.ContactShimei_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactRelationship_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactCompanyName_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactBusho_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactPostcd_2__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.ContactAddress_2__c}" style="width:500px" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.ContactCountryCode_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactMobile_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactTel_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactHolidayTel_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactExtNo_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactEmail_2__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactFax_2__c}" required="false"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="緊急連絡先③" columns="2" >
+                <apex:inputField value="{!MemberInfo.ContactShimei_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactRelationship_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactCompanyName_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactBusho_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactPostcd_3__c}" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.ContactAddress_3__c}" style="width:500px" required="false"/>
+                <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
+                <apex:inputField value="{!MemberInfo.ContactCountryCode_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactMobile_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactTel_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactHolidayTel_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactExtNo_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactEmail_3__c}" required="false"/>
+                <apex:inputField value="{!MemberInfo.ContactFax_3__c}" required="false"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="退会後情報" columns="1" >
+                <apex:inputField value="{!MemberInfo.TaikaiKinmuCompany__c}" style="width:500px" required="false"/>
+                <apex:inputField value="{!MemberInfo.TaikaiBusho__c}" style="width:500px" required="false"/>
+                <apex:inputField value="{!MemberInfo.TaikaiYakushoku__c}" style="width:500px" required="false"/>
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,5 @@
+<apex:page controller="OTAHistoryImportBatchController" >
+	<apex:form >
+		<apex:commandButton value=" Run " action="{!run}" />
+	</apex:form>
+</apex:page>

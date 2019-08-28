@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CleanDataService xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>リードの Data.com 会社</description>
+    <masterLabel>リードの Data.com 会社</masterLabel>
+    <matchEngine>LeadAppendMatchEngine</matchEngine>
+</CleanDataService>

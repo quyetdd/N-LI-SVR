@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>契約（取引先）</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）のアクセス権</value>
+        </caseValues>
+        <name>opportunity_access</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）のアクセス権</value>
+        </caseValues>
+        <name>opportunity_access_level</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）アラート</value>
+        </caseValues>
+        <name>opportunity_alert</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 金額</value>
+        </caseValues>
+        <name>opportunity_amount</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）ベースのブリーフケース</value>
+        </caseValues>
+        <name>opportunity_based_briefcase</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 完了日</value>
+        </caseValues>
+        <name>opportunity_close_date</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>完了した契約（取引先）</value>
+        </caseValues>
+        <name>opportunity_closed</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）の競合</value>
+        </caseValues>
+        <name>opportunity_competitor</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）競合レポート</value>
+        </caseValues>
+        <name>opportunity_competitor_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）取引先責任者</value>
+        </caseValues>
+        <name>opportunity_contact</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）取引先責任者レポート</value>
+        </caseValues>
+        <name>opportunity_contact_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 作成者</value>
+        </caseValues>
+        <name>opportunity_creator</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 通貨</value>
+        </caseValues>
+        <name>opportunity_currency</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 説明</value>
+        </caseValues>
+        <name>opportunity_description</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） ディビジョン</value>
+        </caseValues>
+        <name>opportunity_division</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）の編集</value>
+        </caseValues>
+        <name>opportunity_edit</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）の項目</value>
+        </caseValues>
+        <name>opportunity_field</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）売上予測</value>
+        </caseValues>
+        <name>opportunity_forecast</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 売上予測分類</value>
+        </caseValues>
+        <name>opportunity_forecast_category</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）売上予測の編集</value>
+        </caseValues>
+        <name>opportunity_forecast_edit</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）履歴</value>
+        </caseValues>
+        <name>opportunity_history</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）履歴 ID</value>
+        </caseValues>
+        <name>opportunity_history_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）フェーズ履歴情報</value>
+        </caseValues>
+        <name>opportunity_history_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） ID</value>
+        </caseValues>
+        <name>opportunity_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）情報</value>
+        </caseValues>
+        <name>opportunity_info</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）情報</value>
+        </caseValues>
+        <name>opportunity_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） リードソース</value>
+        </caseValues>
+        <name>opportunity_lead_source</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）品目</value>
+        </caseValues>
+        <name>opportunity_line_item</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）品目の項目</value>
+        </caseValues>
+        <name>opportunity_line_item_field</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）品目 ID</value>
+        </caseValues>
+        <name>opportunity_line_item_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）名</value>
+        </caseValues>
+        <name>opportunity_name</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 所有者</value>
+        </caseValues>
+        <name>opportunity_owner</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 所有者(別名)</value>
+        </caseValues>
+        <name>opportunity_owner_alias</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 所有者 電子メール</value>
+        </caseValues>
+        <name>opportunity_owner_email</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>パートナー契約（取引先）一覧</value>
+        </caseValues>
+        <name>opportunity_partner_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 選択リスト</value>
+        </caseValues>
+        <name>opportunity_picklists</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） パイプライン</value>
+        </caseValues>
+        <name>opportunity_pipeline</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 数量</value>
+        </caseValues>
+        <name>opportunity_quantity</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）レコードタイプ</value>
+        </caseValues>
+        <name>opportunity_record_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）レポート</value>
+        </caseValues>
+        <name>opportunity_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）スケジュールレポート</value>
+        </caseValues>
+        <name>opportunity_schedule_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） フェーズ</value>
+        </caseValues>
+        <name>opportunity_stage</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）フェーズ ID</value>
+        </caseValues>
+        <name>opportunity_stage_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） フェーズ名</value>
+        </caseValues>
+        <name>opportunity_stage_name</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） フェーズの選択リスト値</value>
+        </caseValues>
+        <name>opportunity_stage_picklist_value</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） フェーズ状況</value>
+        </caseValues>
+        <name>opportunity_stage_status</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）状況</value>
+        </caseValues>
+        <name>opportunity_status</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）チーム</value>
+        </caseValues>
+        <name>opportunity_team</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）チームメンバー</value>
+        </caseValues>
+        <name>opportunity_team_member</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）チームメンバー ID</value>
+        </caseValues>
+        <name>opportunity_team_member_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）テリトリー</value>
+        </caseValues>
+        <name>opportunity_territory</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）テリトリーレポート</value>
+        </caseValues>
+        <name>opportunity_territory_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）の動向</value>
+        </caseValues>
+        <name>opportunity_trend</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）動向情報</value>
+        </caseValues>
+        <name>opportunity_trend_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）動向レポート</value>
+        </caseValues>
+        <name>opportunity_trend_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先） 種別</value>
+        </caseValues>
+        <name>opportunity_type</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>契約（取引先）ビュー</value>
+        </caseValues>
+        <name>opportunity_view</name>
+    </fields>
+    <fields>
+        <label><!-- Conditions --></label>
+        <name>Conditions__c</name>
+    </fields>
+    <fields>
+        <label><!-- デモ作成日 --></label>
+        <name>Field1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Start Date --></label>
+        <name>QuoteBeginDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Billing Frequency --></label>
+        <name>QuoteBillingFrequency__c</name>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yearly</masterLabel>
+            <translation><!-- Yearly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- End Date --></label>
+        <name>QuoteEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Number --></label>
+        <name>QuoteNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Method --></label>
+        <name>QuotePaymentMode__c</name>
+        <picklistValues>
+            <masterLabel>Credit Card</masterLabel>
+            <translation><!-- Credit Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wire Transfer</masterLabel>
+            <translation><!-- Wire Transfer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Payment Terms --></label>
+        <name>QuotePaymentTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Quote Version --></label>
+        <name>QuoteVersion__c</name>
+    </fields>
+    <layouts>
+        <layout>商談 レイアウト</layout>
+        <sections>
+            <label><!-- Useful Links --></label>
+            <section>Useful Links</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報(ケイズカスタマイズ) --></label>
+            <section>契約情報(ケイズカスタマイズ)</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- Generate_Quote --></label>
+        <name>Generate_Quote</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Stage_Date --></label>
+        <name>Stage_Date</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- keizykusha_sakusei --></label>
+        <name>keizykusha_sakusei</name>
+    </webLinks>
+</CustomObjectTranslation>

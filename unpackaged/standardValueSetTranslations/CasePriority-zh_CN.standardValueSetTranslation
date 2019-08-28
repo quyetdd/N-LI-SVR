@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>その他</masterLabel>
+        <translation>其他</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>中国語</masterLabel>
+        <translation><!-- 中国語 --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>日本語</masterLabel>
+        <translation><!-- 日本語 --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>英語</masterLabel>
+        <translation><!-- 英語 --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

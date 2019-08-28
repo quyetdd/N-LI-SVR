@@ -1,0 +1,53 @@
+<apex:page Controller="wb_rpt_MDMemberDistribution"  contentType="txt/xml#{!filename}" cache="true">
+    <apex:outputText value="{!xlsHeader}"/>
+       <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:o="urn:schemas-microsoft-com:office:office"
+              xmlns:x="urn:schemas-microsoft-com:office:excel"
+              xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:html="http://www.w3.org/TR/REC-html40">
+        <Styles>
+            <Style ss:ID="s1">
+                <Alignment/>
+                <Borders/>
+                <Font ss:Bold="1"/>
+                <Interior/>
+                <NumberFormat/>
+                <Protection/>
+            </Style>
+        </Styles>
+        <Worksheet ss:Name="集計シート（契約）">
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:Width="170"/>
+                <Column ss:Width="170"/>
+                <Column ss:Width="170"/>
+                <Column ss:Width="170"/>
+                <Column ss:Width="170"/>
+                <apex:repeat value="{!RptContractArea}" var="h">
+                    <Row>
+                        <Cell><Data ss:Type="String">{!h.C1}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.C2}</Data></Cell>
+                         <Cell><Data ss:Type="String">{!h.C3}</Data></Cell>
+                         <Cell><Data ss:Type="String">{!h.C4}</Data></Cell>
+                         <Cell><Data ss:Type="Number">{!VALUE(h.C5)}</Data></Cell>
+                    </Row>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+           <Worksheet ss:Name="集計シート（所属）">
+               <Table x:FullColumns="1" x:FullRows="1">
+                   <Column ss:Width="170"/>
+                   <Column ss:Width="170"/>
+                   <Column ss:Width="170"/>
+                   <Column ss:Width="170"/>
+                   <apex:repeat value="{!RptShozoArea}" var="h">
+                       <Row>
+                           <Cell><Data ss:Type="String">{!h.C1}</Data></Cell>
+                           <Cell><Data ss:Type="String">{!h.C2}</Data></Cell>
+                           <Cell><Data ss:Type="String">{!h.C3}</Data></Cell>
+                           <Cell><Data ss:Type="Number">{!VALUE(h.C4)}</Data></Cell>
+                       </Row>
+                   </apex:repeat>
+               </Table>
+           </Worksheet>
+        </Workbook>
+</apex:page>

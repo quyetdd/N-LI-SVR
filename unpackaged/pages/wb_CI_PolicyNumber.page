@@ -1,0 +1,295 @@
+<apex:page standardcontroller="wb_CarInsurance__c" extensions="wb_CI_PolicyNumber" id="thePage" sidebar="true" showHeader="true">
+    <apex:form id="theForm" >
+        
+
+        
+        <apex:pageBlock id="theBlock">
+            <apex:commandButton value="Cancel"  action="{!Cancel}"/>  
+            <apex:pageBlockSection columns="1" id="theHeader" >
+                
+                <div style="width:150px;">
+                    <apex:selectList id="ContractCountry" value="{!selectedContractCountry}" size="1" label="{!$ObjectType.wb_CarInsurance__c.fields.ContractCountry__c.label}">
+                        <apex:selectOptions value="{!ContractCountryOptions}"></apex:selectOptions>
+                        
+                        <apex:actionSupport event="onchange" action="{!fetchStatusOptions}" reRender="Status" /> 
+                        
+                    </apex:selectList>
+                </div>
+                
+                   <div style="width:150px;">
+                    <apex:selectList id="Status" value="{!selectedStatus}" size="1" label="{!$ObjectType.wb_CarInsurance__c.fields.Status__c.label}">
+                        <apex:selectOptions value="{!StatusOptions}"></apex:selectOptions>
+                        
+                       <apex:actionSupport event="onchange" action="{!fetchTab}" reRender="Cps_InsuranceCompany,Vlt_InsuranceCompany,theCompulsoriesList,Psgr_InsuranceCompany,thePassengersList" /> 
+                                  
+                        
+                    </apex:selectList>
+                </div>
+                
+                <div style="width:150px;">
+      
+                    <apex:inputText id="StartNo" value="{!StartNo}"  label="自動車関連保険　開始番号" >
+                        <apex:actionSupport event="onchange" action="{!fetchTab}" reRender="Cps_InsuranceCompany,Vlt_InsuranceCompany,theCompulsoriesList,Psgr_InsuranceCompany,thePassengersList" /> 
+                    </apex:inputText>
+                          <apex:inputText id="EndNo" value="{!EndNo}"  label="自動車関連保険　終了番号" >
+                        <apex:actionSupport event="onchange" action="{!fetchTab}" reRender="Cps_InsuranceCompany,Vlt_InsuranceCompany,theCompulsoriesList,Psgr_InsuranceCompany,thePassengersList" /> 
+                    </apex:inputText>
+   
+                      <apex:inputText id="RegistryNumber" value="{!RegistryNumber}"  label="{!$ObjectType.wb_CarInsurancedCars__c.fields.RegistryNumber__c.label}" >
+                           <apex:actionSupport event="onchange" action="{!fetchTab}" reRender="Cps_InsuranceCompany,Vlt_InsuranceCompany,theCompulsoriesList,Psgr_InsuranceCompany,thePassengersList" /> 
+
+                    </apex:inputText>
+                </div>
+                
+             
+           
+                
+            </apex:pageBlockSection>
+            
+            <apex:tabPanel switchType="client" value="{!selectedTab}" id="theTabPanel">
+                
+                   
+                <apex:tab label="車保険証券" name="one" id="tabCompulsory" ontabenter="callfetchTabCps();">
+                    
+                    <apex:pageBlockSection columns="1">
+                        
+                        <div style="width:150px;">
+                            <apex:selectList id="Cps_InsuranceCompany" value="{!selectedCps_InsuranceCompany}" size="1" label="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceCompany__c.label}">
+                                <apex:selectOptions value="{!Cps_InsuranceCompanyOptions}"></apex:selectOptions>
+                                
+                                <apex:actionSupport event="onchange" action="{!fetchTab}" reRender="theCompulsoriesList" /> 
+                                
+                                
+                            </apex:selectList>
+                        </div>
+                        <div style="width:150px;">
+                            <apex:selectList id="Vlt_InsuranceCompany" value="{!selectedVlt_InsuranceCompany}" size="1" label="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceCompany__c.label}">
+                                <apex:selectOptions value="{!Vlt_InsuranceCompanyOptions}"></apex:selectOptions>
+                                
+                                <apex:actionSupport event="onchange" action="{!fetchTab}" reRender="theCompulsoriesList" /> 
+                                
+                                
+                            </apex:selectList>
+                        </div>
+                        
+                        
+                        <apex:pageBlockSection columns="1" id="theCompulsoriesList" title="検索結果">
+                            
+                            <apex:dataTable value="{!PolicyNumberList}" var="row"  cellpadding="4" border="0" onRowClick="highlight(this);">
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:50px;">
+                                                <apex:outputText value="選択"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:inputCheckbox value="{!row.isSelected}" style="width:50px;"></apex:inputCheckbox>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurance__c.fields.ContractCountry__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.theCps.CarInsurancedCar__r.CarInsurance__r.ContractCountry__c}" style="width:100px;"></apex:outputtext>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurance__c.fields.Status__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.theCps.CarInsurancedCar__r.CarInsurance__r.Status__c}" style="width:100px;"></apex:outputtext>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:150px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurance__c.fields.Name.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.theCps.CarInsurancedCar__r.CarInsurance__r.name}" style="width:100px;"></apex:outputtext>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.RegistryNumber__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.theCps.CarInsurancedCar__r.RegistryNumber__c }" style="width:100px;"></apex:outputtext>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceCompany__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCps.Cps_InsuranceCompany__c}" style="width:100px;"></apex:outputfield>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_PolicyNumber__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:inputfield value="{!row.theCps.Cps_PolicyNumber__c}" style="width:100px;"></apex:inputfield>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceCompany__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCps.Vlt_InsuranceCompany__c}" style="width:100px;"></apex:outputfield>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_PolicyNumber__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:inputfield value="{!row.theCps.Vlt_PolicyNumber__c}" style="width:100px;"></apex:inputfield>
+                                </apex:column>
+                                
+                            </apex:dataTable>
+                            <apex:commandButton value="選択済みのを保存"  action="{!SavePolicyNumber}"/>  
+                        </apex:pageBlockSection>
+                        
+                        
+                    </apex:pageBlockSection>
+                    
+                </apex:tab>
+                <apex:tab label="搭乗証券" name="two" id="tabPassenger" ontabenter="callfetchTabPsgr();">
+                    <apex:pageBlockSection columns="1">
+                        
+                        <div style="width:150px;">
+                            <apex:selectList id="Psgr_InsuranceCompany" value="{!selectedPsgr_InsuranceCompany}" size="1" label="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceCompany__c.label}">
+                                <apex:selectOptions value="{!Psgr_InsuranceCompanyOptions}"></apex:selectOptions>
+                                
+                                <apex:actionSupport event="onchange" action="{!fetchTab}" reRender="thePassengersList" /> 
+                                
+                                
+                            </apex:selectList>
+                        </div>
+                        
+                         <apex:pageBlockSection columns="1" id="thePassengersList" title="検索結果">
+                            
+                            <apex:dataTable value="{!PsgrPolicyNumberList}" var="row"  cellpadding="4" border="0" onRowClick="highlight(this);">
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:50px;">
+                                                <apex:outputText value="選択"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:inputCheckbox value="{!row.isSelected}" style="width:50px;"></apex:inputCheckbox>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurance__c.fields.ContractCountry__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.thePsgr.CarInsurancedCar__r.CarInsurance__r.ContractCountry__c}" style="width:100px;"></apex:outputtext>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurance__c.fields.Status__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.thePsgr.CarInsurancedCar__r.CarInsurance__r.Status__c}" style="width:100px;"></apex:outputtext>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:150px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurance__c.fields.Name.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.thePsgr.CarInsurancedCar__r.CarInsurance__r.name}" style="width:100px;"></apex:outputtext>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.RegistryNumber__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.thePsgr.CarInsurancedCar__r.RegistryNumber__c }" style="width:100px;"></apex:outputtext>
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceCompany__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.thePsgr.Psgr_InsuranceCompany__c}" style="width:100px;"></apex:outputfield>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_PolicyNumber__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:inputfield value="{!row.thePsgr.Psgr_PolicyNumber__c}" style="width:100px;"></apex:inputfield>
+                                </apex:column>
+                                
+
+                                
+                            </apex:dataTable>
+                            <apex:commandButton value="選択済みのを保存"  action="{!SavePsgrPolicyNumber}"/>  
+                        </apex:pageBlockSection>
+                        
+
+                        
+                    </apex:pageBlockSection>
+                    
+                </apex:tab>
+            </apex:tabPanel>
+            
+            
+            <apex:actionFunction name="callfetchTabCps" action="{!fetchTabCps}">
+            </apex:actionFunction>
+            <apex:actionFunction name="callfetchTabPsgr" action="{!fetchTabPsgr}">
+            </apex:actionFunction>
+
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

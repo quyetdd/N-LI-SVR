@@ -1,0 +1,1828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Staff Register</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Staff Register</value>
+    </caseValues>
+    <fields>
+        <label><!-- 実年齢 --></label>
+        <name>ActualAge__c</name>
+    </fields>
+    <fields>
+        <label><!-- 現住所 --></label>
+        <name>Address__c</name>
+    </fields>
+    <fields>
+        <label><!-- アジャスター --></label>
+        <name>Adjuster__c</name>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 4月1日時点での年齢 --></help>
+        <label><!-- 満年齢 --></label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- 代理店 --></label>
+        <name>Agency__c</name>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ブローカー --></label>
+        <name>Broker__c</name>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 部署 --></label>
+        <name>Busho__c</name>
+        <picklistValues>
+            <masterLabel>AC</masterLabel>
+            <translation>AC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS</masterLabel>
+            <translation>CS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Global Business</masterLabel>
+            <translation><!-- Global Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>システム</masterLabel>
+            <translation>IT</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>事務管理</masterLabel>
+            <translation><!-- 事務管理 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>人事総務</masterLabel>
+            <translation><!-- 人事総務 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>健診</masterLabel>
+            <translation>Healthcare Business</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>公估</masterLabel>
+            <translation>Adjuster</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>医療保険査定</masterLabel>
+            <translation><!-- 医療保険査定 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>危機管理情報</masterLabel>
+            <translation>Risk Management</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>商品企画開発</masterLabel>
+            <translation><!-- 商品企画開発 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>営業</masterLabel>
+            <translation>Sales</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>教育研修</masterLabel>
+            <translation>Training and Development</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>業務統括</masterLabel>
+            <translation><!-- 業務統括 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>総合サービス</masterLabel>
+            <translation><!-- 総合サービス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車保険査定</masterLabel>
+            <translation><!-- 自動車保険査定 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財務</masterLabel>
+            <translation>Finance</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 社員：4桁数字
+出向者：S+3桁数字
+家族：F+3桁数字 --></help>
+        <label><!-- CD --></label>
+        <name>Cd__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会社/部署 --></label>
+        <name>CompanyBusho__c</name>
+    </fields>
+    <fields>
+        <label><!-- （社宅）契約家賃 --></label>
+        <name>CompanyHouseKeiyakuRent__c</name>
+    </fields>
+    <fields>
+        <label><!-- （社宅）契約期限 --></label>
+        <name>CompanyHouseKeiyakuTimeLimit__c</name>
+    </fields>
+    <fields>
+        <label><!-- （社宅）入居期限 --></label>
+        <name>CompanyHouseMoveIntoTimeLimit__c</name>
+    </fields>
+    <fields>
+        <label><!-- （社宅）備考 --></label>
+        <name>CompanyHouseNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- （社宅）家賃基準 --></label>
+        <name>CompanyHouseRentStandard__c</name>
+    </fields>
+    <fields>
+        <label><!-- （社宅）自己負担（1） --></label>
+        <name>CompanyHouseSelfPay_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- （社宅）自己負担（2） --></label>
+        <name>CompanyHouseSelfPay_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会社名 --></label>
+        <name>CompanyName__c</name>
+        <picklistValues>
+            <masterLabel>DP</masterLabel>
+            <translation><!-- DP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ILA</masterLabel>
+            <translation><!-- ILA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB</masterLabel>
+            <translation><!-- WB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Brokers China</masterLabel>
+            <translation><!-- WB Brokers China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Brokers Hong Kong</masterLabel>
+            <translation><!-- WB Brokers Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Cambodia</masterLabel>
+            <translation><!-- WB Cambodia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Canada</masterLabel>
+            <translation><!-- WB Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB France</masterLabel>
+            <translation><!-- WB France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Holdings</masterLabel>
+            <translation><!-- WB Holdings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Hong Kong</masterLabel>
+            <translation><!-- WB Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB ILA Hong Kong</masterLabel>
+            <translation><!-- WB ILA Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB India</masterLabel>
+            <translation><!-- WB India --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Indonesia</masterLabel>
+            <translation><!-- WB Indonesia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Japan</masterLabel>
+            <translation><!-- WB Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB LA China</masterLabel>
+            <translation><!-- WB LA China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Malaysia</masterLabel>
+            <translation><!-- WB Malaysia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Mexico</masterLabel>
+            <translation><!-- WB Mexico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Myanmar</masterLabel>
+            <translation><!-- WB Myanmar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Philippines</masterLabel>
+            <translation><!-- WB Philippines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Shanghai</masterLabel>
+            <translation><!-- WB Shanghai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Singapore</masterLabel>
+            <translation><!-- WB Singapore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Sri Lanka</masterLabel>
+            <translation><!-- WB Sri Lanka --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Thailand</masterLabel>
+            <translation><!-- WB Thailand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Vietnam</masterLabel>
+            <translation><!-- WB Vietnam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB上海ブローカー</masterLabel>
+            <translation>WB Shanghai Broker</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホールディングス</masterLabel>
+            <translation>Holdings</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 生年月日 --></label>
+        <name>DateOfBirth__c</name>
+    </fields>
+    <fields>
+        <label><!-- 作成日付 --></label>
+        <name>EmailCreateDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 削除日付 --></label>
+        <name>EmailDeleteDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- メールアドレス名 --></label>
+        <name>EmailMei__c</name>
+    </fields>
+    <fields>
+        <label><!-- メール表示名 --></label>
+        <name>EmailName__c</name>
+    </fields>
+    <fields>
+        <label><!-- パスワード --></label>
+        <name>EmailPassword__c</name>
+    </fields>
+    <fields>
+        <label><!-- メールアドレス姓2 --></label>
+        <name>EmailSei2__c</name>
+    </fields>
+    <fields>
+        <label><!-- メールアドレス姓 --></label>
+        <name>EmailSei__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Emailアドレス --></label>
+        <name>Email_txt__c</name>
+    </fields>
+    <fields>
+        <label><!-- 採用地区 --></label>
+        <name>EmployArea__c</name>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation><!-- インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カナダ</masterLabel>
+            <translation><!-- カナダ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カンボジア</masterLabel>
+            <translation><!-- カンボジア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation><!-- シンガポール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スリランカ</masterLabel>
+            <translation><!-- スリランカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タイ</masterLabel>
+            <translation><!-- タイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フランス</masterLabel>
+            <translation><!-- フランス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ミャンマー</masterLabel>
+            <translation><!-- ミャンマー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコ</masterLabel>
+            <translation><!-- メキシコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 雇用形態 --></label>
+        <name>EmploymentSystem__c</name>
+        <picklistValues>
+            <masterLabel>アルバイト</masterLabel>
+            <translation><!-- アルバイト --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>休職</masterLabel>
+            <translation><!-- 休職 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>出向者</masterLabel>
+            <translation><!-- 出向者 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>契約社員</masterLabel>
+            <translation><!-- 契約社員 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>正社員</masterLabel>
+            <translation><!-- 正社員 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>派遣社員</masterLabel>
+            <translation><!-- 派遣社員 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>試用期間</masterLabel>
+            <translation><!-- 試用期間 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 家族)社員名 --></label>
+        <name>FamilyStaffName__c</name>
+    </fields>
+    <fields>
+        <help><!-- 社員の家族を登録する場合は、
+チェックをつけます。 --></help>
+        <label><!-- 家族 --></label>
+        <name>Family__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務国 --></label>
+        <name>Field1__c</name>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation><!-- インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カナダ</masterLabel>
+            <translation><!-- カナダ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カンボジア</masterLabel>
+            <translation><!-- カンボジア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation><!-- シンガポール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スリランカ</masterLabel>
+            <translation><!-- スリランカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タイ</masterLabel>
+            <translation><!-- タイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フランス</masterLabel>
+            <translation><!-- フランス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ブラジル</masterLabel>
+            <translation><!-- ブラジル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ミャンマー</masterLabel>
+            <translation><!-- ミャンマー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコ</masterLabel>
+            <translation><!-- メキシコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 雇用会社名 --></label>
+        <name>Field2__c</name>
+        <picklistValues>
+            <masterLabel>DP</masterLabel>
+            <translation><!-- DP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ILA</masterLabel>
+            <translation><!-- ILA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB</masterLabel>
+            <translation><!-- WB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Brokers China</masterLabel>
+            <translation><!-- WB Brokers China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Brokers Hong Kong</masterLabel>
+            <translation><!-- WB Brokers Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Cambodia</masterLabel>
+            <translation><!-- WB Cambodia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Canada</masterLabel>
+            <translation><!-- WB Canada --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB France</masterLabel>
+            <translation><!-- WB France --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Holdings</masterLabel>
+            <translation><!-- WB Holdings --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Hong Kong</masterLabel>
+            <translation><!-- WB Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB ILA Hong Kong</masterLabel>
+            <translation><!-- WB ILA Hong Kong --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB India</masterLabel>
+            <translation><!-- WB India --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Indonesia</masterLabel>
+            <translation><!-- WB Indonesia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Japan</masterLabel>
+            <translation><!-- WB Japan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB LA China</masterLabel>
+            <translation><!-- WB LA China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Malaysia</masterLabel>
+            <translation><!-- WB Malaysia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Mexico</masterLabel>
+            <translation><!-- WB Mexico --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Myanmar</masterLabel>
+            <translation><!-- WB Myanmar --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Philippines</masterLabel>
+            <translation><!-- WB Philippines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Shanghai</masterLabel>
+            <translation><!-- WB Shanghai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Singapore</masterLabel>
+            <translation><!-- WB Singapore --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Sri Lanka</masterLabel>
+            <translation><!-- WB Sri Lanka --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Thailand</masterLabel>
+            <translation><!-- WB Thailand --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB Vietnam</masterLabel>
+            <translation><!-- WB Vietnam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB上海ブローカー</masterLabel>
+            <translation><!-- WB上海ブローカー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホールディングス</masterLabel>
+            <translation><!-- ホールディングス --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (拠点集計用)会社名 --></label>
+        <name>Field3__c</name>
+    </fields>
+    <fields>
+        <label><!-- 最終学歴 --></label>
+        <name>Gakureki__c</name>
+        <picklistValues>
+            <masterLabel>不明</masterLabel>
+            <translation><!-- 不明 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中学</masterLabel>
+            <translation><!-- 中学 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大学</masterLabel>
+            <translation><!-- 大学 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大学院</masterLabel>
+            <translation><!-- 大学院 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>専門学校</masterLabel>
+            <translation><!-- 専門学校 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>短大</masterLabel>
+            <translation><!-- 短大 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>高専</masterLabel>
+            <translation><!-- 高専 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>高校</masterLabel>
+            <translation><!-- 高校 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 住所（日本） --></label>
+        <name>JpAddress__c</name>
+    </fields>
+    <fields>
+        <label><!-- 郵便番号（日本） --></label>
+        <name>JpPostcd__c</name>
+    </fields>
+    <fields>
+        <label><!-- TEL（日本） --></label>
+        <name>JpTel__c</name>
+    </fields>
+    <fields>
+        <label><!-- （緊急）住所① --></label>
+        <name>KinkyuAddress_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- （緊急）住所② --></label>
+        <name>KinkyuAddress_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- （緊急）携帯電話番号/自宅TEL① --></label>
+        <name>KinkyuMobile_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- （緊急）携帯電話番号/自宅TEL② --></label>
+        <name>KinkyuMobile_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- （緊急）続柄① --></label>
+        <name>KinkyuRelationship_1__c</name>
+        <picklistValues>
+            <masterLabel>兄弟</masterLabel>
+            <translation><!-- 兄弟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>夫</masterLabel>
+            <translation><!-- 夫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>妻</masterLabel>
+            <translation><!-- 妻 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>姉妹</masterLabel>
+            <translation><!-- 姉妹 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>娘</masterLabel>
+            <translation><!-- 娘 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>息子</masterLabel>
+            <translation><!-- 息子 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>母</masterLabel>
+            <translation><!-- 母 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>父</masterLabel>
+            <translation><!-- 父 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>知人</masterLabel>
+            <translation><!-- 知人 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>祖母</masterLabel>
+            <translation><!-- 祖母 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>祖父</masterLabel>
+            <translation><!-- 祖父 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>親戚</masterLabel>
+            <translation><!-- 親戚 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （緊急）続柄② --></label>
+        <name>KinkyuRelationship_2__c</name>
+        <picklistValues>
+            <masterLabel>兄弟</masterLabel>
+            <translation><!-- 兄弟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>夫</masterLabel>
+            <translation><!-- 夫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>妻</masterLabel>
+            <translation><!-- 妻 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>姉妹</masterLabel>
+            <translation><!-- 姉妹 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>娘</masterLabel>
+            <translation><!-- 娘 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>息子</masterLabel>
+            <translation><!-- 息子 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>母</masterLabel>
+            <translation><!-- 母 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>父</masterLabel>
+            <translation><!-- 父 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>知人</masterLabel>
+            <translation><!-- 知人 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>祖母</masterLabel>
+            <translation><!-- 祖母 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>祖父</masterLabel>
+            <translation><!-- 祖父 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>親戚</masterLabel>
+            <translation><!-- 親戚 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （緊急）氏名① --></label>
+        <name>KinkyuShimei_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- （緊急）氏名② --></label>
+        <name>KinkyuShimei_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務地区 --></label>
+        <name>KinmuArea__c</name>
+        <picklistValues>
+            <masterLabel>アーメダバード</masterLabel>
+            <translation><!-- アーメダバード --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>イラプアト</masterLabel>
+            <translation><!-- イラプアト --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コロンボ</masterLabel>
+            <translation><!-- コロンボ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>サンパウロ</masterLabel>
+            <translation><!-- サンパウロ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シラチャ</masterLabel>
+            <translation><!-- シラチャ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation><!-- シンガポール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation><!-- ジャカルタ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジョホールバル</masterLabel>
+            <translation><!-- ジョホールバル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スラバヤ</masterLabel>
+            <translation><!-- スラバヤ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セブ</masterLabel>
+            <translation><!-- セブ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダナン</masterLabel>
+            <translation><!-- ダナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェンナイ</masterLabel>
+            <translation><!-- チェンナイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>デリー</masterLabel>
+            <translation><!-- デリー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>トロント</masterLabel>
+            <translation><!-- トロント --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ナコンラチャシマ</masterLabel>
+            <translation><!-- ナコンラチャシマ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハイフォン</masterLabel>
+            <translation><!-- ハイフォン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation><!-- ハノイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンガロール</masterLabel>
+            <translation><!-- バンガロール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンコク</masterLabel>
+            <translation><!-- バンコク --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>パリ</masterLabel>
+            <translation><!-- パリ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プネ</masterLabel>
+            <translation><!-- プネ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プノンペン</masterLabel>
+            <translation><!-- プノンペン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ペナン</masterLabel>
+            <translation><!-- ペナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation><!-- ホーチミン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ムンバイ</masterLabel>
+            <translation><!-- ムンバイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコシティ</masterLabel>
+            <translation><!-- メキシコシティ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヤンゴン</masterLabel>
+            <translation><!-- ヤンゴン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>リッポーチカラン</masterLabel>
+            <translation><!-- リッポーチカラン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中山</masterLabel>
+            <translation><!-- 中山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>佛山</masterLabel>
+            <translation><!-- 佛山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation><!-- 北京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>十堰</masterLabel>
+            <translation><!-- 十堰 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南京</masterLabel>
+            <translation><!-- 南京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南通</masterLabel>
+            <translation><!-- 南通 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>厦門</masterLabel>
+            <translation><!-- 厦門 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>合肥</masterLabel>
+            <translation><!-- 合肥 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>名古屋</masterLabel>
+            <translation><!-- 名古屋 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大阪</masterLabel>
+            <translation><!-- 大阪 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation><!-- 天津 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津開発区</masterLabel>
+            <translation><!-- 天津開発区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>寧波</masterLabel>
+            <translation><!-- 寧波 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation><!-- 常州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常熟</masterLabel>
+            <translation><!-- 常熟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平湖</masterLabel>
+            <translation><!-- 平湖 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>恵州</masterLabel>
+            <translation><!-- 恵州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成都</masterLabel>
+            <translation><!-- 成都 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation><!-- 昆山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州</masterLabel>
+            <translation><!-- 杭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京</masterLabel>
+            <translation><!-- 東京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation><!-- 東莞 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation><!-- 武漢 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汕頭</masterLabel>
+            <translation><!-- 汕頭 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深圳</masterLabel>
+            <translation><!-- 深圳 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>済寧</masterLabel>
+            <translation><!-- 済寧 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>瀋陽</masterLabel>
+            <translation><!-- 瀋陽 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation><!-- 無錫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>煙台</masterLabel>
+            <translation><!-- 煙台 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>珠海</masterLabel>
+            <translation><!-- 珠海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>番禺</masterLabel>
+            <translation><!-- 番禺 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福州</masterLabel>
+            <translation><!-- 福州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>花都</masterLabel>
+            <translation><!-- 花都 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>襄陽</masterLabel>
+            <translation><!-- 襄陽 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鄭州</masterLabel>
+            <translation><!-- 鄭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>重慶</masterLabel>
+            <translation><!-- 重慶 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長春</masterLabel>
+            <translation><!-- 長春 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長沙</masterLabel>
+            <translation><!-- 長沙 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation><!-- 青島 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島開発区</masterLabel>
+            <translation><!-- 青島開発区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 勤続年数 --></label>
+        <name>KinzokuNensu__c</name>
+    </fields>
+    <fields>
+        <label><!-- 戸籍 --></label>
+        <name>Koseki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 労働契約期限 --></label>
+        <name>LaborContractValidUntil__c</name>
+    </fields>
+    <fields>
+        <label><!-- 医療資格 --></label>
+        <name>MedicalShikaku__c</name>
+        <picklistValues>
+            <masterLabel>准看護師（日本）</masterLabel>
+            <translation><!-- 准看護師（日本） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>医師</masterLabel>
+            <translation><!-- 医師 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>検査技師</masterLabel>
+            <translation><!-- 検査技師 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>看護師（日本）</masterLabel>
+            <translation><!-- 看護師（日本） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>看護師（現地）</masterLabel>
+            <translation><!-- 看護師（現地） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>薬剤師</masterLabel>
+            <translation><!-- 薬剤師 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鍼灸師</masterLabel>
+            <translation><!-- 鍼灸師 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 名（ローマ字） --></label>
+        <name>MeiRoma__c</name>
+    </fields>
+    <fields>
+        <label><!-- 携帯電話番号 --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- 国籍 --></label>
+        <name>Nationality__c</name>
+        <picklistValues>
+            <masterLabel>アメリカ</masterLabel>
+            <translation><!-- アメリカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アルゼンチン</masterLabel>
+            <translation><!-- アルゼンチン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation><!-- インド --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation><!-- インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カナダ</masterLabel>
+            <translation><!-- カナダ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カンボジア</masterLabel>
+            <translation><!-- カンボジア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation><!-- シンガポール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スリランカ</masterLabel>
+            <translation><!-- スリランカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タイ</masterLabel>
+            <translation><!-- タイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チベット</masterLabel>
+            <translation><!-- チベット --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ネパール</masterLabel>
+            <translation><!-- ネパール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ブラジル</masterLabel>
+            <translation><!-- ブラジル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ミャンマー</masterLabel>
+            <translation><!-- ミャンマー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコ</masterLabel>
+            <translation><!-- メキシコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ラオス</masterLabel>
+            <translation><!-- ラオス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台湾</masterLabel>
+            <translation><!-- 台湾 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 備考（システム部用） --></label>
+        <name>NoteSystem__c</name>
+    </fields>
+    <fields>
+        <label><!-- 備考 --></label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- 入社日付 --></label>
+        <name>NyusyaDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- パスポート有効期限 --></label>
+        <name>PassportDateOfExpiry__c</name>
+    </fields>
+    <fields>
+        <label><!-- パスポート番号 --></label>
+        <name>PassportNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 職位 --></label>
+        <name>Post__c</name>
+    </fields>
+    <fields>
+        <label><!-- 郵便番号 --></label>
+        <name>Postcd__c</name>
+    </fields>
+    <fields>
+        <label><!-- 姓名（ローマ字） --></label>
+        <name>SeiMeiRoma__c</name>
+    </fields>
+    <fields>
+        <label><!-- 姓（ローマ字） --></label>
+        <name>SeiRoma__c</name>
+    </fields>
+    <fields>
+        <label><!-- 共有サーバーパスワード --></label>
+        <name>ServerPassword__c</name>
+    </fields>
+    <fields>
+        <label><!-- 性別 --></label>
+        <name>Sex__c</name>
+        <picklistValues>
+            <masterLabel>女</masterLabel>
+            <translation><!-- 女 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>男</masterLabel>
+            <translation><!-- 男 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 資格 --></label>
+        <name>Shikaku__c</name>
+    </fields>
+    <fields>
+        <label><!-- 職務 --></label>
+        <name>Shokumu__c</name>
+        <picklistValues>
+            <masterLabel>AC</masterLabel>
+            <translation>Operator</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CS</masterLabel>
+            <translation><!-- CS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アジャスター</masterLabel>
+            <translation>Adjuster</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アテンド</masterLabel>
+            <translation>Attendant</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>システム</masterLabel>
+            <translation><!-- システム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>事務管理</masterLabel>
+            <translation><!-- 事務管理 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>人事</masterLabel>
+            <translation><!-- 人事 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>人事総務</masterLabel>
+            <translation><!-- 人事総務 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>代表取締役</masterLabel>
+            <translation><!-- 代表取締役 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>保険事務</masterLabel>
+            <translation><!-- 保険事務 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>健診</masterLabel>
+            <translation><!-- 健診 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>入力</masterLabel>
+            <translation><!-- 入力 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>取締役</masterLabel>
+            <translation><!-- 取締役 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>営業</masterLabel>
+            <translation>Sales PIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>営業内務</masterLabel>
+            <translation>Clerk PIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>所長</masterLabel>
+            <translation><!-- 所長 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>掃除</masterLabel>
+            <translation><!-- 掃除 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搬送業務</masterLabel>
+            <translation><!-- 搬送業務 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>査定</masterLabel>
+            <translation><!-- 査定 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>業務統括</masterLabel>
+            <translation><!-- 業務統括 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法務</masterLabel>
+            <translation><!-- 法務 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>病院医師</masterLabel>
+            <translation><!-- 病院医師 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>病院看護師</masterLabel>
+            <translation><!-- 病院看護師 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>総務</masterLabel>
+            <translation><!-- 総務 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>総合サービス</masterLabel>
+            <translation><!-- 総合サービス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財務</masterLabel>
+            <translation><!-- 財務 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>運転手</masterLabel>
+            <translation>Driver</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 社員番号 --></label>
+        <name>StaffNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 状態 --></label>
+        <name>StaffStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- 退職日付 --></label>
+        <name>TaishokuDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- TEL --></label>
+        <name>Tel__c</name>
+    </fields>
+    <fields>
+        <label><!-- 臨時住宿登記 --></label>
+        <name>TemporaryResidenceRegistration__c</name>
+    </fields>
+    <fields>
+        <label><!-- ビザ健診日 --></label>
+        <name>VisaKenshinDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- ビザ番号 --></label>
+        <name>VisaNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- ビザ備考 --></label>
+        <name>VisaNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- ビザ手続地区 --></label>
+        <name>VisaProcedureDistrict__c</name>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation><!-- 北京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation><!-- 日本 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation><!-- 深セン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ビザ種類 --></label>
+        <name>VisaType__c</name>
+        <picklistValues>
+            <masterLabel>F</masterLabel>
+            <translation><!-- F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Z</masterLabel>
+            <translation><!-- Z --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台湾澳人員就業証</masterLabel>
+            <translation><!-- 台湾澳人員就業証 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>家族</masterLabel>
+            <translation><!-- 家族 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>就業核准証</masterLabel>
+            <translation><!-- 就業核准証 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- ビザ期限 --></label>
+        <name>VisaValidUntil__c</name>
+    </fields>
+    <fields>
+        <label><!-- 就業証取消日 --></label>
+        <name>WorkPermitCancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 就業証番号 --></label>
+        <name>WorkPermitNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 役職 --></label>
+        <name>Yakushoku__c</name>
+        <picklistValues>
+            <masterLabel>Director</masterLabel>
+            <translation><!-- Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Director</masterLabel>
+            <translation><!-- General Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General Manager</masterLabel>
+            <translation><!-- General Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Manager</masterLabel>
+            <translation><!-- Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Managing Director</masterLabel>
+            <translation><!-- Managing Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>President Director</masterLabel>
+            <translation><!-- President Director --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regional Manager</masterLabel>
+            <translation><!-- Regional Manager --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>リーダー</masterLabel>
+            <translation>Leader</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>主任</masterLabel>
+            <translation>Chief</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>代表取締役</masterLabel>
+            <translation>Managing Director</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>取締役</masterLabel>
+            <translation>Executive Director</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>営業総監</masterLabel>
+            <translation><!-- 営業総監 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>執行役員</masterLabel>
+            <translation>Officer</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>所長</masterLabel>
+            <translation><!-- 所長 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>支店長</masterLabel>
+            <translation><!-- 支店長 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>本部長</masterLabel>
+            <translation><!-- 本部長 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>次長</masterLabel>
+            <translation>Assistant Manager</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>監事</masterLabel>
+            <translation><!-- 監事 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>総経理</masterLabel>
+            <translation><!-- 総経理 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>董事</masterLabel>
+            <translation><!-- 董事 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>課長</masterLabel>
+            <translation>Manager</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>部長</masterLabel>
+            <translation>General Manager</translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>一般用レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム管理情報 --></label>
+            <section>システム管理情報</section>
+        </sections>
+        <sections>
+            <label><!-- 住所 --></label>
+            <section>住所</section>
+        </sections>
+        <sections>
+            <label><!-- 住所2 --></label>
+            <section>住所2</section>
+        </sections>
+        <sections>
+            <label><!-- 住所3 --></label>
+            <section>住所3</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 情報2 --></label>
+            <section>情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 情報3 --></label>
+            <section>情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 資格情報 --></label>
+            <section>資格情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>家族管理者用レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- パスポート情報 --></label>
+            <section>パスポート情報</section>
+        </sections>
+        <sections>
+            <label><!-- ビザ・就業証情報 --></label>
+            <section>ビザ・就業証情報</section>
+        </sections>
+        <sections>
+            <label><!-- ビザ・就業証情報2 --></label>
+            <section>ビザ・就業証情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 所属情報 --></label>
+            <section>所属情報</section>
+        </sections>
+        <sections>
+            <label><!-- 社員コード・氏名 --></label>
+            <section>社員コード・氏名</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>社員名簿管理者用レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- システム部用情報 --></label>
+            <section>システム部用情報</section>
+        </sections>
+        <sections>
+            <label><!-- パスポート情報 --></label>
+            <section>パスポート情報</section>
+        </sections>
+        <sections>
+            <label><!-- ビザ・就業証情報 --></label>
+            <section>ビザ・就業証情報</section>
+        </sections>
+        <sections>
+            <label><!-- ビザ・就業証情報2 --></label>
+            <section>ビザ・就業証情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 住所2 --></label>
+            <section>住所2</section>
+        </sections>
+        <sections>
+            <label><!-- 住所3 --></label>
+            <section>住所3</section>
+        </sections>
+        <sections>
+            <label><!-- 個人情報 --></label>
+            <section>個人情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 所属情報 --></label>
+            <section>所属情報</section>
+        </sections>
+        <sections>
+            <label><!-- 現住所 --></label>
+            <section>現住所</section>
+        </sections>
+        <sections>
+            <label><!-- 社員コード・氏名 --></label>
+            <section>社員コード・氏名</section>
+        </sections>
+        <sections>
+            <label><!-- 社宅情報 --></label>
+            <section>社宅情報</section>
+        </sections>
+        <sections>
+            <label><!-- 社宅情報2 --></label>
+            <section>社宅情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 緊急連絡先 --></label>
+            <section>緊急連絡先</section>
+        </sections>
+        <sections>
+            <label><!-- 資格情報 --></label>
+            <section>資格情報</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Name</nameFieldLabel>
+    <recordTypes>
+        <label><!-- 家族 --></label>
+        <name>RecordType_Family</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 社員 --></label>
+        <name>RecordType_SHAIN</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- CompanyList --></label>
+        <name>CompanyList</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- KeiyakuList --></label>
+        <name>KeiyakuList</name>
+    </webLinks>
+    <webLinks>
+        <label>Sales Report List</label>
+        <name>SalesReport</name>
+    </webLinks>
+    <webLinks>
+        <label>Sales Report (Simple)</label>
+        <name>SalesReport2</name>
+    </webLinks>
+</CustomObjectTranslation>

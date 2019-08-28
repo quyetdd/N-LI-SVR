@@ -1,0 +1,3061 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>自動車保険関連</value>
+    </caseValues>
+    <fields>
+        <label><!-- （自動車）契約店 --></label>
+        <name>Agency__c</name>
+        <picklistValues>
+            <masterLabel>ブローカー</masterLabel>
+            <translation><!-- ブローカー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>代理店</masterLabel>
+            <translation><!-- 代理店 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- (契約会社)会社コード --></label>
+        <name>CC_Cd__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約会社)WB営業担当 --></label>
+        <name>CC_WBEigyoTanto__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険解約日（24時迄） --></label>
+        <name>CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険解約理由 --></label>
+        <name>CancelReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- （自動車）契約国 --></label>
+        <name>CarKeiyakuCountry__c</name>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 車型 --></label>
+        <name>CarModel__c</name>
+    </fields>
+    <fields>
+        <label><!-- 車両番号 --></label>
+        <name>CarNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- （自動車）所属地区 --></label>
+        <name>CarShozokuArea__c</name>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジョホールバル</masterLabel>
+            <translation><!-- ジョホールバル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セブ</masterLabel>
+            <translation><!-- セブ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダナン</masterLabel>
+            <translation><!-- ダナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハイフォン</masterLabel>
+            <translation><!-- ハイフォン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation><!-- ハノイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ペナン</masterLabel>
+            <translation><!-- ペナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation><!-- ホーチミン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation><!-- 北京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation><!-- 天津 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安徽省</masterLabel>
+            <translation><!-- 安徽省 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>山東省</masterLabel>
+            <translation><!-- 山東省 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation><!-- 常州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平湖</masterLabel>
+            <translation><!-- 平湖 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation><!-- 昆山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州</masterLabel>
+            <translation><!-- 杭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation><!-- 東莞 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation><!-- 武漢 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>浙江省</masterLabel>
+            <translation><!-- 浙江省 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation><!-- 深セン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation><!-- 無錫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福建省</masterLabel>
+            <translation><!-- 福建省 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation><!-- 青島 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 自動車退会区分 --></label>
+        <name>CarTaikaiKubun__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）異動始期 --></label>
+        <name>ChangeShiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 付保座席数 --></label>
+        <name>CoveringInsuranceSeat__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）明細番号 --></label>
+        <name>DetailsNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 営業担当 --></label>
+        <name>EigyoTanto__c</name>
+        <relationshipLabel><!-- 自動車保険関連 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- エンジン番号 --></label>
+        <name>EngineNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- (使用会社)会社コード --></label>
+        <name>Field1__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険料通貨 --></label>
+        <name>Field2__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation><!-- HKD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PHP</masterLabel>
+            <translation><!-- PHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation><!-- RMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VND</masterLabel>
+            <translation><!-- VND --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 初登年月 --></label>
+        <name>FirstEntryDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- システム登録番号 --></label>
+        <name>IchiroHeianNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 取込コメント --></label>
+        <name>ImportComm__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険プラン --></label>
+        <name>InsurancePlan__c</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A+②10</masterLabel>
+            <translation><!-- A+②10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A+②20</masterLabel>
+            <translation><!-- A+②20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A+②30</masterLabel>
+            <translation><!-- A+②30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A+②50</masterLabel>
+            <translation><!-- A+②50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A1</masterLabel>
+            <translation><!-- A1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A2</masterLabel>
+            <translation><!-- A2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AD</masterLabel>
+            <translation><!-- AD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AD1</masterLabel>
+            <translation><!-- AD1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AD2</masterLabel>
+            <translation><!-- AD2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AZ</masterLabel>
+            <translation><!-- AZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A（運転手含まず）</masterLabel>
+            <translation><!-- A（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A（運転手含む）</masterLabel>
+            <translation><!-- A（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B+②10</masterLabel>
+            <translation><!-- B+②10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B+②20</masterLabel>
+            <translation><!-- B+②20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B+②30</masterLabel>
+            <translation><!-- B+②30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B+②50</masterLabel>
+            <translation><!-- B+②50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B1</masterLabel>
+            <translation><!-- B1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B2</masterLabel>
+            <translation><!-- B2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BD</masterLabel>
+            <translation><!-- BD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BD1</masterLabel>
+            <translation><!-- BD1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BD2</masterLabel>
+            <translation><!-- BD2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BZ</masterLabel>
+            <translation><!-- BZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B（運転手含まず）</masterLabel>
+            <translation><!-- B（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B（運転手含む）</masterLabel>
+            <translation><!-- B（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C+②10</masterLabel>
+            <translation><!-- C+②10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C+②20</masterLabel>
+            <translation><!-- C+②20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C+②30</masterLabel>
+            <translation><!-- C+②30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C+②50</masterLabel>
+            <translation><!-- C+②50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C1</masterLabel>
+            <translation><!-- C1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C2</masterLabel>
+            <translation><!-- C2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD</masterLabel>
+            <translation><!-- CD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD1</masterLabel>
+            <translation><!-- CD1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CD2</masterLabel>
+            <translation><!-- CD2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CZ</masterLabel>
+            <translation><!-- CZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C（運転手含まず）</masterLabel>
+            <translation><!-- C（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C（運転手含む）</masterLabel>
+            <translation><!-- C（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D+②10</masterLabel>
+            <translation><!-- D+②10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D+②20</masterLabel>
+            <translation><!-- D+②20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D+②30</masterLabel>
+            <translation><!-- D+②30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D+②50</masterLabel>
+            <translation><!-- D+②50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D1</masterLabel>
+            <translation><!-- D1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D2</masterLabel>
+            <translation><!-- D2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DD</masterLabel>
+            <translation><!-- DD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DD1</masterLabel>
+            <translation><!-- DD1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DD2</masterLabel>
+            <translation><!-- DD2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DZ</masterLabel>
+            <translation><!-- DZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D（運転手含まず）</masterLabel>
+            <translation><!-- D（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D（運転手含む）</masterLabel>
+            <translation><!-- D（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation><!-- E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E+②10</masterLabel>
+            <translation><!-- E+②10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E+②20</masterLabel>
+            <translation><!-- E+②20 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E+②30</masterLabel>
+            <translation><!-- E+②30 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E+②50</masterLabel>
+            <translation><!-- E+②50 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E1</masterLabel>
+            <translation><!-- E1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E2</masterLabel>
+            <translation><!-- E2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ED</masterLabel>
+            <translation><!-- ED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ED1</masterLabel>
+            <translation><!-- ED1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ED2</masterLabel>
+            <translation><!-- ED2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E（運転手含まず）</masterLabel>
+            <translation><!-- E（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E（運転手含む）</masterLabel>
+            <translation><!-- E（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F</masterLabel>
+            <translation><!-- F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F1</masterLabel>
+            <translation><!-- F1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F2</masterLabel>
+            <translation><!-- F2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FD</masterLabel>
+            <translation><!-- FD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FD1</masterLabel>
+            <translation><!-- FD1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FD2</masterLabel>
+            <translation><!-- FD2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F（運転手含まず）</masterLabel>
+            <translation><!-- F（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F（運転手含む）</masterLabel>
+            <translation><!-- F（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G</masterLabel>
+            <translation><!-- G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G（運転手含まず）</masterLabel>
+            <translation><!-- G（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G（運転手含む）</masterLabel>
+            <translation><!-- G（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NB</masterLabel>
+            <translation><!-- NB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NC</masterLabel>
+            <translation><!-- NC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ND</masterLabel>
+            <translation><!-- ND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P</masterLabel>
+            <translation><!-- P --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PD</masterLabel>
+            <translation><!-- PD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S</masterLabel>
+            <translation><!-- S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA</masterLabel>
+            <translation><!-- SA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SB</masterLabel>
+            <translation><!-- SB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation><!-- SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA</masterLabel>
+            <translation><!-- VA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA1</masterLabel>
+            <translation><!-- VA1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA2</masterLabel>
+            <translation><!-- VA2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VAD</masterLabel>
+            <translation><!-- VAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VAD1</masterLabel>
+            <translation><!-- VAD1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VAD2</masterLabel>
+            <translation><!-- VAD2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VB</masterLabel>
+            <translation><!-- VB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VB1</masterLabel>
+            <translation><!-- VB1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VB2</masterLabel>
+            <translation><!-- VB2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VBD</masterLabel>
+            <translation><!-- VBD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VBD1</masterLabel>
+            <translation><!-- VBD1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VBD2</masterLabel>
+            <translation><!-- VBD2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Z</masterLabel>
+            <translation><!-- Z --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Z1</masterLabel>
+            <translation><!-- Z1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Z2</masterLabel>
+            <translation><!-- Z2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZD</masterLabel>
+            <translation><!-- ZD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZD1</masterLabel>
+            <translation><!-- ZD1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZD2</masterLabel>
+            <translation><!-- ZD2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プラン1（運転手含まず）</masterLabel>
+            <translation><!-- プラン1（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プラン1（運転手含む）</masterLabel>
+            <translation><!-- プラン1（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プラン2（運転手含まず）</masterLabel>
+            <translation><!-- プラン2（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プラン2（運転手含む）</masterLabel>
+            <translation><!-- プラン2（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プラン3（運転手含まず）</masterLabel>
+            <translation><!-- プラン3（運転手含まず） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プラン3（運転手含む）</masterLabel>
+            <translation><!-- プラン3（運転手含む） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧A</masterLabel>
+            <translation><!-- 旧A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧A1</masterLabel>
+            <translation><!-- 旧A1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧B</masterLabel>
+            <translation><!-- 旧B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧B1</masterLabel>
+            <translation><!-- 旧B1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧C</masterLabel>
+            <translation><!-- 旧C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧C1</masterLabel>
+            <translation><!-- 旧C1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧D</masterLabel>
+            <translation><!-- 旧D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧D1</masterLabel>
+            <translation><!-- 旧D1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧E</masterLabel>
+            <translation><!-- 旧E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧E1</masterLabel>
+            <translation><!-- 旧E1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧F</masterLabel>
+            <translation><!-- 旧F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧F1</masterLabel>
+            <translation><!-- 旧F1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧G</masterLabel>
+            <translation><!-- 旧G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧G1</masterLabel>
+            <translation><!-- 旧G1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧H</masterLabel>
+            <translation><!-- 旧H --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧H1</masterLabel>
+            <translation><!-- 旧H1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧I</masterLabel>
+            <translation><!-- 旧I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧I1</masterLabel>
+            <translation><!-- 旧I1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧J</masterLabel>
+            <translation><!-- 旧J --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旧J1</masterLabel>
+            <translation><!-- 旧J1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>特別プラン</masterLabel>
+            <translation><!-- 特別プラン --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）初年度始期 --></label>
+        <name>InsuranceShiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）現保険終期 --></label>
+        <name>InsuranceShuki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 計上月(安全) --></label>
+        <name>KeijoMonthAnzen__c</name>
+    </fields>
+    <fields>
+        <label><!-- 計上月(自動車) --></label>
+        <name>KeijoMonthCar__c</name>
+    </fields>
+    <fields>
+        <label><!-- 計上月(強制) --></label>
+        <name>KeijoMonthOI__c</name>
+    </fields>
+    <fields>
+        <label><!-- 計上月(任意) --></label>
+        <name>KeijoMonthVI__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）契約地区 --></label>
+        <name>KeiyakuArea__c</name>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation><!-- ジャカルタ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation><!-- ハノイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンコク</masterLabel>
+            <translation><!-- バンコク --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation><!-- ホーチミン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中山</masterLabel>
+            <translation><!-- 中山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation><!-- 北京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南通</masterLabel>
+            <translation><!-- 南通 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>厦門</masterLabel>
+            <translation><!-- 厦門 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation><!-- 天津 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>寧波</masterLabel>
+            <translation><!-- 寧波 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation><!-- 常州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常熟</masterLabel>
+            <translation><!-- 常熟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平湖</masterLabel>
+            <translation><!-- 平湖 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成都</masterLabel>
+            <translation><!-- 成都 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation><!-- 昆山 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州</masterLabel>
+            <translation><!-- 杭州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation><!-- 東莞 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation><!-- 武漢 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江蘇</masterLabel>
+            <translation><!-- 江蘇 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation><!-- 深セン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation><!-- 無錫 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>珠海</masterLabel>
+            <translation><!-- 珠海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華中</masterLabel>
+            <translation><!-- 華中 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華北</masterLabel>
+            <translation><!-- 華北 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華南</masterLabel>
+            <translation><!-- 華南 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation><!-- 青島 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation><!-- 香港 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 契約会社名称 --></label>
+        <name>KeiyakuCompanyName__c</name>
+        <relationshipLabel><!-- 自動車保険関連 (契約会社名称) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）契約国 --></label>
+        <name>KeiyakuCountry__c</name>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation><!-- インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タイ</masterLabel>
+            <translation><!-- タイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation><!-- フィリピン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation><!-- ベトナム --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation><!-- マレーシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation><!-- 中国 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （任意）契約種別 --></label>
+        <name>KeiyakuShubetsu__c</name>
+        <picklistValues>
+            <masterLabel>上海契約特別対応</masterLabel>
+            <translation><!-- 上海契約特別対応 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 会員 --></label>
+        <name>Member__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）申込日付 --></label>
+        <name>MoushikomiDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 非会員 --></label>
+        <name>NonMember__c</name>
+    </fields>
+    <fields>
+        <label><!-- 備考 --></label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険解約理由 --></label>
+        <name>OI_CancelReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）手数料 --></label>
+        <name>OI_CommissionAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）手数料通貨 --></label>
+        <name>OI_CommissionCurrency__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation><!-- HKD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PHP</masterLabel>
+            <translation><!-- PHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation><!-- RMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VND</masterLabel>
+            <translation><!-- VND --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）手数料率　％ --></label>
+        <name>OI_CommissionRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険会社名 --></label>
+        <name>OI_CompanyName__c</name>
+        <picklistValues>
+            <masterLabel>Bao Viet Tokio Marine</masterLabel>
+            <translation><!-- Bao Viet Tokio Marine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MALAYAN</masterLabel>
+            <translation><!-- MALAYAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PICC</masterLabel>
+            <translation><!-- PICC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokio Marine(Malaysia)</masterLabel>
+            <translation><!-- Tokio Marine(Malaysia) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UIC</masterLabel>
+            <translation><!-- UIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上（中国）</masterLabel>
+            <translation><!-- 三井住友海上（中国） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中華聨合財産</masterLabel>
+            <translation><!-- 中華聨合財産 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天安（東京海上日動）</masterLabel>
+            <translation><!-- 天安（東京海上日動） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太平洋保険（三井住友海上）</masterLabel>
+            <translation><!-- 太平洋保険（三井住友海上） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太平洋財産保険</masterLabel>
+            <translation><!-- 太平洋財産保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>富邦財険</masterLabel>
+            <translation><!-- 富邦財険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安財産保険</masterLabel>
+            <translation><!-- 平安財産保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本財産保険（中国）</masterLabel>
+            <translation><!-- 日本財産保険（中国） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上日動（中国）</masterLabel>
+            <translation><!-- 東京海上日動（中国） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華泰財産保険会社</masterLabel>
+            <translation><!-- 華泰財産保険会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華泰財産保険（東京海上日動）</masterLabel>
+            <translation><!-- 華泰財産保険（東京海上日動） --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）補償内容 --></label>
+        <name>OI_CompensationContents__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）死亡後遺障害 --></label>
+        <name>OI_DeathAftereffects__c</name>
+        <picklistValues>
+            <masterLabel>110,000</masterLabel>
+            <translation><!-- 110,000 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険料 --></label>
+        <name>OI_InsuranceAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険解約日（24時迄） --></label>
+        <name>OI_InsuranceCancel__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険始期 --></label>
+        <name>OI_InsuranceShiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険終期 --></label>
+        <name>OI_InsuranceShuki__c</name>
+    </fields>
+    <fields>
+        <label><!-- （自動車）契約地区 --></label>
+        <name>OI_KeiyakuArea__c</name>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation><!-- ハノイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation><!-- ホーチミン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江蘇</masterLabel>
+            <translation><!-- 江蘇 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation><!-- 深セン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華中</masterLabel>
+            <translation><!-- 華中 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華北</masterLabel>
+            <translation><!-- 華北 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華南</masterLabel>
+            <translation><!-- 華南 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （自動車）契約会社名称 --></label>
+        <name>OI_KeiyakuCompanyName__c</name>
+        <relationshipLabel><!-- 自動車保険関連 (契約会社名称) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- （強制）契約状態 --></label>
+        <name>OI_KeiyakuStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）緊急連絡電話番号 --></label>
+        <name>OI_KinkyuTel__c</name>
+        <picklistValues>
+            <masterLabel>026878525</masterLabel>
+            <translation><!-- 026878525 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>0915-341-499</masterLabel>
+            <translation><!-- 0915-341-499 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1800-555-505</masterLabel>
+            <translation><!-- 1800-555-505 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4006095509</masterLabel>
+            <translation><!-- 4006095509 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4008817518</masterLabel>
+            <translation><!-- 4008817518 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4008832836</masterLabel>
+            <translation><!-- 4008832836 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4008858228</masterLabel>
+            <translation><!-- 4008858228 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4009209551</masterLabel>
+            <translation><!-- 4009209551 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95500</masterLabel>
+            <translation><!-- 95500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95511</masterLabel>
+            <translation><!-- 95511 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95518</masterLabel>
+            <translation><!-- 95518 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95585</masterLabel>
+            <translation><!-- 95585 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）医療費用 --></label>
+        <name>OI_MedicalCost__c</name>
+        <picklistValues>
+            <masterLabel>10,000</masterLabel>
+            <translation><!-- 10,000 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任死亡後遺障害 --></label>
+        <name>OI_NonDeathAftereffects__c</name>
+        <picklistValues>
+            <masterLabel>11,000</masterLabel>
+            <translation><!-- 11,000 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任医療費用 --></label>
+        <name>OI_NonMedicalCost__c</name>
+        <picklistValues>
+            <masterLabel>1,000</masterLabel>
+            <translation><!-- 1,000 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任財産損失 --></label>
+        <name>OI_NonPropertyLoss__c</name>
+        <picklistValues>
+            <masterLabel>100</masterLabel>
+            <translation><!-- 100 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）財産損失 --></label>
+        <name>OI_PropertyLoss__c</name>
+        <picklistValues>
+            <masterLabel>2,000</masterLabel>
+            <translation><!-- 2,000 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （強制）証券番号 --></label>
+        <name>OI_ShokenNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 強制任意満期（近い期日） --></label>
+        <name>OI_VI_EarlyInsuranceShuki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 所有区分 --></label>
+        <name>OwnerKubun__c</name>
+        <picklistValues>
+            <masterLabel>レンタル</masterLabel>
+            <translation><!-- レンタル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>所有</masterLabel>
+            <translation><!-- 所有 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>租借</masterLabel>
+            <translation><!-- 租借 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）レンタカー費用 --></label>
+        <name>Passenger_Rental_Fee__c</name>
+        <picklistValues>
+            <masterLabel>150</masterLabel>
+            <translation><!-- 150 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>200</masterLabel>
+            <translation><!-- 200 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>400</masterLabel>
+            <translation><!-- 400 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）現保険始期 --></label>
+        <name>PresentInsuranceShiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 法定座席数 --></label>
+        <name>Seat__c</name>
+    </fields>
+    <fields>
+        <help><!-- 実際に車を使用する会社を選択します。 --></help>
+        <label><!-- 使用会社名称 --></label>
+        <name>ShiyoCompanyName__c</name>
+        <relationshipLabel><!-- 自動車保険関連 (使用会社名称) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）証券番号 --></label>
+        <name>ShokenNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）所属地区 --></label>
+        <name>ShozokuArea__c</name>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation><!-- ジャカルタ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジョホールバル</masterLabel>
+            <translation><!-- ジョホールバル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セブ</masterLabel>
+            <translation><!-- セブ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダナン</masterLabel>
+            <translation><!-- ダナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハイフォン</masterLabel>
+            <translation><!-- ハイフォン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation><!-- ハノイ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンコク</masterLabel>
+            <translation><!-- バンコク --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ペナン</masterLabel>
+            <translation><!-- ペナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation><!-- ホーチミン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation><!-- 上海 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation><!-- 北京 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation><!-- 大連 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation><!-- 天津 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation><!-- 広州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation><!-- 東莞 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation><!-- 深セン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation><!-- 蘇州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation><!-- 青島 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険解約理由 --></label>
+        <name>VI_CancelReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）手数料 --></label>
+        <name>VI_CommissionAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）手数料通貨 --></label>
+        <name>VI_CommissionCurrency__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation><!-- HKD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PHP</masterLabel>
+            <translation><!-- PHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation><!-- RMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VND</masterLabel>
+            <translation><!-- VND --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （任意）手数料率　％ --></label>
+        <name>VI_CommissionRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険会社名 --></label>
+        <name>VI_CompanyName__c</name>
+        <picklistValues>
+            <masterLabel>BAO VIET TOKYO MARINE</masterLabel>
+            <translation><!-- BAO VIET TOKYO MARINE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MALAYAN</masterLabel>
+            <translation><!-- MALAYAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PICC</masterLabel>
+            <translation><!-- PICC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokio Marine(Malaysia)</masterLabel>
+            <translation><!-- Tokio Marine(Malaysia) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UIC</masterLabel>
+            <translation><!-- UIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上（中国）</masterLabel>
+            <translation><!-- 三井住友海上（中国） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中華聨合財産</masterLabel>
+            <translation><!-- 中華聨合財産 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太平洋財産保険</masterLabel>
+            <translation><!-- 太平洋財産保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>富邦財険</masterLabel>
+            <translation><!-- 富邦財険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安財産保険</masterLabel>
+            <translation><!-- 平安財産保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本財産保険（中国）</masterLabel>
+            <translation><!-- 日本財産保険（中国） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上日動（中国）</masterLabel>
+            <translation><!-- 東京海上日動（中国） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華泰財産保険会社</masterLabel>
+            <translation><!-- 華泰財産保険会社 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （任意）車上人員責任（運転手） --></label>
+        <name>VI_DriverDamages__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険料 --></label>
+        <name>VI_InsuranceAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険解約日（24時迄） --></label>
+        <name>VI_InsuranceCancel__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険始期 --></label>
+        <name>VI_InsuranceShiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険終期 --></label>
+        <name>VI_InsuranceShuki__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）契約状態 --></label>
+        <name>VI_KeiyakuStatus__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）緊急連絡電話番号 --></label>
+        <name>VI_KinkyuTel__c</name>
+        <picklistValues>
+            <masterLabel>026878525</masterLabel>
+            <translation><!-- 026878525 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4006095509</masterLabel>
+            <translation><!-- 4006095509 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4008817518</masterLabel>
+            <translation><!-- 4008817518 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4008832836</masterLabel>
+            <translation><!-- 4008832836 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4008858008</masterLabel>
+            <translation><!-- 4008858008 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4009209551</masterLabel>
+            <translation><!-- 4009209551 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95500</masterLabel>
+            <translation><!-- 95500 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95511</masterLabel>
+            <translation><!-- 95511 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95518</masterLabel>
+            <translation><!-- 95518 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95585</masterLabel>
+            <translation><!-- 95585 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （任意）その他の保険項目 --></label>
+        <name>VI_Other__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）ガラス単独破壊 --></label>
+        <name>VI_PaneDamage__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）車上人員責任（搭乗者） --></label>
+        <name>VI_PassengerDamages__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）搭乗者意外人身保険 --></label>
+        <name>VI_PassengerUnexpectedPersonal__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）鈎損 --></label>
+        <name>VI_ScratchDamage__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）証券番号 --></label>
+        <name>VI_ShokenNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）第三者賠償 --></label>
+        <name>VI_ThirdPartyDamages__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）車両損失 --></label>
+        <name>VI_VehicleLoss__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）車両盗難 --></label>
+        <name>VI_VehicleTheft__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）契約店 --></label>
+        <name>WOAgency__c</name>
+        <picklistValues>
+            <masterLabel>ブローカー</masterLabel>
+            <translation><!-- ブローカー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>代理店</masterLabel>
+            <translation><!-- 代理店 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （OP）解約日付 --></label>
+        <name>WOCancelDateAlpha__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）保険解約理由 --></label>
+        <name>WOCancelReasonAlpha__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）異動始期 --></label>
+        <name>WOChangeShikiAlpha__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）商品名称 --></label>
+        <name>WOCommodityNameAlpha__c</name>
+        <picklistValues>
+            <masterLabel>オプション特約</masterLabel>
+            <translation><!-- オプション特約 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>交通・宿泊費／レンタカー費</masterLabel>
+            <translation><!-- 交通・宿泊費／レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安全万里α</masterLabel>
+            <translation><!-- 安全万里α --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>対人・対物</masterLabel>
+            <translation><!-- 対人・対物 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>暢行無憂α</masterLabel>
+            <translation><!-- 暢行無憂α --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費／交通・宿泊費／レンタカー費</masterLabel>
+            <translation><!-- 治療費／交通・宿泊費／レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>臨時＆高額病室</masterLabel>
+            <translation><!-- 臨時＆高額病室 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>車内人員財産保険</masterLabel>
+            <translation><!-- 車内人員財産保険 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）商品名称 --></label>
+        <name>WOCommodityName__c</name>
+        <picklistValues>
+            <masterLabel>Safety Line</masterLabel>
+            <translation><!-- Safety Line --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well Drive(IDN)</masterLabel>
+            <translation><!-- Well Drive(IDN) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well Drive(MYS)</masterLabel>
+            <translation><!-- Well Drive(MYS) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well Drive(MYS)-1</masterLabel>
+            <translation><!-- Well Drive(MYS)-1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well Drive(MYS)-2</masterLabel>
+            <translation><!-- Well Drive(MYS)-2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well Drive(PHL)</masterLabel>
+            <translation><!-- Well Drive(PHL) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well Drive(THA)</masterLabel>
+            <translation><!-- Well Drive(THA) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well Drive(VNM)</masterLabel>
+            <translation><!-- Well Drive(VNM) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>一路平安</masterLabel>
+            <translation><!-- 一路平安 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安全万里</masterLabel>
+            <translation><!-- 安全万里 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安全万里V</masterLabel>
+            <translation><!-- 安全万里V --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安全万里Ｚ</masterLabel>
+            <translation><!-- 安全万里Ｚ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搭乗者傷害保険</masterLabel>
+            <translation><!-- 搭乗者傷害保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搭乗者団体意外傷害</masterLabel>
+            <translation><!-- 搭乗者団体意外傷害 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>暢行中華</masterLabel>
+            <translation><!-- 暢行中華 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>暢行無憂</masterLabel>
+            <translation><!-- 暢行無憂 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険会社名 --></label>
+        <name>WOInsuranceCompany__c</name>
+        <picklistValues>
+            <masterLabel>MALAYAN</masterLabel>
+            <translation><!-- MALAYAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokio Marine(Indonesia)</masterLabel>
+            <translation><!-- Tokio Marine(Indonesia) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokio Marine(Malaysia)</masterLabel>
+            <translation><!-- Tokio Marine(Malaysia) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokio Marine(Thailand)</masterLabel>
+            <translation><!-- Tokio Marine(Thailand) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokio Marine(Vietnam)</masterLabel>
+            <translation><!-- Tokio Marine(Vietnam) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UIC</masterLabel>
+            <translation><!-- UIC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上（中国）</masterLabel>
+            <translation><!-- 三井住友海上（中国） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太平洋</masterLabel>
+            <translation><!-- 太平洋 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安</masterLabel>
+            <translation><!-- 平安 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上</masterLabel>
+            <translation><!-- 東京海上 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華泰</masterLabel>
+            <translation><!-- 華泰 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （OP）保険プラン --></label>
+        <name>WOInsurancePlanAlpha__c</name>
+        <picklistValues>
+            <masterLabel>LA</masterLabel>
+            <translation><!-- LA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LA1</masterLabel>
+            <translation><!-- LA1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LA2</masterLabel>
+            <translation><!-- LA2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LB</masterLabel>
+            <translation><!-- LB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LB1</masterLabel>
+            <translation><!-- LB1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LB2</masterLabel>
+            <translation><!-- LB2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LC</masterLabel>
+            <translation><!-- LC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LC1</masterLabel>
+            <translation><!-- LC1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LC2</masterLabel>
+            <translation><!-- LC2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P2</masterLabel>
+            <translation><!-- P2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>P5</masterLabel>
+            <translation><!-- P5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>①</masterLabel>
+            <translation><!-- ① --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>②</masterLabel>
+            <translation><!-- ② --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>③</masterLabel>
+            <translation><!-- ③ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>レンタカー</masterLabel>
+            <translation><!-- レンタカー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>交通費</masterLabel>
+            <translation><!-- 交通費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>交通費＋レンタカー</masterLabel>
+            <translation><!-- 交通費＋レンタカー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費1000</masterLabel>
+            <translation><!-- 治療費1000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費1000+レンタカー費</masterLabel>
+            <translation><!-- 治療費1000+レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費1000+交通費</masterLabel>
+            <translation><!-- 治療費1000+交通費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費1000+交通費+レンタカー費</masterLabel>
+            <translation><!-- 治療費1000+交通費+レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費2000</masterLabel>
+            <translation><!-- 治療費2000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費2000+レンタカー費</masterLabel>
+            <translation><!-- 治療費2000+レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費2000+交通費</masterLabel>
+            <translation><!-- 治療費2000+交通費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費2000+交通費+レンタカー費</masterLabel>
+            <translation><!-- 治療費2000+交通費+レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費3000</masterLabel>
+            <translation><!-- 治療費3000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費3000+レンタカー費</masterLabel>
+            <translation><!-- 治療費3000+レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費3000+交通費</masterLabel>
+            <translation><!-- 治療費3000+交通費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費3000+交通費+レンタカー費</masterLabel>
+            <translation><!-- 治療費3000+交通費+レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費5000</masterLabel>
+            <translation><!-- 治療費5000 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費5000+レンタカー費</masterLabel>
+            <translation><!-- 治療費5000+レンタカー費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費5000+交通費</masterLabel>
+            <translation><!-- 治療費5000+交通費 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>治療費5000+交通費+レンタカー費</masterLabel>
+            <translation><!-- 治療費5000+交通費+レンタカー費 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （OP）初年度始期 --></label>
+        <name>WOInsuranceShikiAlpha__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）現保険終期 --></label>
+        <name>WOInsuranceShukiAlpha__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）現保険始期 --></label>
+        <name>WOPresentInsuranceShikiAlpha__c</name>
+    </fields>
+    <fields>
+        <label><!-- 交替車なし --></label>
+        <name>WithoutReplacementCar__c</name>
+    </fields>
+    <fields>
+        <label><!-- sid --></label>
+        <name>sid__c</name>
+    </fields>
+    <layouts>
+        <layout>AC自動車レイアウト20131109</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 手数料 --></label>
+            <section>手数料</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>AC自動車レイアウト20140325</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 手数料 --></label>
+            <section>手数料</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>AC自動車保険レイアウト20120401</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>AC自動車保険レイアウト20130507</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>システム部テスト用</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- ケイズ取込 --></label>
+            <section>ケイズ取込</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安 --></label>
+            <section>一路平安</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>一路平安レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- ケイズ取込 --></label>
+            <section>ケイズ取込</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 情報1 --></label>
+            <section>情報1</section>
+        </sections>
+        <sections>
+            <label><!-- 情報2 --></label>
+            <section>情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 証券番号 --></label>
+            <section>証券番号</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車レイアウト20131109</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 手数料 --></label>
+            <section>手数料</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車レイアウト20140325</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 手数料 --></label>
+            <section>手数料</section>
+        </sections>
+        <sections>
+            <label><!-- 搭乗者保険　　「（搭乗）契約店」、「（搭乗）契約地区」を選んでください。 --></label>
+            <section>搭乗者保険　　「（搭乗）契約店」、「（搭乗）契約地区」を選んでください。</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車保険レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- ケイズ取込 --></label>
+            <section>ケイズ取込</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安 --></label>
+            <section>一路平安</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車保険レイアウト2</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安 --></label>
+            <section>一路平安</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車保険レイアウト20120106</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 手数料 --></label>
+            <section>手数料</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車保険レイアウト20130326</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 手数料 --></label>
+            <section>手数料</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車保険レイアウト20130507</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 手数料 --></label>
+            <section>手数料</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車保険レイアウト3</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>自動車保険レイアウト4</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に、「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！ --></label>
+            <section>一路平安/安全万里　　☆最初に「（一路/安全）契約地区」を選んでください！</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険 --></label>
+            <section>任意保険</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報2 --></label>
+            <section>任意保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報3 --></label>
+            <section>任意保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報4 --></label>
+            <section>任意保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 任意保険情報5 --></label>
+            <section>任意保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 企業情報 --></label>
+            <section>企業情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険 --></label>
+            <section>強制保険</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報2 --></label>
+            <section>強制保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報3 --></label>
+            <section>強制保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 強制保険情報4 --></label>
+            <section>強制保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険情報 --></label>
+            <section>自動車保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細 --></label>
+            <section>車両明細</section>
+        </sections>
+        <sections>
+            <label><!-- 車両明細2 --></label>
+            <section>車両明細2</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- (自動車)契約地区を選択してください。 --></errorMessage>
+        <name>CarKeiyakuArea_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 座席数または所有区分が入力されていません。 --></errorMessage>
+        <name>WBOriginalCheck</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- CarInsuranceBatchProcess --></label>
+        <name>CarInsuranceBatchProcess</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CreateACRecept --></label>
+        <name>CreateACRecept</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CreateACRecept2 --></label>
+        <name>CreateACRecept2</name>
+    </webLinks>
+</CustomObjectTranslation>

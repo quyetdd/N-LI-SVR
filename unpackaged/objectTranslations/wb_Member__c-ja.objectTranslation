@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>会員</value>
+    </caseValues>
+    <fields>
+        <label><!-- 入会員金 --></label>
+        <name>AdmissionFee__c</name>
+        <relationshipLabel><!-- 会員 (入会員金) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員終了日 --></label>
+        <name>EndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 個人 --></label>
+        <name>Individual__c</name>
+        <relationshipLabel><!-- 会員 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員契約詳細 --></label>
+        <name>MembershipDetail__c</name>
+        <relationshipLabel><!-- 会員 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Old_Id --></label>
+        <name>Old_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧会員番号 --></label>
+        <name>Old_MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務会社 --></label>
+        <name>WorkingCompany__c</name>
+        <relationshipLabel><!-- 会員 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 区分 --></label>
+        <name>f_Classification__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社 --></label>
+        <name>f_ContractCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約国 --></label>
+        <name>f_ContractCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員番号 --></label>
+        <name>f_MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 有効終了日 --></label>
+        <name>r_EffectiveUntil__c</name>
+    </fields>
+    <fields>
+        <label><!-- 有効 --></label>
+        <name>r_effectiveness__c</name>
+    </fields>
+</CustomObjectTranslation>

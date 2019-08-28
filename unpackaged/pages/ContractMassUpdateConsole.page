@@ -1,0 +1,53 @@
+<apex:page standardController="ContractInfo__c" extensions="ContractMassUpdateControllerEx" showHeader="false"  sideBar="false" >
+
+  <apex:sectionHeader title="会社契約No      {!ContractInfo__c.Name}"
+    subtitle="契約会社名称      {!ContractInfo__c.KeiyakuCompanyName__r.Name}" />
+
+  <apex:pageMessages ></apex:pageMessages>
+
+  <apex:form >
+  
+    <apex:pageBlock >
+      <apex:pageBlockButtons >
+        <apex:commandButton value="絞込み" action="{!page2}"  />
+        <apex:commandButton value="全チェック" action="{!checkAll}"  />
+        <apex:commandButton value="全チェック解除" action="{!uncheckAll}"  />
+        <apex:commandButton value="終了" action="{!cancel}"  />
+      </apex:pageBlockButtons>
+      
+      <table class="list" cellspacing="0">
+          <tr class="headerrow">
+              <td class="headercell">チェック</td>
+              <td class="headercell">会員氏名</td>
+              <td class="headercell">会員番号</td>
+              <td class="headercell">所属地区</td>
+              <td class="headercell">勤務先会社名</td>
+        </tr>
+        <apex:repeat value="{!Rows}" var="r">
+          <tr class="datarow">            
+              <td class="datacell"><apex:inputCheckbox value="{!r.Selected}" /></td>
+              <td class="datacell"><apex:outputField value="{!r.Member.Name}" /></td>
+              <td class="datacell"><apex:outputField value="{!r.Member.MemberNo__c}" /></td>
+              <td class="datacell"><apex:outputField value="{!r.Member.ShozokuArea__c}" /></td>
+              <td class="datacell"><apex:outputField value="{!r.Member.KinmuCompany__r.Name}" /></td>
+          </tr>
+          
+          <apex:repeat value="{!r.FamilyMembers}" var="fr">
+          <tr class="datarow">
+              <td class="datacell"><apex:inputCheckbox value="{!fr.Selected}" /></td>
+              <td class="datacell">&nbsp;&nbsp;<apex:outputField value="{!fr.Family.Name}" /></td>
+              <td class="datacell"><apex:outputField value="{!fr.Family.MemberNo__c}" /></td>
+              <td class="datacell"><apex:outputField value="{!fr.Family.ShozokuArea__c}" /></td>
+              <td class="datacell"><apex:outputField value="{!r.Member.KinmuCompany__r.Name}" /></td>
+
+          </tr>
+          </apex:repeat>
+          
+        </apex:repeat>
+      </table>  
+    
+    </apex:pageBlock>
+  
+  </apex:form>
+  
+</apex:page>

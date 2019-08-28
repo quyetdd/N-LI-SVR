@@ -1,0 +1,240 @@
+<apex:component access="global">
+    <apex:attribute name="xlsHeader" Type="String" Description="String Object being passed"/>
+    <apex:attribute name="Invoice" Type="wb_Membership_InvoiceExport" Description="theContract Object being passed"/>
+  <!--
+<apex:attribute name="theContractDetailInsurance" Type="wb_ContractMemberInsurance[]" Description="theContractDetailInsurance Object being passed"/>
+    -->
+    <apex:outputText value="{!xlsHeader}"/>
+    <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:o="urn:schemas-microsoft-com:office:office"
+              xmlns:x="urn:schemas-microsoft-com:office:excel"
+              xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+              xmlns:html="http://www.w3.org/TR/REC-html40">
+        <Styles>
+            <Style ss:ID="s1">
+                <Alignment/>
+                <Borders/>
+                <Font ss:Bold="1"/>
+                <Interior/>
+                <NumberFormat/>
+                <Protection/>
+            </Style>
+        </Styles>
+        
+        <Worksheet ss:Name="MDヘッダー">
+            <Table x:FullColumns="1" x:FullRows="1">
+                <Column ss:Width="170"/>
+                
+                <Row>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.Name.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.ContractDistrict__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Account.fields.CompanyCd__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.ContractExpiryDate__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Account.fields.EigyoTanto__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Account.fields.NaimuTanto__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.Sales__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.InternalAffairs__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.DiscountType__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.DiscountPercentage__c.label}</Data></Cell>
+                    
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.Name.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.CompanyNameEng__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.OfficeAdd__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.Phone.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.Fax.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.President__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.Shimei__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.Busho__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.Yakushoku__c.label}</Data></Cell>
+                    
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.SubShimei__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.SubBusho__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.SubYakushoku__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.Sales__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Shimei__c.fields.SeiMeiRoma__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Shimei__c.fields.Name.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.InternalAffairs__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.AffiliatedCompanyName__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">契約：{!$ObjectType.Account.fields.CompanyNameEng__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.Sales__c.label}{!$ObjectType.Shimei__c.fields.Email__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.InternalAffairs__c.label}{!$ObjectType.Shimei__c.fields.Email__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">Today</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Account.fields.Jurisdiction__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Account.fields.ShozokuArea__c.label}</Data></Cell>
+                    
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.BillingCompany__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Account.fields.GroupName__c.label}</Data></Cell>
+                    
+                    <Cell><Data ss:Type="String">{!$ObjectType.Account.fields.Tax_Identification_Number__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.Account.fields.TaxIncentives__c.label}</Data></Cell>
+                    
+                    <Cell><Data ss:Type="String">SubTotal1</Data></Cell>
+                    <Cell><Data ss:Type="String">SubTotal2</Data></Cell>
+                    
+                </Row>
+                
+                <apex:repeat value="{!Invoice.InvoiceHeader}" var="h">
+                    
+                    <Row>
+                        <Cell><Data ss:Type="String">{!h.theContract.Name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractDistrict__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.CompanyCd__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractExpiryDate__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.EigyoTanto__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.NaimuTanto__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.Sales__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.InternalAffairs__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.DiscountType__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.DiscountPercentage__c}</Data></Cell>
+                        
+                        
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.Name}</Data></Cell> 
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.CompanyNameEng__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.OfficeAdd__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.Phone}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.Fax}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.President__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.Shimei__c}</Data></Cell>
+                        
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.Busho__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.Yakushoku__c}</Data></Cell>
+                        
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.SubShimei__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.SubBusho__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.SubYakushoku__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.Sales__r.Name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.Sales__r.SeiMeiRoma__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.InternalAffairs__r.Name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.InternalAffairs__r.SeiMeiRoma__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.AffiliatedCompanyName__r.Name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.AffiliatedCompanyName__r.AffiliatedCompanyNameEng__c}</Data></Cell>
+                        
+                        <Cell><Data ss:Type="String">{!h.theContract.Sales__r.Email__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.InternalAffairs__r.Email__c}</Data></Cell>
+                        
+                        <Cell><Data ss:Type="String">
+                            <apex:outputText value="{0, date, yyyy-MM-dd}">
+                                <apex:param value="{!TODAY()}" />
+                            </apex:outputText>
+                            </Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.Jurisdiction__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.ShozokuArea__c}</Data></Cell>
+                        
+                        <Cell><Data ss:Type="String">{!h.theContract.BillingCompany__r.name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.GroupName__r.name}</Data></Cell>
+                        
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.Tax_Identification_Number__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.theContract.ContractCompany__r.TaxIncentives__c}</Data></Cell>
+                        
+                        <Cell><Data ss:Type="String">{!h.SubTotal1}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!h.SubTotal2}</Data></Cell> 
+                    </Row>
+                    
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+        
+             
+        <Worksheet ss:Name="MD明細">
+            <Table x:FullColumns="1" x:FullRows="1">
+                 <Column ss:Width="50"/>
+                <Column ss:Width="170"/>
+                <Column ss:Width="170"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="100"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="100"/>
+                <Column ss:Width="100"/>
+                <Row>
+  					<Cell><Data ss:Type="String">No</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.name.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.MemberNo__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.MembershipPlan__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.Address__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.MembershipEndDate__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.Tel__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.Mobile__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.EmailAddress__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Individual__c.fields.MailDelivery__c.label}</Data></Cell>
+                    
+                     <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.f_FamilyWorkingCompany__c.label}</Data></Cell> 
+                    <!-- <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.name.label}</Data></Cell> -->
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.CompanyNameEng__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.OfficeAdd__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.Phone.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.Fax.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.President__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.Shimei__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.Busho__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.Yakushoku__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.SubShimei__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.Type__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_Membership__c.fields.Currency__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.BillingAmount__c.label}</Data></Cell>
+                     <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.UnitAmount__c.label}</Data></Cell>
+                     <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.Quantity__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStartDate__c.label}</Data></Cell>
+                             <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.Service__c.label}{!$ObjectType.wb_Service__c.fields.Abbreviation__c.label}</Data></Cell>
+                         <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.EigyoTanto__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}{!$ObjectType.Account.fields.NaimuTanto__c.label}</Data></Cell>
+                    <Cell><Data ss:Type="String">保険</Data></Cell>
+                    <Cell><Data ss:Type="String">P{!$ObjectType.wb_MembershipDetail__c.fields.UnitAmount__c.label}</Data></Cell>
+                </Row>
+                <apex:repeat value="{!Invoice.InvoiceDetail}" var="d">
+                    <Row>
+
+						<Cell><Data ss:Type="String">{!d.ContractRow.f_NameforOrdering__c}</Data></Cell>                        
+                        <!--<Cell><Data ss:Type="String">{!d.Name}</Data></Cell>-->
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Individual__r.FirstNameRoma__c} {!d.ContractRow.Individual__r.LastNameRoma__c}</Data></Cell>
+                       <!-- <Cell><Data ss:Type="String">{!d.Individual__r.name}</Data></Cell> -->
+                        
+                        <Cell><Data ss:Type="String">{!d.ContractRow.MemberNo__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.MembershipPlan__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Individual__r.Address__c}</Data></Cell>
+                         <Cell><Data ss:Type="String">
+                             <apex:outputText value="{0, date, yyyy-MM-dd}">
+                                 <apex:param value="{!d.ContractRow.MembershipEndDate__c}" />
+                             </apex:outputText>
+                             </Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Individual__r.Tel__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Individual__r.Mobile__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Individual__r.EmailAddress__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Individual__r.MailDelivery__c}</Data></Cell>
+                        
+                        <Cell><Data ss:Type="String">{!d.ContractRow.f_FamilyWorkingCompany__c}</Data></Cell>
+                       <!--  <Cell><Data ss:Type="String">{!d.WorkingCompany__r.Name}</Data></Cell> -->
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.CompanyNameEng__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.OfficeAdd__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.Phone}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.Fax}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.President__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.Shimei__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.Busho__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.Yakushoku__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.SubShimei__c}</Data></Cell>
+                         <Cell><Data ss:Type="String">{!d.ContractRow.Type__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Membership__r.Currency__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.BillingAmount__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.UnitAmount__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Quantity__c}</Data></Cell>
+  					 
+                        <Cell><Data ss:Type="String">
+                            <apex:outputText value="{0, date, yyyy-MM-dd}">
+                                <apex:param value="{!d.ContractRow.MembershipStartDate__c}" />
+                            </apex:outputText>
+                            </Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.Service__r.Abbreviation__c}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.EigyoTanto__r.Name}</Data></Cell>
+                        <Cell><Data ss:Type="String">{!d.ContractRow.WorkingCompany__r.NaimuTanto__r.Name}</Data></Cell>
+                         <Cell><Data ss:Type="String">{!d.HavingInsurance}</Data></Cell>
+                         <Cell><Data ss:Type="String">{!d.ContractRow.ParentDetail__r.UnitAmount__c}</Data></Cell>
+                    </Row>
+                </apex:repeat>
+            </Table>
+        </Worksheet>
+    
+    </Workbook>
+</apex:component>

@@ -1,0 +1,54 @@
+<apex:page standardController="wb_Individual__c" extensions="wb_Individual_MedicalInsuranceDetail">
+    
+      <apex:datatable value="{!TblMedicalInsuranceDetail}" var="a" columns="10" border="1" cellpadding="4"  >  
+        
+        <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Name.label}" styleClass="greyColour">
+            <a href="/{!a.theMedicalInsuranceDetail.Id}" target="_blank">
+            <apex:outputfield value="{!a.theMedicalInsuranceDetail.name}"></apex:outputfield><br/>
+            </a> 
+             <apex:repeat value="{!a.Attachments}" var="f">
+                <a href="/servlet/servlet.FileDownload?file={!f.Id}" target="_blank">
+                    <apex:outputfield value="{!f.name}"></apex:outputfield><br/>
+                </a> 
+            </apex:repeat>
+
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceCompany__c.label}">
+            <apex:outputfield value="{!a.theMedicalInsuranceDetail.InsuranceCompany__c}"></apex:outputfield>
+        </apex:column>
+           <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.HandlingBy__c.label}">
+            <apex:outputfield value="{!a.theMedicalInsuranceDetail.HandlingBy__c}"></apex:outputfield>
+        </apex:column>
+          <!--
+          <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Priority__c.label}">
+              <apex:outputfield value="{!a.theMedicalInsuranceDetail.Priority__c}"></apex:outputfield>
+          </apex:column>    
+        <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.StorageLocation__c.label}">
+             <apex:outputfield value="{!a.theMedicalInsuranceDetail.StorageLocation__c}"></apex:outputfield>
+        </apex:column>     
+-->
+          <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceStartDate__c.label}">
+              <apex:outputfield value="{!a.theMedicalInsuranceDetail.InsuranceStartDate__c}"></apex:outputfield>
+          </apex:column>    
+
+          <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceEndDate__c.label}">
+              <apex:outputfield value="{!a.theMedicalInsuranceDetail.InsuranceEndDate__c}"></apex:outputfield>
+          </apex:column>    
+          <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.PolicyNumber__c.label}">
+              <apex:outputfield value="{!a.theMedicalInsuranceDetail.PolicyNumber__c}"></apex:outputfield>
+          </apex:column>    
+          <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.StorageLocation__c.label}">
+              <apex:outputfield value="{!a.theMedicalInsuranceDetail.StorageLocation__c}"></apex:outputfield>
+          </apex:column> 
+          <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.MedicalSettlement__c.label}">
+              <apex:outputfield value="{!a.theMedicalInsuranceDetail.MedicalSettlement__c}"></apex:outputfield>
+          </apex:column>   
+          <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceCurrency__c.label}">
+              <apex:outputfield value="{!a.theMedicalInsuranceDetail.InsuranceCurrency__c}"></apex:outputfield>
+          </apex:column>  
+               <apex:column headerValue="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Remark__c.label}">
+              <apex:outputfield value="{!a.theMedicalInsuranceDetail.Remark__c}"></apex:outputfield>
+          </apex:column>  
+        
+    </apex:datatable>
+</apex:page>

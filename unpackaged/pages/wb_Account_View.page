@@ -1,0 +1,152 @@
+<apex:page standardController="account" extensions="wb_Account" id="thePage">
+	<apex:sectionHeader title="会社情報" subtitle="{!theAccount.Name}"/>
+	<apex:form id="theForm">
+		<apex:pageBlock mode="view">
+
+			<apex:pageBlockButtons >
+			<!--	<apex:commandButton value="保存＆戻る" action="{!save}"/> 
+				<apex:commandButton value="前のレイアウト" action="{!cancel}"/> -->
+			</apex:pageBlockButtons>
+ 			<apex:pageBlockSection columns="1">
+
+            <apex:pageBlockSection title="会社情報" columns="2">
+                <apex:outputField value="{!theAccount.CompanyCd__c}" />
+                <apex:outputField value="{!theAccount.CountryCode__c}" id="CountryCode__c"/>
+                <apex:outputField value="{!theAccount.Name}" />
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:outputField value="{!theAccount.CompanyNameEng__c}" />
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+               <!-- <apex:inputField value="{!theAccount.UseHealthCheckUpInfo__c}" required="false"/> -->
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:outputField value="{!theAccount.ParentId}" />
+               	<apex:outputField value="{!theAccount.GroupStandardCompany__c}" />
+                <apex:outputField value="{!theAccount.AffiliatedCompanyName__c}" />
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+               <!-- <apex:inputField value="{!theAccount.Classification__c}" required="false"/> -->
+                <apex:outputField value="{!theAccount.GroupName__c}" />
+          <!--      <apex:inputField value="{!theAccount.Email__c}" required="false"/> -->
+                <!-- -->
+                <apex:outputField value="{!theAccount.Region_and_Area__c}" />
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem> 
+                <apex:outputField value="{!theAccount.CountryName__c}" > 
+                </apex:outputField>
+                <apex:outputField value="{!theAccount.EigyoTanto__c}" />
+                <apex:outputField value="{!theAccount.Jurisdiction__c}" />
+                <apex:outputField value="{!theAccount.NaimuTanto__c}" />
+                <apex:outputField value="{!theAccount.ShozokuArea__c}" />
+                <apex:outputField value="{!theAccount.BlEigyoTanto__c}" />
+            </apex:pageBlockSection>
+
+
+<!--
+
+			<apex:pageBlockSection title="企業情報" columns="2">
+				<apex:outputField value="{!theAccount.President__c}" />
+			</apex:pageBlockSection>
+-->
+
+			<apex:pageBlockSection title="メディック企業様担当者情報" columns="2">
+				<apex:outputField value="{!theAccount.Shimei__c}" />
+				<apex:outputField value="{!theAccount.SubShimei__c}"/>
+				<apex:outputField value="{!theAccount.Yakushoku__c}" />
+				<apex:outputField value="{!theAccount.SubYakushoku__c}" />
+				<apex:outputField value="{!theAccount.Busho__c}" />
+				<apex:outputField value="{!theAccount.SubBusho__c}" />
+				<apex:outputField value="{!theAccount.TantoEmail__c}" />
+				<apex:outputField value="{!theAccount.SubTantoEmail__c}" />
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="住所情報　　※住所が変更になった場合は、BL手配、健診手配の可能性がある為、契約地（日本以外）、管轄地区のBL担当者または内務、上海健診部へ通達する事！" columns="2">
+                <apex:outputField value="{!theAccount.OfficePostcd__c}" />
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:outputField value="{!theAccount.OfficeAdd__c}"  style="width:300px;"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:outputField value="{!theAccount.CountryCallingCodes__c}"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:outputField value="{!theAccount.Phone}" />
+                <apex:outputField value="{!theAccount.Fax}" />
+                <apex:outputField value="{!theAccount.ExtNo__c}" />
+			</apex:pageBlockSection>
+
+
+	
+
+<!--
+			<apex:pageBlockSection title="税務情報" columns="2">
+				<apex:outputField value="{!theAccount.TaxIncentives__c}" />
+				<apex:outputField value="{!theAccount.Tax_Identification_Number__c}" />
+			</apex:pageBlockSection>
+-->
+
+			<apex:pageBlockSection title="BL情報" columns="1">
+				<apex:outputField value="{!theAccount.BlShimei__c}" />
+
+				<apex:outputField value="{!theAccount.BlEmail__c}"/>
+				<apex:outputField value="{!theAccount.BlKeiyaku__c}" />
+				<apex:outputField value="{!theAccount.BlInsuranceCompanyName__c}" />
+				<apex:outputField value="{!theAccount.LetterOfAttorneyGet__c}" />
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="自動車情報" columns="1">
+				<apex:outputField value="{!theAccount.VehicleShimei__c}"  />
+				<apex:outputField value="{!theAccount.VehicleEmail__c}" style="width:300px;"/>
+				<apex:outputField value="{!theAccount.OrgMechNo__c}"  style="width:300px;"/>
+				<apex:outputField value="{!theAccount.CarOwnedNum__c}" />
+				<apex:outputField value="{!theAccount.CarInsuranceNote__c}"  style="width:300px;"/>
+			</apex:pageBlockSection>
+
+
+<!--
+
+			<apex:pageBlockSection title="概要" columns="2">
+				<apex:inputField value="{!theAccount.DateOfFoundation__c}" />
+				<apex:inputField value="{!theAccount.BigShareholder__c}"  style="width:300px;"/>
+				<apex:inputField value="{!theAccount.CapitalContributionRatio__c}" />
+				<apex:inputField value="{!theAccount.MainFinancingBank__c}" />
+				<apex:inputField value="{!theAccount.Industry}" />
+				<apex:inputField value="{!theAccount.MainInsuranceCompany__c}" />
+
+				<apex:inputField value="{!theAccount.ContentOfBusiness__c}"  style="width:300px;"/>
+                    <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+
+				<apex:inputField value="{!theAccount.NumberOfEmployees}" />
+				<apex:inputField value="{!theAccount.ExpandOverseasSituation__c}" style="width:300px;"/>
+				<apex:inputField value="{!theAccount.MainCustomerCompany__c}" />
+				<apex:inputField value="{!theAccount.Note_2__c}" style="width:300px;"/>
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="キーマン情報" columns="2">
+				<apex:inputField value="{!theAccount.MoverAndShakerBusho__c}" />
+				<apex:inputField value="{!theAccount.MoverAndShakerOldSchool__c}" />
+				<apex:inputField value="{!theAccount.MoverAndShakerYakushoku__c}" />
+				<apex:inputField value="{!theAccount.MoverAndShakerHobby__c}" />
+				<apex:inputField value="{!theAccount.MoverAndShakerShimei__c}" />
+				<apex:inputField value="{!theAccount.WbHumanNetwork__c}" />
+				<apex:inputField value="{!theAccount.MoverAndShakerNote__c}"  style="width:300px;"/>
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="備考" columns="1">
+				<apex:inputField value="{!theAccount.Description}" style="width:300px;"/>
+			</apex:pageBlockSection>
+
+
+
+
+			<apex:pageBlockSection title="システム情報" columns="2">
+				<apex:inputField value="{!theAccount.DeleteDate__c}"  />
+			</apex:pageBlockSection>
+-->
+            </apex:pageBlockSection>
+            
+            <p id="md_list"></p>
+            <apex:pageBlockSection id="wb_Account_MDContract" title="会員契約" columns="１">
+                <apex:include id="wb_Account_MDContract" pageName="wb_Account_MDContract_View"/>
+            </apex:pageBlockSection>
+            
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

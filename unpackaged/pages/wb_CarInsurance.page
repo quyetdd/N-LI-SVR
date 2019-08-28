@@ -1,0 +1,1409 @@
+<apex:page standardcontroller="wb_CarInsurance__c" extensions="wb_CarInsurance" id="thePage">
+    
+    <apex:form id="theForm" >  
+        <apex:messages />
+        
+        <apex:actionFunction name="CallApexMethod2DeleteCarInsurance" action="{!InsurancedCars_Remove}" reRender="theForm" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theInsurancedCarsId}" value="" />
+            <apex:param name="secondParam" assignTo="{!theInsurancedCarsIndex}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethodRetriveCarInfo" action="{!RetriveCarInfo}" reRender="theForm" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theInsurancedCarsIndex}" value="" />
+        </apex:actionFunction> 
+        <apex:actionFunction name="CallApexMethod2DeletePendingCar" action="{!PendingCars_Remove}" reRender="theForm" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!thePendingCarsId}" value="" />
+     
+        </apex:actionFunction>
+          <apex:actionFunction name="CallApexMethod2RefreshInsurancedCarsList" action="{!RefreshMe}" reRender="theForm" status="myStatus">
+        </apex:actionFunction>
+        <script>
+        function openPopupEditWin(id,idx,Car){
+            //alert(UsingCompany);
+            if ( Car ==''){
+                alert('Car can not be empty!');
+                return false;
+            } 
+            
+            try {
+                var baseURL = getBaseURL();
+                //var para = '?'+'id=' +id ;
+                var para = '?'+'id=' +id +'&type=popup' ;
+                baseURL = baseURL + "apex/wb_CarInsuranceCarsDetail";
+                window.childWin = window.open(baseURL + para ,'Popup','height=700,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                
+                window.intervalId = window.setInterval('window.checkIfChildWindowIsClosed()', 5*100);
+                if (window.focus){
+                    window.childWin.focus();
+                } 
+                window.checkIfChildWindowIsClosed = function()
+                {
+                    if(window.childWin.closed)
+                    {
+                        window.clearInterval(window.intervalId);
+                        //alert('ChildWin Closed');  
+                        
+                        try {     
+                            // document.cookie = 'scrollTop=' + filterScrollTop();
+                            // document.location.reload(true);
+                            CallApexMethod2RefreshInsurancedCarsList();
+                        }catch(e)
+                        {
+                            alert(e);
+                        };   
+                    }
+                }
+                
+                
+            }catch(e)
+            {
+                alert(e);
+            };        
+            
+            return false;
+            
+        }
+        
+        function getBaseURL() {
+            var url = location.href;  // entire url including querystring - also: window.location.href;
+            var baseURL = url.substring(0, url.indexOf('/', 14));
+            
+            
+            if (baseURL.indexOf('http://localhost') != -1) {
+                // Base Url for localhost
+                var url = location.href;  // window.location.href;
+                var pathname = location.pathname;  // window.location.pathname;
+                var index1 = url.indexOf(pathname);
+                var index2 = url.indexOf("/", index1 + 1);
+                var baseLocalUrl = url.substr(0, index2);
+                
+                return baseLocalUrl + "/";
+            }
+            else {
+                // Root Url for domain name
+                return baseURL + "/";
+            }
+            
+        }
+        
+        </script>
+        
+        <apex:outputPanel rendered="{!IF((wb_CarInsurance__c.Status__c=='確定'), true , false)}">
+            
+            <apex:pageBlock id="theAmendmentBlock">
+                
+                <apex:commandButton value="Cancel"  action="{!Cancel}"/>  
+                <apex:pageBlockSection columns="2" id="theHeader" title="契約番号">
+                    <apex:outputText value="{!CarInsurance.Name}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Name.label}"/>
+                    <apex:outputText value="{!CarInsurance.Status__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Status__c.label}"/>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="2" id="theContractInfoSection" title="契約情報" >
+                    
+                    <apex:outputText value="{!CarInsurance.Agent__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Agent__c.label}"/>
+                    <apex:outputText value="{!CarInsurance.ContractCompany__r.name}"  label="{!$ObjectType.wb_CarInsurance__c.fields.ContractCompany__c.label}"/>
+                    
+                    
+                    <apex:outputText value="{!CarInsurance.ContractCountry__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.ContractCountry__c.label}"/>
+                    <apex:outputText value="{!CarInsurance.Attribute__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Attribute__c.label}"/>
+                    
+                    <apex:outputText value="{!CarInsurance.ContractDistrict__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.ContractDistrict__c.label}"/>
+                    <apex:outputfield value="{!CarInsurance.ContractDate__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.ContractDate__c.label}"/>
+                    
+                    
+                    
+                    <apex:outputText value="{!CarInsurance.AffiliationDistrict__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.AffiliationDistrict__c.label}"/>
+                    <apex:outputText value="{!CarInsurance.CommissionCurrency__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.CommissionCurrency__c.label}"/>
+                    
+                    
+                    
+                    <apex:outputfield value="{!CarInsurance.AcctPIC__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.AcctPIC__c.label}"/>
+                    
+                    
+                    
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection id="theCarSection" columns="1" title=" ">
+                    
+                    <apex:actionFunction name="doSearchAF" action="{!ApplyFilter2CarsList}" reRender="thePsgrTabPanel"  />
+
+                    <apex:inputtext value="{!CarFilter}" style="width:150px;" label="車両検索：" onkeypress="return noenter(event);">
+                        <apex:actionSupport event="onchange" action="{!ApplyFilter2CarsList}"
+                                                    reRender="thePsgrTabPanel" /> 
+                        <script type='text/javascript'>
+                        function noenter(ev)  {
+                            if (window.event && window.event.keyCode == 13 || ev.which == 13) {
+                                doSearchAF();
+                                return false;
+                            } else {
+                                return true;
+                            }
+                        }
+                        </script>
+ 
+                    </apex:inputtext><br/>
+                    
+                    <apex:tabPanel switchType="client" selectedTab="name1" id="thePsgrTabPanel">
+                        <apex:tab label="契約車" name="name1" id="tabEff">
+                            
+                            <apex:variable var="index" value="{!0}" />  <br/> 
+                            
+                            <apex:dataTable value="{!InsurancedCarsList}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);">
+                                
+                                <apex:column >
+                                    <!--
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:60px;">
+                                                <apex:outputText value="Action"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    -->
+                                    <apex:commandButton value="解約・入替" onClick="openPopupChangeWin('{!CarInsurance.Id}','{!row.theCar.id}');return false;"
+                                                        rendered="{!IF(AND((row.IsAmendable=true),(row.IsHavingPendingChildAction=false)) , true , false)}"/>
+                                    
+                                    <apex:commandButton value="ビュー" onClick="openPopupEditWin('{!row.theCar.id}','{!index}','{!row.theCar.Car__c}');return false;" />
+                                    <script>
+                                    function openPopupChangeWin(id,cid){
+                                        
+                                        try {
+                                            // GetPopupIndex("{!index}");
+                                            var baseURL = getBaseURL();
+                                            var para = '?'+'id=' +id ;
+                                            
+                                            //baseURL = baseURL + "apex/wb_CarInsurancedCarsAmend";
+                                            
+                                            para　+='&'+'pv0=' +cid;
+                                            
+                                            baseURL = baseURL + "apex/wb_CarInsuranceAmend";
+                                            
+                                            window.childWin = window.open(baseURL + para ,'Popup','height=768,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                                            
+                                            window.intervalId = window.setInterval('window.checkIfChildWindowIsClosed()', 5*100);
+                                            if (window.focus){
+                                                window.childWin.focus();
+                                            } 
+                                            window.checkIfChildWindowIsClosed = function()
+                                            {
+                                                if(window.childWin.closed)
+                                                {
+                                                    window.clearInterval(window.intervalId);
+                                                    //alert('ChildWin Closed');  
+                                                    
+                                                    try {
+                                                        
+                                                    }
+                                                    catch(e){
+                                                        alert(e);
+                                                    }
+                                                    
+                                                }
+                                            }
+                                            
+                                            
+                                            
+                                        }catch(e)
+                                        {
+                                            alert(e);
+                                        }                       
+                                        return false;
+                                        
+                                    }
+                                    
+                                    
+                                    function getBaseURL() {
+                                        var url = location.href;  // entire url including querystring - also: window.location.href;
+                                        var baseURL = url.substring(0, url.indexOf('/', 14));
+                                        
+                                        
+                                        if (baseURL.indexOf('http://localhost') != -1) {
+                                            // Base Url for localhost
+                                            var url = location.href;  // window.location.href;
+                                            var pathname = location.pathname;  // window.location.pathname;
+                                            var index1 = url.indexOf(pathname);
+                                            var index2 = url.indexOf("/", index1 + 1);
+                                            var baseLocalUrl = url.substr(0, index2);
+                                            
+                                            return baseLocalUrl + "/";
+                                        }
+                                        else {
+                                            // Root Url for domain name
+                                            return baseURL + "/";
+                                        }
+                                        
+                                    }
+                                    
+                                    
+                                    </script>
+                                    
+                                    <apex:variable var="index" value="{!index + 1}" />
+                                </apex:column>
+                                <!--
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Pattern__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.Pattern__c}" style="width:100px;"></apex:outputfield>
+                                </apex:column> 
+                                -->
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:70px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Name.label}"></apex:outputText><br/>
+                                            </div>
+                                            
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    
+                                    
+                                    <apex:outputfield value="{!row.theCar.Name}" style="width:70px;"></apex:outputfield>
+                                    
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Car__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.Car__c}"  style="width:80px;"></apex:outputfield>
+                                    <apex:variable var="index" value="{!index + 1}" /> 
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.EngineNo__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.EngineNo__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>  
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Model__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.Model__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>    
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.LegalNumberofSeats__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>  
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:180px;">
+                                                <apex:outputText value="保険"></apex:outputText><br/>
+                                            </div>
+                                            
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <!--
+<apex:outputtext value="{!row.MyProduct}" style="width:180px;"></apex:outputtext>
+-->
+                                    
+                                    <apex:repeat value="{!row.MyPsgrRow}" var="a" >
+                                        
+                                        <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                            <apex:column style="width:180px;" >
+                                                <apex:outputtext value="{!b}"/><br/>
+                                            </apex:column>
+                                        </apex:datatable>
+                                    </apex:repeat>
+                                    <apex:repeat value="{!row.MyCpsRow}" var="a" >
+                                        <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                            <apex:column style="width:180px;">
+                                                <font color='#0000ff'>
+                                                    <apex:outputtext value="{!b}"/><br/>
+                                                </font>
+                                            </apex:column>
+                                        </apex:datatable>
+                                    </apex:repeat>
+                                    
+                                </apex:column>
+                                
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.ReplacedDate__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.ReplacedDate__c}" style="width:100px;"></apex:outputfield>
+                                </apex:column> 
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:180px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.UsingCompany__c}" style="width:180px;"></apex:outputfield>
+                                </apex:column>
+                                
+                                
+                                
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:110px;">
+                                                <apex:outputText value="保険数"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.f_EffectiveInsurance}" style="width:70px;"></apex:outputtext>
+                                </apex:column> 
+                                
+                                
+                                
+                            </apex:dataTable><br/>
+                            
+                            <apex:commandButton value="増車" onClick="openPopupAddCarWin('{!CarInsurance.Id}');return false;" />
+                            
+                            <script>
+                            function openPopupAddCarWin(id){
+                                
+                                try {
+                                    
+                                    var baseURL = getBaseURL();
+                                    var para = '?'+'id=' +id ;
+                                    para　+='&'+'pv0=null'
+                                    
+                                    baseURL = baseURL + "apex/wb_CarInsuranceAmend";
+                                    
+                                    //window.childWin = window.open(baseURL + para ,'Popup','height=768,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                                    window.childWin = window.open(baseURL + para ,'Popup','height=768,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                                    
+                                    window.intervalId = window.setInterval('window.checkIfChildWindowIsClosed()', 5*100);
+                                    if (window.focus){
+                                        window.childWin.focus();
+                                    } 
+                                    window.checkIfChildWindowIsClosed = function()
+                                    {
+                                        if(window.childWin.closed)
+                                        {
+                                            window.clearInterval(window.intervalId);
+                                            
+                                            try {
+                                                // To refresh the Parent Win
+                                            }
+                                            catch(e){
+                                                alert(e);
+                                            }
+                                            
+                                        }
+                                    }
+                                    
+                                    
+                                    
+                                }catch(e)
+                                {
+                                    alert(e);
+                                }                       
+                                return false;
+                                
+                            }
+                            
+                            function getBaseURL() {
+                                var url = location.href;  // entire url including querystring - also: window.location.href;
+                                var baseURL = url.substring(0, url.indexOf('/', 14));
+                                
+                                
+                                if (baseURL.indexOf('http://localhost') != -1) {
+                                    // Base Url for localhost
+                                    var url = location.href;  // window.location.href;
+                                    var pathname = location.pathname;  // window.location.pathname;
+                                    var index1 = url.indexOf(pathname);
+                                    var index2 = url.indexOf("/", index1 + 1);
+                                    var baseLocalUrl = url.substr(0, index2);
+                                    
+                                    return baseLocalUrl + "/";
+                                }
+                                else {
+                                    // Root Url for domain name
+                                    return baseURL + "/";
+                                }
+                                
+                            }
+                            
+                            
+                            </script>
+                            <!--
+<apex:inputHidden id="hdnField" value="{!DataTableCurIndex}" /><br/> -->
+                            <apex:actionFunction name="CallApexMethodRetriveCarInfo" action="{!RetriveCarInfo}">
+                                <apex:param name="FirstParam" assignTo="{!theInsurancedCarsIndex}" value="" />
+                            </apex:actionFunction> 
+                            <br/>
+                            <script>
+                            var lastRow;
+                            function highlight(elem){
+                                if(lastRow != undefined)
+                                    lastRow.style.backgroundColor = 'white';
+                                
+                                elem.style.backgroundColor = 'yellow';
+                                lastRow = elem;
+                            }
+                            
+                            function GetIndex(idx){
+                                //alert(' index ' + idx);
+                                
+                                try {
+                                    CallApexMethodRetriveCarInfo(idx );
+                                    //     document.getElementById("{!$Component.theForm.ThePageBlock.theCarSection.hdnField}").value = idx;
+                                }catch(e) {
+                                    alert(e.message);
+                                }
+                                //CallApexMethodRetriveCarInfo(idx );
+                                
+                            }
+                            
+                            
+                            </script>
+                        </apex:tab>
+                        <apex:tab label="確認待ち" name="name2" id="tabPending">
+                          
+                            <apex:dataTable value="{!InsurancedCarsPendingList}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);">
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.PendingAction__c.label}"></apex:outputText><br/>
+                                            </div>
+                                            
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    
+                                    
+                                    <apex:outputfield value="{!row.theCar.PendingAction__c}" style="width:100px;"></apex:outputfield>
+                                    
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <!--
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:60px;">
+                                                <apex:outputText value="Action"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    -->
+                                    <apex:commandButton value="入替待ち編集" onClick="openPopupChangePendingWin('{!CarInsurance.Id}','{!row.theCar.OriginalCar__c}','{!row.theCar.id}');return false;"
+                                                        rendered="{!IF((row.theCar.PendingAction__c == '入替待ち'), true , false)}"/> <br/>
+                                    
+                                    <apex:commandButton value="増車待ち編集"
+                                                        onClick="openPopupAddCarPendingWin('{!CarInsurance.Id}','{!row.theCar.id}');return false;"
+                                                        rendered="{!IF((row.theCar.PendingAction__c == '増車待ち'), true , false)}"/> <br/>
+                                    
+                                    
+                                    <apex:commandButton value="請求データ"
+                                                        onClick="openPopupCarInsurance_InvoiceXlsWin('{!CarInsurance.Id}','{!row.theCar.id}');return false;"
+                                                        /> <br/>
+                                    
+                                    <script>
+                                    
+                                    function openPopupCarInsurance_InvoiceXlsWin(id,id2){
+                                        try {
+                                            
+                                            var baseURL = getBaseURL();
+                                            
+                                            //	alert('{!wb_CarInsurance__c.Id}');
+                                            var para = '?'+'Id=' +id;
+                                            para += '&'+'pv0=' +id2;
+                                            baseURL = baseURL + 'apex/wb_CarInsurance_InvoiceXls';
+                                            window.open(baseURL + para );
+                                            
+                                            
+                                            
+                                        }catch(e)
+                                        {
+                                            alert(e);
+                                        }
+                                        
+                                    }
+                                    
+                                    function openPopupAddCarPendingWin(id,id2){
+                                        
+                                        try {
+                                            
+                                            var baseURL = getBaseURL();
+                                            var para = '?'+'id=' +id ;
+                                            para　+='&'+'pv0=null';
+                                            para +='&'+'pv1='+id2 ;
+                                            baseURL = baseURL + "apex/wb_CarInsuranceAmend";
+                                            
+                                            
+                                            window.childWin = window.open(baseURL + para ,'Popup','height=768,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                                            
+                                            window.intervalId = window.setInterval('window.checkIfChildWindowIsClosed()', 5*100);
+                                            if (window.focus){
+                                                window.childWin.focus();
+                                            } 
+                                            window.checkIfChildWindowIsClosed = function()
+                                            {
+                                                if(window.childWin.closed)
+                                                {
+                                                    window.clearInterval(window.intervalId);
+                                                    
+                                                    try {
+                                                        // To refresh the Parent Win
+                                                    }
+                                                    catch(e){
+                                                        alert(e);
+                                                    }
+                                                    
+                                                }
+                                            }
+                                            
+                                            
+                                            
+                                        }catch(e)
+                                        {
+                                            alert(e);
+                                        }                       
+                                        return false;
+                                        
+                                    }
+                                    
+                                    function openPopupChangePendingWin(id,ocid,rcid){
+                                        
+                                        try {
+                                            
+                                            var baseURL = getBaseURL();
+                                            var para = '?'+'id=' +id ;
+                                            
+                                            
+                                            
+                                            para　+='&'+'pv0=' +ocid;
+                                            para +='&'+'pv1='+rcid ;
+                                            baseURL = baseURL + "apex/wb_CarInsuranceAmend";
+                                            
+                                            window.childWin = window.open(baseURL + para ,'Popup','height=768,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                                            
+                                            window.intervalId = window.setInterval('window.checkIfChildWindowIsClosed()', 5*100);
+                                            if (window.focus){
+                                                window.childWin.focus();
+                                            } 
+                                            window.checkIfChildWindowIsClosed = function()
+                                            {
+                                                if(window.childWin.closed)
+                                                {
+                                                    window.clearInterval(window.intervalId);
+                                                    
+                                                    
+                                                    try {
+                                                        
+                                                    }
+                                                    catch(e){
+                                                        alert(e);
+                                                    }
+                                                    
+                                                }
+                                            }
+                                            
+                                            
+                                            
+                                        }catch(e)
+                                        {
+                                            alert(e);
+                                        }                       
+                                        return false;
+                                        
+                                    }
+                                    
+                                    
+                                    function getBaseURL() {
+                                        var url = location.href;  // entire url including querystring - also: window.location.href;
+                                        var baseURL = url.substring(0, url.indexOf('/', 14));
+                                        
+                                        
+                                        if (baseURL.indexOf('http://localhost') != -1) {
+                                            // Base Url for localhost
+                                            var url = location.href;  // window.location.href;
+                                            var pathname = location.pathname;  // window.location.pathname;
+                                            var index1 = url.indexOf(pathname);
+                                            var index2 = url.indexOf("/", index1 + 1);
+                                            var baseLocalUrl = url.substr(0, index2);
+                                            
+                                            return baseLocalUrl + "/";
+                                        }
+                                        else {
+                                            // Root Url for domain name
+                                            return baseURL + "/";
+                                        }
+                                        
+                                    }
+                                    
+                                    
+                                    </script>
+                                    
+                                    <apex:commandButton value="削除"
+                                                        onClick="openPopupConfirmDeletePendingWin('{!row.theCar.id}');return false;"
+                                                        />
+                                    
+                                    <script>
+                                    function confirmation() {  
+                                        if (!confirm('Do you want to proceed?')) return false;
+                                        else return true;
+                                    }
+                                    function openPopupConfirmDeletePendingWin(id,idx){
+                                        try {
+                                            if (confirmation()) {
+                                                alert(id );
+                                                CallApexMethod2DeletePendingCar(id,idx);
+                                            }
+                                            
+                                        }catch(e)
+                                        {
+                                            alert(e);
+                                        }                       
+                                        return false;
+                                    }
+                                    
+                                    </script>
+                                    
+                                    
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:70px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Name.label}"></apex:outputText><br/>
+                                            </div>
+                                            
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    
+                                    
+                                    <apex:outputfield value="{!row.theCar.Name}" style="width:70px;"></apex:outputfield>
+                                    
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Car__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.Car__c}"  style="width:80px;"></apex:outputfield>
+                                    
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.EngineNo__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.EngineNo__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>  
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Model__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.Model__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>    
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.LegalNumberofSeats__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>  
+                                
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:180px;">
+                                                <apex:outputText value="保険"></apex:outputText><br/>
+                                            </div>
+                                            
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <!--
+<apex:outputtext value="{!row.MyProduct}" style="width:180px;"></apex:outputtext>
+-->
+                                    
+                                    <apex:repeat value="{!row.MyPsgrRow}" var="a" >
+                                        
+                                        <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                            <apex:column style="width:180px;" >
+                                                <apex:outputtext value="{!b}"/><br/>
+                                            </apex:column>
+                                        </apex:datatable>
+                                    </apex:repeat>
+                                    <apex:repeat value="{!row.MyCpsRow}" var="a" >
+                                        <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                            <apex:column style="width:180px;">
+                                                <font color='#0000ff'>
+                                                    <apex:outputtext value="{!b}"/><br/>
+                                                </font>
+                                            </apex:column>
+                                        </apex:datatable>
+                                    </apex:repeat>
+                                    
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.ReplacedDate__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.ReplacedDate__c}" style="width:100px;"></apex:outputfield>
+                                </apex:column> 
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:180px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.UsingCompany__c}" style="width:180px;"></apex:outputfield>
+                                </apex:column>
+                                
+                                
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:110px;">
+                                                <apex:outputText value="保険数"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.f_EffectiveInsurance}" style="width:70px;"></apex:outputtext>
+                                </apex:column> 
+                                
+                                
+                                
+                            </apex:dataTable><br/>
+                            
+                        </apex:tab>
+                        
+                        <apex:tab label="キャンセル契約車" name="name3" id="tabNoEff">
+                            <apex:variable var="index" value="{!0}" />  <br/> 
+                            
+                            <apex:dataTable value="{!InsurancedCarsNoEffList}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);">
+                                
+                                <apex:column >
+                                    <!--
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:60px;">
+                                                <apex:outputText value="Action"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    -->
+                                    <apex:commandButton value="解約・入替" onClick="openPopupChangeWin('{!CarInsurance.Id}','{!row.theCar.id}');return false;"
+                                                        rendered="{!IF((row.IsAmendable=true), true , false)}"/>
+                                    
+                                    <apex:commandButton value="ビュー" onClick="openPopupEditWin('{!row.theCar.id}','{!index}','{!row.theCar.Car__c}');return false;" />
+                                    <script>
+                                    function openPopupChangeWin(id,cid){
+                                        
+                                        try {
+                                            // GetPopupIndex("{!index}");
+                                            var baseURL = getBaseURL();
+                                            var para = '?'+'id=' +id ;
+                                            
+                                            //baseURL = baseURL + "apex/wb_CarInsurancedCarsAmend";
+                                            
+                                            para　+='&'+'pv0=' +cid;
+                                            
+                                            baseURL = baseURL + "apex/wb_CarInsuranceAmend";
+                                            
+                                            window.childWin = window.open(baseURL + para ,'Popup','height=768,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                                            
+                                            window.intervalId = window.setInterval('window.checkIfChildWindowIsClosed()', 5*100);
+                                            if (window.focus){
+                                                window.childWin.focus();
+                                            } 
+                                            window.checkIfChildWindowIsClosed = function()
+                                            {
+                                                if(window.childWin.closed)
+                                                {
+                                                    window.clearInterval(window.intervalId);
+                                                    //alert('ChildWin Closed');  
+                                                    
+                                                    try {
+                                                        
+                                                    }
+                                                    catch(e){
+                                                        alert(e);
+                                                    }
+                                                    
+                                                }
+                                            }
+                                            
+                                            
+                                            
+                                        }catch(e)
+                                        {
+                                            alert(e);
+                                        }                       
+                                        return false;
+                                        
+                                    }
+                                    
+                                    
+                                    function getBaseURL() {
+                                        var url = location.href;  // entire url including querystring - also: window.location.href;
+                                        var baseURL = url.substring(0, url.indexOf('/', 14));
+                                        
+                                        
+                                        if (baseURL.indexOf('http://localhost') != -1) {
+                                            // Base Url for localhost
+                                            var url = location.href;  // window.location.href;
+                                            var pathname = location.pathname;  // window.location.pathname;
+                                            var index1 = url.indexOf(pathname);
+                                            var index2 = url.indexOf("/", index1 + 1);
+                                            var baseLocalUrl = url.substr(0, index2);
+                                            
+                                            return baseLocalUrl + "/";
+                                        }
+                                        else {
+                                            // Root Url for domain name
+                                            return baseURL + "/";
+                                        }
+                                        
+                                    }
+                                    
+                                    
+                                    </script>
+                                    
+                                    <apex:variable var="index" value="{!index + 1}" />
+                                </apex:column>
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:70px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Name.label}"></apex:outputText><br/>
+                                            </div>
+                                            
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    
+                                    
+                                    <apex:outputfield value="{!row.theCar.Name}" style="width:70px;"></apex:outputfield>
+                                    
+                                </apex:column>
+                                
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Car__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.Car__c}"  style="width:80px;"></apex:outputfield>
+                                    <apex:variable var="index" value="{!index + 1}" /> 
+                                </apex:column>
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.EngineNo__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.EngineNo__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>  
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Model__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.Model__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>    
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:80px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.LegalNumberofSeats__c}" style="width:80px;"></apex:outputfield>
+                                </apex:column>  
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:180px;">
+                                                <apex:outputText value="保険"></apex:outputText><br/>
+                                            </div>
+                                            
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <!--
+<apex:outputtext value="{!row.MyProduct}" style="width:180px;"></apex:outputtext>
+-->
+                                    
+                                    <apex:repeat value="{!row.MyPsgrRow}" var="a" >
+                                        
+                                        <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                            <apex:column style="width:180px;" >
+                                                <apex:outputtext value="{!b}"/><br/>
+                                            </apex:column>
+                                        </apex:datatable>
+                                    </apex:repeat>
+                                    <apex:repeat value="{!row.MyCpsRow}" var="a" >
+                                        <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                            <apex:column style="width:180px;">
+                                                <font color='#0000ff'>
+                                                    <apex:outputtext value="{!b}"/><br/>
+                                                </font>
+                                            </apex:column>
+                                        </apex:datatable>
+                                    </apex:repeat>
+                                    
+                                </apex:column>
+                                
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:100px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.ReplacedDate__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.ReplacedDate__c}" style="width:100px;"></apex:outputfield>
+                                </apex:column> 
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:180px;">
+                                                <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputfield value="{!row.theCar.UsingCompany__c}" style="width:180px;"></apex:outputfield>
+                                </apex:column>
+                                
+                                
+                                
+                                <apex:column >
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            <div style="width:110px;">
+                                                <apex:outputText value="保険数"></apex:outputText><br/>
+                                            </div>
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    <apex:outputtext value="{!row.f_EffectiveInsurance}" style="width:70px;"></apex:outputtext>
+                                </apex:column> 
+                                
+                                
+                                
+                            </apex:dataTable><br/>
+                            
+                            
+                            
+                            <script>
+                            function openPopupAddCarWin(id){
+                                
+                                try {
+                                    
+                                    var baseURL = getBaseURL();
+                                    var para = '?'+'id=' +id ;
+                                    para　+='&'+'pv0=null'
+                                    
+                                    baseURL = baseURL + "apex/wb_CarInsuranceAmend";
+                                    
+                                    //window.childWin = window.open(baseURL + para ,'Popup','height=768,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                                    window.childWin = window.open(baseURL + para ,'Popup','height=768,width=1366,left=0,top=0,scrollbars=yes,toolbar=no,status=no,directories=no,menubar=no,scrollable=yes');
+                                    
+                                    window.intervalId = window.setInterval('window.checkIfChildWindowIsClosed()', 5*100);
+                                    if (window.focus){
+                                        window.childWin.focus();
+                                    } 
+                                    window.checkIfChildWindowIsClosed = function()
+                                    {
+                                        if(window.childWin.closed)
+                                        {
+                                            window.clearInterval(window.intervalId);
+                                            
+                                            try {
+                                                // To refresh the Parent Win
+                                            }
+                                            catch(e){
+                                                alert(e);
+                                            }
+                                            
+                                        }
+                                    }
+                                    
+                                    
+                                    
+                                }catch(e)
+                                {
+                                    alert(e);
+                                }                       
+                                return false;
+                                
+                            }
+                            
+                            function getBaseURL() {
+                                var url = location.href;  // entire url including querystring - also: window.location.href;
+                                var baseURL = url.substring(0, url.indexOf('/', 14));
+                                
+                                
+                                if (baseURL.indexOf('http://localhost') != -1) {
+                                    // Base Url for localhost
+                                    var url = location.href;  // window.location.href;
+                                    var pathname = location.pathname;  // window.location.pathname;
+                                    var index1 = url.indexOf(pathname);
+                                    var index2 = url.indexOf("/", index1 + 1);
+                                    var baseLocalUrl = url.substr(0, index2);
+                                    
+                                    return baseLocalUrl + "/";
+                                }
+                                else {
+                                    // Root Url for domain name
+                                    return baseURL + "/";
+                                }
+                                
+                            }
+                            
+                            
+                            </script>
+                            
+                            
+                            <script>
+                            var lastRow;
+                            function highlight(elem){
+                                if(lastRow != undefined)
+                                    lastRow.style.backgroundColor = 'white';
+                                
+                                elem.style.backgroundColor = 'yellow';
+                                lastRow = elem;
+                            }
+                            
+                            function GetIndex(idx){
+                                //alert(' index ' + idx);
+                                
+                                try {
+                                    CallApexMethodRetriveCarInfo(idx );
+                                    //     document.getElementById("{!$Component.theForm.ThePageBlock.theCarSection.hdnField}").value = idx;
+                                }catch(e) {
+                                    alert(e.message);
+                                }
+                                //CallApexMethodRetriveCarInfo(idx );
+                                
+                            }
+                            
+                            
+                            </script>
+                        </apex:tab>
+                    </apex:tabPanel>
+                </apex:pageBlockSection>                 
+                
+                
+                
+            </apex:pageBlock>
+            
+        </apex:outputPanel>
+        
+        <apex:outputPanel rendered="{!IF((OR(wb_CarInsurance__c.Status__c==null,wb_CarInsurance__c.Status__c=='未確定' )), true , false)}" >
+            
+            <apex:pageBlock id="ThePageBlock">
+                
+                
+                <apex:commandButton value="Save & Close"  action="{!validateAndUpdate}"/> 
+                <apex:commandButton value="Save"  action="{!validateAndSave}"/>   
+                <apex:commandButton value="Cancel"  action="{!Cancel}"/> 
+                
+                <apex:pageBlockSection columns="2" id="theHeader" title="契約番号">
+                    <apex:outputText value="{!CarInsurance.Name}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Name.label}"/>
+                    
+                    <apex:selectList value="{!Status}" multiselect="false" label="{!$ObjectType.wb_CarInsurance__c.fields.Status__c.label}"	size="1">
+                        <apex:selectOptions value="{!StatusItems}"/>
+                        <apex:actionSupport event="onchange" rerender="theForm"/>
+                    </apex:selectList>
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection columns="2" id="theContractInfoSection" title="契約情報" >
+                    
+                    <apex:selectList id="Agent__c" value="{!CarInsurance.Agent__c}" size="1" title="Agent__c">
+                        <apex:selectOptions value="{!AgentOptions}"></apex:selectOptions>
+                        <apex:actionSupport event="onchange" action="{!fetchContractCountryOptions}" reRender="ContractCountry__c,ContractDistrict__c,AffiliationDistrict__c" /> 
+                    </apex:selectList>
+                    
+                    
+                    
+                    
+                    <apex:inputField value="{!CarInsurance.ContractCompany__c}" 
+                                     id="ContractCompany__c">
+                        <apex:actionSupport event="onchange"
+                                            action="{!fetchAttribute}"
+                                            rerender="Attribute__c"/>
+                    </apex:inputField>
+                    
+                    
+                    <apex:selectList id="ContractCountry__c" value="{!CarInsurance.ContractCountry__c}" size="1" title="ContractCountry__c">
+                        <apex:selectOptions value="{!ContractCountryOptions}"></apex:selectOptions>
+                        <apex:actionSupport event="onchange" action="{!fetchContractDistrictOptions}" reRender="ContractDistrict__c,AffiliationDistrict__c" /> 
+                    </apex:selectList>
+                    
+                    <apex:inputField value="{!CarInsurance.Attribute__c}" id="Attribute__c"/>
+                    
+                    <!--<apex:inputField value="{!CarInsurance.ContractDistrict__c}" id="ContractDistrict__c"/>-->
+                    <apex:selectList id="ContractDistrict__c" value="{!CarInsurance.ContractDistrict__c}" size="1" title="ContractDistrict__c">
+                        <apex:selectOptions value="{!ContractDistrictOptions}"></apex:selectOptions>
+                        <apex:actionSupport event="onchange" action="{!fetchAffiliationDistrictOptions}" reRender="AffiliationDistrict__c" /> 
+                    </apex:selectList>
+                    
+                    <!--<apex:inputField value="{!CarInsurance.AffiliationDistrict__c}" id="AffiliationDistrict__c"/>-->
+                    
+                    <apex:inputField value="{!CarInsurance.ContractDate__c}" id="ContractDate__c"/>
+                    
+                    <apex:selectList id="AffiliationDistrict__c" value="{!CarInsurance.AffiliationDistrict__c}" size="1" title="AffiliationDistrict__c">
+                        <apex:selectOptions value="{!AffiliationDistrictOptions}"></apex:selectOptions>
+                        
+                    </apex:selectList>
+                    
+                    
+                    
+                    
+                    <apex:selectList id="CommissionCurrency__c" value="{!CarInsurance.CommissionCurrency__c}" size="1" title="CommissionCurrency__c">
+                        <apex:selectOptions value="{!CurrencyOptions}"></apex:selectOptions>
+                        
+                        
+                    </apex:selectList>
+                    
+                    <apex:inputField value="{!CarInsurance.AcctPIC__c}" id="AcctPIC__c"/>
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection id="theCarSection">
+
+                     <apex:variable var="index" value="{!0}" />  <br/> 
+                     <apex:commandButton action="{!NewInsurancedCarsofList}" value="対象車追加"/>  <br/>
+                    
+                     <apex:dataTable value="{!InsurancedCarsList}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);">
+                        <apex:column >
+                            <!--
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="保険"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            -->
+                            <apex:variable var="index" value="{!index + 1}" /> 
+                            <apex:commandButton value="編集" onClick="openPopupEditWin('{!row.theCar.id}','{!index}','{!row.theCar.Car__c}');return false;" rendered="{!IF((row.theCar.ReplacedDate__c=null), true , false)}"/>
+                            <apex:commandButton value="削除" onClick="openPopupConfirmDeleteWin('{!row.theCar.id}','{!index}');return false;" rendered="{!IF((row.theCar.ReplacedDate__c=null), true , false)}"/>
+                            
+                            <script>
+                            function confirmation() {  
+                                if (!confirm('Do you want to proceed?')) return false;
+                                else return true;
+                            }
+                            function openPopupConfirmDeleteWin(id,idx){
+                                try {
+                                    if (confirmation()) {
+                                        alert(idx +' ' +id);
+                                        CallApexMethod2DeleteCarInsurance(id,idx);
+                                    }
+                                    
+                                }catch(e)
+                                {
+                                    alert(e);
+                                }                       
+                                return false;
+                            }
+                            
+                            </script>
+                            
+                            
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Name.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.theCar.Name}" style="width:100px;"></apex:outputfield>
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Car__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:inputfield value="{!row.theCar.Car__c}"  style="width:80px;" onchange="GetIndex({!index});"></apex:inputfield>
+                            
+                        </apex:column>
+                                             <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.EngineNo__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.theCar.EngineNo__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>  
+                         
+                                 <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.theCar.LegalNumberofSeats__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column> 
+                        
+    
+                                 <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Model__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.theCar.Model__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>    
+                         
+                                 <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel >
+                    <div style="width:180px;">
+                        <apex:outputText value="保険"></apex:outputText><br/>
+                    </div>
+                    
+                </apex:outputPanel>
+            </apex:facet>
+            <!--
+<apex:outputtext value="{!row.MyProduct}" style="width:180px;"></apex:outputtext>
+-->
+            
+            <apex:repeat value="{!row.MyPsgrRow}" var="a" >
+                
+                <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                    <apex:column style="width:180px;" >
+                        <apex:outputtext value="{!b}"/><br/>
+                    </apex:column>
+                </apex:datatable>
+            </apex:repeat>
+            <apex:repeat value="{!row.MyCpsRow}" var="a" >
+                <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                    <apex:column style="width:180px;">
+                        <font color='#0000ff'>
+                            <apex:outputtext value="{!b}"/><br/>
+                        </font>
+                    </apex:column>
+                </apex:datatable>
+            </apex:repeat>
+            
+        </apex:column>
+        
+                         
+                         
+                         
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}"></apex:outputText><br/>
+                                    </div>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputfield value="{!row.theCar.UsingCompany__c}" style="width:80px;"></apex:outputfield>
+                        </apex:column>
+                         
+              
+                
+                    </apex:dataTable>
+                    
+                    <script>
+                    var lastRow;
+                    function highlight(elem){
+                        if(lastRow != undefined)
+                            lastRow.style.backgroundColor = 'white';
+                        
+                        elem.style.backgroundColor = 'yellow';
+                        lastRow = elem;
+                    }
+                    
+                    function GetIndex(idx){
+                        //alert(' index n' + idx);
+                        CallApexMethodRetriveCarInfo(idx);
+                        
+                        
+                    }
+                    
+                    
+                    </script>
+                    
+                    
+                </apex:pageBlockSection>                 
+                
+            </apex:pageBlock>
+            
+        </apex:outputPanel>
+        
+    </apex:form>
+    
+</apex:page>

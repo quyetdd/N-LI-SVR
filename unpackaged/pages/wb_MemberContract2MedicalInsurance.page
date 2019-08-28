@@ -1,0 +1,419 @@
+<apex:page controller="wb_MedicalInsurance" id="thePage">
+    <apex:tabPanel switchType="client">
+        <apex:tab label="契約個人リスト" id="Tab1" >
+            <apex:form >
+                <apex:actionFunction name="CallApexMethod" action="{!getSelected}" onComplete=""/>
+                
+                <apex:pageBlock Title="WB会員契約にあるメンバー" rendered="{!IF(ShowSelected == false, true , false)}" id="theBlock1">
+                    <apex:commandButton value="戻り" action="{!ReturnToMDContract}"/>
+                    <apex:commandButton value="絞込み" action="{!StartMedicalInsurance}"/>
+                    <apex:commandButton value="全チェック" action="{!SelectAll}"/>
+                    <apex:commandButton value="全チェック解除" action="{!UnSelectAll}"/>
+                    <apex:commandButton value="終了" action="{!Cancel}"/>
+                    
+                    <apex:pageBlockSection Title="メンバーリスト" id="PageBlock1">
+                        
+                        <apex:dataTable value="{!theMembershipDetailRows}" var="row" columnswidth="30px, 60px, 300px, 100px, 100px" cellpadding="4" border="1">
+                            <apex:column >
+                                <apex:facet name="header"> 
+                                    
+                                </apex:facet>
+                                <apex:inputCheckbox value="{!row.isSelected}" id="checkedone">
+                                    <!--  <apex:actionSupport event="onclick" action="{!GetSelected}" rerender="PageBlock2"/> -->
+                                </apex:inputCheckbox></apex:column>
+                            
+                            
+                            
+                            <apex:column headervalue="{!$ObjectType.wb_Individual__c.fields.Name.label}" value="{!row.theMembershipDetail.individual__r.Name}" style="width:100px;"/>
+                            <apex:column headervalue="{!$ObjectType.wb_MembershipDetail__c.fields.MemberNo__c.label}" value="{!row.theMembershipDetail.MemberNo__c}" />
+                            <apex:column headervalue="{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}" value="{!row.theMembershipDetail.WorkingCompany__r.Name}" />
+                            <apex:column headervalue="{!$ObjectType.wb_Membership__c.fields.ContractDistrict__c.label}" value="{!row.theMembershipDetail.Membership__r.ContractDistrict__c}" />
+                        </apex:dataTable>
+                        
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+                
+                <apex:pageBlock Title="医療保険" rendered="{!IF(ShowSelected == true, true , false)}">
+                    
+                    <apex:commandButton value="保存" action="{!SavetoMedicalInsurance}"/>
+                    <apex:commandButton value="戻る" action="{!SelectAgain}" />
+                    <apex:commandButton value="コピー" action="{!CopyfromCommon}"/>
+                    <apex:commandButton value="終了" action="{!Cancel}"/>
+     
+                 
+                    <apex:pageBlockSection Title="医療保険" columns="2" id="PageBlock2">
+                        <apex:inputField value="{!MedicalInsurance.MedicalDivision__c}"  style="left;"  />   
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                    <apex:pageBlockSection Title="医療保険詳細" id="PageBlock3">
+                                                
+                        <apex:dataTable value="{!theMedicalInsuranceDetailRows}" var="MID" styleClass="sortable" columnswidth="10%, 10%, 50%, 10%, 10%" cellpadding="4" border="1">
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:12px;">
+                                            <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.WorkingCompany__c.label}"></apex:outputText>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:outputField value="{!MID.theMedicalInsuranceDetail.WorkingCompany__c}"></apex:outputField>
+                                
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_Individual__c.fields.CurrentMemberNo__c.label}"></apex:outputText>
+                                        
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:outputtext value="{!MID.MemberNo}"></apex:outputtext>
+                                
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Individual__c.label}"></apex:outputText><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:outputField value="{!MID.theMedicalInsuranceDetail.Individual__c}"></apex:outputField>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputText value="{!$ObjectType.wb_Membership__c.fields.ContractDistrict__c.label}"></apex:outputText><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:outputtext value="{!MID.AffiliationDistrict}"></apex:outputtext>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceCompany__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.InsuranceCompany__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:selectList id="InsuranceCompany__c" value="{!MID.theMedicalInsuranceDetail.InsuranceCompany__c}" size="1" title="InsuranceCompany__c">
+                                    <apex:selectOptions value="{!InsuranceCompanyOptions}"></apex:selectOptions>
+                                </apex:selectList>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Insurance__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.Insurance__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:selectList id="Insurance__c" value="{!MID.theMedicalInsuranceDetail.Insurance__c}" size="1" title="Insurance__c">
+                                    <apex:selectOptions value="{!InsuranceOptions}"></apex:selectOptions>
+                                </apex:selectList>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsurancePlan__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.InsurancePlan__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:selectList id="InsurancePlan__c" value="{!MID.theMedicalInsuranceDetail.InsurancePlan__c}" size="1" title="InsurancePlan__c">
+                                    <apex:selectOptions value="{!InsurancePlanOptions}"></apex:selectOptions>
+                                    
+                                </apex:selectList>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.HandlingBy__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.HandlingBy__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:selectList id="HandlingBy__c" value="{!MID.theMedicalInsuranceDetail.HandlingBy__c}" size="1" title="HandlingBy__c">
+                                    <apex:selectOptions value="{!HandlingByOptions}"></apex:selectOptions>    
+                                </apex:selectList>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Priority__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.Priority__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputfield value="{!MID.theMedicalInsuranceDetail.Priority__c}"></apex:inputfield>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.PolicyNumber__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.PolicyNumber__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.PolicyNumber__c}"></apex:inputText>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.PolicyAvailability__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.PolicyAvailability__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:selectList id="PolicyAvailability__c" value="{!MID.theMedicalInsuranceDetail.PolicyAvailability__c}" size="1" title="PolicyAvailability__c">
+                                    <apex:selectOptions value="{!PolicyAvailabilityOptions}"></apex:selectOptions>    
+                                </apex:selectList>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.StorageLocation__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.StorageLocation__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.StorageLocation__c}"></apex:inputText>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.MedicalSettlement__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.MedicalSettlement__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:selectList id="MedicalSettlement__c" value="{!MID.theMedicalInsuranceDetail.MedicalSettlement__c}" size="1" title="MedicalSettlement__c">
+                                    <apex:selectOptions value="{!MedicalSettlementOptions}"></apex:selectOptions>    
+                                </apex:selectList>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Individual__c.label}"></apex:outputText><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:outputField value="{!MID.theMedicalInsuranceDetail.Individual__c}"></apex:outputField>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceStartDate__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.InsuranceStartDate__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputField value="{!MID.theMedicalInsuranceDetail.InsuranceStartDate__c}"></apex:inputField>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceEndDate__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.InsuranceEndDate__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputField value="{!MID.theMedicalInsuranceDetail.InsuranceEndDate__c}"></apex:inputField>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceCurrency__c.label}"></apex:outputText><br/>
+                                        <!--<apex:inputField value="{!Common.InsuranceCurrency__c}"></apex:inputField>-->
+                                        <apex:selectList id="InsuranceCurrency__comm" value="{!Common.InsuranceCurrency__c}" size="1" title="InsuranceCurrency__c">
+                                            <apex:selectOptions value="{!InsuranceCurrencyOptions}"></apex:selectOptions>    
+                                        </apex:selectList>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <!-- <apex:inputText value="{!MID.InsuranceCurrency__c}"></apex:inputText> -->
+                                <apex:selectList id="InsuranceCurrency__c" value="{!MID.theMedicalInsuranceDetail.InsuranceCurrency__c}" size="1" title="InsuranceCurrency__c">
+                                    <apex:selectOptions value="{!InsuranceCurrencyOptions}"></apex:selectOptions>    
+                                </apex:selectList>
+                            </apex:column>
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InjuryDeathCost__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.InjuryDeathCost__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.InjuryDeathCost__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.TreatmentCost__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.TreatmentCost__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.TreatmentCost__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.TreatmentRescueCost__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.TreatmentRescueCost__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.TreatmentRescueCost__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.DiseaseCost__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.DiseaseCost__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.DiseaseCost__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.DiseaseDeathCost__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.DiseaseDeathCost__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.DiseaseDeathCost__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.RescueCost__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.RescueCost__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.RescueCost__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.DamagesCost__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.DamagesCost__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.DamagesCost__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.BaggageCost__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.BaggageCost__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.BaggageCost__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.HomeCountryCoverage__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.HomeCountryCoverage__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputfield value="{!MID.theMedicalInsuranceDetail.HomeCountryCoverage__c}"></apex:inputfield>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Remark__c.label}"></apex:outputText><br/>
+                                        <apex:inputField value="{!Common.Remark__c}"></apex:inputField>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:inputText value="{!MID.theMedicalInsuranceDetail.Remark__c}"></apex:inputText>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputText value="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Individual__c.label}"></apex:outputText><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                <apex:outputField value="{!MID.theMedicalInsuranceDetail.Individual__c}"></apex:outputField>
+                            </apex:column>
+                        </apex:dataTable>
+                       
+                    </apex:pageBlockSection>
+                    
+                    
+                </apex:pageBlock>
+            </apex:form>
+            
+        </apex:tab>
+        
+        <!--
+        <apex:tab label="医療保険に" id="Tab2">
+            
+            <apex:pageBlock id="thePageBlock">
+                
+                <apex:form id="theForm">
+                    
+                    <apex:pageBlockSection columns="2" id="theHeaderSection">
+                        <apex:inputField value="{!MedicalInsurance.MedicalDivision__c}"/>
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlock title="医療保険個人リスト">
+                        
+                        
+                        
+                        <apex:pageBlockTable value="{!MedicalInsuranceDetail}" var="MID" >
+                            <apex:column >
+                                <apex:facet name="header" >
+                                    <apex:outputText escape="false" value="Header1 <br/> Header2"></apex:outputText>
+                                </apex:facet>
+                                {!MID.name}
+                            </apex:column>
+                            <apex:column value="{!MID.Individual__c}" />
+                        </apex:pageBlockTable>
+                        
+                        <apex:pageBlockTable value="{!theMembershipDetailRows}" var="item" >
+                            <apex:column >
+                                <apex:facet name="header" >
+                                    <apex:outputText escape="false" value="Header1 <br/> Header2"></apex:outputText>
+                                </apex:facet>
+                                {!item.isSelected}
+                            </apex:column>
+                            <apex:column value="{!item.theMembershipDetail.MemberNo__c}" />
+                        </apex:pageBlockTable>
+                        
+                        <apex:commandButton value="Save" action="{!save}"/>
+                    </apex:pageBlock>
+                </apex:form>
+                
+            </apex:pageBlock>
+        </apex:tab>
+        -->
+    </apex:tabPanel>
+    
+<script>
+    
+    function checkAll(cb)
+    {
+        var inputElem = document.getElementsByTagName("input");
+        for(var i=0; i<inputElem.length; i++)
+        {
+            if(inputElem[i].id.indexOf("checkedone")!=-1)
+                inputElem[i].checked = cb.checked;
+        }
+        
+        //alert('Entered Javascript') ;
+        CallApexMethod() ;
+
+    }    
+    
+
+</script>
+</apex:page>

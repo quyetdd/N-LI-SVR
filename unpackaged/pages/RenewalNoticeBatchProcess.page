@@ -1,0 +1,85 @@
+<apex:page standardController="ContractInfo__c" extensions="RenewalNoticeBatchProcessController">
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.66.0-2013.10.09/jquery.blockUI.min.js"></script>
+
+<script type="text/javascript">
+var counter = 0; //counter of success callback 
+
+var contractId = new Array();
+<apex:repeat value="{!searchResults}" var="contract">
+    contractId.push('{!contract.Id}'); 
+</apex:repeat>
+    
+if(contractId.length>0){
+    $.blockUI();
+    redirectAndAddAttachment();
+}    
+
+// first time to redirect when click search 
+function redirectAndAddAttachment(){
+    var myWindow = window.open("/apex/NewRenewal?id="+contractId[0]+"&Batch=true","","width=0, height=0");
+    myWindow.blur();
+}
+
+// When generate excel success, return to this function and continous to redirect 
+function countSuccess(){
+    counter++;
+    if (counter == contractId.length){
+         $.unblockUI();
+         alert("{!$Label.ExcelGenerateCompleted}");      
+    }     
+    else{
+        var myWindow = window.open("/apex/NewRenewal?id="+contractId[counter]+"&Batch=true","","width=0, height=0"); 
+    }
+}
+
+function countFail(){
+     alert("{!$Label.ExcelGenerateError}");
+     $.unblockUI(); 
+}
+</script>
+
+<apex:form id="form">
+<apex:pagemessages /> <!--error message if search picklist are null-->
+   <apex:pageBlock title="{!$Label.RenewalNoticeBatchProcess}" id="block">      
+        <apex:commandButton action="{!search}" value="{!$Label.Run}" id="search"/>    
+        <apex:commandButton action="{!back}" value="{!$Label.Cancel}" id="back"/>
+      <apex:pageBlockSection columns="2" id="keiyakuAreaSection">
+        <apex:pageBlockSectionItem id="keiyakuAreaItem">
+          {!$ObjectType.ContractInfo__c.fields.KeiyakuArea__c.Label}
+          <apex:inputField value="{!pageData.KeiyakuArea__c}"/>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+      <apex:pageBlockSection columns="2" id="MankiDateFromSection">
+        <apex:pageBlockSectionItem id="MankiDateFromItem">
+          {!$ObjectType.ContractInfo__c.fields.MankiDate__c.Label} (From)
+          <apex:inputField value="{!pageData.MankiDate__c}"/>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>      
+      <apex:pageBlockSection columns="2" id="MankiDateToSection">
+        <apex:pageBlockSectionItem id="MankiDateToItem">
+          {!$ObjectType.ContractInfo__c.fields.MankiDate__c.Label} (To)
+          <apex:inputField value="{!pageData2.MankiDate__c}"/>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>            
+      <apex:pageBlockSection columns="2" id="section">
+        <apex:pageBlockSectionItem id="sectionItem">
+          <apex:outputLabel value="{!$Label.OutputForm}" for="selectListTemplate"/>
+          <apex:selectList value="{!selectedTemplate}" size="1" id="selectListTemplate" >
+            <apex:selectOptions value="{!templateOptions}" />
+          </apex:selectList>
+        </apex:pageBlockSectionItem>       
+      </apex:pageBlockSection>
+     <!-- 
+           <apex:pageBlockTable id="resultTable" value="{!searchResults}" var="row"> 
+            <apex:column >
+                <apex:facet name="header">Contract Id</apex:facet>
+                <apex:outputField value="{!row.id }"/>
+            </apex:column>                                     
+           </apex:pageBlockTable>    
+     -->
+    </apex:pageBlock>   
+  </apex:form> 
+
+</apex:page>

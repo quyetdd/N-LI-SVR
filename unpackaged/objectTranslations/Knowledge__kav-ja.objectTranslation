@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>ナレッジ</value>
+    </caseValues>
+    <fields>
+        <label><!-- 内容 --></label>
+        <name>Contents__c</name>
+    </fields>
+    <fields>
+        <label><!-- 詳細 --></label>
+        <name>Details__c</name>
+    </fields>
+    <layouts>
+        <layout>一般Knowledgeレイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- 共通 --></label>
+        <name>Common</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 病院 --></label>
+        <name>Hospital</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- OMS --></label>
+        <name>OMS</name>
+    </recordTypes>
+</CustomObjectTranslation>

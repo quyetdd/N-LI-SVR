@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Summary of Members</value>
+    </caseValues>
+    <fields>
+        <label><!-- Area_Eng --></label>
+        <name>AreaEng__c</name>
+    </fields>
+    <fields>
+        <label><!-- Area --></label>
+        <name>Area__c</name>
+    </fields>
+    <fields>
+        <label><!-- Company --></label>
+        <name>Company__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract_Eng --></label>
+        <name>ContractEng__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contract --></label>
+        <name>Contract__c</name>
+    </fields>
+    <fields>
+        <label><!-- Family --></label>
+        <name>Family__c</name>
+    </fields>
+    <fields>
+        <label><!-- FAB --></label>
+        <name>data_FAB__c</name>
+    </fields>
+    <fields>
+        <label><!-- FABiz --></label>
+        <name>data_FABiz__c</name>
+    </fields>
+    <fields>
+        <label><!-- FA --></label>
+        <name>data_FA__c</name>
+    </fields>
+    <fields>
+        <label><!-- FCV --></label>
+        <name>data_FCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- FC --></label>
+        <name>data_FC__c</name>
+    </fields>
+    <fields>
+        <label><!-- FGP --></label>
+        <name>data_FGP__c</name>
+    </fields>
+    <fields>
+        <label><!-- FG --></label>
+        <name>data_FG__c</name>
+    </fields>
+    <fields>
+        <label><!-- FMX --></label>
+        <name>data_FMX__c</name>
+    </fields>
+    <fields>
+        <label><!-- F --></label>
+        <name>data_F__c</name>
+    </fields>
+    <fields>
+        <label><!-- H --></label>
+        <name>data_H__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX04 --></label>
+        <name>data_KGX04__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX05 --></label>
+        <name>data_KGX05__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX06 --></label>
+        <name>data_KGX06__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX07 --></label>
+        <name>data_KGX07__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX08 --></label>
+        <name>data_KGX08__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX09 --></label>
+        <name>data_KGX09__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX10 --></label>
+        <name>data_KGX10__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX11 --></label>
+        <name>data_KGX11__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX12 --></label>
+        <name>data_KGX12__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX13 --></label>
+        <name>data_KGX13__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX14 --></label>
+        <name>data_KGX14__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX15 --></label>
+        <name>data_KGX15__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX16 --></label>
+        <name>data_KGX16__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX17 --></label>
+        <name>data_KGX17__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX18 --></label>
+        <name>data_KGX18__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX19 --></label>
+        <name>data_KGX19__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX20 --></label>
+        <name>data_KGX20__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX21 --></label>
+        <name>data_KGX21__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX22 --></label>
+        <name>data_KGX22__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX23 --></label>
+        <name>data_KGX23__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX24 --></label>
+        <name>data_KGX24__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX25 --></label>
+        <name>data_KGX25__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX26 --></label>
+        <name>data_KGX26__c</name>
+    </fields>
+    <fields>
+        <label><!-- KGX27 --></label>
+        <name>data_KGX27__c</name>
+    </fields>
+    <fields>
+        <label><!-- MAB --></label>
+        <name>data_MAB__c</name>
+    </fields>
+    <fields>
+        <label><!-- MABiz --></label>
+        <name>data_MABiz__c</name>
+    </fields>
+    <fields>
+        <label><!-- MA --></label>
+        <name>data_MA__c</name>
+    </fields>
+    <fields>
+        <label><!-- MB --></label>
+        <name>data_MB__c</name>
+    </fields>
+    <fields>
+        <label><!-- MCV --></label>
+        <name>data_MCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- MC --></label>
+        <name>data_MC__c</name>
+    </fields>
+    <fields>
+        <label><!-- MV --></label>
+        <name>data_MV__c</name>
+    </fields>
+    <fields>
+        <label><!-- M --></label>
+        <name>data_M__c</name>
+    </fields>
+    <fields>
+        <label><!-- SAB --></label>
+        <name>data_SAB__c</name>
+    </fields>
+    <fields>
+        <label><!-- SABiz --></label>
+        <name>data_SABiz__c</name>
+    </fields>
+    <fields>
+        <label><!-- SA --></label>
+        <name>data_SA__c</name>
+    </fields>
+    <fields>
+        <label><!-- SCV --></label>
+        <name>data_SCV__c</name>
+    </fields>
+    <fields>
+        <label><!-- SC --></label>
+        <name>data_SC__c</name>
+    </fields>
+    <fields>
+        <label><!-- SGP --></label>
+        <name>data_SGP__c</name>
+    </fields>
+    <fields>
+        <label><!-- SG --></label>
+        <name>data_SG__c</name>
+    </fields>
+    <fields>
+        <label><!-- SMX --></label>
+        <name>data_SMX__c</name>
+    </fields>
+    <fields>
+        <label><!-- S --></label>
+        <name>data_S__c</name>
+    </fields>
+    <layouts>
+        <layout>Aggregate Sheet (Affiliation)</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Aggregate Sheet (Contract)</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Aggregate Sheet(Affiliation) --></label>
+        <name>Aggregate_Sheet_Affiliation</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Aggregate Sheet(Contract) --></label>
+        <name>Aggregate_Sheet_Contract</name>
+    </recordTypes>
+</CustomObjectTranslation>

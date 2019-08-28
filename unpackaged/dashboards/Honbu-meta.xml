@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DashboardFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>本部</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <role>DeveloperName70583713085</role>
+        <roleAndSubordinates>DeveloperName70583713081</roleAndSubordinates>
+    </sharedTo>
+</DashboardFolder>

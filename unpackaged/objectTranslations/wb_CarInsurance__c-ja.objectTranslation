@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>自動車関連保険契約</value>
+    </caseValues>
+    <fields>
+        <label><!-- 担当（計上） --></label>
+        <name>AcctPIC__c</name>
+        <relationshipLabel><!-- 自動車関連保険契約 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 所属地区 --></label>
+        <name>AffiliationDistrict__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約店 --></label>
+        <name>Agent__c</name>
+    </fields>
+    <fields>
+        <label><!-- 属性 --></label>
+        <name>Attribute__c</name>
+        <picklistValues>
+            <masterLabel>会員企業</masterLabel>
+            <translation><!-- 会員企業 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>非会員企業</masterLabel>
+            <translation><!-- 非会員企業 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 手数料通貨 --></label>
+        <name>CommissionCurrency__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社 --></label>
+        <name>ContractCompany__c</name>
+        <relationshipLabel><!-- 自動車関連保険契約 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 契約国 --></label>
+        <name>ContractCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約日 --></label>
+        <name>ContractDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約地区 --></label>
+        <name>ContractDistrict__c</name>
+    </fields>
+    <fields>
+        <label><!-- 前の契約番号 --></label>
+        <name>PreriousContract__c</name>
+        <relationshipLabel><!-- 自動車関連保険契約 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 状況 --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>キャンセル</masterLabel>
+            <translation><!-- キャンセル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未確定</masterLabel>
+            <translation><!-- 未確定 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>確定</masterLabel>
+            <translation><!-- 確定 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 契約会社コード --></label>
+        <name>f_ContractCompCode__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社WB営業担当 --></label>
+        <name>f_ContractCompEigyoTanto__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社FAX --></label>
+        <name>f_ContractCompFax__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社住所 --></label>
+        <name>f_ContractCompOfficeAdd__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社郵便番号 --></label>
+        <name>f_ContractCompOfficePostcd__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社組織機構代碼 --></label>
+        <name>f_ContractCompOrgMechNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社電話 --></label>
+        <name>f_ContractCompPhone__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約会社自動車担当者 --></label>
+        <name>f_ContractCompVehicleShimei__c</name>
+    </fields>
+    <layouts>
+        <layout>自動車関連保険契約レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 有効対象車詳細 --></label>
+            <section>有効対象車詳細</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- ContractCopy --></label>
+        <name>ContractCopy</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ContractExtend --></label>
+        <name>ContractExtend</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CustomLink1 --></label>
+        <name>CustomLink1</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- InvoiceXls --></label>
+        <name>InvoiceXls</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SalesPosting --></label>
+        <name>SalesPosting</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- UpdPolicyNumber --></label>
+        <name>UpdPolicyNumber</name>
+    </webLinks>
+</CustomObjectTranslation>

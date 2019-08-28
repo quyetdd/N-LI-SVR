@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<style type = "text/css">
+<!--
+body, td {
+    margin:0px;
+    color:#333;
+}
+
+body {
+/*  background-image: url(../images/bgTop.gif); */
+    background-repeat: repeat-x;
+    background-position: left top;
+    font-size: 75%;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color: #fff;
+    width:95%;
+}
+
+th {
+    text-align: left;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+form {
+    margin:0px;
+    padding:0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Verdana', 'Geneva', sans-serif;
+    font-size: 100%;
+    margin:0px;
+    display:inline;
+}
+
+img { border:0; }
+
+.opportunity .pageTitleIcon { background-image: url(/img/icon/opportunities32.png);
+	width:32px;
+	height:32px; }
+
+.opportunity .secondaryPalette {
+    background-color: #E5C130;
+    border-color: #E5C130;
+}
+
+.bPageTitle {
+    margin-bottom:15px;
+}
+
+.bPageTitle .ptBody {
+    padding-top: 5px;
+    width:100%;
+    overflow: hidden;
+}
+
+.bPageTitle h1, .bPageTitle h2{
+    color:#FFF;
+    display: block;
+}
+
+.bPageTitle .ptBody .content {
+    color:#fff;
+    display: inline; /* IE double-margin float fix */
+    float: left;
+    width: 40.0%;
+    vertical-align: middle;
+    position: relative;
+    padding-left: 42px;
+}
+
+.bPageTitle .ptBody .pageType {
+    font-size: 91%;
+    color:#fff;
+}
+.bPageTitle .ptBody .pageDescription {
+    font-size: 109%;
+    color:#fff;
+    font-weight:bold;
+}
+
+/* RPC: Made less specific so these classes can be used in FilterEditPage */
+.bPageBlock .labelCol{
+    padding:2px 10px 2px 2px;
+    text-align:right;
+    font-size: 91%;
+    font-weight: bold;
+    color:#333;
+}
+
+/* this should be a not-very specific case so that it doesn't override custom tab pages */
+.ptBody {
+    background-color: #8e0554;
+}
+
+.pageTitleIcon {
+    position: absolute;
+    left: 5px;
+    width: 32px;
+}
+
+/* Colons after titles in Classic mode */
+.titleSeparatingColon {
+    display: none;
+}
+
+.bPageBlock {
+    border-top:7px solid #8e0554;
+    margin-bottom:17px;
+    background-color:#8e0554;
+    /* background-image: url(/img/bgPageBlockLeft.gif); */
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding-bottom:9px;
+    clear: both;
+}
+
+.bPageBlock .pbBody {
+    margin-right:2px;
+    padding:6px 20px 0 20px;
+    background-color:#F3F3EC;
+}
+
+.bPageBlock .list {
+    width:100%;
+}
+/* Related List text formatting */
+.list .headerRow th {
+    border-bottom: 2px solid #CCC;
+    white-space: nowrap;
+}
+
+/* polcari: I dropped the .bPageBlock to make this less specific in in hopes of fixing some problems w/ font color on the custom-tab picker page.
+   Let me know if it causes problems & i'll devise a better workaround */
+.list td,
+.list th {
+    padding:4px 2px 4px 5px;
+    color:#333;
+    border-bottom:1px solid #E3DEB8;
+}
+.btn, .button {
+    font-family: 'Verdana', 'Geneva', sans-serif;
+    background-image:  url("/img/bgButton.gif");
+    background-repeat: repeat-x;
+    background-position: left top;
+    border-right:1px solid #5C5D61;
+    border-bottom:1px solid #5C5D61;
+    border-top:none;
+    border-left:none;
+    font-size: 80%;
+    color:#FFFFFF;
+    padding:1px 3px 1px 3px;
+    cursor:pointer;
+    font-weight:bold;
+    display:inline;
+}
+-->
+</style>
+<script src="/soap/ajax/12.0/connection.js" type="text/javascript">
+</script>
+<!-- datePicker開始 -->
+<script type="text/javascript" src="/dJS/ja/1205966485000/library.js"></script>
+<script type="text/javascript" src="/static/102207/js/functions.js"></script>
+<link  href="/sCSS/12.0/1207171315000/Theme2/ja/ie/elements.css" media="handheld,print,projection,screen,tty,tv" rel="stylesheet" type="text/css" />
+<script  type="text/javascript">try { DynamicCss.addCssUrl('/sCSS/12.0/1207171315000/Theme2/ja/ie/elements.css', 'handheld,print,projection,screen,tty,tv');} catch(e) {}</script>
+<!-- datePicker終了 -->
+
+<script type="text/javascript">
+<!-- datePicker開始 -->
+UserContext.initialize({
+'locale':'ja_JP','today':'{!Today} 00:00','dateTimeFormat':'yyyy/MM/dd H:mm','ampm':['午前',
+'午後'],'dateFormat':'yyyy/MM/dd','startOfWeek':'1','userPreferences':[{
+'index':112,'name':'HideInlineEditSplash','value':false
+},
+{
+'index':114,'name':'OverrideTaskSendNotification','value':false
+},
+{
+'index':115,'name':'DefaultTaskSendNotification','value':false
+}],'isAccessibleMode':false,'language':'ja'
+});
+<!-- datePicker終了 -->
+function build(){
+	//変数定義
+	var CompanyKeiyakuNo__c_Id,ret,sObjects,table,tbody,tr,td,elem;
+    	var date = new Date();
+   	var year = date.getFullYear().toString();
+   	var month = (date.getMonth() + 1).toString();
+   	var day = date.getDate().toString();
+    	if (month <= 9) {
+       		month = "0" + month;
+   	}
+   	if (day <= 9) {
+       		day = "0" + day;
+  	}
+
+
+	//Id取得
+	CompanyKeiyakuNo__c_Id = "{!ContractInfo__c.Id}";
+
+	try{
+		//query実行(会員情報）
+		ret = sforce.connection.query("Select Id,MemberNo__c,Name,MankiDate__c,Commodity__c,KeiyakuKeitai__c,KinmuCompany__r.Name From MemberInfo__c Where  CompanyKeiyakuNo__c = '" + CompanyKeiyakuNo__c_Id + "' And (TaikaiDate__c=null or TaikaiDate__c>=" + year + "-" + month + "-" + day + ") Order by KinmuCompany__r.Name,MemberNo__c ");
+		if(ret.size == 0){
+			alert("対象の会員が存在しません");
+			window.top.location.href = "/{!ContractInfo__c.Id}";
+		}else{
+			document.getElementById("body1").style.cssText = "";
+		}
+		//データ取得
+		sObjects = ret.getArray("records");
+		//<table>取得
+		table = document.getElementById("table1");
+		//前の<tbody>が存在したら削除
+		tbody = document.getElementById("tbody1");
+		if(tbody){
+			table.removeChild(tbody);
+		}
+		//<tbody>生成
+		tbody = document.createElement("tbody");
+		tbody.id = "tbody1";
+		//画面設定
+
+		for(i=0;i<sObjects.length;i++){
+			//<tr>行作成
+			tr = document.createElement("tr");
+			tr.id = "trs" + i;
+			//作成した行を<tbody>へ追加
+			tbody.appendChild(maketd(tr,sObjects[i]));
+			//作成した<tbody>を<table>へ反映
+			table.appendChild(tbody);
+		}
+		//ボタン有効化
+		document.getElementById("btnUpdate").setAttribute("disabled",false);
+	}catch(e){
+		alert(e);
+		alert(e.message);
+		return;
+	}
+}
+
+function maketd(tr,obj){
+	//<td>列作成
+	//★１列目：チェックボックス
+	td = document.createElement("td");
+	td.setAttribute("id",tr.id + "_td1");
+	td.setAttribute("align","center");
+	elem = document.createElement("input");
+	elem.setAttribute("id",td.getAttribute("id") + "_1");
+	elem.setAttribute("type","checkbox");
+	elem.setAttribute("defaultChecked",true);
+	td.appendChild(elem);
+	tr.appendChild(td);
+	//★２列目：ラベル表示
+	td = document.createElement("td");
+	td.setAttribute("id",tr.id + "_td2");
+	elem = document.createElement("span");
+	elem.setAttribute("id",td.getAttribute("id") + "_2");
+	elem.setAttribute("innerHTML",(obj.MemberNo__c == null)?"&nbsp;":obj.MemberNo__c);
+	td.appendChild(elem);
+	tr.appendChild(td);
+	//★３列目：ラベル表示
+	td = document.createElement("td");
+	td.setAttribute("id",tr.id + "_td3");
+	elem = document.createElement("span");
+	elem.setAttribute("id",td.getAttribute("id") + "_3");
+	elem.setAttribute("innerHTML",(obj.Name == null)?"&nbsp;":obj.Name);
+	td.appendChild(elem);
+	tr.appendChild(td);
+	//★４列目：ラベル表示
+	td = document.createElement("td");
+	td.setAttribute("id",tr.id + "_td4");
+	elem = document.createElement("span");
+	elem.setAttribute("id",td.getAttribute("id") + "_4");
+	elem.setAttribute("innerHTML",(obj.MankiDate__c == null)?"&nbsp;":obj.MankiDate__c.replace(/-/g,"/"));
+	td.appendChild(elem);
+	tr.appendChild(td);
+	//★5列目：ラベル表示
+	td = document.createElement("td");
+	td.setAttribute("id",tr.id + "_td5");
+	elem = document.createElement("span");
+	elem.setAttribute("id",td.getAttribute("id") + "_5");
+	elem.setAttribute("innerHTML",(obj.Commodity__c == null)?"&nbsp;":obj.Commodity__c);
+	td.appendChild(elem);
+	tr.appendChild(td);
+	//★6列目：ラベル表示
+	td = document.createElement("td");
+	td.setAttribute("id",tr.id + "_td6");
+	elem = document.createElement("span");
+	elem.setAttribute("id",td.getAttribute("id") + "_6");
+	elem.setAttribute("innerHTML",(obj.KeiyakuKeitai__c == null)?"&nbsp;":obj.KeiyakuKeitai__c);
+	td.appendChild(elem);
+	tr.appendChild(td);
+	//★７列目：ラベル表示
+	td = document.createElement("td");
+	td.setAttribute("id",tr.id + " _td7");
+	elem = document.createElement("span");
+	elem.setAttribute("id",td.getAttribute("id") + "_7");
+	elem.setAttribute("innerHTML",(obj.KinmuCompany__r == null)?"&nbsp;":obj.KinmuCompany__r.Name);	
+	td.appendChild(elem);
+	tr.appendChild(td);
+	//★8列目：隠し表示
+	td = document.createElement("td");
+	td.setAttribute("id",tr.id + "_td8");
+	td.style.cssText = "padding: 0px;display:none;";
+	elem = document.createElement("input");
+	elem.setAttribute("id",td.getAttribute("id") + "_8");
+	elem.setAttribute("type","hidden");
+	elem.setAttribute("value",obj.Id);
+	td.appendChild(elem);
+	tr.appendChild(td);
+	return tr;
+}
+function checkInput(){
+	//変数定義
+	var trs,trs2,tds,cells,blnChecked,blnError,SinmankiDate;
+	blnError = false;
+	blnChecked = false;
+	trs = document.getElementById("activityDate");
+	//★テキスト
+	SinmankiDate = document.getElementById("activityDate").getAttribute("value");
+	if(SinmankiDate == ""){
+		trs.style.cssText = "background-color: #ff0000;";
+		alert("日付が入力されていません");
+		blnError = true;
+	}else{
+		//新満期日付が「yyyy/mm/dd」形式でなかった場合はエラーとする
+		if(!ckDate(SinmankiDate)){
+			blnError = true;
+			trs.style.cssText = "background-color: #ff0000;";
+			alert("不正なデータが入力されています");
+		}else{
+			trs.style.cssText = "";
+		}
+	}
+	trs = document.getElementById("tbody1").getElementsByTagName("tr");
+	for(i=0;i<trs.length;i++){
+		//チェックされている行があるか調べる。
+		if(document.getElementById(trs[i].id + "_td1" + "_1").getAttribute("checked")){
+			blnChecked = true;
+		}
+	}
+	if(!blnChecked){
+		blnError = true;
+		alert("チェックされている行がありません");
+	}	
+	return blnError;
+}
+function update(){
+	//エラーが存在しなかった場合のみ更新
+	if(!checkInput()){
+		if (!window.confirm("更新してもよろしいですか？")){
+			return;
+		}
+		//変数定義
+		var trs,tds,cells,blnChecked,sObject,MankiDate__c,ret,elem,CompanyKeiyakuNo__c,tr,td;
+		trs = document.getElementById("tbody1").getElementsByTagName("tr");
+		CompanyKeiyakuNo__c_Id = "{!ContractInfo__c.Id}";
+
+		blnChecked = false;
+		var upObj = new Array();
+		var count = 0;
+		for(i=0;i<trs.length;i++){
+			//チェックされている行のみ対象
+			if(document.getElementById(trs[i].id + "_td1" + "_1").getAttribute("checked")){
+				//★更新値設定
+				sObject = new sforce.SObject("MemberInfo__c");
+				sObject.Id = document.getElementById(trs[i].id + "_td8" + "_8").getAttribute("value");
+				MankiDate__c = document.getElementById("activityDate").getAttribute("value");
+				sObject.MankiDate__c =  MankiDate__c.replace(/\//g,"-");	
+				//★会員情報へ更新
+				upObj.push(sObject);
+				count++;
+				
+				if (count >= 200) {
+					result = sforce.connection.update(upObj);
+					for (var j = 0; j < result.length; j++) {
+						if (!result[j].getBoolean("success")) {
+							alert("failed to update " + result[j]);
+							return;
+						}
+					}
+					upObj = new Array();
+					count = 0;
+				}
+			}
+		}
+			if (count > 0) {
+				result = sforce.connection.update(upObj);
+				for (var j = 0; j < result.length; j++) {
+					if (!result[j].getBoolean("success")) {
+						alert("failed to update " + result[j]);
+						return;
+					}
+				}
+			}
+		//★更新値設定
+		sObject = new sforce.SObject("ContractInfo__c");
+		sObject.Id = "{!ContractInfo__c.Id}";
+		MankiDate__c = document.getElementById("activityDate").getAttribute("value");
+		sObject.MankiDate__c =  MankiDate__c.replace(/\//g,"-");
+		//★契約情報へ更新
+		result = sforce.connection.update([sObject]);
+		if (!result[0].getBoolean("success")){
+			alert("failed to update " + result[0]);
+			return;
+		}
+		alert("正常に終了しました");
+		ret = sforce.connection.query("Select Id,Name, KeiyakuCompanyName__r.Name, MankiDate__c from ContractInfo__c where Id = '" + CompanyKeiyakuNo__c_Id + "' ");
+		sObjects = ret.getArray("records");
+
+		elem = document.getElementById("ContractNo");
+		elem.setAttribute("innerHTML",sObjects[0].Name);
+
+		elem = document.getElementById("KcName");
+		elem.setAttribute("innerHTML",sObjects[0].KeiyakuCompanyName__r.Name);
+
+		elem = document.getElementById("GenManki");
+		elem.setAttribute("innerHTML",sObjects[0].MankiDate__c.replace(/-/g,"/"));
+		elem.style.cssText = "font-weight:bold;";
+		build();
+		trs = document.getElementById("tbody1").getElementsByTagName("tr");
+		for(i=0;i<trs.length;i++){
+			document.getElementById(trs[i].id + "_td1" + "_1").setAttribute("checked",false);
+		}
+	}
+}
+function ckDate(datestr){
+	// 正規表現による書式チェック 
+	if(!datestr.match(/^\d{4}\/\d{2}\/\d{2}$/)){
+	return false; 
+	}
+	var vYear = datestr.substr(0, 4) - 0; 
+	var vMonth = datestr.substr(5, 2) - 1; // Javascriptは、0-11で表現 
+	var vDay = datestr.substr(8, 2) - 0; 
+	// 月,日の妥当性チェック 
+	if(vMonth >= 0 && vMonth <= 11 && vDay >= 1 && vDay <= 31){
+		var vDt = new Date(vYear, vMonth, vDay); 
+        		if(isNaN(vDt)){
+            			return false; 
+        		}else if(vDt.getFullYear() == vYear && vDt.getMonth() == vMonth && vDt.getDate() == vDay){
+            			return true; 
+        		}else{
+            		return false; 
+        		}
+    	}else{
+        		return false; 
+	}
+}
+function cansel(){
+	//キャンセルボタンを押した場合に契約情報画面に戻る			
+	window.top.location.href = "/{!ContractInfo__c.Id}";}
+function checkbox(bln){
+	var trs;
+	trs = document.getElementById("tbody1").getElementsByTagName("tr");
+	for(i=0;i<trs.length;i++){
+		document.getElementById(trs[i].id + "_td1" + "_1").setAttribute("checked",bln);
+	}
+}
+</script>
+</head>
+<body id="body1" onload = "build()" style="display:none;">
+<div class="bPageTitle">
+<div class="ptBody secondaryPalette">
+<table border="0">
+<tr>
+	<td class="pageDescription">会社契約No</td>
+	<td class="pageDescription" Id="ContractNo">{!ContractInfo__c.Name}</td>
+</tr>
+<tr>
+	<td class="pageDescription">契約会社名称</td>
+	<td class="pageDescription" Id="KcName">{!ContractInfo__c.KeiyakuCompanyName__c}</td>
+</tr>
+</table>
+</div>
+</div>
+<table width=50% cellpadding="0" cellspacing="8">
+<tr>
+	<td width=10% nowrap><b>現満期日付</b></td>
+	<td width=40% nowrap Id="GenManki"><b>{!ContractInfo__c.MankiDate__c}</b></td>
+	<td width=10% nowrap><b>新満期日付</b></td>
+	<td width=40% nowrap>
+		<!-- datePicker開始 -->
+<span class="dateInput">
+		<input id="activityDate" name="activityDate" onfocus="DatePicker.pickDate(true, 'activityDate', false);" type="text" size = "10" maxlength = "10"/>
+<span class="dateFormat"></span>
+</span>
+		<!-- datePicker終了 -->
+	</td>
+</tr>
+</table>
+<table>
+	<tr>
+		<td><input class="btn" id="btnUpdate" type="button" value="更新" onclick="update();"disabled></td>
+		<td><input class="btn" type="button" value="キャンセル" onclick="cansel();"></td>
+		<td><input class="btn" type="button" value="全チェック"onclick="checkbox(true);"></td>
+		<td><input class="btn" type="button" value="全解除"onclick="checkbox(false);"></td>
+	</tr>
+</table>
+<div class="bPageBlock secondaryPalette">
+<div class="pbBody">
+<div class="pbSubsection">
+<table id = "table1" border="0" class="list" cellpadding="0" cellspacing="0">
+	<tbody id="tbody0">
+	<tr class="headerRow">
+		<th align="center">　</th>
+		<th align="center">会員番号</th>
+		<th align="center">会員氏名</th>
+		<th align="center">満期日付</th>
+		<th align="center">商品</th>
+		<th align="center">契約形態</th> 
+		<th align="center">勤務先会社名</th>
+
+	</tr>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- datePicker開始 -->
+<div class="datePicker" id="datePicker">
+<div class="dateBar">
+<select  id="calYearPicker" name="calYearPicker" title="年">
+<option value="2007">2007</option>
+<option value="2008">2008</option>
+<option value="2009">2009</option>
+<option value="2010">2010</option>
+<option value="2011">2011</option>
+<option value="2012">2012</option>
+<option value="2013">2013</option>
+<option value="2014">2014</option>
+<option value="2015">2015</option>
+<option value="2016">2016</option>
+<option value="2017">2017</option>
+<option value="2018">2018</option>
+</select>
+<img src="/s.gif" alt="先月"  class="calLeft" onblur="this.className = 'calLeft';" onclick="DatePicker.datePicker.prevMonth();" onfocus="this.className = 'calLeftOn';" onmouseout="this.className = 'calLeft';" onmouseover="this.className = 'calLeftOn';" title="先月"/>
+<select  id="calMonthPicker" name="calMonthPicker" title="月">
+<option value="0">1月</option>
+<option value="1">2月</option>
+<option value="2">3月</option>
+<option value="3">4月</option>
+<option value="4">5月</option>
+<option value="5">6月</option>
+<option value="6">7月</option>
+<option value="7">8月</option>
+<option value="8">9月</option>
+<option value="9">10月</option>
+<option value="10">11月</option>
+<option value="11">12月</option>
+</select>
+<img src="/s.gif" alt="来月"  class="calRight" onblur="this.className = 'calRight';" onclick="DatePicker.datePicker.nextMonth();" onfocus="this.className = 'calRightOn';" onmouseout="this.className = 'calRight';" onmouseover="this.className = 'calRightOn';" title="来月"/>
+</div>
+<div class="calBody">
+<table  class="calDays" border="0" cellpadding="0" cellspacing="0" id="datePickerCalendar">
+<tr>
+<TH class="dayOfWeek" scope="col">日</TH><TH class="dayOfWeek" scope="col">月</TH><TH class="dayOfWeek" scope="col">火</TH><TH class="dayOfWeek" scope="col">水</TH><TH class="dayOfWeek" scope="col">木</TH><TH class="dayOfWeek" scope="col">金</TH><TH class="dayOfWeek" scope="col">土</TH>
+</tr>
+<tr id="calRow1"><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td></tr>
+<tr id="calRow2"><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td></tr>
+<tr id="calRow3"><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td></tr>
+<tr id="calRow4"><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td></tr>
+<tr id="calRow5"><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td></tr>
+<tr id="calRow6"><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td><td onblur="hiOff(this);" onclick="DatePicker.datePicker.selectDate(this);" onfocus="hiOn(this);" onmouseout="hiOff(this);" onmouseover="hiOn(this);">&nbsp;</td></tr>
+</table>
+<div class="buttonBar">
+<a href="javascript:DatePicker.datePicker.selectDate('today');" class="calToday">今日</a>
+</div>
+</div>
+</div>
+<!-- datePicker終了 -->
+</body>
+</html>

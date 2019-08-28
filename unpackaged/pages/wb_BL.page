@@ -1,0 +1,222 @@
+<apex:page standardController="BL__c" extensions="wb_BL" >
+    <apex:sectionHeader title="BL Edit" subtitle="{!BL__c.Name}"/>
+    <apex:form id="theForm">
+        <apex:actionFunction name="CallApexMethod2AppendItem" action="{!theInsurance.AppendItem}" reRender="theForm" >
+            <apex:param name="firstParam" assignTo="{!theInsurance.theItem}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2RemoveItem" action="{!theInsurance.RemoveItem}" reRender="theForm" >
+            <apex:param name="firstParam" assignTo="{!theInsurance.theItem}" value="" />
+        </apex:actionFunction>
+        
+        <apex:pageBlock title="BL Edit" mode="edit">
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!PackInsuranceContentSave}"/>
+                <apex:commandButton value="Save & New" action="{!save}" />
+                <apex:commandButton value="Cancel" action="{!cancel}"/>
+                 <apex:commandButton value="BL List" onClick="openBL_List('{!BL__c.id}');return false;" />
+            </apex:pageBlockButtons>
+            <script>
+            function openBL_List(id){
+                try {
+                    
+                    var baseURL = getBaseURL();
+                    
+               
+                    var para = '?'+'Id=' +id;
+                    
+                    baseURL = baseURL + 'apex/wb_BL_List_Export';
+                    window.open(baseURL + para );
+                    
+                    
+                    
+                }catch(e)
+                {
+                    alert(e);
+                }
+            }
+
+            function getBaseURL() {
+                var url = location.href;  // entire url including querystring - also: window.location.href;
+                var baseURL = url.substring(0, url.indexOf('/', 14));
+                
+                
+                if (baseURL.indexOf('http://localhost') != -1) {
+                    // Base Url for localhost
+                    var url = location.href;  // window.location.href;
+                    var pathname = location.pathname;  // window.location.pathname;
+                    var index1 = url.indexOf(pathname);
+                    var index2 = url.indexOf("/", index1 + 1);
+                    var baseLocalUrl = url.substr(0, index2);
+                    
+                    return baseLocalUrl + "/";
+                }
+                else {
+                    // Root Url for domain name
+                    return baseURL + "/";
+                }
+                
+            }
+            </script>
+            
+            <apex:pageBlockSection title="Agency Information" columns="2">
+                <apex:inputField value="{!BL__c.Name}" required="false"/>
+                <apex:inputField value="{!BL__c.Agency__c}" required="true"/>
+                
+                <apex:inputField value="{!BL__c.BlEigyoTanto__c}" required="false"/>
+                
+                <apex:inputField value="{!BL__c.KeiyakuArea__c}" required="true"/>
+                <apex:inputField value="{!BL__c.BLNaimuTanto__c}" required="false"/>
+                <apex:inputField value="{!BL__c.ShozokuArea__c}" required="false"/>
+            </apex:pageBlockSection>
+             
+            
+            <apex:pageBlockSection title="Policy Owner Information" columns="1">
+                <apex:inputField value="{!BL__c.KeiyakuCompanyName__c}" required="true"/>
+                <apex:inputField value="{!BL__c.Insurant__c}" required="true"/>
+                <apex:inputField value="{!BL__c.PersonalKeiyakuInsurant__c}" required="false"/>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="Insurance Information" columns="1">
+                <apex:inputField value="{!BL__c.InsuranceCompanyName__c}" required="true"/>
+                <apex:inputField value="{!BL__c.Branch__c}" required="false"/>
+            </apex:pageBlockSection>
+                        
+            <apex:pageBlockSection title="Warning Information" columns="2">
+                <apex:inputField value="{!BL__c.NoticeRule__c}" required="true"/>
+                <apex:inputField value="{!BL__c.NoticeTanto__c}" required="false"/>
+                <apex:inputField value="{!BL__c.PayRule__c}" required="true"/>
+                <apex:inputField value="{!BL__c.NoticeTantoMail__c}" required="false"/>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="BL Information" columns="2" id="theInsuranceSection">
+                
+                <apex:selectList id="BranchOfInsuranceyOptions" value="{!BL.Insurance__c}" size="1" label="{!$ObjectType.BL__c.fields.Insurance__c.label}" >
+                    <apex:selectOptions value="{!BranchOfInsuranceyOptions}"></apex:selectOptions>
+                    
+                    <apex:actionSupport event="onchange" action="{!fetchInsuranceContent}" reRender="theForm"/>
+                    
+                </apex:selectList>
+                <br/>
+             
+              
+                <apex:dataTable id="availableContent" value="{!theInsurance.availableContent}" var="row" cellpadding="2" border="1"
+                                rendered="{!IF((theInsurance.availableContentSize>0), true , false)}" >
+
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="{!$ObjectType.BL__c.fields.CommodityName__c.label}"></apex:outputText><br/>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputtext value="{!row.ItemName}"/>
+                    </apex:column>
+                    
+                    <apex:column >
+                      
+                        
+                        <apex:commandButton value="追加" onClick="AppendItem('{!row.ItemName}');return false;" reRender="theForm" />
+                        <script>
+                        function AppendItem(ItemName){
+                            
+                            CallApexMethod2AppendItem(ItemName);
+                        }
+                        </script>
+                        
+                    </apex:column>
+                </apex:dataTable>
+                
+                
+      
+                <apex:dataTable id="Content" value="{!theInsurance.theContent}" var="row" cellpadding="2" border="1" >
+                  
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:150px;">
+                                    <apex:outputText value="{!$ObjectType.BL__c.fields.CommodityName__c.label}"></apex:outputText><br/>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputtext value="{!row.ItemName}"/>
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:300px;">
+                                    <apex:outputText value="メモ"></apex:outputText><br/>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputtext value="{!row.Value}"  style="width:280px;"/>
+                    </apex:column>
+                    <apex:column >
+                
+                        
+                        <apex:commandButton value="削除" onClick="RemoveItem('{!row.ItemName}');return false;" reRender="theForm" />
+                        <script>
+                        function RemoveItem(ItemName){
+                            // alert(ItemName);
+                            CallApexMethod2RemoveItem(ItemName);
+                        }
+                        </script>
+                        
+                    </apex:column>
+                </apex:dataTable>
+                
+                
+            </apex:pageBlockSection>
+            
+             <apex:pageBlockSection title="Old BL Information" columns="2" id="theOldInsuranceSection">
+                
+                 <apex:inputField value="{!BL.BranchOfInsurance__c}" required="true"/>
+                 <apex:inputField value="{!BL.CommodityName__c}" required="false"/>
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="Policy Information" columns="2">
+                <apex:inputField value="{!BL__c.DPAppoint__c}" required="false"/>
+                <apex:inputField value="{!BL__c.CancelDate__c}" required="false"/>
+                <apex:inputField value="{!BL__c.ShokenNo__c}" required="false"/>
+                <apex:inputField value="{!BL__c.CancelReason__c}" required="false"/>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="Insurance Period" columns="2">
+                <apex:inputField value="{!BL__c.InsuranceShiki__c}"/>
+                <apex:inputField value="{!BL__c.BrokerKeiyakuStartDate__c}" required="false"/>
+                <apex:inputField value="{!BL__c.InsuranceManki__c}" required="false"/>
+                <apex:inputField value="{!BL__c.OpenPolicy__c}" required="false"/>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="Insurance Fee" columns="2">
+                <apex:inputField value="{!BL__c.Currency__c}"/>
+                <apex:inputField value="{!BL__c.CommissionRate__c}" />
+                <apex:inputField value="{!BL__c.InsuranceAmount__c}" />
+                <apex:inputField value="{!BL__c.CommissionCurrency__c}" />
+                <apex:inputField value="{!BL__c.CommissionAmount__c}" required="false"/>
+            </apex:pageBlockSection>
+            
+            
+            <apex:pageBlockSection title="Transfer Information" columns="2">
+                <apex:inputField value="{!BL__c.TransferDate__c}" required="false"/>
+                <apex:inputField value="{!BL__c.TransferBeforeInsuranceCompany__c}" required="false"/>
+            </apex:pageBlockSection>
+            
+
+            
+            <apex:pageBlockSection title="Remarks Information" columns="1">
+                <apex:inputField value="{!BL__c.Note__c}" required="false"/>
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

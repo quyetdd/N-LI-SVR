@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>売り上げ</value>
+    </caseValues>
+    <fields>
+        <label><!-- 自動車関連保険契約 --></label>
+        <name>CarInsurance__c</name>
+        <relationshipLabel><!-- 売り上げ --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 対象車 --></label>
+        <name>CarInsurancedCar__c</name>
+        <relationshipLabel><!-- 売り上げ --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 区分 --></label>
+        <name>Classification__c</name>
+    </fields>
+    <fields>
+        <label><!-- 国 --></label>
+        <name>Country__c</name>
+    </fields>
+    <fields>
+        <label><!-- 通貨 --></label>
+        <name>Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- 作成日付 --></label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- 地区 --></label>
+        <name>District__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求先会社 --></label>
+        <name>InvoicingCompany__c</name>
+        <relationshipLabel><!-- 売り上げ --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員契約 --></label>
+        <name>Membership__c</name>
+        <relationshipLabel><!-- 売り上げ --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- メモ --></label>
+        <name>Memo__c</name>
+    </fields>
+    <fields>
+        <label><!-- OP商品費用 --></label>
+        <name>OptionAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- OP手数料 --></label>
+        <name>OptionCommission__c</name>
+    </fields>
+    <fields>
+        <label><!-- OP商品名 --></label>
+        <name>OptionName__c</name>
+    </fields>
+    <fields>
+        <label><!-- 主商品費用 --></label>
+        <name>ServiceAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- 主商品手数料 --></label>
+        <name>ServiceCommission__c</name>
+    </fields>
+    <fields>
+        <label><!-- 主商品名 --></label>
+        <name>ServiceName__c</name>
+    </fields>
+    <fields>
+        <label><!-- サービス --></label>
+        <name>Service__c</name>
+        <relationshipLabel><!-- 売り上げ --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 総金額 --></label>
+        <name>TotalAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- 登録番号 --></label>
+        <name>f_RegistryNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 商品 --></label>
+        <name>f_Service__c</name>
+    </fields>
+    <fields>
+        <label><!-- 売り上げ --></label>
+        <name>parent__c</name>
+        <relationshipLabel><!-- 子売り上げ --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

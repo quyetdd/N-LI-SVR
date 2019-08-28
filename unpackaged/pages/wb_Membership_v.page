@@ -1,0 +1,808 @@
+<apex:page standardController="wb_Membership__c"  extensions="wb_Membership_v2" action="{!start_View}" id="pg">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery3)}" /> 
+    <script>
+    var j$ = jQuery.noConflict();   
+    j$(document).ready(function(){
+        j$(esc('pg:theForm:theDetail:dateTable:tb')+" > tr").attr("onmouseover","");
+        j$("[id$='stageTable:tb'] > tr").attr("onmouseover","");
+        j$(esc('pg:theForm:theDetail:dateTable:tb')+" > tr > td").hover(function(){j$(this).css("background-color","ghostwhite");}, function(){j$(this).css("background-color","white");});
+        j$("[id$='stageTable:tb'] > tr > td").hover(function(){j$(this).css("background-color","greenyellow");}, function(){j$(this).css("background-color","white");});
+        j$("[id$='stageTable'] > thead .headerRow").css("background-color","deepskyblue");
+    });
+    
+    function toggleDateTable(index){
+        var signtext = j$("#Family-sign-"+index).text();
+        
+        var tableId = 'pg:theForm:pb:theDetail:dateTable:'+index+':stageTable';
+        
+        // alert(tableId);
+        if(signtext == '+'){
+            j$("#Family-sign-"+index).text('-').css("padding", " 0px 7px");
+            j$(esc(tableId)).show();
+        }
+        else{
+            j$("#Family-sign-"+index).text('+').css("padding", " 0px 5px");
+            j$(esc(tableId)).hide();
+        }
+    }
+    
+    function toggleCHDateTable0(index){
+        var signtext = j$("#Family-sign-"+index).text();
+        var idx = index -1;
+        var tableId = 'pg:theForm:pb:theDetail:dateTable0:'+idx+':CHTable';
+        
+        // alert(tableId);
+        if(signtext == '+'){
+            j$("#Family-sign-"+index).text('-').css("padding", " 0px 7px");
+            j$(esc(tableId)).show();
+        }
+        else{
+            j$("#Family-sign-"+index).text('+').css("padding", " 0px 5px");
+            j$(esc(tableId)).hide();
+        }
+    }
+    
+    function toggleCHDateTable(index){
+        var signtext = j$("#Family-sign-"+index).text();
+        var idx = index -1;
+        var tableId = 'pg:theForm:pb:theDetail:dateTable:'+idx+':CHTable';
+        
+        // alert(tableId);
+        if(signtext == '+'){
+            j$("#Family-sign-"+index).text('-').css("padding", " 0px 7px");
+            j$(esc(tableId)).show();
+        }
+        else{
+            j$("#Family-sign-"+index).text('+').css("padding", " 0px 5px");
+            j$(esc(tableId)).hide();
+        }
+    }
+    
+    function toggleAmenddateTableCHDateTable(index){
+        var signtext = j$("#Family-sign-"+index).text();
+        var idx = index -1;
+        var tableId = 'pg:theForm:pb:theDetail:AmenddateTable:'+idx+':CHTable';
+        
+        // alert(tableId);
+        if(signtext == '+'){
+            j$("#Family-sign-"+index).text('-').css("padding", " 0px 7px");
+            j$(esc(tableId)).show();
+        }
+        else{
+            j$("#Family-sign-"+index).text('+').css("padding", " 0px 5px");
+            j$(esc(tableId)).hide();
+        }
+    }
+    
+    function esc(myid) {
+        try {
+            return '#' + myid.replace(/(:|\.)/g,'\\\$1');
+        }catch(e)
+        {
+            alert(e);
+        };  
+    } 
+    
+    
+    </script>
+    
+    <script>
+    
+    function  doAlert(yesno, mes) {
+        // alert(yesno);
+        try {
+            if (yesno=='true') { 
+                alert(mes);
+            }
+            else {
+                // alert('refresh');
+                //  document.cookie = 'scrollTop=' + filterScrollTop();
+                document.location.reload(true);
+            }
+        }
+        
+        catch(e)
+        {
+            alert(e);
+        }               
+    }
+    </script>
+    <apex:pageMessages />
+    <apex:outputText rendered="{!HavingError}" id="HavingError">
+        <script>
+        try {
+            
+            alert('{!AlertMessage}');
+            
+        }catch(e)
+        {
+            alert(e);
+        }      
+        </script>
+    </apex:outputText>
+    <apex:form id="theForm" >
+        <apex:actionFunction name="CallApexMethod2Exchange" action="{!ExchangeAfterRow}" reRender="theDetail" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theRowIDbeforeExchangeOrCancel}" value="" />
+        </apex:actionFunction>
+        
+        <apex:sectionHeader title="会員契約" subtitle="{!wb_Membership__c.Name}"/>
+        <apex:pageBlock id="pb"  >
+            
+            <a href="#d_list" id="hover1">
+                詳細[{!NoofMembershipDetails}]</a>
+            <a href="#r_list"  id="hover2" 
+               onblur="LookupHoverDetail.getHover('hover2').hide();" 
+               onfocus="LookupHoverDetail.getHover('hover2', '/apex/wb_Membership_Receivable_Hover?id={!Membership.id}&/m?retURL=%2F{!Membership.id}&isAjaxRequest=1').show();" 
+               onmouseout="LookupHoverDetail.getHover('hover2').hide();" 
+               onmouseover="LookupHoverDetail.getHover('hover2', '/apex/wb_Membership_Receivable_Hover?id={!Membership.id}&/m?retURL=%2F{!Membership.id}&isAjaxRequest=1').show();">
+                
+                売り上げ[{!NoofReceivable}] </a>
+            
+            <br/> 
+            <br/> 
+            <apex:commandButton value="ホーム"  action="{!Home}"/>  
+            <apex:commandButton value="編集"  action="{!redirect_to_edit}"/>  
+            <apex:commandButton value="会員番号付与"  action="{!GenerateMemeberNo}"/>  
+            <apex:commandButton value="確定" action="{!Confirm}" 
+                                reRender="theForm,wb_Membership_Receivable_View"/>  
+            <apex:commandButton value="契約キャンセル" action="{!CancelRefund}" 
+                                onComplete="doAlert('{!HavingError}','{!AlertMessage}');"
+                                reRender="wb_Membership_Receivable_View"/>  
+            <apex:commandButton value="医療保険登録" action="{!MedicalInsurance}"/>  
+            <apex:pageBlockSection title="情報" columns="2">
+                <apex:outputfield title="契約番号" value="{!Membership.Name}"/>
+                <apex:outputfield title="状況" value="{!Membership.Status__c}"/>
+                <apex:outputfield label="契約国" value="{!Membership.ContractCountry__c}"/> 
+                
+                
+                <apex:outputfield label="契約地区" value="{!Membership.ContractDistrict__c}"/>
+                
+                
+                <apex:outputfield label="請求地区" value="{!Membership.BillingDistrict__c}"/>
+                
+                
+                <apex:outputfield label="申込日付" value="{!Membership.ApplicationDate__c}"/>
+                <apex:outputfield label="契約日付" value="{!Membership.ContractDate__c}"/>
+                <apex:outputfield label="通貨" value="{!Membership.Currency__c}"/>
+                
+                
+                <apex:outputfield label="区分" value="{!Membership.Classification__c}">
+                </apex:outputfield>
+                <br/> 
+                
+                
+                <apex:outputfield label="契約会社" value="{!Membership.ContractCompany__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}" />
+             <!--   <apex:outputfield label="グループ割引率" value="{!wb_Membership__c.DiscountPercentage__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/> -->
+                <apex:outputfield label="請求会社" value="{!Membership.BillingCompany__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先内線" value="{!Membership.BillingExtNo__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先氏名" value="{!Membership.BillingName__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先国番号" value="{!Membership.BillingCountryNo__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先部署" value="{!Membership.BillingDept__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先FAX" value="{!Membership.BillingFax__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先TEL" value="{!Membership.BillingTel__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                
+                <apex:outputfield label="請求先役職" value="{!Membership.BillingTitle__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                
+                <apex:outputfield label="契約個人" value="{!Membership.ContractIndividual__c}"  rendered="{!IF((Membership.Classification__c=='個人'), true , false)}"/>
+                
+                <apex:outputfield label="請求書発行日" value="{!Membership.BillingDate__c}"/>
+                <apex:outputfield label="請求備考" value="{!Membership.BillingNote__c}"/>
+                <apex:outputfield label="社員名簿" value="{!wb_Membership__c.Sales__c}"/>
+                <apex:outputfield label="内務担当" value="{!wb_Membership__c.InternalAffairs__c}"/>
+                
+                
+                
+                
+            </apex:pageBlockSection>
+            
+            
+            <p id="d_list"></p>
+            
+            <apex:pageBlockSection id="theDetail" title="詳細" columns="１">
+                
+                <style>
+                    .sign-class{
+                    font-size: 12px;
+                    font-weight: 700;
+                    padding: 0px 5px;
+                    margin-right: 10px;
+                    border: 1px solid blue;
+                    background: blue;
+                    color: whitesmoke;
+                    margin-bottom:10px;
+                    cursor:pointer;
+                    }
+                    .pbBody table.list tr.dataRow td {
+                    font-family: verdana;
+                    font-weight: normal;
+                    }
+                </style>
+                <apex:outputPanel rendered="{!IF(OR(Membership.Status__c=='未確定',Membership.Status__c=='キャンセル'), true , false)}" >
+                    
+                    <div align="left" style="display:{!IF(NOT(ISNULL(theMembershipDetail)),'block','none')}">
+                        <font size="1pt">Page #:&nbsp;<apex:outputLabel value="{!PageNumber}"/>&nbsp;out of&nbsp;<apex:outputLabel value="{!totalPageNumber}"/>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                        <apex:commandButton value="Previous" action="{!previousBtnClick}"
+                                            disabled="{!previousButtonEnabled}"
+                                            reRender="theDetail" ></apex:commandButton> 
+                        <apex:commandButton value="Next" action="{!nextBtnClick}"
+                                            reRender="theDetail" disabled="{!nextButtonDisabled}">
+                        </apex:commandButton> 
+                    </div> 
+                    
+                     <apex:variable var="index" value="{!0}" /> 
+                      <apex:datatable value="{!theMembershipDetail}" var="a" columns="11" border="1" cellpadding="3" id="dateTable0" onRowClick="highlight(this);" >  
+                                        
+                            <apex:column >
+                                
+                                <div style="width:70px;" >
+                                    <apex:outputfield value="{!a.theRow.Name}" rendered="{!IF(a.theRow.Classification__c!='入替', true , false)}"></apex:outputfield>
+                                </div>
+                                <div style="width:70px;color: #F00">
+                                    <apex:outputfield value="{!a.theRow.Name}" rendered="{!IF(a.theRow.Classification__c=='入替', true , false)}"></apex:outputfield>
+                                </div>
+                                <apex:variable var="index" value="{!index + 1}" /> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Type__c.label}">
+                                <div style="width:60px;">
+                                    
+                                    <apex:outputfield value="{!a.theRow.Type__c}" id="Type__c" rendered="{!IF(OR(a.theRow.Name!=null,a.theRow.Service__c!=null), true , false)}"></apex:outputfield>
+                                    
+                                </div>
+                            </apex:column>
+                            <apex:column headerValue="プラン">
+                                
+                                <div  style="width:120px;">
+                                    
+                                    <apex:outputField value="{!a.theRow.MembershipPlan__c}"/>
+                                    
+                                </div>
+                                
+                            </apex:column>
+                            
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}">
+                                <div  style="width:140px;">
+                                    <apex:outputField value="{!a.theRow.WorkingCompany__c}"  style="width:120px;"/>
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column >
+                                
+                                <apex:outputPanel rendered="{!IF(OR(a.selectedValue=='1', a.selectedValue=='4'), true , false)}" >                               
+                                    <div  style="width:150px;">
+                                        
+                                        <apex:outputText value=" "> </apex:outputText>
+                                        <apex:outputField value="{!a.theRow.Quantity__c}"  style="width:50px;">
+                                        </apex:outputField>
+                                        <apex:outputText value="名 " rendered="{!IF(a.theRow.Quantity__c != null, true , false)}"  >
+                                        </apex:outputText> 
+                                        
+                                        
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                                <apex:outputPanel rendered="{!IF((a.selectedValue=='2'), true , false)}" id="pl1">                               
+                                    <div  style="width:150px;">
+                                        
+                                        <apex:outputField value="{!a.theRow.Individual__c}" style="width:80px;">
+                                        </apex:outputField>
+                                        <apex:outputText value=" "> </apex:outputText>
+                                        <apex:outputField value="{!a.theRow.MemberNo__c}" style="width:80px;">
+                                        </apex:outputField>
+                                    </div>
+                                </apex:outputPanel>  
+                                
+                                <apex:outputPanel rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}" id="p3">  
+                                    <span style="color: #00F;font-size: 11px;font-family:verdana;font-weight: bold;" >
+                                        <apex:outputText value="家族: {!a.NoofFamilyMembers}名"  rendered="{!IF(a.theRow.Type__c =='家族', true , false)}" ></apex:outputText> 
+                                        <apex:outputtext value="利用{!a.theInQty}名 "  style="width:50px;"
+                                                         rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theInQty!=0), true , false)}"></apex:outputtext>  
+                                        <apex:outputtext value="貸出{!a.theOutQty}名 "  style="width:50px;"
+                                                         rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theOutQty!=0), true , false)}"></apex:outputtext>  
+                                    </span>
+                                    <span id="Family-sign-{!index}" class="sign-class" onclick="toggleCHDateTable0('{!index}');" 
+                                          rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}"
+                                          >+</span>
+                                    <apex:variable value="{!0}" var="FamilyMemberIndex"/>
+                                    <style>
+                                        .hidden {
+                                        display: none;
+                                        }
+                                    </style>
+                                    
+                                    
+                                    <apex:datatable value="{!a.theFamilies[a.theRow.name]}" var="f" id="CHTable"  headerClass="hidden" cellpadding="1" style="display:none;margin-top:1px;margin-left:2px;width:98%;"> 
+                                        <apex:column value="{!f.MemberName__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.MemberNo__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.SecondType__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        
+                                        <apex:column value="{!f.CrossReference__r.Membership__r.ContractCompany__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.CrossReference__r.ParentDetail__r.name}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.CrossReference__r.ParentDetail__r.CancellationDate__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.Quantity__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                    </apex:datatable>  
+                                </apex:outputPanel> 
+                                
+                                
+                                
+                            </apex:column>
+                            
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStartDate__c.label}"  style="width:70px;">
+                                <div  style="width:70px;">
+                                    <apex:outputField value="{!a.theRow.MembershipStartDate__c}"  style="width:70px;"
+                                                      >
+                                        
+                                    </apex:outputField>
+                                    
+                                </div>
+                            </apex:column> 
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipEndDate__c.label}" >
+                                <div  style="width:70px;">
+                                    <apex:outputField id="MembershipEndDate__c" value="{!a.theRow.MembershipEndDate__c}" style="width:70px;" />
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.CancellationDate__c.label}" rendered="{!IF( Membership.Status__c='キャンセル', true , false)}" id="CancellationDate__c">
+                                <div  style="width:70px;">
+                                    <apex:outputField value="{!a.theRow.CancellationDate__c}" style="width:70px;" />
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.UnitAmount__c.label}">
+                                <div  style="width:70px;">
+                                  <!--  <apex:outputField value="{!a.theRow.UnitAmount__c}" style="width:70px;"/> -->
+                                    <apex:outputtext value="{0, number, #,###}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', true , false)}">
+                                        <apex:param value="{!a.theRow.UnitAmount__c}"></apex:param>
+                                    </apex:outputtext>
+                                    <apex:outputtext value="{0, number, #,###.00}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', false , true)}">
+                                        <apex:param value="{!a.theRow.UnitAmount__c}"></apex:param>
+                                    </apex:outputtext>
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Amount__c.label}">
+                                <div  style="width:70px;">
+                                   <!-- <apex:outputField value="{!a.theRow.Amount__c}" style="width:70px;"/> -->
+                                    <apex:outputtext value="{0, number, #,###}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', true , false)}">
+                                        <apex:param value="{!a.theRow.Amount__c}"></apex:param>
+                                    </apex:outputtext>
+                                    <apex:outputtext value="{0, number, #,###.00}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', false , true)}">
+                                        <apex:param value="{!a.theRow.Amount__c}"></apex:param>
+                                    </apex:outputtext>
+                                </div>
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.BillingAmount__c.label}">
+                                <div  style="width:70px;">
+                                   <!-- <apex:outputField value="{!a.theRow.BillingAmount__c}" style="width:70px;"/> -->
+                                    <apex:outputtext value="{0, number, #,###}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', true , false)}">
+                                        <apex:param value="{!a.theRow.BillingAmount__c}"></apex:param>
+                                    </apex:outputtext>
+                                    <apex:outputtext value="{0, number, #,###.00}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', false , true)}">
+                                        <apex:param value="{!a.theRow.BillingAmount__c}"></apex:param>
+                                    </apex:outputtext>
+                                </div>
+                            </apex:column>
+
+                        </apex:datatable>
+                        
+                </apex:outputPanel>
+                <style>
+                    .activeTab {background-color: yellow; color:black; background-image:none}
+                    .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+                </style>
+                
+                <apex:tabPanel tabClass="activeTab" inactiveTabClass="inactiveTab" switchType="client" selectedTab="Tab1" id="theTabPanel"
+                               rendered="{!IF(Membership.Status__c=='確定', true , false)}">
+                    
+                    <apex:tab label="確認済み" name="Tab1" id="tabOne" >
+                        <div align="left" style="display:{!IF(NOT(ISNULL(theMembershipDetail)),'block','none')}">
+                            <font size="1pt">Page #:&nbsp;<apex:outputLabel value="{!PageNumber}"/>&nbsp;out of&nbsp;<apex:outputLabel value="{!totalPageNumber}"/>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                            <apex:commandButton value="Previous" action="{!previousBtnClick}"
+                                                disabled="{!previousButtonEnabled}"
+                                                reRender="theDetail" ></apex:commandButton> 
+                            <apex:commandButton value="Next" action="{!nextBtnClick}"
+                                                reRender="theDetail" disabled="{!nextButtonDisabled}">
+                            </apex:commandButton> 
+                        </div> 
+                        
+                        <apex:variable var="index" value="{!0}" /> 
+                        
+                        <apex:datatable value="{!theMembershipDetail}" var="a" columns="12" border="1" cellpadding="3" id="dateTable" onRowClick="highlight(this);" >  
+                            <!--
+                            <apex:column >
+                                
+                                <div style="width:20px;" >
+                                    <apex:outputtext value="{!a.theRowIndex}" ></apex:outputtext>
+                                </div>
+                              
+                            </apex:column>
+                            -->
+                            <apex:column >
+                                
+                                <div style="width:70px;" >
+                                    <apex:outputfield value="{!a.theRow.Name}" rendered="{!IF(a.theRow.Classification__c!='入替', true , false)}"></apex:outputfield>
+                                </div>
+                                <div style="width:70px;color: #F00">
+                                    <apex:outputfield value="{!a.theRow.Name}" rendered="{!IF(a.theRow.Classification__c=='入替', true , false)}"></apex:outputfield>
+                                </div>
+                                <apex:variable var="index" value="{!index + 1}" /> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Type__c.label}">
+                                <div style="width:60px;">
+                                    
+                                    <apex:outputfield value="{!a.theRow.Type__c}" id="Type__c" rendered="{!IF(OR(a.theRow.Name!=null,a.theRow.Service__c!=null), true , false)}"></apex:outputfield>
+                                    
+                                </div>
+                            </apex:column>
+                            <apex:column headerValue="プラン">
+                                
+                                <div  style="width:120px;">
+                                    
+                                    <apex:outputField value="{!a.theRow.MembershipPlan__c}"/>
+                                    
+                                </div>
+                                
+                            </apex:column>
+                            
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}">
+                                <div  style="width:140px;">
+                                    <apex:outputField value="{!a.theRow.WorkingCompany__c}"  style="width:120px;"/>
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column >
+                                
+                                <apex:outputPanel rendered="{!IF(OR(a.selectedValue=='1', a.selectedValue=='4'), true , false)}" >                               
+                                    <div  style="width:150px;">
+                                        
+                                        <apex:outputText value=" "> </apex:outputText>
+                                        <apex:outputField value="{!a.theRow.Quantity__c}"  style="width:50px;">
+                                        </apex:outputField>
+                                        <apex:outputText value="名 " rendered="{!IF(a.theRow.Quantity__c != null, true , false)}"  >
+                                        </apex:outputText> 
+                                        
+                                        
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                                <apex:outputPanel rendered="{!IF((a.selectedValue=='2'), true , false)}" id="pl1">                               
+                                    <div  style="width:150px;">
+                                        
+                                        <apex:outputField value="{!a.theRow.Individual__c}" style="width:80px;">
+                                        </apex:outputField>
+                                        <apex:outputText value=" "> </apex:outputText>
+                                        <apex:outputField value="{!a.theRow.MemberNo__c}" style="width:80px;">
+                                        </apex:outputField>
+                                    </div>
+                                </apex:outputPanel>  
+                                
+                                <apex:outputPanel rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}" id="p3">  
+                                    <span style="color: #00F;font-size: 11px;font-family:verdana;font-weight: bold;" >
+                                        <apex:outputText value="家族: {!a.NoofFamilyMembers}名"  rendered="{!IF(a.theRow.Type__c =='家族', true , false)}" ></apex:outputText> 
+                                        <apex:outputtext value="利用{!a.theInQty}名 "  style="width:50px;"
+                                                         rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theInQty!=0), true , false)}"></apex:outputtext>  
+                                        <apex:outputtext value="貸出{!a.theOutQty}名 "  style="width:50px;"
+                                                         rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theOutQty!=0), true , false)}"></apex:outputtext>  
+                                    </span>
+                                    <span id="Family-sign-{!index}" class="sign-class" onclick="toggleCHDateTable('{!index}');" 
+                                          rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}"
+                                          >+</span>
+                                    <apex:variable value="{!0}" var="FamilyMemberIndex"/>
+                                    <style>
+                                        .hidden {
+                                        display: none;
+                                        }
+                                    </style>
+                                    
+                                    
+                                    <apex:datatable value="{!a.theFamilies[a.theRow.name]}" var="f" id="CHTable"  headerClass="hidden" cellpadding="1" style="display:none;margin-top:1px;margin-left:2px;width:98%;"> 
+                                        <apex:column value="{!f.MemberName__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.MemberNo__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.SecondType__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        
+                                        <apex:column value="{!f.CrossReference__r.Membership__r.ContractCompany__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.CrossReference__r.ParentDetail__r.name}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.CrossReference__r.ParentDetail__r.CancellationDate__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.Quantity__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                    </apex:datatable>  
+                                </apex:outputPanel> 
+                                
+                                
+                                
+                            </apex:column>
+                            
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStartDate__c.label}"  style="width:70px;">
+                                <div  style="width:70px;">
+                                    <apex:outputField value="{!a.theRow.MembershipStartDate__c}"  style="width:70px;"
+                                                      >
+                                        
+                                    </apex:outputField>
+                                    
+                                </div>
+                            </apex:column> 
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipEndDate__c.label}" >
+                                <div  style="width:70px;">
+                                    <apex:outputField id="MembershipEndDate__c" value="{!a.theRow.MembershipEndDate__c}" style="width:70px;" />
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStopDate__c.label}" >
+                                <div  style="width:70px;">
+                                    <apex:outputField id="MembershipStopDate__c" value="{!a.theRow.MembershipStopDate__c}" style="width:70px;" />
+                                </div>
+                            </apex:column>
+                            
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.CancellationDate__c.label}" rendered="{!IF( Membership.Status__c='キャンセル', true , false)}" id="CancellationDate__c">
+                                <div  style="width:70px;">
+                                    <apex:outputField value="{!a.theRow.CancellationDate__c}" style="width:70px;" />
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.UnitAmount__c.label}">
+                                <div  style="width:70px;">
+                                    <apex:outputField value="{!a.theRow.UnitAmount__c}" style="width:70px;"/>
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Amount__c.label}">
+                                <div  style="width:70px;">
+                                    <apex:outputField value="{!a.theRow.Amount__c}" style="width:70px;"/>
+                                </div>
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.BillingAmount__c.label}">
+                                <div  style="width:70px;">
+                                    <!--<apex:outputField value="{!a.theRow.BillingAmount__c}" style="width:70px;"/> -->
+                                    <apex:outputtext value="{0, number, #,###}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', true , false)}">
+                                        <apex:param value="{!a.theRow.BillingAmount__c}"></apex:param>
+                                    </apex:outputtext>
+                                    <apex:outputtext value="{0, number, #,###.00}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', false , true)}">
+                                        <apex:param value="{!a.theRow.BillingAmount__c}"></apex:param>
+                                    </apex:outputtext>
+                                </div>
+                            </apex:column>
+                            
+    						<apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.BalanceAmount__c.label}">
+                                <div  style="width:70px;">
+                                 
+                                    <apex:outputtext value="{0, number, #,###}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', true , false)}">
+                                        <apex:param value="{!a.theRow.BalanceAmount__c}"></apex:param>
+                                    </apex:outputtext>
+                                    <apex:outputtext value="{0, number, #,###.00}" styleClass="bold" rendered="{!IF(Membership.Currency__c =='JPY', false , true)}">
+                                        <apex:param value="{!a.theRow.BalanceAmount__c}"></apex:param>
+                                    </apex:outputtext>
+                                </div>
+                            </apex:column>
+
+                        </apex:datatable>
+                        
+                    </apex:tab>
+                    <apex:tab label="処理中" name="Tab2" id="tabTwo" >
+          
+                        
+                        <apex:outputPanel id="TheBeingAmendDataTableWrapper">
+                            
+                            <apex:variable var="index" value="{!0}" /> 
+                            <apex:datatable value="{!theBeingAmendedMembershipDetail}" var="a" columns="12" border="1" cellpadding="3" id="AmenddateTable" onRowClick="highlight(this);" >  
+                       <!--     <apex:column >
+                                
+                                <div style="width:20px;" >
+                                    <apex:outputtext value="{!a.theRowIndex}" ></apex:outputtext>
+                                </div>
+                              
+                            </apex:column> -->
+                                <apex:column >
+                                    
+                                    <div style="width:70px;" >
+                                        <apex:outputfield value="{!a.theRow.Name}" rendered="{!IF(a.theRow.Classification__c!='入替', true , false)}"></apex:outputfield>
+                                    </div>
+                                    <div style="width:70px;color:#F00">
+                                        <apex:outputfield value="{!a.theRow.Name}" rendered="{!IF(a.theRow.Classification__c=='入替', true , false)}"></apex:outputfield>
+                                    </div>
+                                    <apex:variable var="index" value="{!index + 1}" /> 
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Type__c.label}">
+                                    <div style="width:70px;">
+                                        
+                                        <apex:outputfield value="{!a.theRow.Type__c}" id="Type__c"
+                                                          rendered="{!IF(OR(a.theRow.Name!=null,a.theRow.Service__c!=null), true , false)}"></apex:outputfield>
+                                        
+                                        <apex:selectRadio value="{!a.selectedValue}" layout="pageDirection"
+                                                          rendered="{!IF( a.theRow.Type__c==null, true , false)}" style="width:80px;">
+                                            <apex:selectOption itemValue="1" itemLabel="入会金">
+                                            </apex:selectOption>
+                                            <apex:selectOption itemValue="2" itemLabel="単・家"> 
+                                            </apex:selectOption>
+                                            <apex:selectOption itemValue="3" itemLabel="無記名"> 
+                                            </apex:selectOption>
+                                            <apex:selectOption itemValue="4" itemLabel="仮名"> 
+                                            </apex:selectOption>
+                                            
+                                            <apex:actionSupport event="onchange" action="{!a.fetchServiceOptions}"
+                                                                reRender="TheBeingAmendDataTableWrapper" /> 
+                                        </apex:selectRadio>
+                                        
+                                        
+                                    </div>
+                                </apex:column>
+                                <apex:column headerValue="プラン">
+                                    
+                                    <div  style="width:120px;">
+                                        
+                                        <apex:outputField value="{!a.theRow.MembershipPlan__c}" />
+                                        
+                                    </div>
+                                    
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}">
+                                    <div  style="width:140px;">
+                                        <apex:outputField value="{!a.theRow.WorkingCompany__c}"  style="width:120px;" />
+                                        
+                                        
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    
+                                    <apex:outputPanel rendered="{!IF(OR(a.selectedValue=='1', a.selectedValue=='4'), true , false)}" >                               
+                                        <div  style="width:150px;">
+                                            
+                                            <apex:outputText value=" "> </apex:outputText>
+                                            <apex:outputField value="{!a.theRow.Quantity__c}"  style="width:50px;">
+                                            </apex:outputField>
+                                            <apex:outputText value="名 " rendered="{!IF(a.theRow.Quantity__c != null, true , false)}"  >
+                                            </apex:outputText> 
+                                            
+                                            
+                                        </div>
+                                        
+                                    </apex:outputPanel>
+                                    
+                                    <apex:outputPanel rendered="{!IF((a.selectedValue=='2'), true , false)}" id="pl1">                               
+                                        <div  style="width:150px;">
+                                            
+                                            <apex:outputField value="{!a.theRow.Individual__c}" style="width:80px;">
+                                            </apex:outputField>
+                                            
+                                            
+                                            <apex:outputText value=" "> </apex:outputText>
+                                            <apex:outputField value="{!a.theRow.MemberNo__c}" style="width:80px;">
+                                            </apex:outputField>
+                                        </div>
+                                    </apex:outputPanel>  
+                                    
+                                    
+                                    <apex:outputPanel rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}" id="p3">  
+                                        <span style="color: #00F;font-size: 11px;font-family:verdana;font-weight: bold;" >
+                                            <apex:outputText value="家族: {!a.NoofFamilyMembers}名"  rendered="{!IF(a.theRow.Type__c =='家族', true , false)}" ></apex:outputText> 
+                                            <apex:outputtext value="利用{!a.theInQty}名 "  style="width:50px;"
+                                                             rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theInQty!=0), true , false)}"></apex:outputtext>  
+                                            <apex:outputtext value="貸出{!a.theOutQty}名 "  style="width:50px;"
+                                                             rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theOutQty!=0), true , false)}"></apex:outputtext>  
+                                        </span>
+                                        <span id="Family-sign-{!index}" class="sign-class" onclick="toggleAmenddateTableCHDateTable('{!index}');" 
+                                              rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}"
+                                              >+</span>
+                                        <apex:variable value="{!0}" var="FamilyMemberIndex"/>
+                                        <style>
+                                            .hidden {
+                                            display: none;
+                                            }
+                                        </style>
+                                        
+                                        
+                                        <apex:datatable value="{!a.theFamilies[a.theRow.name]}" var="f" id="CHTable"  headerClass="hidden" cellpadding="1" style="display:none;margin-top:1px;margin-left:2px;width:98%;"> 
+                                            <apex:column value="{!f.MemberName__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.MemberNo__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.SecondType__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.CrossReference__r.ParentDetail__r.name}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.CrossReference__r.ParentDetail__r.CancellationDate__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.Quantity__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        </apex:datatable>  
+                                    </apex:outputPanel> 
+                                    
+                                    
+                                    
+                                </apex:column>
+                                
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStartDate__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="MembershipStartDate__c" value="{!a.theRow.MembershipStartDate__c}"
+                                                          style="width:70px;" >
+                                        </apex:outputField>
+                                        
+                                    </div>
+                                    
+                                    
+                                </apex:column> 
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStopDate__c.label}" id="MembershipStopDate__c">
+                                    <div  style="width:70px;">
+                                        <apex:outputField value="{!a.theRow.MembershipStopDate__c}" style="width:70px;"/>
+                                        
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipEndDate__c.label}" id="MembershipEndDate__c">
+                                    <div  style="width:70px;">
+                                        <apex:outputField value="{!a.theRow.MembershipEndDate__c}" style="width:70px;" />
+                                    </div>
+                                </apex:column>
+                                
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.CancellationDate__c.label}"
+                                             rendered="{!IF( Membership.Status__c='キャンセル', true , false)}" id="CancellationDate__c">
+                                    <div  style="width:100px;">
+                                        <apex:outputField value="{!a.theRow.CancellationDate__c}" style="width:100px;" />
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.UnitAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="Amount__c" value="{!a.theRow.UnitAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Amount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="RemainingAmount__c" value="{!a.theRow.Amount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.BalanceAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="BalanceAmount__c" value="{!a.theRow.BalanceAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                
+                            </apex:datatable>
+                            
+                            <style type="text/css">
+                                .dateFormat{
+                                visibility:hidden;
+                                }
+                            </style>
+                            
+                        </apex:outputPanel>                      
+                    </apex:tab>
+                    
+                </apex:tabPanel>
+                
+                <style type="text/css">
+                    .dateFormat{
+                    visibility:hidden;
+                    }
+                </style>
+                
+                
+                
+                <script>
+                var lastRow;
+                function highlight(elem){
+                    if(lastRow != undefined)
+                        lastRow.style.backgroundColor = 'white';
+                    
+                    elem.style.backgroundColor = 'yellow';
+                    lastRow = elem;
+                }
+                </script>
+            </apex:pageBlockSection>
+            <p id="r_list"></p>
+            <apex:pageBlockSection id="theReceivable" title="売り上げ" columns="１">
+                <apex:include id="wb_Membership_Receivable_View" pageName="wb_Membership_Receivable_View"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>その他</masterLabel>
+        <translation>Others</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>ゴム製品</masterLabel>
+        <translation>Rubber Product</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>パルプ･紙</masterLabel>
+        <translation>Pulp and Paper</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>メディア</masterLabel>
+        <translation>Media</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>不動産</masterLabel>
+        <translation>Real Estate</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>保険</masterLabel>
+        <translation>Insuarance</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>倉庫･運輸関連</masterLabel>
+        <translation>Warehouse &amp; Shipping</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>公共機関</masterLabel>
+        <translation>Public Institution</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>化学</masterLabel>
+        <translation>Chemicals</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>商業</masterLabel>
+        <translation>Commerce</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>建設</masterLabel>
+        <translation>Construction</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>政府機関</masterLabel>
+        <translation>Government</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>機械</masterLabel>
+        <translation>Machine Industry</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>水産･農林</masterLabel>
+        <translation>Agriculture, Forestry, and Fishery</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>海運</masterLabel>
+        <translation>Shipping</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>石油･石炭製品</masterLabel>
+        <translation>Petroleum and Coal products</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>空運</masterLabel>
+        <translation>Air Transport</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>窯業</masterLabel>
+        <translation>Ceramics</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>精密機器</masterLabel>
+        <translation>Precision Equipment</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>繊維</masterLabel>
+        <translation>Textile Industry</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>製造</masterLabel>
+        <translation>Manufacturer</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>輸送用機器</masterLabel>
+        <translation>Transport Equipment</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>通信</masterLabel>
+        <translation>Telecommunications</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>金属製品</masterLabel>
+        <translation>Metal Product</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>金融</masterLabel>
+        <translation>Finance</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>鉄鋼</masterLabel>
+        <translation>Steel Induatry</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>鉱業</masterLabel>
+        <translation>Mining</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>陸運</masterLabel>
+        <translation>Land Transport</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>電力･ガス</masterLabel>
+        <translation>Electricity and Gas</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>電気機器</masterLabel>
+        <translation>Electronic Goods</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>非鉄金属</masterLabel>
+        <translation>Nonferrous Metal</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>食品</masterLabel>
+        <translation>Food</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

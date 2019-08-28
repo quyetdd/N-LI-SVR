@@ -1,0 +1,10 @@
+<apex:page >
+    <style>
+        .panelWrapper {
+        background-color: white;
+        }
+    </style>
+    <apex:outputPanel styleClass="panelWrapper" layout="block">
+         <apex:include pageName="wb_Membership_Receivable_View"/>
+    </apex:outputPanel>
+</apex:page>

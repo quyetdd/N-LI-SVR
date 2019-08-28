@@ -1,0 +1,688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>保険履歴</value>
+    </caseValues>
+    <fields>
+        <label><!-- 携行品損害 --></label>
+        <name>CarryCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 賠償金額 --></label>
+        <name>DamagesCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 疾病治療費用 --></label>
+        <name>DiseaseCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 疾病死亡 --></label>
+        <name>DiseaseDeathCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 一時帰国中担保 --></label>
+        <name>HomeCountryCoverage__c</name>
+    </fields>
+    <fields>
+        <label><!-- 傷害治療費用 --></label>
+        <name>InjuryCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 傷害死亡・後遺障害 --></label>
+        <name>InjuryDeathCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険金額通貨 --></label>
+        <name>InsuranceCurrency__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation><!-- HKD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JPY（単位：千円）</masterLabel>
+            <translation><!-- JPY（単位：千円） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation><!-- RMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VND</masterLabel>
+            <translation><!-- VND --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 保険種類 --></label>
+        <name>InsuranceKind__c</name>
+        <picklistValues>
+            <masterLabel>Medi-X</masterLabel>
+            <translation><!-- Medi-X --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チャイナボウル</masterLabel>
+            <translation><!-- チャイナボウル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>優You</masterLabel>
+            <translation><!-- 優You --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安心NHST</masterLabel>
+            <translation><!-- 安心NHST --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安心生活</masterLabel>
+            <translation><!-- 安心生活 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>駐在中国</masterLabel>
+            <translation><!-- 駐在中国 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 保険プラン --></label>
+        <name>InsurancePlan__c</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA</masterLabel>
+            <translation><!-- AA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BB</masterLabel>
+            <translation><!-- BB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC</masterLabel>
+            <translation><!-- CC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation><!-- D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DD</masterLabel>
+            <translation><!-- DD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation><!-- E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F</masterLabel>
+            <translation><!-- F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G</masterLabel>
+            <translation><!-- G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>H</masterLabel>
+            <translation><!-- H --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>I</masterLabel>
+            <translation><!-- I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S</masterLabel>
+            <translation><!-- S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA</masterLabel>
+            <translation><!-- SA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SB</masterLabel>
+            <translation><!-- SB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC</masterLabel>
+            <translation><!-- SC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD</masterLabel>
+            <translation><!-- SD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>T</masterLabel>
+            <translation><!-- T --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U</masterLabel>
+            <translation><!-- U --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X</masterLabel>
+            <translation><!-- X --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Y</masterLabel>
+            <translation><!-- Y --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新A</masterLabel>
+            <translation><!-- 新A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新A1</masterLabel>
+            <translation><!-- 新A1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新B</masterLabel>
+            <translation><!-- 新B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新B1</masterLabel>
+            <translation><!-- 新B1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新C</masterLabel>
+            <translation><!-- 新C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新C1</masterLabel>
+            <translation><!-- 新C1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新D</masterLabel>
+            <translation><!-- 新D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新D1</masterLabel>
+            <translation><!-- 新D1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新E</masterLabel>
+            <translation><!-- 新E --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新E1</masterLabel>
+            <translation><!-- 新E1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新F</masterLabel>
+            <translation><!-- 新F --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新F1</masterLabel>
+            <translation><!-- 新F1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新G</masterLabel>
+            <translation><!-- 新G --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新G1</masterLabel>
+            <translation><!-- 新G1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新H</masterLabel>
+            <translation><!-- 新H --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新H1</masterLabel>
+            <translation><!-- 新H1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新I</masterLabel>
+            <translation><!-- 新I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新I1</masterLabel>
+            <translation><!-- 新I1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新S</masterLabel>
+            <translation><!-- 新S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新S1</masterLabel>
+            <translation><!-- 新S1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新T</masterLabel>
+            <translation><!-- 新T --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新T1</masterLabel>
+            <translation><!-- 新T1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新U</masterLabel>
+            <translation><!-- 新U --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新U1</masterLabel>
+            <translation><!-- 新U1 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- AC用伝達事項 --></label>
+        <name>Issues_To_AC__c</name>
+    </fields>
+    <fields>
+        <label><!-- 営業→AC伝達事項 --></label>
+        <name>Issues_from_Sales__c</name>
+    </fields>
+    <fields>
+        <label><!-- 医療費決済方法 --></label>
+        <name>MedicalBillKessaiHouhou__c</name>
+        <picklistValues>
+            <masterLabel>Health Care Program</masterLabel>
+            <translation><!-- Health Care Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medi-X</masterLabel>
+            <translation><!-- Medi-X --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>クレジットカード付帯保険</masterLabel>
+            <translation><!-- クレジットカード付帯保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム医療傷害保険</masterLabel>
+            <translation><!-- ベトナム医療傷害保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国医療傷害保険</masterLabel>
+            <translation><!-- 中国医療傷害保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>会社積立</masterLabel>
+            <translation><!-- 会社積立 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旅行総合保険</masterLabel>
+            <translation><!-- 旅行総合保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未確認</masterLabel>
+            <translation><!-- 未確認 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海外旅行傷害保険</masterLabel>
+            <translation><!-- 海外旅行傷害保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現金</masterLabel>
+            <translation><!-- 現金 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>立て替え保証</masterLabel>
+            <translation><!-- 立て替え保証 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 会員（家族）名称 --></label>
+        <name>MemberFamilyName__c</name>
+        <relationshipLabel><!-- 保険履歴 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員名称 --></label>
+        <name>MemberName__c</name>
+        <relationshipLabel><!-- 保険履歴 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員番号 --></label>
+        <name>MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧携行品損害 --></label>
+        <name>OldCarryCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧賠償金額 --></label>
+        <name>OldDamagesCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧疾病治療費用 --></label>
+        <name>OldDiseaseCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧疾病死亡 --></label>
+        <name>OldDiseaseDeathCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧傷害治療費用 --></label>
+        <name>OldInjuryCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧傷害死亡・後遺障害 --></label>
+        <name>OldInjuryDeathCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧保険始期 --></label>
+        <name>OldOtaInsuranceShiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧保険満期 --></label>
+        <name>OldOtaInsuranceShuki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧救援者費用 --></label>
+        <name>OldRescueCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧治療費用 --></label>
+        <name>OldTreatmentCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧治療・救援者費用 --></label>
+        <name>OldTreatmentRescueCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 取扱 --></label>
+        <name>OtaAgency__c</name>
+        <picklistValues>
+            <masterLabel>WB以外</masterLabel>
+            <translation><!-- WB以外 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB扱い</masterLabel>
+            <translation><!-- WB扱い --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 保険始期 --></label>
+        <name>OtaInsuranceShiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険満期 --></label>
+        <name>OtaInsuranceShuki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保管場所 --></label>
+        <name>OtaKeepPlace__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTA保険会社名称 --></label>
+        <name>OtaName__c</name>
+        <picklistValues>
+            <masterLabel>AIG INSURANCE HONG KONG LTD</masterLabel>
+            <translation><!-- AIG INSURANCE HONG KONG LTD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AIU保険会社</masterLabel>
+            <translation><!-- AIU保険会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American International Underwriters,Limited</masterLabel>
+            <translation><!-- American International Underwriters,Limited --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Care Program</masterLabel>
+            <translation><!-- Health Care Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JI傷害火災保険株式会社</masterLabel>
+            <translation><!-- JI傷害火災保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Insurance Company of Vietnam</masterLabel>
+            <translation><!-- United Insurance Company of Vietnam --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>あいおいニッセイ同和損害保険株式会社</masterLabel>
+            <translation><!-- あいおいニッセイ同和損害保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>あいおい損害保険株式会社</masterLabel>
+            <translation><!-- あいおい損害保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他保険</masterLabel>
+            <translation><!-- その他保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>エース損害保険株式会社</masterLabel>
+            <translation><!-- エース損害保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カード付帯</masterLabel>
+            <translation><!-- カード付帯 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セコム損害保険株式会社</masterLabel>
+            <translation><!-- セコム損害保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セゾン自動車火災保険株式会社</masterLabel>
+            <translation><!-- セゾン自動車火災保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニッセイ同和損害保険株式会社</masterLabel>
+            <translation><!-- ニッセイ同和損害保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニッセイ同和損害保険株式会社(JI)</masterLabel>
+            <translation><!-- ニッセイ同和損害保険株式会社(JI) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニュ－インディア保険会社</masterLabel>
+            <translation><!-- ニュ－インディア保険会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マーシュ</masterLabel>
+            <translation><!-- マーシュ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友インドネシア</masterLabel>
+            <translation><!-- 三井住友インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上保険株式会社</masterLabel>
+            <translation><!-- 三井住友海上保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災保険公司　上海分公司</masterLabel>
+            <translation><!-- 三井住友海上火災保険公司　上海分公司 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災保険公司　江蘇分公司</masterLabel>
+            <translation><!-- 三井住友海上火災保険公司　江蘇分公司 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災保険株式会社</masterLabel>
+            <translation><!-- 三井住友海上火災保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災保険（香港)有限公司</masterLabel>
+            <translation><!-- 三井住友海上火災保険（香港)有限公司 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災有限公司　広州分公司</masterLabel>
+            <translation><!-- 三井住友海上火災有限公司　広州分公司 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三菱東京UFJ Health Care Program</masterLabel>
+            <translation><!-- 三菱東京UFJ Health Care Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>保険なし</masterLabel>
+            <translation><!-- 保険なし --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>共栄火災海上保険株式会社</masterLabel>
+            <translation><!-- 共栄火災海上保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>富士火災海上保険株式会社</masterLabel>
+            <translation><!-- 富士火災海上保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安人寿保険</masterLabel>
+            <translation><!-- 平安人寿保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安養老保険</masterLabel>
+            <translation><!-- 平安養老保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広電日生健康衛士</masterLabel>
+            <translation><!-- 広電日生健康衛士 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>損保ジャパン日本興亜インドネシア</masterLabel>
+            <translation><!-- 損保ジャパン日本興亜インドネシア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>損害保険ジャパン日本興亜株式会社</masterLabel>
+            <translation><!-- 損害保険ジャパン日本興亜株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日新火災海上保険株式会社</masterLabel>
+            <translation><!-- 日新火災海上保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本興亜保険（亜洲）有限公司</masterLabel>
+            <translation><!-- 日本興亜保険（亜洲）有限公司 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本興亜損害保険株式会社</masterLabel>
+            <translation><!-- 日本興亜損害保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本財産保険(香港)有限公司</masterLabel>
+            <translation><!-- 日本財産保険(香港)有限公司 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日立 Health Care Program</masterLabel>
+            <translation><!-- 日立 Health Care Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>朝日火災海上保険株式会社</masterLabel>
+            <translation><!-- 朝日火災海上保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未確認</masterLabel>
+            <translation><!-- 未確認 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上日動火災保険株式会社</masterLabel>
+            <translation><!-- 東京海上日動火災保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上火災保険（香港）有限公司</masterLabel>
+            <translation><!-- 東京海上火災保険（香港）有限公司 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>株式会社損害保険ジャパン</masterLabel>
+            <translation><!-- 株式会社損害保険ジャパン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>株式会社損害保険ジャパン　香港支店</masterLabel>
+            <translation><!-- 株式会社損害保険ジャパン　香港支店 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長生人寿保険有限公司</masterLabel>
+            <translation><!-- 長生人寿保険有限公司 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- OTA備考 --></label>
+        <name>OtaNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- 救援者費用 --></label>
+        <name>RescueCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 証券入手状況 --></label>
+        <name>ShokenGetSituation__c</name>
+        <picklistValues>
+            <masterLabel>入手済</masterLabel>
+            <translation><!-- 入手済 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>取寄中</masterLabel>
+            <translation><!-- 取寄中 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未入手</masterLabel>
+            <translation><!-- 未入手 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 証券番号 --></label>
+        <name>ShokenNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 初年度始期 --></label>
+        <name>Shonendo_Shiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp FamilyNo --></label>
+        <name>Temp_FamilyNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp Import Flag --></label>
+        <name>Temp_Import_Flag__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp_MemberNo --></label>
+        <name>Temp_MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 治療費用 --></label>
+        <name>TreatmentCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- 治療・救援者費用 --></label>
+        <name>TreatmentRescueCost__c</name>
+    </fields>
+    <layouts>
+        <layout>保険履歴レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報3 --></label>
+            <section>保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報4 --></label>
+            <section>保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報5 --></label>
+            <section>保険情報5</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報（旧データ） --></label>
+            <section>保険情報（旧データ）</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

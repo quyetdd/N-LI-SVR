@@ -1,0 +1,59 @@
+<apex:page standardController="Account" extensions="CustomerDataControllerEx" action="{!init}">
+
+<style type="text/css"> 
+  .boldify { font-weight: bolder; } 
+</style>
+
+<script type="text/javascript" src="/js/dojo/0.3.1/dojo.js" />
+<script src="/soap/ajax/16.0/connection.js" />
+
+  <apex:outputField value="{!account.ParentId}" rendered="false" />
+  <apex:outputField value="{!account.CompanyCd__c}" rendered="false" />
+  <apex:outputField value="{!account.CompanyPopularName__c}" rendered="false" />
+  <apex:outputField value="{!account.Jurisdiction__c}" rendered="false" />  
+ 
+  
+  <apex:form >
+    <apex:sectionHeader title="関連会社情報" subtitle="{!account.Name}"/>
+    
+    <apex:pageMessages />
+    
+    <apex:pageBlock mode="edit">
+    
+      <apex:pageBlockButtons >
+        <apex:commandButton disabled="{!disableButtons}" value="発行" action="{!execute1}" />
+        <apex:commandButton disabled="{!disableButtons}" value="発行(印刷用)" action="{!execute2}" />
+        <apex:commandButton disabled="{!disableButtons}" value="全チェック" action="{!checkAll}" />
+        <apex:commandButton disabled="{!disableButtons}" value="全クリア" action="{!uncheckAll}" />
+        <apex:commandButton value="キャンセル" action="{!cancel}" />
+      </apex:pageBlockButtons>
+    
+      <apex:pageBlockTable columns="4" value="{! AccSelections}" var="r" rowClasses="odd,even" >
+        <apex:column headerValue="-">
+          <apex:inputCheckbox value="{!r.Selected}" />
+        </apex:column>
+        <apex:column headerValue="管轄地区" value="{!r.Acc.Jurisdiction__c}" />
+        <apex:column headerValue="会社名">
+          <apex:outputText value="{!r.Indent}" escape="false"/>
+          <apex:outputLink target="_top" value="/{!r.Acc.Id}">
+            <apex:outputText value="{!r.Acc.Name}" styleClass="{!IF(r.Acc.Id==account.Id,'boldify','')}" />
+          </apex:outputLink>
+        </apex:column>
+        <apex:column headerValue="通称" value="{!r.Acc.CompanyPopularName__c}" />
+      </apex:pageBlockTable>      
+
+    </apex:pageBlock>
+
+  </apex:form>
+  
+  <apex:outputPanel layout="none" rendered="{!AND(dataReady,NOT(hasData))}" >
+      <script>
+          alert('有効会員がいない為、会員データの作成ができません');
+      </script>
+  </apex:outputPanel>
+  
+  <c:JSCustomerDataCreateExcel rendered="{!NOT(forPrinting) && dataReady && hasData}" account="{!Account}" data="{!Data}" />
+  
+  <c:JSCustomerDataCreateExcelForPrinting rendered="{!forPrinting && dataReady && hasData}" account="{!Account}" data="{!Data}" />
+
+</apex:page>

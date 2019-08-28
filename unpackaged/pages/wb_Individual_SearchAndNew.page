@@ -1,0 +1,408 @@
+<apex:page controller="wb_Individual"   title="Search" 
+           showHeader="false"  tabStyle="wb_Individual__c"
+           sideBar="false" 
+           id="pg" >
+    <apex:sectionHeader title="個人"> 
+        <apex:pageBlock id="pb" >
+            <apex:form id="theform" >
+                <apex:actionFunction name="CallApexMethod2UpdateRecordsAndStay" action="{!UpdateRecordsAndStay}"  status="myStatus">
+                </apex:actionFunction>
+                
+                会員開始日:
+                <apex:inputfield id="MembershipStartDate__c" value="{!MembershipPeriod.MembershipStartDate__c}"
+                                 rendered="{!IF(CallerDateRequest!='nodate', true , false)}">
+                </apex:inputfield>
+                
+                <apex:outputPanel id="page" layout="block" style="margin:5px;padding:10px;padding-top:2px;">
+                    <apex:tabPanel switchType="client" selectedTab="tab2" id="tabbedPanel">
+                        <!-- SEARCH TAB -->
+                        <apex:tab label="検索" name="tab1" id="tabOne">
+                            <apex:actionRegion >  
+                                <apex:outputPanel id="top" layout="block" style="margin:5px;padding:10px;padding-top:2px;">
+                                    <apex:outputLabel value="勤務会社" style="font-weight:Bold;padding-right:10px;" for="txtSearch"/>
+                                    <apex:inputText id="txtSearch" value="{!WorkFor.name}" />
+                                    <span style="padding-left:5px"><apex:commandButton id="btnGo" value="Go" action="{!Search}"
+                                                                                       rerender="searchResults,pbSearchResults,slSearchResults"></apex:commandButton></span><br/>
+                                    <apex:commandButton id="btnApply" value="保存"  onclick="closePopup();">
+                                    </apex:commandButton>
+                                    
+                                    
+                                    
+                                </apex:outputPanel>
+                                
+                                <apex:outputPanel id="plSearchResults" style="margin:10px;height:200px;overflow-Y:auto;" layout="block">
+                                    
+                                    <script>
+                                    var closePopup = function() {
+                                        
+                                        if ( Validation() == true) {
+                                            //  alert('close and update');
+                                            var dt = document.getElementById("pg:pb:theform:pbSearchResults:dateTable");
+                                            //alert(dt);
+                                            var StartRow = [];
+                                            StartRow.push('{!CallerRowID}','{!CallerRowIndex}');
+                                            //alert(StartRow);
+                                            var sd = document.getElementById("pg:pb:theform:MembershipStartDate__c");
+                                            //  alert(sd.value);
+                                            try {
+                                                
+                                                parent.window.opener.document.getElementById("parentElemStartRow").innerHTML = StartRow;
+                                                
+                                                if ('{!CallerDateRequest}' != 'nodate')
+                                                    parent.window.opener.document.getElementById("parentElemStartDate").innerHTML = sd.value;
+                                                else
+                                                    parent.window.opener.document.getElementById("parentElemStartDate").innerHTML = '';
+                                                
+                                                parent.window.opener.document.getElementById("parentElemIndividual").innerHTML = getSelectValues(dt);
+                                                
+                                                parent.window.opener.CallParent();
+                                                self.close();
+                                                
+                                            }       
+                                            catch(e)
+                                            {
+                                                alert(e);
+                                            }   
+                                        }
+                                        return false;
+                                    }
+                                    
+                                    function Validation(){
+                                        //alert('{!CallerDateRequest}');
+                                        if ('{!CallerDateRequest}' != 'nodate') {
+                                            //  alert('start checking date');
+                                            var inputStartDate = document.getElementById("pg:pb:theform:MembershipStartDate__c").value;
+                                            if (inputStartDate ==''){
+                                                alert('Please input start date!');
+                                                return false;
+                                            } else
+                                                return true;
+                                        } else {
+                                            //alert('return');
+                                            return true;
+                                            }
+                                    }
+                                    function getSelectValues(dt) {
+                                        // alert('getvalues');
+                                        var result = [];
+                                        var options = dt;
+                                        var ckbox;
+                                        var tbcell;
+                                        // alert(options);
+                                        //  alert(options.getElementsByTagName("tr").length);
+                                        for (var i=0, iLen=options.getElementsByTagName("tr").length; i<iLen; i++) {
+                                            
+                                            var checkBox = options.rows[i].cells[0].children[0];
+
+                                            var Opn = options.rows[i].cells[3].children[0];
+
+                                            var SerOptn = document.getElementById('pg:pb:theform:pbSearchResults:dateTable:' + i + ':Service__c');
+                                  
+                                            var id = options.rows[i].cells[2].children[0].innerHTML;
+                                            //  alert(id);
+                                  
+                                            if (checkBox.checked) {
+                                                result.push([id, SerOptn.options[ SerOptn.selectedIndex ].value ]);
+                                            }
+                                        }
+                                        //alert(result);
+                                        //alert(result[0].length);
+                                        // return makeTable(result);
+                                        return result;
+                                    }   
+                                    
+                                    </script>
+                                    
+                                    <script type="text/javascript">
+                                    function changeValue(MyIdx) {
+                                        try {
+                                            MyIdx = MyIdx - 1;
+                                            // alert(MyIdx);
+                                            var dt = document.getElementById("pg:pb:theform:pbSearchResults:dateTable");
+                                            // alert(dt.getElementsByTagName("tr").length)
+                                            var me = dt.rows[MyIdx].cells[0].children[0];
+                                            //alert(me.checked);
+                                            if(me.checked){
+                                                for (var i=0, iLen=dt.getElementsByTagName("tr").length; i<iLen; i++) {
+                                                    if ( i != MyIdx)
+                                                        dt.rows[i].cells[0].children[0].checked = false;
+                                                        
+                                                }
+                                            }
+                                            /*  var chk = document.getElementsByid('checkbox');            
+                                            for (var i=0; i<chk.length; i++) {
+                                                if(checkbox.value == chk[i].value) {
+                                                    chk[i].checked = true;
+                                                } else {
+                                                    chk[i].checked = false;
+                                                }
+                                            }*/
+                                        } catch(e) {
+                                            alert(e.message);
+                                        }
+                                    }
+                                    </script>
+                                    
+                                    <apex:pageBlock id="pbSearchResults">
+                                         <apex:variable var="index" value="{!0}" /> 
+                                        <apex:datatable value="{!theEmployeeRows}" var="a" border="0" cellpadding="2" id="dateTable">
+                                            <apex:column >
+                                               <apex:variable var="index" value="{!index + 1}" />   
+                                                <apex:inputCheckbox value="{!a.IsSelected}" rendered="{!IF(AND(a.theEmployee.id!=null,CallerMode!='S'), true , false)}" >
+                                                </apex:inputCheckbox> 
+                                                <apex:inputCheckbox Id="checkbox" value="{!a.IsSelected}"  onclick="changeValue('{!index}')" rendered="{!IF(AND(a.theEmployee.id!=null,CallerMode=='S'), true , false)}" >
+                                                </apex:inputCheckbox> 
+                                            </apex:column>
+                                         
+                                             <apex:column >
+                                                
+                                                    <apex:outputText value="{!a.theEmployee.Name}"/>
+                                                
+                                                
+                                            </apex:column>
+                                            <apex:column >
+                                                <div   style="display:none;">
+                                                    {!a.theEmployee.Id}
+                                                   <!-- <apex:outputtext id="Id" value="{!a.theEmployee.Id}"  style="width:100px;" /> -->
+                                                </div>
+                                            </apex:column>
+                                            
+                                            <apex:column >
+                                                
+                                                <div  style="width:160px;">
+                                                    <apex:selectList id="Service__c" value="{!a.MyService}" size="1" style="width:160px;">  
+                                                        <apex:selectOptions value="{!a.ServiceOptions}"/>  
+                                                        <!--<apex:actionSupport event="onchange" action="{!a.fetchServiceFee}" onComplete="doAlert({!a.IshavingFamilybutSinglePlan});" />
+-->
+                                                    </apex:selectList>  
+                                                </div>
+                                                <script>
+                                                function  doAlert(yesno) {
+                                                    if (yesno) alert('Warning：家族がいるのに、単身のプランを選らびました。再確認してください。');
+                                                }
+                                                </script>
+                                            </apex:column>
+                                            
+                                            <apex:column >
+                                                <div style="width:150px;">
+                                                    <apex:outputfield value="{!a.theEmployee.WorkingCompany__r.name}" style="width:100px;">
+                                                    </apex:outputfield>
+                                                </div>
+                                            </apex:column>
+                                            <apex:column >
+                                                <apex:outputtext value="{!a.FamilyMessage}"  style="width:100px;" />
+                                            </apex:column>
+                                        </apex:datatable>
+                                    </apex:pageBlock>
+                                </apex:outputPanel>
+                                
+                            </apex:actionRegion>
+                        </apex:tab>
+                        
+                        <!-- NEW TAB -->
+                        <apex:tab label="新規" name="tab2" id="tabTwo">
+                            
+                            <apex:commandButton action="{!UpdateRecordsAndStay}" value="Save" oncomplete="closePopup4('{!Individual.id}');"/>
+
+<!--                            
+                             <apex:commandButton onclick="closePopup4('{!Individual.name}');" value="Save" />
+-->
+                            <apex:commandButton action="{!Cancel}" value="Cancel"/>
+                            <script>
+                            var closePopup4 = function( individual_id){
+                                // alert(individual_id);
+                                try 
+                                {
+                                    // alert('try');
+                                    if ( Validation3() == true) {
+                                        // alert('after Validation3');
+                                        var StartRow = [];
+                                        StartRow.push('{!CallerRowID}','{!CallerRowIndex}');
+                                        // alert(StartRow);
+                                        var DateRequest = '{!CallerDateRequest}'; 
+                                        // alert(DateRequest);
+                                        if (DateRequest !='nodate')
+                                            var sd = document.getElementById("pg:pb:theform:MembershipStartDate__c");
+                                        //alert(StartRow+','+sd.value+','+individual_id);
+                                        
+                                        parent.window.opener.document.getElementById("parentElemStartRow").innerHTML = StartRow;
+                                        if (DateRequest !='nodate')
+                                            parent.window.opener.document.getElementById("parentElemStartDate").innerHTML = sd.value;
+                                        parent.window.opener.document.getElementById("parentElemIndividual").innerHTML = individual_id;
+                                        
+                                        parent.window.opener.CallParent();
+                                        self.close();
+                                        
+                                    }
+                                }
+                                catch(e)
+                                {
+                                    alert(e);
+                                }
+                            }
+                            
+                            function Validation3(){
+                                // alert('Validation3');
+                                try 
+                                { 
+                                     var DateRequest = '{!CallerDateRequest}';
+                                    // var inputStartDate = document.getElementById("pg:pb:theform:MembershipStartDate__c").value;
+                                    
+                                   
+                                    // alert(inputStartDate);
+                                    
+                                    // alert(DateRequest);
+                                    /*  if (DateRequest=='nodate')
+                                        return true;
+                                    else if (inputStartDate ==''){
+                                        alert('Please input start date!');
+                                        return false;
+                                    } else 
+                                        return true; */
+                                    if (DateRequest=='nodate')
+                                        return true;
+                                    else { //pg:pb:theform:MembershipStartDate__c
+                                        var inputStartDate = document.getElementById("pg:pb:theform:MembershipStartDate__c").value;
+                                        // alert(inputStartDate);
+                                        // var DateRequest = '{!CallerDateRequest}'; 
+                                        // alert(DateRequest);
+                                        if (inputStartDate ==''){
+                                            alert('Please input start date!');
+                                            return false;
+                                        } else
+                                            return true;
+                                    }
+                                }
+                                catch(e)
+                                {
+                                    alert(e);
+                                }
+                            }
+                            </script>
+                  
+                            <apex:pageBlocksection id="thePerson" title="情報" columns="2">
+                                
+                                <apex:inputField value="{!Individual.Name}" id="Name"/>
+                                <apex:inputField label="性別" value="{!Individual.Sex__c}"/>
+                                <apex:inputField label="姓（カナ）" value="{!Individual.LastNameKana__c}"/>
+                                <apex:inputField label="名（カナ）" value="{!Individual.FirstNameKana__c}"/>
+                                <apex:inputField label="姓（ローマ字）" value="{!Individual.LastNameRoma__c}"/>
+                                <apex:inputField label="名（ローマ字）" value="{!Individual.FirstNameRoma__c}"/>
+                                <apex:inputField label="生年月日" value="{!Individual.DateOfBirth__c}"/>
+                                <!--<apex:inputField label="国" value="{!Individual.Country__c}"/> -->
+                                <apex:outputField label="勤務会社" value="{!Individual.WorkingCompany__c}"/> 
+                                <apex:inputField label="住所" value="{!Individual.Address__c}"/>
+                                <apex:inputField label="国際電話国番号" value="{!Individual.CountryCallingCodes__c}"/>
+                                <apex:inputField label="携帯TEL" value="{!Individual.Mobile__c}"/>
+
+                              <!--  <apex:inputField label="(退会後）役職" value="{!Individual.PositionAfterWithdrawal__c}"/>
+                                <apex:inputField label="(退会後）部署" value="{!Individual.DeptAfterWithdrawal__c}"/>
+                                <apex:inputField label="(退会後）勤務先会社" value="{!Individual.CompanyAfterWithdrawal__c}"/> -->
+                                <apex:outputField label="AC用顧客情報" value="{!Individual.AC_Information__c}"/>
+                               <!-- <apex:inputField label="一時帰国中担保" value="{!Individual.ReturningHomeCountryCoverage__c}"/>-->
+                                <apex:inputField label="役職" value="{!Individual.Position__c}"/>
+                              <!--  <apex:inputField label="所属地区" value="{!Individual.AffiliationDistrict__c}"/> -->
+                                <apex:inputField label="持病" value="{!Individual.ChronicDisease__c}"/>
+                                <apex:inputField label="苦情区分" value="{!Individual.Complaint__c}"/>
+                                <apex:outputField label="家族番号" value="{!Individual.FamilyNo__c}"/>
+                                <!--<apex:inputField label="家族関係" value="{!Individual.FamilyRelationship__c}"/>-->
+                                <apex:inputField label="健診システム番号" value="{!Individual.HealthCheckSystemNo__c}"/>
+                                <!--<apex:inputField label="現メンバー番号" value="{!Individual.CurrentMemberNo__c}"/>-->
+                                <apex:inputField label="郵便番号" value="{!Individual.PostalCode__c}"/>
+                                
+                               <!-- <apex:inputField label="管轄地区" value="{!Individual.Jurisdiction__c}"/> -->
+                                <!--<apex:inputField label="親" value="{!Individual.Parent__c}"/> -->
+                                <apex:inputField label="メール配信" value="{!Individual.MailDelivery__c}"/>
+                                <apex:inputField label="メールアドレス" value="{!Individual.EmailAddress__c}"/>
+                                   <apex:inputField label="{!$ObjectType.wb_Individual__c.fields.Note__c.label}" value="{!Individual.Note__c}"/>
+                            </apex:pageBlocksection>
+                            
+                            <apex:pageBlocksection id="thefamily" title="家族" columns="１">
+                                <script>
+                                function scrollSomewhere() {
+                                     alert('scroll');
+                                    document.querySelector('#family').scrollIntoView();
+                                }
+                                </script>
+                                 <!--  oncomplete="scrollSomewhere()" -->
+                                <apex:commandButton action="{!NewFamilyMember}"
+                                                 
+                                                    value="家族メンバー追加" reRender="thefamily" />
+                                
+                                <p id="family"></p>   
+                                <apex:datatable value="{!WholeFamily}" var="a" columns="10" border="1" cellpadding="4"  >  
+                                    <apex:column >
+                                        <apex:commandButton value="削除"
+                                                            onClick="openPopupConfirmDeletePendingWin('{!a.id}','{!a.name}');return false;"/>
+                                        <script>
+                                        function confirmation(name) {  
+                                            if (!confirm( name + 'を削除?' )) return false;
+                                            else return true;
+                                        }
+                                        function openPopupConfirmDeletePendingWin(id,name){
+                                            try {
+                                                if (confirmation(name)) {
+                                                    // alert(id );
+                                                    //CallApexMethod2DeletePendingCar(id,idx);
+                                                }
+                                                
+                                            }catch(e)
+                                            {
+                                                alert(e);
+                                            }                       
+                                            return false;
+                                        }
+                                        
+                                        </script>
+                                    </apex:column>
+                                    
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.Name.label}"><apex:inputField value="{!a.Name}"></apex:inputField>
+                                    </apex:column>
+                                    
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.Sex__c.label}">
+                                        <apex:inputField value="{!a.Sex__c}"></apex:inputField>
+                                    </apex:column>
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FamilyRelationship__c.label}">
+                                        <apex:inputField value="{!a.FamilyRelationship__c}"></apex:inputField>
+                                    </apex:column>
+                                    
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FamilyNo__c.label}">
+                                        <apex:inputField value="{!a.FamilyNo__c}"></apex:inputField>
+                                    </apex:column>
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FirstNameKana__c.label}">
+                                        <apex:inputField value="{!a.FirstNameKana__c}"></apex:inputField>
+                                    </apex:column>
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.LastNameKana__c.label}">
+                                        <apex:inputField value="{!a.LastNameKana__c}"></apex:inputField>
+                                    </apex:column>
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FirstNameRoma__c.label}">
+                                        <apex:inputField value="{!a.FirstNameRoma__c}"></apex:inputField>
+                                    </apex:column>
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.LastNameRoma__c.label}">
+                                        <apex:inputField value="{!a.LastNameRoma__c}"></apex:inputField>
+                                    </apex:column>
+                                    <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.DateOfBirth__c.label}">
+                                        <div style="width:90px;">
+                                            <apex:inputfield value="{!a.DateOfBirth__c}" style="width:90px;"> </apex:inputfield>
+                                            <style type="text/css">
+                                                .dateFormat{
+                                                visibility:hidden;
+                                                }
+                                            </style>  
+                                        </div>
+                                        
+                                        
+                                    </apex:column>
+                                    
+                                </apex:datatable>
+                                
+                            </apex:pageBlocksection>
+                            
+                        </apex:tab>
+                    </apex:tabPanel>
+                </apex:outputPanel> 
+                
+            </apex:form>
+        </apex:pageBlock>
+    </apex:sectionHeader>
+</apex:page>

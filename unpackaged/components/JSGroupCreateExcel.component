@@ -1,0 +1,180 @@
+<apex:component >
+
+<apex:attribute name="group" description="AffiliatedCompany Object" type="AffiliatedCompany__c" required="true"/>
+<apex:attribute name="data" description="Data" type="GroupData" required="true"/>
+
+<script>
+  
+  var data = new Array();
+  var index = 1;
+  
+  <apex:repeat value="{!data.rows}" var="r">
+    data[index] = new Object();
+    data[index].KeiyakuCompany = "{!r.KeiyakuCompany.Name}";
+    data[index].KinmuCompanyCd = "{!r.KinmuCompany.CompanyCd__c}";
+    data[index].KinmuCompany = "{!r.KinmuCompany.Name}";
+    data[index].ShozokuArea = "{!r.KinmuCompany.ShozokuArea__c}";
+    data[index].EigyoTanto = "{!r.KinmuCompany.EigyoTanto__r.Name}";
+    data[index].KeitaiCdS = {!r.KeitaiCdS};    
+    data[index].KeitaiCdF = {!r.KeitaiCdF};    
+    data[index].KeitaiCdM = {!r.KeitaiCdM};    
+    data[index].OtaAgency = {!r.OtaAgency};    
+    data[index].Ichiroheian = {!r.Ichiroheian};
+    data[index].OIIchiroheian = {!r.OIIchiroheian};    
+    data[index].BL = {!r.BL};
+    data[index].Kenshin = {!r.Kenshin};
+   
+    index++;
+  </apex:repeat>
+  
+  
+/** Excel最大列数 */
+var EXCLE_MAX_COLUMN = 256;
+/** Excel最大行数 */
+var EXCLE_MAX_ROW = 65536;
+  
+var TODAY = "<apex:outputText value="{0,date,yyyyMMdd}"><apex:param value="{!TODAY()}" /></apex:outputText>";
+var TODAYDISP = "<apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!TODAY()}" /></apex:outputText>";
+
+var detailCnt = 1;
+var iCnt = 1;
+var bCnt = 1;
+var kCnt = 1;
+    
+function createExcel()
+{    
+  var excel, book, sheet, c;
+  try
+  {
+    var tmpName = "グループ企業取引実績";
+    var folder = "c:\\temp";
+    var filename = tmpName + "<apex:outputText value="{0,date,yyyyMMdd}"><apex:param value="{!TODAY()}" /></apex:outputText>.xls";
+    var tfilename = "TEMP-" + tmpName + ".xls";
+    var path = folder + "\\" + filename;
+    var tpath = folder + "\\" + tfilename;
+    
+    var objFso = new ActiveXObject("Scripting.FileSystemObject");
+    if(!objFso.FolderExists(folder)) 
+      objFso.CreateFolder(folder);
+    if(objFso.FileExists(path))
+      objFso.DeleteFile(path, true);
+    if(objFso.FileExists(tpath))
+      objFso.DeleteFile(tpath, true);
+    
+    if (!getDocumentByName(tmpName, folder, tfilename)) return;
+  
+    excel = new ActiveXObject("Excel.Application");
+    excel.visible = false;
+    excel.DisplayAlerts = false;
+    book = excel.workbooks.Open(tpath);
+    var tempsheet = book.WorkSheets(1);
+    sheet = book.WorkSheets(1);
+    
+    sheet = createDetail(sheet, data, tempsheet, book);
+    tempsheet.Delete;
+                
+    // 保存
+    book.SaveAs(path, -4143);
+    
+    if(objFso.FileExists(tpath))
+      objFso.DeleteFile(tpath, true);
+        
+  } catch (e) {
+      alert("Excel生成時にエラーが発生しました。");
+      window.top.location.href = "/{!group.Id}";
+      return;
+  } finally {
+      try {
+          if (sheet != null) {
+              sheet = null;
+          }
+        if (book != null) {
+            book.Close();
+            book = null;
+        }
+        if (excel != null) {
+            excel.Quit();
+            excel = null;
+        }
+    } catch (e) {
+        alert("Excel生成時にエラーが発生しました。");
+        window.top.location.href = "/{!group.Id}";
+        return;
+    }
+  }
+    
+  var aid = findAttachmentByCreatorAndPrefix("{!group.Id}", tmpName);
+  if(aid=='')
+    attachFile("{!group.Id}", path, filename);
+  else
+    replaceAttachment(aid, path, filename);
+    
+    alert("正常に終了しました。");
+    window.top.location.href = "/{!group.Id}";
+}
+
+
+function createDetail(sheet, data, tempSheet, book)
+{
+    var row = 8;
+    var pageRow = 33;
+    var added = false;
+    var count=1;
+    for (var i = 1; i < data.length; i++) 
+    {
+        if ((row > EXCLE_MAX_ROW)||(!added)) {
+            tempSheet.Copy(null, sheet);
+            sheet = book.Worksheets(book.Worksheets.Count);
+            sheet.Name = "テンプレート" + (book.Worksheets.Count-1);
+            setCell(sheet.Cells(2, 55), TODAYDISP);
+            setCell(sheet.Cells(3, 5), "{!group.Name}");
+            row = 8;
+            pageRow = 33;
+            added = true;
+        }
+        if (row == pageRow) {
+            pageRow += 36;
+            // 2ページ目以降の追加
+            tempSheet.Rows("1:36").copy;
+            sheet.Cells(row, 1).Insert;
+            setCell(sheet.Cells(row+1, 55), TODAYDISP);
+            setCell(sheet.Cells(row+2, 5), "{!group.Name}");
+            row += 7;
+        }
+    
+        var d = data[i];
+
+        setCell(sheet.Cells(row, 1), d.KeiyakuCompany);
+        setCell(sheet.Cells(row, 13), "'" + d.KinmuCompanyCd);
+        setCell(sheet.Cells(row, 16), d.KinmuCompany);
+        setCell(sheet.Cells(row, 28), d.ShozokuArea);
+        setCell(sheet.Cells(row, 31), d.EigyoTanto);
+        setCell(sheet.Cells(row, 34), d.KeitaiCdS);
+        setCell(sheet.Cells(row, 36), d.KeitaiCdF);
+        setCell(sheet.Cells(row, 38), d.KeitaiCdM);
+        setCell(sheet.Cells(row, 40), d.OtaAgency ? "☆" : "");
+        setCell(sheet.Cells(row, 42), d.Ichiroheian);
+        setCell(sheet.Cells(row, 44), d.OIIchiroheian);
+        setCell(sheet.Cells(row, 46), d.BL ? "☆" : "");
+        setCell(sheet.Cells(row, 48), d.Kenshin);
+        row++;
+    }
+    return sheet;
+    
+}
+
+
+function setCell(cell, data) { 
+    cell.Value = data;
+}
+
+</script>
+
+<c:JSAttachment />
+<c:JSDocument />
+
+<script>
+createExcel();
+</script>
+
+</apex:component>

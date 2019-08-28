@@ -1,0 +1,619 @@
+<apex:page standardcontroller="wb_Service__c" extensions="wb_Service" id="thePage">
+     
+    <apex:form id="theForm" >
+        
+        <apex:actionFunction name="CallApexMethod2RefreshService" action="{!GetPsgService}" reRender="theForm" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!selectedGroupID}" value="" />
+        </apex:actionFunction>
+        <!--
+        <apex:actionFunction name="CallApexMethod2DeleteBLInsuranceItem" action="{!BL.InsuranceItemRemove}" reRender="theForm" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!BL.InsuranceItemRemoveId}" value="" />
+            <apex:param name="SecondParam" assignTo="{!BL.InsuranceItemRemoveIndex}" value="" />
+        </apex:actionFunction>
+        -->
+        <apex:pageBlock id="theClassificationBlock" title="区分">
+            
+            <apex:pageBlockSection columns="1" id="theServiceClassification" >
+                
+                <apex:selectList id="ServiceClassification__c" value="{!selectedServiceClassification}" style="width:120px;" size="1" label="{!$ObjectType.wb_Service__c.fields.ServiceClassification__c.label}" >
+                    <apex:selectOptions value="{!ServiceClassificationOptions}"></apex:selectOptions>
+                    
+                    <apex:actionSupport event="onchange"
+                                        action="{!fetchServiceGroupOtn}"
+                                        reRender="theForm"/>
+                </apex:selectList> 
+                
+                
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="thePsgrBlock">
+            <apex:pageBlockSection id="thePsgrSection" columns="1" title="搭乗サービス" rendered="{!IF((selectedServiceClassification=='搭乗'), true , false)}">
+                
+                
+                
+                <apex:variable var="index" value="{!0}" />  
+                <apex:dataTable id="OptionServiceGroupingList" value="{!ServiceGroupOtn}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);" >
+                    <!--Country__c-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputtext value="{!$ObjectType.wb_Service__c.fields.Country__c.label}"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        
+                        <apex:outputPanel >
+                            
+                            <div style="width:80px;">
+                                
+                                <apex:selectList id="CountryOptions" value="{!row.selectedCountry}" style="width:80px;" size="1"  >
+                                    <apex:selectOptions value="{!row.CountryOptions}"></apex:selectOptions>
+                                    <apex:actionSupport event="onchange"
+                                                        action="{!fetchCurrencyOptions}"
+                                                        reRender="theForm"/>
+                                </apex:selectList> 
+                                
+                            </div>
+                            
+                        </apex:outputPanel>
+                        
+                    </apex:column>  
+                    <!--Currency__c-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputtext value="{!$ObjectType.wb_Service__c.fields.Currency__c.label}"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        
+                        <apex:outputPanel >
+                            
+                            <div style="width:80px;">
+                                
+                                <apex:selectList id="CurrencyOptions" value="{!row.selectedCurrency}" style="width:80px;" size="1"  >
+                                    <apex:selectOptions value="{!row.CurrencyOptions}"></apex:selectOptions>
+                                    <apex:actionSupport event="onchange"
+                                                        action="{!fetchInsuranceCompanyOptions}"
+                                                        reRender="theForm"/>
+                                </apex:selectList> 
+                                
+                            </div>
+                            
+                        </apex:outputPanel>
+                        
+                    </apex:column>  
+                    <!--ServiceCompany__c-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:180px;">
+                                    <apex:outputtext value="保険会社"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        
+                        <apex:outputPanel >
+                            
+                            <div style="width:180px;">
+                                
+                                <apex:selectList id="InsuranceCompanyOptions" value="{!row.selectedInsuranceCompany}" style="width:180px;" size="1"  >
+                                    <apex:selectOptions value="{!row.InsuranceCompanyOptions}"></apex:selectOptions>
+                                    <apex:actionSupport event="onchange"
+                                                        action="{!fetchServiceOptions}"
+                                                        reRender="theForm"/>
+                                </apex:selectList> 
+                                
+                            </div>
+                            
+                        </apex:outputPanel>
+                        
+                    </apex:column>  
+                    <!--ServiceOptions-->
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:150px;">
+                                    <apex:outputtext value="主商品"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        
+                        <apex:outputPanel >
+                            
+                            <div style="width:150px;">
+                                
+                                <apex:selectList id="ServiceOptions" value="{!row.selectedService}" style="width:150px;" size="1"  >
+                                    <apex:selectOptions value="{!row.ServiceOptions}"></apex:selectOptions>
+                                    <apex:actionSupport event="onchange"
+                                                        action="{!fetchServiceGroupOptions}"
+                                                        reRender="theForm"/>
+                                </apex:selectList> 
+                                
+                            </div>
+                            
+                        </apex:outputPanel>
+                        
+                    </apex:column>  
+                    
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:150px;">
+                                    <apex:outputtext value="オプション"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        
+                        <apex:outputPanel >
+                            <div style="width:150px;">
+                                <apex:selectList id="GroupOptions" value="{!row.selectedGroupID}" style="width:150px;" size="1"  >
+                                    <apex:selectOptions value="{!row.GroupOptions}">
+                                        
+                                        
+                                    </apex:selectOptions>
+                                    <apex:actionSupport event="onchange"
+                                                        action="{!GetPsgService}"
+                                                        reRender="theForm"/>
+                                </apex:selectList> 
+                                
+                                
+                            </div>
+                            
+                        </apex:outputPanel>
+                        
+                    </apex:column>  
+
+                </apex:dataTable>   
+                
+                <apex:pageBlockSection title="新規情報" columns="1" rendered="{!IF(OR((ServiceGroupOtn.MyStatus=='--New--'),(ServiceGroupOtn.selectedGroupID=='--New--')), true , false)}">
+                    <apex:inputField id="Country__c" value="{!PSGService.PsgrGroup.Country__c}" style="width:70px;" label="国："></apex:inputField>
+                    <apex:inputField id="Currency__c" value="{!PSGService.PsgrGroup.Currency__c}" style="width:70px;" label="通貨："></apex:inputField>
+                    <apex:inputField id="ServiceCompany__c" value="{!PSGService.PsgrGroup.ServiceCompany__c}" style="width:200px;" label="保険会社："></apex:inputField>
+                    
+                </apex:pageBlockSection>
+                
+                
+                  <apex:inputfield id="CommissionRate__c" value="{!PSGService.PsgrGroup.CommissionRate__c}"
+                                   rendered="{!IF((ServiceGroupOtn.selectedService!=null), true , false)}"
+                                   style="width:70px;" label="{!$ObjectType.wb_Service__c.fields.CommissionRate__c.label} %"></apex:inputfield>
+                
+                <apex:tabPanel switchType="client" selectedTab="name1" id="thePsgrTabPanel">
+                    <apex:tab label="主商品" name="name1" id="tabMain">
+                        
+                        <apex:pageBlockSection columns="1" rendered="{!IF(OR((ServiceGroupOtn.MyStatus=='--New--'),(ServiceGroupOtn.selectedGroupID=='--New--')), true , false)}">
+                            <apex:inputField id="Service__c" value="{!PSGService.PsgrGroup.Service__c}" style="width:70px;" label="主商品名："></apex:inputField>
+                            <apex:inputField id="MainType__c" value="{!PSGService.PsgrGroup.MainType__c}" style="width:70px;" label="計算方法："></apex:inputField>
+                            <apex:commandButton action="{!PSGService.NewMainService}" value="追加" reRender="theForm"/>
+                        </apex:pageBlockSection>
+                        
+                        
+                        <apex:pageBlockSection columns="1" rendered="{!IF(OR((ServiceGroupOtn.MyStatus=='--New--'),(ServiceGroupOtn.selectedGroupID=='--New--')), false , true)}">
+                            <apex:outputfield id="MainType__c" value="{!PSGService.PsgrGroup.MainType__c}" label="計算方法："/>
+                            <apex:commandButton action="{!PSGService.AddMainService}" value="追加" reRender="theForm"/>
+                        </apex:pageBlockSection>
+                        
+                        <apex:dataTable id="PsgrMain" value="{!PSGService.PsgrMain}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);" >
+                            
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CommodityName__c.label}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputField id="SERVICE__C" value="{!row.Service__c}" style="width:90px;"></apex:outputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>    
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsurancePlan__c.label,'（搭乗）','')}"></apex:outputtext><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:inputField id="PLAN__C" value="{!row.Plan__c}" style="width:70px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_Service__c.fields.DriverSeatInsurance__c.label,'（搭乗）','')}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:70px;">
+                                        <apex:inputField id="DriverSeatInsurance__c" value="{!row.DriverSeatInsurance__c}" style="width:70px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_Service__c.fields.MinSeat__c.label,'（搭乗）','')}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:70px;">
+                                        <apex:inputField id="MinSeat__c" value="{!row.MinSeat__c}" style="width:70px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_Service__c.fields.MaxSeat__c.label,'（搭乗）','')}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:70px;">
+                                        <apex:inputField id="MaxSeat__c" value="{!row.MaxSeat__c}" style="width:70px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_CIC_Passenger__c.fields.Psgr_StdDriverSeatFee__c.label,'（搭乗）','')}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:inputField id="DRIVERFEE__C" value="{!row.DriverFee__c}" style="width:100px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_CIC_Passenger__c.fields.Psgr_StdPassengerSeatFee__c.label,'（搭乗）','')}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:inputField id="PassengerFee__c" value="{!row.PassengerFee__c}" style="width:100px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            
+                        </apex:dataTable>      
+                        
+                    </apex:tab>
+                    
+                    <apex:tab label="オプション" name="name3" id="tabOption">
+                        <apex:pageBlockSection columns="1" rendered="{!IF(OR((ServiceGroupOtn.MyStatus=='--New--'),(ServiceGroupOtn.selectedGroupID=='--New--')), true , false)}">
+                            <apex:inputField id="PLAN__C" value="{!PSGService.PsgrGroup.Plan__c}" style="width:70px;" label="オプション名："></apex:inputField>
+                            <apex:inputField id="OptionType__c" value="{!PSGService.PsgrGroup.OptionType__c}" style="width:70px;" label="計算方法："></apex:inputField>
+                            <apex:commandButton action="{!PSGService.NewOpService}" value="追加" reRender="theForm"/>
+                        </apex:pageBlockSection>
+                        
+                        <apex:pageBlockSection columns="1" rendered="{!IF(OR((ServiceGroupOtn.MyStatus=='--New--'),(ServiceGroupOtn.selectedGroupID=='--New--')), false , true)}">
+                            <apex:outputfield id="OptionType__c" value="{!PSGService.PsgrGroup.OptionType__c}" label="計算方法："/>
+                            <apex:commandButton action="{!PSGService.AddOpService}" value="追加" reRender="theForm"/>
+                        </apex:pageBlockSection>
+                        
+                        <apex:dataTable id="PsgrOption" value="{!PSGService.PsgrOption}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);" >
+                            
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CommodityName__c.label}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:outputField id="SERVICE__C" value="{!row.Service__c}" style="width:90px;"></apex:outputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>    
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_CIC_Passenger__c.fields.OP_Plan__c.label,'（OP）','')}"></apex:outputtext><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:inputField id="PLAN__C" value="{!row.Plan__c}" style="width:70px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            <!--
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_Service__c.fields.DriverSeatInsurance__c.label,'（搭乗）','')}"></apex:outputtext><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:inputField id="DriverSeatInsurance__c" value="{!row.DriverSeatInsurance__c}" style="width:70px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            -->
+                             <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputtext value="{!$ObjectType.wb_Service__c.fields.MinSeat__c.label}"></apex:outputtext><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:inputField id="MinSeat__c" value="{!row.MinSeat__c}" style="width:70px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:80px;">
+                                            <apex:outputtext value="{!$ObjectType.wb_Service__c.fields.MaxSeat__c.label}"></apex:outputtext><br/>
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:80px;">
+                                        <apex:inputField id="MaxSeat__c" value="{!row.MaxSeat__c}" style="width:70px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_CIC_Passenger__c.fields.OP_StdDriverSeatFee__c.label,'（OP）','')}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:inputField id="DRIVERFEE__C" value="{!row.DriverFee__c}" style="width:100px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            
+                            <apex:column >
+                                <apex:facet name="header">
+                                    <apex:outputPanel >
+                                        <div style="width:100px;">
+                                            <apex:outputtext value="{!SUBSTITUTE($ObjectType.wb_CIC_Passenger__c.fields.OP_StdPassengerSeatFee__c.label,'（OP）','')}"></apex:outputtext><br/>
+                                            
+                                        </div>
+                                    </apex:outputPanel>
+                                </apex:facet>
+                                
+                                <apex:outputPanel >
+                                    <div style="width:100px;">
+                                        <apex:inputField id="PassengerFee__c" value="{!row.PassengerFee__c}" style="width:100px;"></apex:inputField>
+                                    </div>
+                                    
+                                </apex:outputPanel>
+                                
+                            </apex:column>  
+                            
+                            
+                        </apex:dataTable>   
+                        
+                    </apex:tab>
+                </apex:tabPanel>
+                
+                <apex:commandButton action="{!PSGService.SaveNew}" value="保存" rendered="{!IF((ServiceGroupOtn.MyStatus=='--New--'), true , false)}"/>  
+                
+                <apex:commandButton action="{!PSGService.UpdateRecord}" value="保存" rendered="{!IF((ServiceGroupOtn.MyStatus=='--New--'), false , true)}"/>  
+                
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        
+        <apex:pageBlock id="BLBlock" rendered="{!IF((selectedServiceClassification=='BL'), true , false)}"  title="BLサービス">
+            
+            <apex:pageBlockSection id="theBLInsuranceSection" columns="1" title="BL Insurance" >
+                
+                <apex:selectList id="Insurance" value="{!BL.selectedInsurance}" style="width:250px;" size="1" label="{!$ObjectType.BL__c.fields.Insurance__c.label}" >
+                    <apex:selectOptions value="{!BL.InsuranceOptions}"></apex:selectOptions>
+                    
+                    <apex:actionSupport event="onchange"
+                                        action="{!BL.fetchInsuranceItem}"
+                                        reRender="theForm"/> 
+                </apex:selectList> 
+				
+                <apex:dataTable id="newInsurance" value="{!BL.new_pservice}" var="row"  cellpadding="4" border="1"  rendered="{!IF((BL.selectedInsurance=='--New--'), true , false)}" >
+                    <apex:column >
+                        <apex:inputField value="{!row.Service__c}" > </apex:inputField>
+                    </apex:column>
+                    <apex:column >
+                         <apex:commandButton value="Add" action="{!BL.AddNewInsurance}"  reRender="theForm"/>    
+                    </apex:column>
+                </apex:dataTable>
+               
+  
+                </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="theBLOperationSection" columns="2" title="Operation"  rendered="{!IF(OR((BL.selectedInsurance==''),(BL.selectedInsurance=='--New--')), false , true)}"  >
+                
+                <apex:commandButton value="Add New" action="{!BL.AddNewInsuranceItem}"/>    
+                <apex:commandButton value="Save Change" action="{!BL.SaveInsuranceItem}"/>   
+                </apex:pageBlockSection>
+            
+            <apex:pageBlockSection id="theBLInsuranceItemSection" columns="1" title="Insurance Item"  rendered="{!IF(OR((BL.selectedInsurance==''),(BL.selectedInsurance=='--New--')), false , true)}"  >
+                
+                <apex:variable var="index" value="{!0}"/>
+                <apex:dataTable id="Item" value="{!BL.Item}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);" >
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:50px;">
+                                    <apex:outputText value="Action"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        
+                        <apex:variable var="index" value="{!index + 1}" /> 
+                        
+                        <apex:commandButton value="削除" onClick="openPopupConfirmDeleteWin('{!row.id}','{!index}');return false;" />
+                        
+                        <script>
+                        function confirmation() {  
+                            if (!confirm('Do you want to proceed?')) return false;
+                            else return true;
+                        }
+                        function openPopupConfirmDeleteWin(id,idx){
+                            try {
+                                if (confirmation()) {
+                                    alert(idx +' ' +id);
+                                    CallApexMethod2DeleteBLInsuranceItem(id,idx);
+                                }
+                                
+                            }catch(e)
+                            {
+                                alert(e);
+                            }                       
+                            return false;
+                        }
+                        
+                        </script>
+                        
+                        
+                    </apex:column>
+                    
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:200px;">
+                                    <apex:outputtext value="{!$ObjectType.BL__c.fields.CommodityName__c.label}"></apex:outputtext><br/>
+                                    
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        
+                        <apex:outputPanel >
+                            <div style="width:150px;">
+                                <apex:inputField id="Service__c" value="{!row.Service__c}" style="width:150px;"></apex:inputField>
+                            </div>
+                            
+                        </apex:outputPanel>
+                        
+                    </apex:column>    
+                    
+                    
+                    
+                    
+                    
+                </apex:dataTable>
+                  </apex:pageBlockSection>
+            
+
+            <script>
+            var lastRow;
+            function highlight(elem){
+                if(lastRow != undefined)
+                    lastRow.style.backgroundColor = 'white';
+                
+                elem.style.backgroundColor = 'yellow';
+                lastRow = elem;
+            }
+            
+            function GetIndex(idx){
+                //alert(' index n' + idx);
+                CallApexMethodRetriveCarInfo(idx);
+                
+                
+            }
+            
+            
+            </script>
+            
+        </apex:pageBlock>
+       
+    </apex:form> 
+    
+</apex:page>

@@ -1,0 +1,2 @@
+<apex:page standardcontroller="wb_CIC_Compulsory__c" extensions="wb_CIC_Compulsory_redirect"  action="{!redirect}" id="thePage" sidebar="false" showHeader="false">
+</apex:page>

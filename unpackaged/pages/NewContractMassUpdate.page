@@ -1,0 +1,106 @@
+<apex:page standardController="ContractInfo__c" extensions="NewContractMassUpdateControllerEx" >
+
+  <apex:sectionHeader title="{!$Label.ContractNo} {!ContractInfo__c.Name}"
+    subtitle="{!$Label.ContractCompanyName} {!ContractInfo__c.KeiyakuCompanyName__r.Name}" />
+
+  <apex:pageMessages ></apex:pageMessages>
+
+  <apex:form >
+  
+    <script type="text/javascript">
+        window.onload = function() {
+          document.getElementById("back").focus();
+        };
+    </script>  
+      
+   <apex:pageBlock >
+      <apex:commandButton action="{!search}" value="{!$Label.Search}" id="search" />  
+      <apex:commandButton action="{!searchPageBack}" value="{!$Label.Cancel}" id="back" immediate="true" /> 
+        <br/><br/>
+        <apex:pageBlockSection columns="4" id="InputLookUp1" rendered="{!!IsComeFromViewList}">
+            <apex:pageBlockSectionItem id="InputLookUpItem1">
+               {!$Label.KinmuCompany} <apex:inputField value="{!searchMemberLookUp.KinmuCompany__c}"/>
+            </apex:pageBlockSectionItem>               
+        </apex:pageBlockSection> 
+        
+        <apex:pageBlockSection columns="4" id="InputLookUp11" rendered="{!IsComeFromViewList}">
+            <apex:pageBlockSectionItem id="InputLookUpItem1">
+               {!$Label.InsuranceType} <apex:inputField value="{!searchMemberLookUp.InsuranceKind__c}" required="true"/>
+            </apex:pageBlockSectionItem>               
+        </apex:pageBlockSection>         
+        
+        <apex:pageBlockSection columns="4" id="InputLookUp2">
+            <apex:pageBlockSectionItem id="InputLookUpItem1">
+               {!$Label.InsuranceExpire} (From) <apex:inputField value="{!searchMemberLookUp.OtaInsuranceShuki__c}" required="{!IsComeFromViewList}"/>
+            </apex:pageBlockSectionItem>               
+        </apex:pageBlockSection> 
+        
+        <apex:pageBlockSection columns="4" id="InputLookUp3">
+            <apex:pageBlockSectionItem id="InputLookUpItem1">
+               {!$Label.InsuranceExpire} (To) <apex:inputField value="{!searchMemberLookUp2.OtaInsuranceShuki__c}" required="{!IsComeFromViewList}"/>
+            </apex:pageBlockSectionItem>               
+        </apex:pageBlockSection>   
+        
+   </apex:pageBlock>
+  
+  
+    <apex:pageBlock rendered="{!openSearchResult}" >
+        <apex:commandButton value="{!$Label.Refine}" action="{!page2}"  />
+        <apex:commandButton value="{!$Label.CheckAll}" action="{!checkAll}"  />
+        <apex:commandButton value="{!$Label.AllUncheck}" action="{!uncheckAll}"  />
+        <apex:commandButton value="{!$Label.Cancel}" action="{!closeSearchResult}"  />      
+                
+      <table class="list" cellspacing="0">
+        <tr class="headerrow">
+          <td class="headercell">{!$Label.OTAUpdate}</td>
+          <td class="headercell">{!$Label.MemberName}</td>
+          <td class="headercell">{!$Label.AffilliationArea}</td>
+          <td class="headercell">{!$Label.KinmuCompany}</td>
+          <td class="headercell">{!$Label.MembershipNo}</td>
+          <td class="headercell">{!$Label.TypeOfContract}</td>
+          <td class="headercell">{!$Label.DateOfExpire}</td>         
+        </tr>
+        <apex:repeat value="{!Rows}" var="r">
+          <tr class="datarow">            
+            <td class="datacell"><apex:inputCheckbox value="{!r.Selected}" /></td>
+            <td class="datacell">&nbsp;&nbsp;
+                <apex:outputField value="{!r.Member.Name}" Rendered="{!!isEnglish}"/>
+                <apex:outputField value="{!r.Member.SeiMeiRoma__c}" Rendered="{!isEnglish}"/>
+            </td>  
+            <td class="datacell"><apex:outputField value="{!r.Member.ShozokuArea__c}" /></td>
+            <td class="datacell">
+                <apex:outputField value="{!r.Member.KinmuCompany__r.Name}" Rendered="{!!isEnglish}"/>
+                <apex:outputField value="{!r.Member.KinmuCompany__r.CompanyNameEng__c}" Rendered="{!isEnglish}"/>
+            </td>
+            <td class="datacell"><apex:outputField value="{!r.Member.MemberNo__c}"/></td>  
+            <td class="datacell"><apex:outputField value="{!r.Member.KeiyakuKeitai__c}" /></td>            
+            <td class="datacell"><apex:outputField value="{!r.Member.MankiDate__c}" /></td>          
+          </tr>
+          
+          <apex:repeat value="{!r.FamilyMembers}" var="fr">
+          <tr class="datarow">
+            <td class="datacell"><apex:inputCheckbox value="{!fr.Selected}" /></td>
+            <td class="datacell">&nbsp;&nbsp;
+                <apex:outputField value="{!fr.Family.Name}" Rendered="{!!isEnglish}"/>
+                <apex:outputField value="{!fr.Family.SeiMeiRoma__c}" Rendered="{!isEnglish}"/>
+            </td>
+            <td class="datacell"><apex:outputField value="{!fr.Family.ShozokuArea__c}" /></td>
+            <td class="datacell">
+                <apex:outputField value="{!r.Member.KinmuCompany__r.Name}" Rendered="{!!isEnglish}"/>
+                <apex:outputField value="{!r.Member.KinmuCompany__r.CompanyNameEng__c}" Rendered="{!isEnglish}"/>
+            </td>
+            <td class="datacell"><apex:outputField value="{!fr.Family.MemberNo__c}" /></td>
+            <td class="datacell"><apex:outputField value="{!r.Member.KeiyakuKeitai__c}" /></td>            
+            <td class="datacell"><apex:outputField value="{!r.Member.MankiDate__c}" /></td>              
+            
+          </tr>
+          </apex:repeat>
+          
+        </apex:repeat>
+      </table>  
+    
+    </apex:pageBlock>
+  
+  </apex:form>
+  
+</apex:page>

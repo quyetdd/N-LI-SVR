@@ -1,0 +1,38 @@
+<apex:page id="myPage" docType="html-5.0" controller="JqueryDatePicker">
+
+      <apex:includeScript value="{!URLFOR($Resource.jQueryUI)}" /> 
+       <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"></link>
+	
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <apex:form id="myForm">
+      From Date: <apex:input type="date" id="fromDate" value="{!fromDate}" style="display:none;" /> <input type="text" id="fromDatePicker"></input>
+      To Date: <apex:input type="date" id="toDate" value="{!toDate}" style="display:none;" /> <input type="text" id="toDatePicker"></input>
+    <!--  <apex:commandButton value="Show Dates" action="{!showDates}" rerender="myPage"/> -->
+      <script type="text/javascript">
+          var $j = jQuery.noConflict();
+              $j( "#fromDatePicker" ).datepicker({
+                      altField: "#myPage\\:myForm\\:fromDate",
+                      altFormat: "yy-mm-dd",
+                  	minDate: new Date(),
+                  beforeShowDay: available
+               });
+              $j( "#toDatePicker" ).datepicker({
+                      altField: "#myPage\\:myForm\\:toDate",
+                      altFormat: "yy-mm-dd"
+               });
+               $j("#fromDatePicker").value($j("#myPage\\:myForm\\:fromDate").value());
+               $j("#toDatePicker").value($j("#myPage\\:myForm\\:toDate").value());
+
+function available(date) {
+    var day = date.getDate(),
+        last=(new Date(date.getFullYear(),date.getMonth() + 1, 0, 23, 59, 59)).getDate();
+    if (day==1||day==15) {
+        return [true, "", "Available"];
+    } else {
+        return [false, "", "unAvailable"];
+    }
+}
+      </script>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,137 @@
+<apex:page standardController="account" extensions="wb_AccountMembershipPanel" id="pg">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"/>
+        <script src="/soap/ajax/29.0/connection.js"/>
+            <script src="/soap/ajax/29.0/apex.js"/>
+                <script type="text/javascript">
+    function ConvertFromOld(){
+        
+        try { 
+            
+            var baseURL = getBaseURL(); 
+            var para = '?'+'Id=' +'{!Account.Id}'; 
+            baseURL = baseURL + 'apex/wb_convert_ContractInfo'; 
+            window.open(baseURL + para ); 
+            
+        }catch(e) 
+        { 
+            alert(e); 
+        } 
+    }
+    
+    function NewMembershipContract(){
+        try { 
+            
+            var baseURL = getBaseURL(); 
+            var para = '?'+'pv0=' +'{!Account.Id}'; 
+            baseURL = baseURL + 'apex/wb_Membership_Edit'; 
+            window.open(baseURL + para ); 
+            
+        }catch(e) 
+        { 
+            alert(e); 
+        } 
+    }
+    
+    function MembershipData(){
+        try { 
+            
+            var baseURL = getBaseURL(); 
+            var para = '?'+'Id=' +'{!Account.Id}'; 
+            baseURL = baseURL + 'apex/wb_MemberData'; 
+            window.open(baseURL + para ); 
+            
+        }catch(e) 
+        { 
+            alert(e); 
+        } 
+    }
+    
+    function ExportMembershipData(){
+        
+        var html = '<div id="dialog" style="display: none" title="会員データ"><p>エクスポート形式を選んでください</p></div>'; 
+        
+        var $g = jQuery.noConflict(); 
+        $g(function() { 
+            $g('head').append('<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" type="text/css"/>'); 
+            $g('body').append(html); 
+            
+            $g("#dialog").dialog({ 
+                autoOpen: true, 
+                draggable: true, 
+                resizable: true, 
+                height: 'auto', 
+                width: 500, 
+                zIndex:3999, 
+                modal: false, 
+                buttons: { 
+                    "ダウンロード": function() { 
+                        var baseURL = getBaseURL(); 
+                        var para = '?'+'pv0=' +'{!Account.Id}'; 
+                        baseURL = baseURL + 'apex/wb_MemberDataExport'; 
+                        window.open(baseURL + para ); 
+                        $g(this).dialog("close"); 
+                    }, 
+                    "アタッチメント": function() { 
+                        try { 
+                            sforce.apex.execute("wb_MemberData","saveAsAttachment",{pv0:"{!Account.Id}"}); 
+                        } 
+                        catch(e) { 
+                            alert(e.message); 
+                        } 
+                        $g(this).dialog("close"); 
+                        window.location.reload(); 
+                    } 
+                } 
+            }); 
+        }); 
+    }
+    
+    function rpt_MDMemberDistribution()
+    {
+        try { 
+            
+            var baseURL = getBaseURL(); 
+            //var para = '?'+'Id=' +'{!Account.Id}'; 
+            baseURL = baseURL + 'apex/wb_rpt_MDMemberDistribution'; 
+            window.open(baseURL ); 
+            
+        }catch(e) 
+        { 
+            alert(e); 
+        } 
+    }
+        
+    function getBaseURL() { 
+        var url = location.href; // entire url including querystring - also: window.location.href; 
+        var baseURL = url.substring(0, url.indexOf('/', 14)); 
+        
+        
+        if (baseURL.indexOf('http://localhost') != -1) { 
+            // Base Url for localhost 
+            var url = location.href; // window.location.href; 
+            var pathname = location.pathname; // window.location.pathname; 
+            var index1 = url.indexOf(pathname); 
+            var index2 = url.indexOf("/", index1 + 1); 
+            var baseLocalUrl = url.substr(0, index2); 
+            
+            return baseLocalUrl + "/"; 
+        } 
+        else { 
+            // Root Url for domain name 
+            return baseURL + "/"; 
+        } 
+        
+    }
+    </script>
+    <apex:form id="theForm">
+        <apex:commandButton value="旧契約から変換" onClick="ConvertFromOld();return false;">
+        </apex:commandButton> 
+        <apex:commandButton value="契約新規" onClick="NewMembershipContract();return false;">
+        </apex:commandButton> 
+        <apex:commandButton value="会員データ" onClick="MembershipData();return false;">
+        </apex:commandButton> 
+            <apex:commandButton value="ＭＤ会員分布" onClick="rpt_MDMemberDistribution();return false;">
+        </apex:commandButton> 
+    </apex:form>
+</apex:page>

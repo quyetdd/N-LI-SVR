@@ -1,0 +1,232 @@
+<apex:page standardController="ContractInfo__c" extensions="NewRenewalBatchProcessController" action="{!Init}" id="NewRenewalBatchProcessPage">
+<apex:includeScript value="/soap/ajax/28.0/connection.js"/>
+<apex:includeScript value="/soap/ajax/28.0/apex.js"/>
+<script type="text/javascript" src="/js/dojo/0.3.1/dojo.js"></script>
+<script src="/soap/ajax/16.0/connection.js"></script>
+<apex:includeScript value="{!URLFOR($Resource.jquery, 'jquery-2.1.4.min.js')}"/>
+
+<script>function setFocusOnLoad() {}</script>
+    
+<script type="text/javascript">
+var URL_Array = [];
+
+function inputLimiter(e,allow) {
+    var AllowableCharacters = '';
+
+    if (allow == 'Letters'){AllowableCharacters=' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';}
+    if (allow == 'Numbers'){AllowableCharacters='1234567890';}
+    if (allow == 'NameCharacters'){AllowableCharacters=' ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-.\'';}
+    if (allow == 'NameCharactersAndNumbers'){AllowableCharacters='1234567890 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-\'';}
+    if (allow == 'Currency'){AllowableCharacters='1234567890.';}
+
+    var k = document.all?parseInt(e.keyCode): parseInt(e.which);
+    if (k!=13 && k!=8 && k!=0){
+        if ((e.ctrlKey==false) && (e.altKey==false)) {
+        return (AllowableCharacters.indexOf(String.fromCharCode(k))!=-1);
+        } else {
+        return true;
+        }
+    } else {
+        return true;
+    }
+} 
+
+function patchProcessExcel(e) {
+    
+    clearPageMessage();
+    
+    var listId = document.getElementsByClassName("cContractId");
+    
+    var listCheckbox = document.getElementsByClassName("cContractCheckbox");
+    
+    var filepath = $('#fileURL').val()
+    var destPath = encodeURI(filepath);
+
+    var opt = $(".cSelectListTemplate option:selected").val();   
+    var selectListId = encodeURI(opt);    
+    
+    URL_Array = [];
+    for (var i = 0; i < listCheckbox.length; i++) {
+        if(listCheckbox[i].checked==true){
+            //window.open('/apex/NewRenewal2?Batch=true&id='+listId[i].innerText+'&destPath='+destPath+'&selectListId='+selectListId, '_blank');
+            //window.open('/apex/NewRenewal2?Batch=true&id='+listId[i].innerText+'&destPath='+destPath+'&selectListId='+selectListId, '_blank','height=100,width=100,left=100,top=100');
+            URL_Array.push('/apex/NewRenewal2?Batch=true&id='+listId[i].innerText+'&destPath='+destPath+'&selectListId='+selectListId);
+        }
+    }
+    process_one();
+    e.preventDefault();
+}
+    
+function process_one() {
+    if(URL_Array.length > 0) {
+        var url = URL_Array.shift();
+        console.log(url);
+        show_popup(url, process_one);
+    }else{
+        processLog('');
+        showPageMessage('CONFIRM', "{!$Label.Complete}");
+    }
+}
+function show_popup(link, callback) {
+   var popup = window.open(link, '_blank','resizable=1,height=50,width=50,left=100,top=100');
+   return false; 
+}  
+
+function alert_error(msg) { 
+    processLog(msg);
+    alert(msg);
+}
+function processLog(msg){
+    $("#processConsole").text(msg);   
+}
+    
+</script>
+
+  <apex:form id="form">
+    <apex:actionFunction name="query" action="{!query}"/>
+    <apex:actionFunction name="closeSearchTable" action="{!closeSearchTable}"/>
+    <apex:actionFunction name="refresh" action="{!refresh}"/>
+      
+<apex:actionFunction name="showPageMessage" action="{!showPageMessage}" rerender="showmsg">
+  <apex:param name="level" assignTo="{!level}" value="" />
+  <apex:param name="message" assignTo="{!message}" value="" />
+</apex:actionFunction>  
+<apex:actionFunction name="clearPageMessage" action="{!clearPageMessage}" rerender="showmsg"/>
+
+      
+
+      
+    <apex:pageBlock title="{!$Label.RenewalNotice}" id="pageBlock">
+       <apex:pageMessages id="showmsg" />
+  
+        <apex:commandButton value="{!$Label.Search}" action="{!query}" />
+       <apex:commandButton value="{!$Label.Back}" action="{!cancel}" />
+        
+        
+      <apex:pageBlockSection columns="2" id="section1">
+        <apex:pageBlockSectionItem id="sectionItem1">
+            {!$ObjectType.ContractInfo__c.fields.KeiyakuArea__c.Label}
+          <apex:selectList value="{!searchData.KeiyakuArea__c}" size="1">
+            <apex:selectOptions value="{!keiyakuAreas}" />
+          </apex:selectList>
+          
+        </apex:pageBlockSectionItem> 
+      </apex:pageBlockSection>
+        
+      <apex:pageBlockSection columns="2" id="section2">
+        <apex:pageBlockSectionItem id="sectionItem2">
+           {!$Label.DateOfExpire}
+          <apex:inputField value="{!searchData.MankiDate__c}" styleclass="cDateOfExpire"/>
+        </apex:pageBlockSectionItem> 
+      </apex:pageBlockSection>
+      
+      <apex:pageBlockSection columns="2" id="section3">
+        <apex:pageBlockSectionItem id="sectionItem1">
+           {!$ObjectType.ContractInfo__c.fields.Name.Label} {!$Label.From_ContractNum}
+          <apex:inputField value="{!searchData.ImportCntractNo__c}" onkeypress="return inputLimiter(event,'Numbers');"/>
+        </apex:pageBlockSectionItem> 
+        <apex:pageBlockSectionItem id="sectionItem2">
+           {!$Label.To_ContractNum}
+          <apex:inputField value="{!searchData2.ImportCntractNo__c}" onkeypress="return inputLimiter(event,'Numbers');"/>
+        </apex:pageBlockSectionItem> 
+      </apex:pageBlockSection>
+      
+      <apex:pageBlockSection columns="2" id="section4">
+        <apex:pageBlockSectionItem id="sectionItem1">
+           {!$Label.ContractSalesPIC}
+          <apex:inputField value="{!searchData.EigyoTanto__c}" />
+        </apex:pageBlockSectionItem> 
+      </apex:pageBlockSection>
+      
+    </apex:pageBlock>
+      
+      
+    <apex:pageBlock rendered="{!showResultsBlock}"  id="pageBlock2">
+        
+        <apex:commandButton value="{!$Label.Run}" onclick="javascript:patchProcessExcel(event)"/>
+        <apex:commandButton value="{!$Label.CheckAll}"  action="{!selectAll}" id="selectAll"/> 
+        <apex:commandButton value="{!$Label.AllUncheck}" action="{!releaseAll}"  id="releaseAll"/> 
+        <apex:commandButton value="{!$Label.Cancel}" action="{!closeSearchTable}"  id="cancel" immediate="true"/>          
+        
+      <apex:pageBlockSection columns="3" id="section">
+          <apex:outputLabel value="{!$Label.OutputForm}" for="selectListTemplate"/>
+          <apex:selectList value="{!selectedTemplate}" size="1" id="selectListTemplate" styleclass="cSelectListTemplate">
+            <apex:selectOptions value="{!templateOptions}" />
+          </apex:selectList>
+          <input type="text" id="fileURL" value='{!ExcelPath}'/> 
+      </apex:pageBlockSection> 
+        
+        
+     <apex:pageBlockSection columns="1" id="sep">
+        <apex:pageBlockSectionItem >
+            <div id="processConsole"></div>
+         </apex:pageBlockSectionItem>  
+     </apex:pageBlockSection>   
+     
+        <apex:pageBlockSection >
+        <apex:pageBlockSectionItem >
+         </apex:pageBlockSectionItem>  
+     </apex:pageBlockSection>  
+      
+        <apex:pageBlockTable id="resultTable" value="{!newSearchResults}" var="row"> 
+            <apex:column >
+                <apex:facet name="header">{!$Label.Select}</apex:facet>
+                <apex:inputCheckbox value="{!row.InchargeCheckbox }" id="contract_checkbox" styleclass="cContractCheckbox"/>
+                <apex:inputField value="{!row.contractData.Id}" styleclass="cContractId" id="contract_id" style="display:none;"/>
+            </apex:column> 
+            <apex:column >       
+                <apex:facet name="header">{!$ObjectType.ContractInfo__c.fields.KeiyakuArea__c.Label}</apex:facet>
+                <apex:outputField value="{!row.contractData.KeiyakuArea__c}"/>  
+            </apex:column>
+            <apex:column >       
+                <apex:facet name="header">{!$ObjectType.Account.fields.AccountNumber.Label}</apex:facet>
+                <apex:outputField value="{!row.contractData.KeiyakuCompanyName__r.CompanyCd__c}"/>  
+            </apex:column>
+            <apex:column >       
+                <apex:facet name="header">{!$Label.ContractCompanyName}</apex:facet>
+                <apex:outputField value="{!row.contractData.KeiyakuCompanyName__c}"/>  
+            </apex:column>
+            <apex:column >       
+                <apex:facet name="header">{!$ObjectType.ContractInfo__c.fields.Name.Label}</apex:facet>
+                <apex:outputField value="{!row.contractData.Name}"/>  
+            </apex:column>
+            <apex:column >       
+                <apex:facet name="header">{!$Label.MankiDate}</apex:facet>
+                <apex:outputField value="{!row.contractData.MankiDate__c}"/>  
+            </apex:column>
+            <apex:column >       
+                <apex:facet name="header">{!$Label.CompanySalesPIC}</apex:facet>
+                <apex:outputField value="{!row.contractData.KeiyakuCompanyName__r.EigyoTanto__c}"/>  
+            </apex:column>
+            <apex:column >       
+                <apex:facet name="header">{!$Label.CompanyGAPIC}</apex:facet>
+                <apex:outputField value="{!row.contractData.KeiyakuCompanyName__r.NaimuTanto__c}"/>  
+            </apex:column>
+            <apex:column >       
+                <apex:facet name="header">{!$Label.ContractSalesPIC}</apex:facet>
+                <apex:outputField value="{!row.contractData.EigyoTanto__c}"/>  
+            </apex:column>
+            <apex:column >       
+                <apex:facet name="header">{!$Label.ContractGAPIC}</apex:facet>
+                <apex:outputField value="{!row.contractData.NaimuTanto__c}"/>  
+            </apex:column>
+                                                                             
+        </apex:pageBlockTable> 
+        
+        <!-- Pagination -->
+<!--
+        <apex:pageblockButtons >
+            <apex:commandButton value="{!$Label.FirstPage}" rerender="pageBlock2" action="{!FirstPage}" disabled="{!prev}"/>
+            <apex:commandButton value="{!$Label.Previous}" rerender="pageBlock2" action="{!previous}" disabled="{!prev}"/>
+            <apex:commandButton value="{!$Label.Next}" rerender="pageBlock2" action="{!next}" disabled="{!nxt}"/>
+            <apex:commandButton value="{!$Label.LastPage}" rerender="pageBlock2" action="{!LastPage}" disabled="{!nxt}"/>
+        </apex:pageblockButtons>
+-->
+
+    
+    </apex:pageBlock>  
+      
+  </apex:form>
+   
+
+</apex:page>

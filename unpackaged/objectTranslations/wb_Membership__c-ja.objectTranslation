@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>会員契約</value>
+    </caseValues>
+    <fields>
+        <label><!-- 申込日付 --></label>
+        <name>ApplicationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 支払会社 --></label>
+        <name>BillingCompany__c</name>
+        <relationshipLabel><!-- 会員契約（支払い） --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 請求先国番号 --></label>
+        <name>BillingCountryNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求書発行日 --></label>
+        <name>BillingDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求先部署 --></label>
+        <name>BillingDept__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求地区 --></label>
+        <name>BillingDistrict__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求先内線 --></label>
+        <name>BillingExtNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求先FAX --></label>
+        <name>BillingFax__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求先氏名 --></label>
+        <name>BillingName__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求備考 --></label>
+        <name>BillingNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求先TEL --></label>
+        <name>BillingTel__c</name>
+    </fields>
+    <fields>
+        <label><!-- 請求先役職 --></label>
+        <name>BillingTitle__c</name>
+    </fields>
+    <fields>
+        <label><!-- 区分 --></label>
+        <name>Classification__c</name>
+        <picklistValues>
+            <masterLabel>会社</masterLabel>
+            <translation><!-- 会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人</masterLabel>
+            <translation><!-- 個人 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 契約会社 --></label>
+        <name>ContractCompany__c</name>
+        <relationshipLabel><!-- 会員契約 (契約会社) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 契約国 --></label>
+        <name>ContractCountry__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約日付 --></label>
+        <name>ContractDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約地区 --></label>
+        <name>ContractDistrict__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約満期日 --></label>
+        <name>ContractExpiryDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約個人 --></label>
+        <name>ContractIndividual__c</name>
+        <relationshipLabel><!-- 会員契約 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 通貨 --></label>
+        <name>Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- 割引適用日 --></label>
+        <name>DiscountApplicableDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 割引備考 --></label>
+        <name>DiscountNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- 割引率 --></label>
+        <name>DiscountPercentage__c</name>
+    </fields>
+    <fields>
+        <label><!-- 適用割引率種別 --></label>
+        <name>DiscountType__c</name>
+        <picklistValues>
+            <masterLabel>グループ</masterLabel>
+            <translation><!-- グループ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>グループ・団体</masterLabel>
+            <translation><!-- グループ・団体 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>優良</masterLabel>
+            <translation><!-- 優良 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>団体</masterLabel>
+            <translation><!-- 団体 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 新・割引率 --></label>
+        <name>GroupDiscountPer__c</name>
+    </fields>
+    <fields>
+        <label><!-- 内務担当 --></label>
+        <name>InternalAffairs__c</name>
+        <relationshipLabel><!-- 会員契約 (内務担当) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員契約 --></label>
+        <name>PreviousContract__c</name>
+        <relationshipLabel><!-- 会員契約 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 営業担当 --></label>
+        <name>Sales__c</name>
+        <relationshipLabel><!-- 会員契約 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 状況 --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>キャンセル</masterLabel>
+            <translation><!-- キャンセル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未確定</masterLabel>
+            <translation><!-- 未確定 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>確定</masterLabel>
+            <translation><!-- 確定 --></translation>
+        </picklistValues>
+    </fields>
+</CustomObjectTranslation>

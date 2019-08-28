@@ -1,0 +1,30 @@
+<apex:page standardcontroller="wb_CarInsurance__c" extensions="wb_CarInsuranceClone" id="thePage">
+    
+    <apex:form id="theForm" >     
+        
+        <apex:pageBlock id="TheMessage">
+            <apex:outputText value="次の自動車保険をこーピーしますか？"> 	</apex:outputText>	
+        </apex:pageBlock>
+        <apex:pageBlock id="ThePageBlock">
+            
+            <apex:commandButton value="Copy"  action="{!CIClone}"/>   
+            
+            <apex:commandButton value="Cancel"  action="{!Cancel}"/>  
+              <apex:outputText rendered="{!QuitMe}" id="Quit">
+                    <script>
+                    //alert('Hello World');
+                   
+                    self.close();
+                    </script>
+                </apex:outputText>
+            
+            <apex:pageBlockSection columns="2" id="theHeader" title="契約番号">
+                <apex:outputText value="{!CI.Name}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Name.label}"/>
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>搭乗保険</value>
+    </caseValues>
+    <fields>
+        <label><!-- 対象車 --></label>
+        <name>CarInsurancedCar__c</name>
+        <relationshipLabel><!-- 搭乗保険 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 車両 --></label>
+        <name>Car__c</name>
+        <relationshipLabel><!-- 搭乗保険 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 運転席保険 --></label>
+        <name>DriverSeatInsurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険通貨 --></label>
+        <name>InsuranceCurrency__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）解除日 --></label>
+        <name>OP_CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）手数料率 --></label>
+        <name>OP_CommissionRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）手数料 --></label>
+        <name>OP_Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）商品名称 --></label>
+        <name>OP_CommodityName__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）現保険終期 --></label>
+        <name>OP_CurrentEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）現保険始期 --></label>
+        <name>OP_CurrentStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）初年度始期 --></label>
+        <name>OP_InitialStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）保険料 --></label>
+        <name>OP_InsuranceFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）保険プラン --></label>
+        <name>OP_Plan__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）証券番号 --></label>
+        <name>OP_PolicyNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）残り保険料 --></label>
+        <name>OP_RemainInsuranceFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）サービス --></label>
+        <name>OP_Service__c</name>
+        <relationshipLabel><!-- 搭乗保険 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- （OP）標準運伝席保険料 --></label>
+        <name>OP_StdDriverSeatFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）標準搭乗席保険料 --></label>
+        <name>OP_StdPassengerSeatFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- 付保搭乗席数 --></label>
+        <name>PassagerSeatInsurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）所属地区 --></label>
+        <name>Psgr_AffiliationArea__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）解約日24時 --></label>
+        <name>Psgr_CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険解約理由 --></label>
+        <name>Psgr_CancelReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）手数料率 --></label>
+        <name>Psgr_CommissionRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）手数料 --></label>
+        <name>Psgr_Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）商品名称 --></label>
+        <name>Psgr_CommodityName__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）現保険終期 --></label>
+        <name>Psgr_CurrentEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）現保険始期 --></label>
+        <name>Psgr_CurrentStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）初年度始期 --></label>
+        <name>Psgr_InitialStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険会社名 --></label>
+        <name>Psgr_InsuranceCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険料 --></label>
+        <name>Psgr_InsuranceFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険プラン --></label>
+        <name>Psgr_InsurancePlan__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）証券番号 --></label>
+        <name>Psgr_PolicyNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）残り保険料 --></label>
+        <name>Psgr_RemainInsuranceFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）サービス --></label>
+        <name>Psgr_Service__c</name>
+        <relationshipLabel><!-- 搭乗保険 (（搭乗）サービス) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）標準運転席保険料 --></label>
+        <name>Psgr_StdDriverSeatFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）標準搭乗席保険料 --></label>
+        <name>Psgr_StdPassengerSeatFee__c</name>
+    </fields>
+    <fields>
+        <label><!-- （OP）保険料差分 --></label>
+        <name>f_OPBillingAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- （搭乗）保険料差分 --></label>
+        <name>f_PsgrBillingAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- 搭乗有効 --></label>
+        <name>f_Psgr_Effective__c</name>
+    </fields>
+    <fields>
+        <label><!-- 登録番号 --></label>
+        <name>f_RegistryNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 異動日0時 --></label>
+        <name>f_ReplacedDate__c</name>
+    </fields>
+    <layouts>
+        <layout>搭乗保険レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

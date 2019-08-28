@@ -1,0 +1,2809 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Family&apos;s Info</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Family&apos;s Info</value>
+    </caseValues>
+    <fields>
+        <label>Age</label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
+        <label>Hospitalization Waiting Period</label>
+        <name>AnshinHospitalizationWaitingPeriod__c</name>
+    </fields>
+    <fields>
+        <label>Outpatient Waiting Period</label>
+        <name>AnshinOutpatientWaitingPeriod__c</name>
+    </fields>
+    <fields>
+        <label><!-- App_Registration --></label>
+        <name>App_Registration__c</name>
+    </fields>
+    <fields>
+        <label><!-- （カード）会員番号・生年月日 --></label>
+        <name>Card_ID_DOB__c</name>
+    </fields>
+    <fields>
+        <label>Baggage</label>
+        <name>CarryCost__c</name>
+    </fields>
+    <fields>
+        <label>Product Code</label>
+        <name>CommodityCd_txt__c</name>
+    </fields>
+    <fields>
+        <label>Product</label>
+        <name>Commodity__c</name>
+        <picklistValues>
+            <masterLabel>Prime Care</masterLabel>
+            <translation><!-- Prime Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メディック</masterLabel>
+            <translation>Medic</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 苦情区分 --></label>
+        <name>ComplaintKubun__c</name>
+        <picklistValues>
+            <masterLabel>なし</masterLabel>
+            <translation><!-- なし --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>やや多い</masterLabel>
+            <translation><!-- やや多い --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>多い</masterLabel>
+            <translation><!-- 多い --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>少ない</masterLabel>
+            <translation><!-- 少ない --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- （契約情報）契約地区 --></label>
+        <name>Contract_Area__c</name>
+    </fields>
+    <fields>
+        <label><!-- （契約情報）契約会社コード --></label>
+        <name>Contract_Company_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- （契約情報）契約会社名 --></label>
+        <name>Contract_Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- 国コード --></label>
+        <name>CountryCodes__c</name>
+    </fields>
+    <fields>
+        <label>Country Name</label>
+        <name>CountryName__c</name>
+        <picklistValues>
+            <masterLabel>CIS</masterLabel>
+            <translation><!-- CIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アフリカ</masterLabel>
+            <translation><!-- アフリカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation>India</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation>Indonesia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オセアニア</masterLabel>
+            <translation><!-- オセアニア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カンボジア</masterLabel>
+            <translation>Cambodia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation>Singapore</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スリランカ</masterLabel>
+            <translation>Sri Lanka</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タイ</masterLabel>
+            <translation>Thailand</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バングラデシュ</masterLabel>
+            <translation><!-- バングラデシュ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation>Philippines</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation>Vietnam</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation>Malaysia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ミャンマー</masterLabel>
+            <translation>Myanmar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコ</masterLabel>
+            <translation><!-- メキシコ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ラオス</masterLabel>
+            <translation><!-- ラオス --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中南米</masterLabel>
+            <translation><!-- 中南米 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation>China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中東</masterLabel>
+            <translation><!-- 中東 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北米</masterLabel>
+            <translation><!-- 北米 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台湾</masterLabel>
+            <translation>Taiwan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation>Japan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>欧州</masterLabel>
+            <translation><!-- 欧州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>韓国</masterLabel>
+            <translation>Korea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Liability</label>
+        <name>DamagesCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- （カード）生年月日 --></label>
+        <name>DateOfBirth_CdFmt__c</name>
+    </fields>
+    <fields>
+        <label>Date of Birth</label>
+        <name>DateOfBirth__c</name>
+    </fields>
+    <fields>
+        <label>Vietnam)Dental Expenses</label>
+        <name>DentalTherapy__c</name>
+    </fields>
+    <fields>
+        <label>Sickness Medical Expenses</label>
+        <name>DiseaseCost__c</name>
+    </fields>
+    <fields>
+        <label>Sickness Death</label>
+        <name>DiseaseDeathCost__c</name>
+    </fields>
+    <fields>
+        <label>Email</label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- 従業員番号 --></label>
+        <name>Employee_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- 会員毎の家族番号です。
+会員番号の下1桁に表示されます。 --></help>
+        <label>Family No.</label>
+        <name>FamilyNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 手配注意事項 --></label>
+        <name>Field1__c</name>
+    </fields>
+    <fields>
+        <label>Previous Medicalcheck - Country</label>
+        <name>Formar_Healthcheck_Country__c</name>
+    </fields>
+    <fields>
+        <label>Previous Medicalchek - Date</label>
+        <name>Formar_Healthcheck_Date__c</name>
+    </fields>
+    <fields>
+        <label>Previous Medicalcheck - Institute</label>
+        <name>Formar_Healthcheck_Facility__c</name>
+    </fields>
+    <fields>
+        <label><!-- WB健診以外の健診結果保持 --></label>
+        <name>HC_Result_NOT_WB__c</name>
+    </fields>
+    <fields>
+        <label><!-- WB健診以外の健診 --></label>
+        <name>Healthcheck_NOT_WB__c</name>
+        <picklistValues>
+            <masterLabel>あり</masterLabel>
+            <translation><!-- あり --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>なし</masterLabel>
+            <translation><!-- なし --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Temporary Homecoming</label>
+        <name>HomeCountryCoverage__c</name>
+    </fields>
+    <fields>
+        <label>Range of Age (Indonesia)</label>
+        <name>IDN_Attribute__c</name>
+        <picklistValues>
+            <masterLabel>子供（4歳未満）</masterLabel>
+            <translation><!-- 子供（4歳未満） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>子供（4歳～23歳）</masterLabel>
+            <translation><!-- 子供（4歳～23歳） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>従業員（61歳未満）</masterLabel>
+            <translation><!-- 従業員（61歳未満） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>従業員（61歳～65歳）</masterLabel>
+            <translation><!-- 従業員（61歳～65歳） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>配偶者（61歳未満）</masterLabel>
+            <translation><!-- 配偶者（61歳未満） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>配偶者（61歳～65歳）</masterLabel>
+            <translation><!-- 配偶者（61歳～65歳） --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>KITAS (Indonesia)</label>
+        <name>IDN_KITAS_NO_c__c</name>
+    </fields>
+    <fields>
+        <label><!-- 取込コメント --></label>
+        <name>ImportComm__c</name>
+    </fields>
+    <fields>
+        <label>Injury Medical Expenses</label>
+        <name>InjuryCost__c</name>
+    </fields>
+    <fields>
+        <label>Injury Death and Residual Disability</label>
+        <name>InjuryDeathCost__c</name>
+    </fields>
+    <fields>
+        <label>Cancellation Insurance Information</label>
+        <name>InsuranceCancelContact__c</name>
+    </fields>
+    <fields>
+        <label>Date of Cancellation Insurance</label>
+        <name>InsuranceCancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （ベトナム）保険料年齢9 --></label>
+        <name>InsuranceCostAge9__c</name>
+        <picklistValues>
+            <masterLabel>満19歳～満30歳</masterLabel>
+            <translation><!-- 満19歳～満30歳 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>満1歳～満18歳</masterLabel>
+            <translation><!-- 満1歳～満18歳 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>満31歳～満40歳</masterLabel>
+            <translation><!-- 満31歳～満40歳 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>満41歳～満50歳</masterLabel>
+            <translation><!-- 満41歳～満50歳 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>満51歳～満60歳</masterLabel>
+            <translation><!-- 満51歳～満60歳 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>満61歳～満65歳</masterLabel>
+            <translation><!-- 満61歳～満65歳 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Vietnam)Premium Age</label>
+        <name>InsuranceCostAge__c</name>
+    </fields>
+    <fields>
+        <label>Coverage Currency</label>
+        <name>InsuranceCurrency__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation>HKD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IDR（単位：千IDR）</masterLabel>
+            <translation><!-- IDR（単位：千IDR） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JPY（単位：千円）</masterLabel>
+            <translation><!-- JPY（単位：千円） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation>RMB</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>USD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VND（単位：千VND）</masterLabel>
+            <translation><!-- VND（単位：千VND） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 保険種類略称 --></label>
+        <name>InsuranceKindRyaku__c</name>
+    </fields>
+    <fields>
+        <help><!-- 「安心生活」の場合は、「安心生活」を選択します。 --></help>
+        <label>Type of Insurance</label>
+        <name>InsuranceKind__c</name>
+        <picklistValues>
+            <masterLabel>Happy China</masterLabel>
+            <translation><!-- Happy China --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Happy Life</masterLabel>
+            <translation><!-- Happy Life --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medi Life</masterLabel>
+            <translation><!-- Medi Life --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medi-X</masterLabel>
+            <translation>Medi-X</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OM-S</masterLabel>
+            <translation><!-- OM-S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ウェルライフ</masterLabel>
+            <translation><!-- ウェルライフ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>優You</masterLabel>
+            <translation>You You</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安心NHST</masterLabel>
+            <translation>Anshin NHST</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安心生活</masterLabel>
+            <translation>Anshin Seikatsu</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新優You</masterLabel>
+            <translation><!-- 新優You --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>駐在中国</masterLabel>
+            <translation>Chuzai Chugoku</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Insurance Plan</label>
+        <name>InsurancePlan__c</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation>A</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A+</masterLabel>
+            <translation><!-- A+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A1</masterLabel>
+            <translation><!-- A1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA</masterLabel>
+            <translation>AA</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AA+</masterLabel>
+            <translation><!-- AA+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asian</masterLabel>
+            <translation><!-- Asian --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation>B</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B+</masterLabel>
+            <translation><!-- B+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B1</masterLabel>
+            <translation><!-- B1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BB</masterLabel>
+            <translation>BB</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BB+</masterLabel>
+            <translation><!-- BB+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation>C</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C+</masterLabel>
+            <translation><!-- C+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C1</masterLabel>
+            <translation><!-- C1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC</masterLabel>
+            <translation>CC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CC+</masterLabel>
+            <translation><!-- CC+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D</masterLabel>
+            <translation>D</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D+</masterLabel>
+            <translation><!-- D+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D1</masterLabel>
+            <translation><!-- D1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DD</masterLabel>
+            <translation>DD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DD+</masterLabel>
+            <translation><!-- DD+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E</masterLabel>
+            <translation>E</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E1</masterLabel>
+            <translation><!-- E1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F</masterLabel>
+            <translation>F</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>F1</masterLabel>
+            <translation><!-- F1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G</masterLabel>
+            <translation>G</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G1</masterLabel>
+            <translation><!-- G1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>H</masterLabel>
+            <translation>H</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>H1</masterLabel>
+            <translation><!-- H1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>I</masterLabel>
+            <translation>I</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>I1</masterLabel>
+            <translation><!-- I1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>J1</masterLabel>
+            <translation><!-- J1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML-A</masterLabel>
+            <translation><!-- ML-A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML-B</masterLabel>
+            <translation><!-- ML-B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML-C</masterLabel>
+            <translation><!-- ML-C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S</masterLabel>
+            <translation>S</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S1</masterLabel>
+            <translation><!-- S1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA+</masterLabel>
+            <translation><!-- SA+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SB+</masterLabel>
+            <translation><!-- SB+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SC+</masterLabel>
+            <translation><!-- SC+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SD+</masterLabel>
+            <translation><!-- SD+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>T</masterLabel>
+            <translation>T</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>T1</masterLabel>
+            <translation><!-- T1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U</masterLabel>
+            <translation>U</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U1</masterLabel>
+            <translation><!-- U1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U2</masterLabel>
+            <translation><!-- U2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VA</masterLabel>
+            <translation><!-- VA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VB</masterLabel>
+            <translation><!-- VB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VC</masterLabel>
+            <translation><!-- VC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VD</masterLabel>
+            <translation><!-- VD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X</masterLabel>
+            <translation>X</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>X+</masterLabel>
+            <translation><!-- X+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Y</masterLabel>
+            <translation>Y</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Y+</masterLabel>
+            <translation><!-- Y+ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新A</masterLabel>
+            <translation>New A</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新A1</masterLabel>
+            <translation>New A1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新B</masterLabel>
+            <translation>New B</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新B1</masterLabel>
+            <translation>New B1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新C</masterLabel>
+            <translation>New C</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新C1</masterLabel>
+            <translation>New C1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新D</masterLabel>
+            <translation>New D</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新D1</masterLabel>
+            <translation>New D1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新E</masterLabel>
+            <translation>New E</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新E1</masterLabel>
+            <translation>New E1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新F</masterLabel>
+            <translation>New F</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新F1</masterLabel>
+            <translation>New F1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新G</masterLabel>
+            <translation>New G</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新G1</masterLabel>
+            <translation>New G1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新H</masterLabel>
+            <translation>New H</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新H1</masterLabel>
+            <translation>New H1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新I</masterLabel>
+            <translation>New I</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新I1</masterLabel>
+            <translation>New I1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新S</masterLabel>
+            <translation>New S</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新S1</masterLabel>
+            <translation>New S1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新T</masterLabel>
+            <translation>New T</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新T1</masterLabel>
+            <translation>New T1</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新U</masterLabel>
+            <translation>New U</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新U1</masterLabel>
+            <translation>New U1</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 保険始期時点年齢 --></label>
+        <name>InsuranceShikiAge__c</name>
+    </fields>
+    <fields>
+        <label><!-- 被保険者証の記号 --></label>
+        <name>Insurance_Card_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- 被保険者証の番号 --></label>
+        <name>Insurance_Card_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- AC用伝達事項 --></label>
+        <name>Issues_To_AC__c</name>
+    </fields>
+    <fields>
+        <label><!-- 営業→AC伝達事項 --></label>
+        <name>Issues_from_Sales__c</name>
+    </fields>
+    <fields>
+        <label>Chronic Illness</label>
+        <name>Jibyo__c</name>
+    </fields>
+    <fields>
+        <label>Control Area</label>
+        <name>Jurisdiction__c</name>
+        <picklistValues>
+            <masterLabel>CIS</masterLabel>
+            <translation><!-- CIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アフリカ</masterLabel>
+            <translation><!-- アフリカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オセアニア</masterLabel>
+            <translation><!-- オセアニア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation>Kuala Lumpur</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コロンボ</masterLabel>
+            <translation>Colombo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation>Singapore</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation>Jakarta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェンナイ</masterLabel>
+            <translation>Chennai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニューデリー</masterLabel>
+            <translation>New Delhi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation>Hanoi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンコク</masterLabel>
+            <translation>Bangkok</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プノンペン</masterLabel>
+            <translation>Phnom Penh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation>Ho Chi Minh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation>Manila</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコシティ</masterLabel>
+            <translation><!-- メキシコシティ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヤンゴン</masterLabel>
+            <translation>Yangon</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation>Shanghai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中東</masterLabel>
+            <translation><!-- 中東 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation>Beijing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北米</masterLabel>
+            <translation><!-- 北米 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台北</masterLabel>
+            <translation><!-- 台北 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>名古屋</masterLabel>
+            <translation>Nagoya</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation>Dalian</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大阪</masterLabel>
+            <translation>Osaka</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation>Tianjin</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation>Guangzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京</masterLabel>
+            <translation>Tokyo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation>Dongguan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>欧州</masterLabel>
+            <translation><!-- 欧州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation>Shenzhen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation>Suzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation>Qingdao</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 計上月(保険) --></label>
+        <name>KeijoMonthInsurance__c</name>
+    </fields>
+    <fields>
+        <label>Contract Company Name</label>
+        <name>KeiyakuCompanyName__c</name>
+        <relationshipLabel>Family&apos;s Info</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 契約番号 --></label>
+        <name>KeiyakuCompanyNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- （カード）契約日付 --></label>
+        <name>KeiyakuDate_CdFmt__c</name>
+    </fields>
+    <fields>
+        <label>Date of Contract</label>
+        <name>KeiyakuDate__c</name>
+    </fields>
+    <fields>
+        <label>Type of Contract</label>
+        <name>KeiyakuKeitai__c</name>
+        <picklistValues>
+            <masterLabel>チャイナボウルファミリー</masterLabel>
+            <translation>ChinaBowl Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人／家族</masterLabel>
+            <translation>Individual/Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人／家族Asian</masterLabel>
+            <translation>Individual/Asian-Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人／家族C&amp;V</masterLabel>
+            <translation>Individual/C&amp;V-Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人／家族China</masterLabel>
+            <translation>Individual/China-Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人／家族Global Plus Member</masterLabel>
+            <translation><!-- 個人／家族Global Plus Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法人／家族</masterLabel>
+            <translation>Corporation/Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法人／家族Asian</masterLabel>
+            <translation>Corporation/Asian-Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法人／家族Asian B Plan</masterLabel>
+            <translation>Corporation/Asian B Plan-Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法人／家族C&amp;V</masterLabel>
+            <translation>Corporation/C&amp;V-Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法人／家族China</masterLabel>
+            <translation>Corporation/China-Family</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法人／家族Global Member</masterLabel>
+            <translation><!-- 法人／家族Global Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法人／家族Global Plus Member</masterLabel>
+            <translation><!-- 法人／家族Global Plus Member --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>法人／家族Medi-X</masterLabel>
+            <translation>Corporation/Medi-X-Family</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Contract No.</label>
+        <name>KeiyakuNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- (契約会社)現地医療保険(英語名) --></label>
+        <name>Keiyaku_Medical_Insurance_EN__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務先会社 --></label>
+        <name>KinmuCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- AC用顧客情報 --></label>
+        <name>KokyakuInfoAc__c</name>
+    </fields>
+    <fields>
+        <label>Email Delivery</label>
+        <name>MailHaishin__c</name>
+    </fields>
+    <fields>
+        <label>Method of Payment for Medical Expenses</label>
+        <name>MedicalBillKessaiHouhou__c</name>
+        <picklistValues>
+            <masterLabel>Health Care Program</masterLabel>
+            <translation><!-- Health Care Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medi-X</masterLabel>
+            <translation>Medi-X</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OM-S</masterLabel>
+            <translation><!-- OM-S --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ウェルビー現地医療保険</masterLabel>
+            <translation><!-- ウェルビー現地医療保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>クレジットカード付帯保険</masterLabel>
+            <translation>Credit Card Travel Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>会社積立</masterLabel>
+            <translation>Fund</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>旅行総合保険</masterLabel>
+            <translation>Travel Comprehensive Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未確認</masterLabel>
+            <translation>Unconfirmed</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海外旅行傷害保険</masterLabel>
+            <translation>Overseas Travel Accident Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現地医療保険</masterLabel>
+            <translation><!-- 現地医療保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現金</masterLabel>
+            <translation>Cash</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>立て替え保証</masterLabel>
+            <translation>Advance Payment</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Given Name(Kana)</label>
+        <name>MeiKana__c</name>
+    </fields>
+    <fields>
+        <label>Given Name(Alphabet)</label>
+        <name>MeiRoma__c</name>
+    </fields>
+    <fields>
+        <label>Card)Contract Company Name</label>
+        <name>MemberCardKeiyakuCompanyName__c</name>
+    </fields>
+    <fields>
+        <label>Card)Member English Name</label>
+        <name>MemberCardMemberNameEng__c</name>
+    </fields>
+    <fields>
+        <label>Card)Member Kanji Name</label>
+        <name>MemberCardMemberNameKanji__c</name>
+    </fields>
+    <fields>
+        <label>Card)Sub Title</label>
+        <name>MemberCardSubTitle__c</name>
+    </fields>
+    <fields>
+        <label>Member Category B</label>
+        <name>MemberKubunB__c</name>
+    </fields>
+    <fields>
+        <label>Member Category</label>
+        <name>MemberKubun__c</name>
+    </fields>
+    <fields>
+        <label>Membership No.</label>
+        <name>MemberNo__c</name>
+    </fields>
+    <fields>
+        <label>Member Name</label>
+        <name>MemberShimei__c</name>
+        <relationshipLabel>Family&apos;s Info</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- 入力する際は、
+－（ハイフン）を抜いて入力して下さい。
+例）　○0335380180
+　　　×03-3538-0180 --></help>
+        <label>Mobile</label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label>Nationality</label>
+        <name>Nationality__c</name>
+        <picklistValues>
+            <masterLabel>アメリカ</masterLabel>
+            <translation>America</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>イラン</masterLabel>
+            <translation>Iran</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インド</masterLabel>
+            <translation>India</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>インドネシア</masterLabel>
+            <translation>Indonesia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オランダ</masterLabel>
+            <translation>Holland</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オーストラリア</masterLabel>
+            <translation>Australia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オーストリア</masterLabel>
+            <translation><!-- オーストリア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カナダ</masterLabel>
+            <translation>Canada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation>Singapore</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スイス</masterLabel>
+            <translation>Switzerland</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スペイン</masterLabel>
+            <translation>Spain</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>タイ</masterLabel>
+            <translation>Thailand</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェコ</masterLabel>
+            <translation>Czech</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>トルコ</masterLabel>
+            <translation>Turkey</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ドイツ</masterLabel>
+            <translation>Germany</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニュージーランド</masterLabel>
+            <translation>New Zealand</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ネパール</masterLabel>
+            <translation>Nepal</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フィリピン</masterLabel>
+            <translation>Philippineｓ</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>フランス</masterLabel>
+            <translation>France</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation>Vietnam</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベラルーシ</masterLabel>
+            <translation>Belarus</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ベルギー</masterLabel>
+            <translation><!-- ベルギー --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ポーランド</masterLabel>
+            <translation>Poland</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マレーシア</masterLabel>
+            <translation>Malaysia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国</masterLabel>
+            <translation>China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台湾</masterLabel>
+            <translation>Taiwan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation>Japan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>韓国</masterLabel>
+            <translation>Korea</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- 香港人のニックネームを入力します。
+通常は、何も入力しません。 --></help>
+        <label><!-- ニックネーム --></label>
+        <name>NickName__c</name>
+    </fields>
+    <fields>
+        <label>Remarks</label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label><!-- 備考（健保情報） --></label>
+        <name>Notes_Health_Insurance__c</name>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Child Birth --></label>
+        <name>OMS_Child_Birth__c</name>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Dental --></label>
+        <name>OMS_Dental__c</name>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Examination --></label>
+        <name>OMS_Examination__c</name>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Medical --></label>
+        <name>OMS_Medical__c</name>
+    </fields>
+    <fields>
+        <label><!-- (OMS)Vaccination --></label>
+        <name>OMS_Vaccination__c</name>
+    </fields>
+    <fields>
+        <label>Agency</label>
+        <name>OtaAgency__c</name>
+        <picklistValues>
+            <masterLabel>WB以外</masterLabel>
+            <translation>Other Agent</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>WB扱い</masterLabel>
+            <translation>Handling with WellBe</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>From</label>
+        <name>OtaInsuranceShiki__c</name>
+    </fields>
+    <fields>
+        <label>To</label>
+        <name>OtaInsuranceShuki__c</name>
+    </fields>
+    <fields>
+        <label>Storage Location</label>
+        <name>OtaKeepPlace__c</name>
+    </fields>
+    <fields>
+        <label>Insurance Company Name</label>
+        <name>OtaName__c</name>
+        <picklistValues>
+            <masterLabel>AIG INSURANCE HONG KONG LTD</masterLabel>
+            <translation>AIG Insurance Hong Kong Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AIU保険会社</masterLabel>
+            <translation>AIU (Chartis, Inc.)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>American International Underwriters,Limited</masterLabel>
+            <translation>American International Underwriters, Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chubb損害保険株式会社</masterLabel>
+            <translation><!-- Chubb損害保険株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Health Care Program</masterLabel>
+            <translation><!-- Health Care Program --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JI傷害火災保険株式会社</masterLabel>
+            <translation>JI Accident &amp; Fire Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PT Tokio Marine Life Insurance Indonesia</masterLabel>
+            <translation><!-- PT Tokio Marine Life Insurance Indonesia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>United Insurance Company of Vietnam</masterLabel>
+            <translation>United Insurance Company of Vietnam</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>あいおいニッセイ同和損害保険株式会社</masterLabel>
+            <translation>Aioi Nissay Dowa Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>あいおい損害保険株式会社</masterLabel>
+            <translation>Aioi Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他保険</masterLabel>
+            <translation>Other Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>カード付帯</masterLabel>
+            <translation>Credit Card Travel Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セコム損害保険株式会社</masterLabel>
+            <translation>Secom General Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セゾン自動車火災保険株式会社</masterLabel>
+            <translation>Saison Automobile &amp; Fire Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニッセイ同和損害保険株式会社</masterLabel>
+            <translation>Nissay Dowa General Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニッセイ同和損害保険株式会社(JI)</masterLabel>
+            <translation>Nissay Dowa General Insurance Co., Ltd. (JI)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ニュ－インディア保険会社</masterLabel>
+            <translation>The New India Assurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マーシュ</masterLabel>
+            <translation>Marsh Japan, Inc.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友インドネシア</masterLabel>
+            <translation>PT. Asuransi MSIG Indonesia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災保険公司　上海分公司</masterLabel>
+            <translation>Mitsui Sumitomo Insurance Co., Ltd. Shanghai Branch</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災保険公司　江蘇分公司</masterLabel>
+            <translation>Mitsui Sumitomo Insurance Co., Ltd. Jiangsu Branch</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災保険株式会社</masterLabel>
+            <translation>Mitsui Sumitomo Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災保険（香港)有限公司</masterLabel>
+            <translation>MSIG Insurance (Hong Kong) Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友海上火災有限公司　広州分公司</masterLabel>
+            <translation>Mitsui Sumitomo Insurance Co., Ltd. Guangdong Branch</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三菱東京UFJ Health Care Program</masterLabel>
+            <translation>Mitsubishi Tokyo UFJ Health Care Program</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国人民保険</masterLabel>
+            <translation><!-- 中国人民保険 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>保険なし</masterLabel>
+            <translation>None</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>共栄火災海上保険株式会社</masterLabel>
+            <translation>The Kyoei Fire and Marine Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>富士火災海上保険株式会社</masterLabel>
+            <translation>The Fuji Fire and Marine Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安養老保険</masterLabel>
+            <translation>Ping An Annuity</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>損保ジャパン日本興亜インドネシア</masterLabel>
+            <translation>PT. Asuransi Sompo Japan Nipponkoa Indonesia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>損害保険ジャパン日本興亜株式会社</masterLabel>
+            <translation><!-- 損害保険ジャパン日本興亜株式会社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日新火災海上保険株式会社</masterLabel>
+            <translation>Nisshin Fire &amp; Marine Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本興亜保険（亜洲）有限公司</masterLabel>
+            <translation>NipponkoaI Insurance Co., (Asia) Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本興亜損害保険株式会社</masterLabel>
+            <translation>Nipponkoa Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本財産保険(香港)有限公司</masterLabel>
+            <translation>Sompo Japan Nipponkoa Insurance (Hong Kong) Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日立 Health Care Program</masterLabel>
+            <translation>HITACHI Health Care Program</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>朝日火災海上保険株式会社</masterLabel>
+            <translation>Asahi Fire &amp; Marine Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未確認</masterLabel>
+            <translation>Unconfirmed</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上日動火災保険株式会社</masterLabel>
+            <translation>Tokio Marine &amp; Nichido Fire Insurance Co., Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上火災保険（香港）有限公司</masterLabel>
+            <translation>The Tokio Marine &amp; Fire Insurance Co. (HK) Ltd.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>株式会社損害保険ジャパン</masterLabel>
+            <translation>Sompo Japan Insurance Inc.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>株式会社損害保険ジャパン　香港支店</masterLabel>
+            <translation>Sompo Japan Insurance Inc. Hong Kong Branch</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長生人寿保険有限公司</masterLabel>
+            <translation>Nissay Greatwall Life Insurance Co., Ltd.</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>OTA Remarks</label>
+        <name>OtaNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- OTA略称 --></label>
+        <name>OtaRyaku__c</name>
+    </fields>
+    <fields>
+        <label>Passport No.</label>
+        <name>PassportNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 地域 --></label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>ベトナム</masterLabel>
+            <translation>Vietnam</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本</masterLabel>
+            <translation>Japan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東北</masterLabel>
+            <translation>North East</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華中</masterLabel>
+            <translation>Central China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華北</masterLabel>
+            <translation>North China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華南</masterLabel>
+            <translation>South China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華東</masterLabel>
+            <translation>East China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>西北</masterLabel>
+            <translation>North West</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>西南</masterLabel>
+            <translation>South West</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Region</label>
+        <name>Region_and_Area__c</name>
+        <picklistValues>
+            <masterLabel>CIS</masterLabel>
+            <translation><!-- CIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アジア</masterLabel>
+            <translation><!-- アジア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アフリカ</masterLabel>
+            <translation><!-- アフリカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オセアニア</masterLabel>
+            <translation><!-- オセアニア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中南米</masterLabel>
+            <translation><!-- 中南米 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中東</masterLabel>
+            <translation><!-- 中東 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北米</masterLabel>
+            <translation><!-- 北米 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>欧州</masterLabel>
+            <translation><!-- 欧州 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Relationship</label>
+        <name>Relationship__c</name>
+        <picklistValues>
+            <masterLabel>兄弟</masterLabel>
+            <translation>Brother</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>夫</masterLabel>
+            <translation>Husband</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>妻</masterLabel>
+            <translation>Wife</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>姉妹</masterLabel>
+            <translation>Sister</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>娘</masterLabel>
+            <translation>Daughter</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>息子</masterLabel>
+            <translation>Son</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>母</masterLabel>
+            <translation>Mother</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>父</masterLabel>
+            <translation>Father</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>知人</masterLabel>
+            <translation>Acquaintance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>親戚</masterLabel>
+            <translation>Relative</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>飼犬</masterLabel>
+            <translation><!-- 飼犬 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Rescure&apos;s Expenses</label>
+        <name>RescueCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- セキュリティ担当部署電話番号 --></label>
+        <name>Security_Dept_Phone__c</name>
+    </fields>
+    <fields>
+        <label><!-- セキュリティ担当部署 --></label>
+        <name>Security_Dept__c</name>
+    </fields>
+    <fields>
+        <label><!-- セキュリティ担当者Email --></label>
+        <name>Security_PIC_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- セキュリティ担当者携帯電話 --></label>
+        <name>Security_PIC_Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- セキュリティ担当者名 --></label>
+        <name>Security_PIC__c</name>
+    </fields>
+    <fields>
+        <label>Family Name(Kana)</label>
+        <name>SeiKana__c</name>
+    </fields>
+    <fields>
+        <label>Name(Kana)</label>
+        <name>SeiMeiKana__c</name>
+    </fields>
+    <fields>
+        <label>Given/Family Name</label>
+        <name>SeiMeiRoma__c</name>
+    </fields>
+    <fields>
+        <label>Family Name(Alphabet)</label>
+        <name>SeiRoma__c</name>
+    </fields>
+    <fields>
+        <label>Service Area Code</label>
+        <name>ServiceAreaCd__c</name>
+    </fields>
+    <fields>
+        <label>Sex</label>
+        <name>Sex__c</name>
+        <picklistValues>
+            <masterLabel>女</masterLabel>
+            <translation>Female</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>男</masterLabel>
+            <translation>Male</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Policy Status</label>
+        <name>ShokenGetSituation__c</name>
+        <picklistValues>
+            <masterLabel>入手済</masterLabel>
+            <translation>Got</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>取寄中</masterLabel>
+            <translation>Getting</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未入手</masterLabel>
+            <translation>Not Get</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Policy No.</label>
+        <name>ShokenNo__c</name>
+    </fields>
+    <fields>
+        <help><!-- 現地医療保険のみ --></help>
+        <label>Initial Entry</label>
+        <name>Shonendo_Shiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 所属地区コード --></label>
+        <name>ShozokuAreaCd__c</name>
+    </fields>
+    <fields>
+        <label>Affiliation Area</label>
+        <name>ShozokuArea__c</name>
+        <picklistValues>
+            <masterLabel>CIS</masterLabel>
+            <translation><!-- CIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NCR</masterLabel>
+            <translation>NCR</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アフリカ</masterLabel>
+            <translation><!-- アフリカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>アーメダバード</masterLabel>
+            <translation>Ahmedabad</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>イラプアト</masterLabel>
+            <translation><!-- イラプアト --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オセアニア</masterLabel>
+            <translation><!-- オセアニア --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation>Kuala Lumpur</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ケレタロ</masterLabel>
+            <translation><!-- ケレタロ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コロンボ</masterLabel>
+            <translation>Colombo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シラチャ</masterLabel>
+            <translation><!-- シラチャ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>シンガポール</masterLabel>
+            <translation>Singapore</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジャカルタ</masterLabel>
+            <translation>Jakarta</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジョホールバル</masterLabel>
+            <translation>Johor Bahru</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>スラバヤ</masterLabel>
+            <translation>Surabaya</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セブ</masterLabel>
+            <translation>Cebu Island</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セラヤ</masterLabel>
+            <translation><!-- セラヤ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ソウル</masterLabel>
+            <translation>Seoul</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダッカ</masterLabel>
+            <translation><!-- ダッカ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダナン</masterLabel>
+            <translation>Da Nang</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>チェンナイ</masterLabel>
+            <translation>Chennai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ナコンラチャシマ</masterLabel>
+            <translation><!-- ナコンラチャシマ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハイフォン</masterLabel>
+            <translation>Hai Phong</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation>Hanoi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンガロール</masterLabel>
+            <translation>Bangalore</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バンコク</masterLabel>
+            <translation>Bangkok</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ビエンチャン</masterLabel>
+            <translation><!-- ビエンチャン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プネ</masterLabel>
+            <translation>Pune</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>プノンペン</masterLabel>
+            <translation>Phnom Penh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ペナン</masterLabel>
+            <translation>Penang</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation>Ho Chi Minh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation>Manila</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ムンバイ</masterLabel>
+            <translation>Mumbai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>メキシコシティ</masterLabel>
+            <translation><!-- メキシコシティ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ヤンゴン</masterLabel>
+            <translation>Yangon</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>リッポーチカラン</masterLabel>
+            <translation><!-- リッポーチカラン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation>Shanghai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中南米</masterLabel>
+            <translation><!-- 中南米 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中山</masterLabel>
+            <translation>Zhongshan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中東</masterLabel>
+            <translation><!-- 中東 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>佛山</masterLabel>
+            <translation>Foshan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>内モンゴル</masterLabel>
+            <translation>Inner Mongolia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation>Beijing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北米</masterLabel>
+            <translation><!-- 北米 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>十堰</masterLabel>
+            <translation>Shiyan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南京</masterLabel>
+            <translation>Nanjing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南通</masterLabel>
+            <translation>Nantong</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>厦門</masterLabel>
+            <translation>Xiamen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台北</masterLabel>
+            <translation>Taipei</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>合肥</masterLabel>
+            <translation>Hefei</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>吉林省</masterLabel>
+            <translation>Jilin Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>名古屋</masterLabel>
+            <translation>Nagoya</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>四川省</masterLabel>
+            <translation>Sichuan Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>塘厦</masterLabel>
+            <translation><!-- 塘厦 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>塘沽</masterLabel>
+            <translation>Tanggu</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation>Dalian</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大阪</masterLabel>
+            <translation>Osaka</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation>Tianjin</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太倉</masterLabel>
+            <translation>Suzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安徽省</masterLabel>
+            <translation>Anhui Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>寧夏</masterLabel>
+            <translation>Ningxia</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>寧波</masterLabel>
+            <translation>Ningbo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>山東省</masterLabel>
+            <translation>Shandong Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>山西省</masterLabel>
+            <translation>Shanxi Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation>Changzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常熟</masterLabel>
+            <translation>Changshu</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平湖</masterLabel>
+            <translation>Pinghu</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation>Guangzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広東省</masterLabel>
+            <translation>Guangdong Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広西</masterLabel>
+            <translation>Guangxi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>張家港</masterLabel>
+            <translation>Zhangjiagang</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>恵州</masterLabel>
+            <translation>Huizhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成都</masterLabel>
+            <translation>Chengdu</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新疆</masterLabel>
+            <translation>Xinjiang</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新竹</masterLabel>
+            <translation><!-- 新竹 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation>Kunshan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州</masterLabel>
+            <translation>Hangzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京</masterLabel>
+            <translation>Tokyo</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation>Dongguan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>株州</masterLabel>
+            <translation>Zhuzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>欧州</masterLabel>
+            <translation><!-- 欧州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation>Wuhan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汕頭</masterLabel>
+            <translation>Shantou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江蘇省</masterLabel>
+            <translation>Jiangsu Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江西</masterLabel>
+            <translation>Jiangxi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江門</masterLabel>
+            <translation>Jiangmen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>河北省</masterLabel>
+            <translation>Hebei Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>河南省</masterLabel>
+            <translation>Henan Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>浙江省</masterLabel>
+            <translation>Zhejiang Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海南省</masterLabel>
+            <translation>Hainan Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation>Shenzhen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>清渓</masterLabel>
+            <translation><!-- 清渓 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>湖南省</masterLabel>
+            <translation>Hunan Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>瀋陽</masterLabel>
+            <translation>Shenyang</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation>Wuxi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>煙台</masterLabel>
+            <translation>Yantai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>珠海</masterLabel>
+            <translation>Zhuhai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>番禺</masterLabel>
+            <translation><!-- 番禺 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福州</masterLabel>
+            <translation>Fuzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福建省</masterLabel>
+            <translation>Fujian Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>肇慶</masterLabel>
+            <translation>Zhaoqing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation>Suzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>襄樊</masterLabel>
+            <translation>Xiangyang</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>西安</masterLabel>
+            <translation>Xian</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>貴州</masterLabel>
+            <translation>Guizhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>遼寧省</masterLabel>
+            <translation>Liaoning Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鄭州</masterLabel>
+            <translation>Zhengzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>重慶</masterLabel>
+            <translation>Chongqing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長春</masterLabel>
+            <translation>Changchun</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>長沙</masterLabel>
+            <translation>Changsha</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雲南省</masterLabel>
+            <translation>Yunnan Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation>Qingdao</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>韶関</masterLabel>
+            <translation>Shaoguan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鳳崗</masterLabel>
+            <translation><!-- 鳳崗 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黒龍江省</masterLabel>
+            <translation>Heilongjiang Prov.</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Date of Withdrawal</label>
+        <name>TaikaiDate__c</name>
+    </fields>
+    <fields>
+        <label>Medical Expenses</label>
+        <name>TreatmentCost__c</name>
+    </fields>
+    <fields>
+        <label>Med. and Rescure&apos;s Expenses</label>
+        <name>TreatmentRescueCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- WEB用サービスエリアコード --></label>
+        <name>Web_ServiceAreaCd__c</name>
+    </fields>
+    <fields>
+        <label><!-- o_MemberShimei --></label>
+        <name>o_MemberShimei__c</name>
+    </fields>
+    <fields>
+        <label><!-- sid --></label>
+        <name>sid__c</name>
+    </fields>
+    <layouts>
+        <layout>会員家族レイアウト（AC付）</layout>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>会員家族レイアウト（AC用）2</layout>
+        <sections>
+            <label><!-- AC用 --></label>
+            <section>AC用</section>
+        </sections>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。 --></label>
+            <section>会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label><!-- 安心生活情報 --></label>
+            <section>安心生活情報</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>会員家族レイアウト（AC用）20120401</layout>
+        <sections>
+            <label><!-- AC用 --></label>
+            <section>AC用</section>
+        </sections>
+        <sections>
+            <label><!-- その他のいろんな情報 --></label>
+            <section>その他のいろんな情報</section>
+        </sections>
+        <sections>
+            <label><!-- その他健診情報 --></label>
+            <section>その他健診情報</section>
+        </sections>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 保険金額 --></label>
+            <section>保険金額</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label><!-- 安心生活・駐在中国　　優You　情報 --></label>
+            <section>安心生活・駐在中国　　優You　情報</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+        <sections>
+            <label><!-- 自宅住所情報 --></label>
+            <section>自宅住所情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>会員家族レイアウト（AC用）3</layout>
+        <sections>
+            <label><!-- AC用 --></label>
+            <section>AC用</section>
+        </sections>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。 --></label>
+            <section>会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label><!-- 安心生活情報 --></label>
+            <section>安心生活情報</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>会員家族レイアウト（OMS用）20170607</layout>
+        <sections>
+            <label><!-- その他情報 --></label>
+            <section>その他情報</section>
+        </sections>
+        <sections>
+            <label>Custom Link</label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label>System Information</label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label>Member&apos;s card Information</label>
+            <section>会員カード情報</section>
+        </sections>
+        <sections>
+            <label>Menber&apos;s family informaiton ※Make an em space between family name and given name</label>
+            <section>会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。</section>
+        </sections>
+        <sections>
+            <label>Insurance Information</label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label>Insurance Information 2</label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 健保情報 --></label>
+            <section>健保情報</section>
+        </sections>
+        <sections>
+            <label><!-- 健保情報（OMS） --></label>
+            <section>健保情報（OMS）</section>
+        </sections>
+        <sections>
+            <label>Remarks</label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label>Contract Information</label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label>Contract Information 2</label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label>Contract Information(Family)</label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label>Information</label>
+            <section>情報</section>
+        </sections>
+        <sections>
+            <label>New section</label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label>Information about Anshin Seikatsu・You You</label>
+            <section>現地医療保険情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>会員家族レイアウト（営業用）2</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。 --></label>
+            <section>会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label><!-- 安心生活情報 --></label>
+            <section>安心生活情報</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>会員家族レイアウト（営業用）20120826</layout>
+        <sections>
+            <label><!-- その他情報 --></label>
+            <section>その他情報</section>
+        </sections>
+        <sections>
+            <label>Custom Link</label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label>System Information</label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- セキュリティ契約情報 --></label>
+            <section>セキュリティ契約情報</section>
+        </sections>
+        <sections>
+            <label>Member&apos;s card Information</label>
+            <section>会員カード情報</section>
+        </sections>
+        <sections>
+            <label>Menber&apos;s family informaiton ※Make an em space between family name and given name</label>
+            <section>会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。</section>
+        </sections>
+        <sections>
+            <label>Insurance Information</label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label>Insurance Information 2</label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label>Remarks</label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label>Contract Information</label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label>Contract Information 2</label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label>Contract Information(Family)</label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label>Information</label>
+            <section>情報</section>
+        </sections>
+        <sections>
+            <label>New section</label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label>Information about Anshin Seikatsu・You You</label>
+            <section>現地医療保険情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>会員家族レイアウト（営業用）2A</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。 --></label>
+            <section>会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label><!-- 安心生活情報 --></label>
+            <section>安心生活情報</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>会員家族レイアウト（営業用）3</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。 --></label>
+            <section>会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label><!-- 安心生活　　優You　情報 --></label>
+            <section>安心生活　　優You　情報</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>契約者（家族）レイアウト（AC用）</layout>
+        <sections>
+            <label><!-- AC情報 --></label>
+            <section>AC情報</section>
+        </sections>
+        <sections>
+            <label><!-- AC情報2 --></label>
+            <section>AC情報2</section>
+        </sections>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報3 --></label>
+            <section>保険情報3</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報4 --></label>
+            <section>保険情報4</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>契約者（家族）レイアウト（システム管理者）</layout>
+        <sections>
+            <label><!-- AC情報 --></label>
+            <section>AC情報</section>
+        </sections>
+        <sections>
+            <label><!-- ケイズ取込 --></label>
+            <section>ケイズ取込</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>契約者（家族）レイアウト（営業用）</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。 --></label>
+            <section>会員家族情報　※氏名の入力は、姓と名の間に必ず全角スペース入れて入力して下さい。</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報2 --></label>
+            <section>保険情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 備考 --></label>
+            <section>備考</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <section>契約情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報2 --></label>
+            <section>契約情報2</section>
+        </sections>
+        <sections>
+            <label><!-- 契約情報（家族） --></label>
+            <section>契約情報（家族）</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Member&apos;s Family Name</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- 会員本人が家族でない場合は、登録できません。 --></errorMessage>
+        <name>Family_Check</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>This person have a insurance policy with WellBe handling.</errorMessage>
+        <name>InsuranceCheck</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- AcHistory --></label>
+        <name>AcHistory</name>
+    </webLinks>
+    <webLinks>
+        <label>Create AC Case</label>
+        <name>CreateACReceipt</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CreateACReceipt2 --></label>
+        <name>CreateACReceipt2</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CreateKenkouSoudanReceipt --></label>
+        <name>CreateKenkouSoudanReceipt</name>
+    </webLinks>
+</CustomObjectTranslation>

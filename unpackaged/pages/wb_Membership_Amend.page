@@ -1,0 +1,1346 @@
+<apex:page standardController="wb_Membership__c"  extensions="wb_Membership" action="{!start_Amend}" id="pg">
+    <apex:includeScript value="{!URLFOR($Resource.jQuery3)}" /> 
+    <script>
+    var j$ = jQuery.noConflict();   
+    j$(document).ready(function(){
+        j$(esc('pg:theForm:theDetail:dateTable:tb')+" > tr").attr("onmouseover","");
+        j$("[id$='stageTable:tb'] > tr").attr("onmouseover","");
+        j$(esc('pg:theForm:theDetail:dateTable:tb')+" > tr > td").hover(function(){j$(this).css("background-color","ghostwhite");}, function(){j$(this).css("background-color","white");});
+        j$("[id$='stageTable:tb'] > tr > td").hover(function(){j$(this).css("background-color","greenyellow");}, function(){j$(this).css("background-color","white");});
+        j$("[id$='stageTable'] > thead .headerRow").css("background-color","deepskyblue");
+    });
+    
+    function toggleDateTable(index){
+        var signtext = j$("#Family-sign-"+index).text();
+        
+        var tableId = 'pg:theForm:pb:theDetail:dateTable:'+index+':stageTable';
+        
+        // alert(tableId);
+        if(signtext == '+'){
+            j$("#Family-sign-"+index).text('-').css("padding", " 0px 7px");
+            j$(esc(tableId)).show();
+        }
+        else{
+            j$("#Family-sign-"+index).text('+').css("padding", " 0px 5px");
+            j$(esc(tableId)).hide();
+        }
+    }
+    
+    function toggleCHDateTable(index){
+        var signtext = j$("#Family-sign-"+index).text();
+        var idx = index -1;
+        var tableId = 'pg:theForm:pb:theDetail:dateTable:'+idx+':CHTable';
+        
+        // alert(tableId);
+        if(signtext == '+'){
+            j$("#Family-sign-"+index).text('-').css("padding", " 0px 7px");
+            j$(esc(tableId)).show();
+        }
+        else{
+            j$("#Family-sign-"+index).text('+').css("padding", " 0px 5px");
+            j$(esc(tableId)).hide();
+        }
+    }
+    
+    function toggleAmenddateTableCHDateTable(index){
+        var signtext = j$("#Family-sign-"+index).text();
+        var idx = index -1;
+        var tableId = 'pg:theForm:pb:theDetail:AmenddateTable:'+idx+':CHTable';
+        
+        // alert(tableId);
+        if(signtext == '+'){
+            j$("#Family-sign-"+index).text('-').css("padding", " 0px 7px");
+            j$(esc(tableId)).show();
+        }
+        else{
+            j$("#Family-sign-"+index).text('+').css("padding", " 0px 5px");
+            j$(esc(tableId)).hide();
+        }
+    }
+    
+    function esc(myid) {
+        try {
+            return '#' + myid.replace(/(:|\.)/g,'\\\$1');
+        }catch(e)
+        {
+            alert(e);
+        };  
+    } 
+    
+    function switch2TabTwo()
+    {
+        var tab = document.getElementById('{!$Component.pg:theForm:pb:theDetail:tabTwo}_lbl');
+        tab.click();
+    }                                       
+    </script>
+    <script>
+    function ApplyCancel(id){
+        //  alert(id);
+        try {
+            CallApexMethod2Cancel(id);
+        }
+        catch(e) {
+            alert(e.message);
+        }
+    }
+    function ApplyExchange(id){
+        //  alert('Exchange:' + id);
+        try {
+            CallApexMethod2Exchange(id);
+            
+        }
+        catch(e) {
+            alert(e.message);
+        }
+    }
+    function ApplyChange(id){
+        //  alert('Exchange:' + id);
+        try {
+            CallApexMethod2Change(id);
+            
+        }
+        catch(e) {
+            alert(e.message);
+        }
+    }
+    </script>
+    <script>
+    function DeleteAmendRow(id,idx){
+        // alert('DeleteAmendRow:' + id + ',' +idx );
+        try {
+            CallApexMethod2DeleteAmendRow(id,idx);
+            
+        }
+        catch(e) {
+            alert(e.message);
+        }
+    }
+    function ConfirmPending(id,idx){
+        // alert('DeleteAmendRow:' + id + ',' +idx );
+        try {
+            CallApexMethod2ConfirmPendingRow(id,idx);
+            
+        }
+        catch(e) {
+            alert(e.message);
+        }
+    }
+    </script>
+    
+    
+    <apex:form id="theForm" >
+        <apex:pageMessages id="pagemessage" />
+        <apex:actionFunction name="CallApexMethod2AutoAddAmendmentEmptyRow" action="{!AutoAddEmptyAmendRow}" reRender="theDetail" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theCurrentAmendRowIndex}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2Exchange" action="{!ExchangeConfirmedRow}" oncomplete="switch2TabTwo();" reRender="theForm" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theExchangeeRowID}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2Change" action="{!ChangeConfirmedRow}" oncomplete="switch2TabTwo();" reRender="theForm" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theChangeeRowID}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2Cancel" action="{!CancelConfirmedRow}" reRender="theDetail" oncomplete="switch2TabTwo();" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theCancalRowID}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2ChangeStopDate" action="{!ChangeStopDateRow}" reRender="theDetail" oncomplete="switch2TabTwo();" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theChangeStopDateRowID}" value="" />
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="CallApexMethodUpdateAndInsertRowAt" action="{!UpdateAndInsertRow_at}" reRender="theDetail" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theStartRowID}" value="" />
+            <apex:param name="secondParam" assignTo="{!theStartRowIndex}" value="" />
+            <apex:param name="thirdParam" assignTo="{!theIndividualList}" value="" />
+            <apex:param name="fourthParam" assignTo="{!theServiceList}" value="" />
+            <apex:param name="fifthParam" assignTo="{!theStartDate}" value="" />
+            <apex:param name="sixthParam" assignTo="{!UpdateTo}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2DeleteAmendRow" action="{!DeletePendingAmendRow}" reRender="TheDataTableWrapper,TheBeingAmendDataTableWrapper" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!PendingAmendRowId}" value="" />
+            <apex:param name="secondParam" assignTo="{!PendingAmendRowIdx}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2RefreshPendingStopDateChangeRefund" action="{!RefreshPendingStopDateChangeRefund}" reRender="TheDataTableWrapper,TheBeingAmendDataTableWrapper" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!PendingAmendRowId}" value="" />
+            <apex:param name="secondParam" assignTo="{!PendingAmendRowIdx}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2RefreshReplacerStartDate" action="{!RefreshPendingReplacerStartDate}" reRender="TheDataTableWrapper,TheBeingAmendDataTableWrapper" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!PendingAmendRowId}" value="" />
+            <apex:param name="secondParam" assignTo="{!PendingAmendRowIdx}" value="" />
+            
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2CalculateBalanceAmountRow" action="{!CalculatePendingAmendRowBalanceAmount}" reRender="TheDataTableWrapper,TheBeingAmendDataTableWrapper" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!PendingAmendRowId}" value="" />
+            <apex:param name="secondParam" assignTo="{!PendingAmendRowIdx}" value="" />
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="CallApexMethod2ConfirmPendingRow" action="{!ConfirmPendingRow}" reRender="TheDataTableWrapper,TheBeingAmendDataTableWrapper" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!PendingAmendRowId}" value="" />
+            <apex:param name="secondParam" assignTo="{!PendingAmendRowIdx}" value="" />
+        </apex:actionFunction>
+        
+        <apex:actionFunction name="CallApexMethod2UpdatePendingRowChangeType" action="{!updatePendingAmendRowChangeType}" reRender="TheDataTableWrapper,TheBeingAmendDataTableWrapper" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!PendingAmendRowId}" value="" />
+            <apex:param name="secondParam" assignTo="{!PendingAmendRowIdx}" value="" />
+            <apex:param name="thirdParam" assignTo="{!PendingAmendRowChangeType}" value="" />
+        </apex:actionFunction>
+        <apex:actionFunction name="CallApexMethod2UpdatePendingRowReplacement" action="{!updatePendingAmendRowReplacement}" reRender="TheDataTableWrapper,TheBeingAmendDataTableWrapper" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!PendingAmendRowId}" value="" />
+            <apex:param name="secondParam" assignTo="{!PendingAmendRowIdx}" value="" />
+            <apex:param name="thirdParam" assignTo="{!PendingAmendRowChangeType}" value="" />
+        </apex:actionFunction>
+        
+        
+        <apex:sectionHeader title="会員契約" subtitle="{!wb_Membership__c.Name}"/>
+        <apex:pageBlock id="pb" >
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script language="Javascript" type="text/javascript">
+                window.CallParent = function() {
+                // alert(" Parent window Alert");
+                var StartRowID ;
+                var StartRowIndex;
+                var Individuals = [];
+                var Service = [];
+                
+                try {
+                    var Ind ;
+                    var SR ;
+                    var StartDate
+                    SR = document.getElementById("parentElemStartRow").innerHTML;
+                    Ind = document.getElementById("parentElemIndividual").innerHTML;
+                    StartDate = document.getElementById("parentElemStartDate").innerHTML;
+                    
+                    //alert('Ind:'+Ind);
+                    while ( Ind.indexOf(',') > -1 ){
+                        var e1 = Ind.substr(0,Ind.indexOf(','));
+                        //    alert(e1 +':' +Ind) ;
+                        Ind = Ind.substr(Ind.indexOf(',')+1);
+                        var e2
+                        if ( Ind.indexOf(',') > -1 ){
+                            e2 = Ind.substr(0,Ind.indexOf(','));
+                            Ind = Ind.substr(Ind.indexOf(',')+1);
+                        }
+                        else {
+                            e2 = Ind;  
+                            Ind = '';
+                        }
+                        // alert('push e1 e2:' + e1 +':'+ e2);
+                        Individuals.push(e1);
+                        Service.push(e2);
+                    } 
+                    
+                    //if(Ind.length() > 0 )
+                    Individuals.push(Ind);
+                    
+                    while ( SR.indexOf(',') > -1 ){
+                        StartRowID = SR.substr(0,Ind.indexOf(','));
+                        //    alert(e1 +':' +Ind) ;
+                        SR = SR.substr(SR.indexOf(',')+1);
+                        // var e2
+                        
+                        StartRowIndex = SR;  
+                        SR = '';
+                        
+                        //    alert('StartRowID StartRowIndex:' + StartRowID +':'+ StartRowIndex);
+                    } 
+                    
+                    
+                }       
+                catch(e)
+                {
+                    alert(e);
+                }   
+                
+                try {
+                    StartRowIndex = StartRowIndex - 1;
+                    //alert(Individuals);
+                    CallApexMethodUpdateAndInsertRowAt(StartRowID, StartRowIndex, Individuals.toString(),Service.toString(),StartDate,'AMEND');
+                    //ValidateAndAlertMembershipFee();
+                }
+                catch(e)
+                {
+                    alert(e);
+                }  
+                
+            }
+            
+            window.CallParentReplacement = function() {
+                //  alert(" Parent window Alert");
+                var StartRowID ;
+                var StartRowIndex;
+                var ReplacementName;
+                var Individuals = [];
+                var Service = [];
+                
+                try {
+                    var Ind ;
+                    var SR ;
+                    //var StartDate parentElemStartRow
+                    SR = document.getElementById("parentElemStartRow").innerHTML;
+                    Ind = document.getElementById("parentElemIndividual").innerHTML;
+                    // StartDate = document.getElementById("parentElemStartDate").innerHTML;
+                    
+                    //alert('Ind:'+Ind);
+                    while ( Ind.indexOf(',') > -1 ){
+                        var e1 = Ind.substr(0,Ind.indexOf(','));
+                        //    alert(e1 +':' +Ind) ;
+                        
+                        Ind = Ind.substr(Ind.indexOf(',')+1);
+                        var e2
+                        if ( Ind.indexOf(',') > -1 ){
+                            e2 = Ind.substr(0,Ind.indexOf(','));
+                            Ind = Ind.substr(Ind.indexOf(',')+1);
+                        }
+                        else {
+                            e2 = Ind;  
+                            Ind = '';
+                        }
+                        // alert('push e1 e2:' + e1 +':'+ e2);
+                        Individuals.push(e1);
+                        //Service.push(e2);
+                    } 
+                    
+                    //if(Ind.length() > 0 )
+                    Individuals.push(Ind);
+                    ReplacementName = Ind;
+                    //  alert('Replacement:' + Individuals);
+                    //alert('SR:' + SR);
+                    
+                    while ( SR.indexOf(',') > -1 ){
+                        StartRowID = SR.substr(0,SR.indexOf(','));
+                        // alert('StartRowID:' +StartRowID) ;
+                        SR = SR.substr(SR.indexOf(',')+1);
+                        // var e2
+                        
+                        StartRowIndex = SR;  
+                        SR = '';
+                        
+                        // alert('StartRowID StartRowIndex:' + StartRowID +':'+ StartRowIndex);
+                    } 
+                    
+                    
+                }       
+                catch(e)
+                {
+                    alert(e);
+                }   
+                
+                try {
+                    
+                    CallApexMethod2UpdatePendingRowReplacement(StartRowID,StartRowIndex,ReplacementName);
+                    //CallApexMethodUpdateAndInsertRowAt(StartRowID, StartRowIndex, Individuals.toString(),Service.toString(),StartDate,'AMEND');
+                    
+                }
+                catch(e)
+                {
+                    alert(e);
+                }  
+                
+            }
+            
+            window.CallParentCancellationAsReplacement = function() {
+                //alert(" Parent window Alert");
+                var StartRowID ;
+                var StartRowIndex;
+                var ReplacementName;
+                var Individuals = [];
+                var Service = [];
+                
+                try {
+                    var Ind ;
+                    var SR ;
+                    //var StartDate parentElemStartRow
+                    SR = document.getElementById("parentElemStartRow").innerHTML;
+                    Ind = document.getElementById("parentElemIndividual").innerHTML;
+                    // StartDate = document.getElementById("parentElemStartDate").innerHTML;
+                    
+                    //alert('Ind:'+Ind);
+                    while ( Ind.indexOf(',') > -1 ){
+                        var e1 = Ind.substr(0,Ind.indexOf(','));
+                        //    alert(e1 +':' +Ind) ;
+                        
+                        Ind = Ind.substr(Ind.indexOf(',')+1);
+                        var e2
+                        if ( Ind.indexOf(',') > -1 ){
+                            e2 = Ind.substr(0,Ind.indexOf(','));
+                            Ind = Ind.substr(Ind.indexOf(',')+1);
+                        }
+                        else {
+                            e2 = Ind;  
+                            Ind = '';
+                        }
+                        // alert('push e1 e2:' + e1 +':'+ e2);
+                        Individuals.push(e1);
+                        //Service.push(e2);
+                    } 
+                    
+                    //if(Ind.length() > 0 )
+                    Individuals.push(Ind);
+                    ReplacementName = Ind;
+                    // alert('Replacement:' + Individuals);
+                    //alert('SR:' + SR);
+                    
+                    while ( SR.indexOf(',') > -1 ){
+                        StartRowID = SR.substr(0,SR.indexOf(','));
+                        // alert('StartRowID:' +StartRowID) ;
+                        SR = SR.substr(SR.indexOf(',')+1);
+                        // var e2
+                        
+                        StartRowIndex = SR;  
+                        SR = '';
+                        
+                        // alert('StartRowID StartRowIndex:' + StartRowID +':'+ StartRowIndex);
+                    } 
+                    
+                    
+                }       
+                catch(e)
+                {
+                    alert(e);
+                }   
+                
+                try {
+                    //StartRowIndex = StartRowIndex - 1;
+                    //  alert('CallApexMethod2UpdatePendingRowChangeType, ' + StartRowID +',' + StartRowIndex +',' + ReplacementName);
+                    CallApexMethod2UpdatePendingRowChangeType(StartRowID,StartRowIndex,ReplacementName);
+                    //CallApexMethodUpdateAndInsertRowAt(StartRowID, StartRowIndex, Individuals.toString(),Service.toString(),StartDate,'AMEND');
+                    
+                }
+                catch(e)
+                {
+                    alert(e);
+                }  
+                
+            }
+            
+            </script>
+            <br/> 
+            <!-- <div id="parentElemStartRow"  style="display:none;"></div> -->
+            <div id="parentElemStartRow" style="display:none;"></div>
+            <div id="parentElemStartDate" style="display:none;"></div>
+            <div id="parentElemIndividual" style="display:none;"></div>
+            <div id="parentElemMembershipFee" style="display:none;"></div>
+            <br/> 
+            
+            <a href="#d_list" id="hover1">
+                詳細[{!NoofMembershipDetails}]</a>
+            
+            <br/> 
+            <apex:commandButton value="ホーム"  action="{!Home}"/>  
+            
+            <apex:pageBlockSection title="情報" columns="2">
+                <apex:outputfield title="契約番号" value="{!Membership.Name}"/>
+                <apex:outputfield title="状況" value="{!Membership.Status__c}"/>
+                <apex:outputfield label="契約国" value="{!Membership.ContractCountry__c}"/> 
+                
+                
+                <apex:outputfield label="契約地区" value="{!Membership.ContractDistrict__c}"/>
+                
+                
+                <apex:outputfield label="請求地区" value="{!Membership.BillingDistrict__c}"/>
+                
+                
+                <apex:outputfield label="申込日付" value="{!Membership.ApplicationDate__c}"/>
+                <apex:outputfield label="契約日付" value="{!Membership.ContractDate__c}"/>
+                <apex:outputfield label="{!$ObjectType.wb_Membership__c.fields.ContractExpiryDate__c.label}" value="{!Membership.ContractExpiryDate__c}"/>
+                <apex:outputfield label="通貨" value="{!Membership.Currency__c}"/>
+                
+                
+                <apex:outputfield label="区分" value="{!Membership.Classification__c}">
+                </apex:outputfield>
+                <br/> 
+                
+                
+                <apex:outputfield label="契約会社" value="{!Membership.ContractCompany__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}" />
+                <!--   <apex:outputfield label="グループ割引率" value="{!wb_Membership__c.DiscountPercentage__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/> -->
+                <apex:outputfield label="請求会社" value="{!Membership.BillingCompany__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先内線" value="{!Membership.BillingExtNo__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先氏名" value="{!Membership.BillingName__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先国番号" value="{!Membership.BillingCountryNo__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先部署" value="{!Membership.BillingDept__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先FAX" value="{!Membership.BillingFax__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                <apex:outputfield label="請求先TEL" value="{!Membership.BillingTel__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                
+                <apex:outputfield label="請求先役職" value="{!Membership.BillingTitle__c}" rendered="{!IF((Membership.Classification__c=='会社'), true , false)}"/>
+                
+                <apex:outputfield label="契約個人" value="{!Membership.ContractIndividual__c}"  rendered="{!IF((Membership.Classification__c=='個人'), true , false)}"/>
+                
+                <apex:outputfield label="請求書発行日" value="{!Membership.BillingDate__c}"/>
+                <apex:outputfield label="請求備考" value="{!Membership.BillingNote__c}"/>
+                <apex:outputfield label="社員名簿" value="{!wb_Membership__c.Sales__c}"/>
+                <apex:outputfield label="内務担当" value="{!wb_Membership__c.InternalAffairs__c}"/>
+                
+            </apex:pageBlockSection>
+            
+            <p id="d_list"></p>
+            
+            <apex:pageBlockSection id="theDetail" title="詳細" columns="１">
+                <style>
+                    .activeTab {background-color: yellow; color:black; background-image:none}
+                    .inactiveTab { background-color: lightgrey; color:black; background-image:none}
+                </style>
+                
+                <apex:tabPanel tabClass="activeTab" inactiveTabClass="inactiveTab" switchType="client" selectedTab="Tab1" id="theTabPanel">
+                    
+                    <apex:tab label="確認済み" name="Tab1" id="tabOne" >
+                        
+                        <apex:outputPanel id="TheDataTableWrapper">
+                            <apex:variable var="index" value="{!0}" /> 
+                            <apex:datatable value="{!theMembershipDetail}" var="a" columns="13" border="1" cellpadding="3" id="dateTable" onRowClick="highlight(this);" >  
+                                
+                                <apex:column rendered="{!IF(Membership.Status__c=='確定', true , false)}" >
+                                    
+                                    <div style="width:35px;">
+                                        <apex:commandButton id="btnCnclMbr" value="解約"
+                                                            onClick="ApplyCancel('{!a.theRow.Id}');return false;"
+                                                            rendered="{!IF(AND(AND(AND(a.theRow.PendingAction__c==null,a.theRow.CancellationDate__c==null),a.IsReplaced!=true),a.theRow.Type__c!='入会金'), true , false)}">
+                                        </apex:commandButton>
+                                        <apex:commandButton id="btnExchangeMbr" value="交替"  onclick="ApplyExchange('{!a.theRow.Id}');return false;"
+                                                            rendered="{!IF(AND(AND(AND(a.theRow.PendingAction__c==null,a.theRow.CancellationDate__c==null),a.IsReplaced!=true),a.theRow.Type__c!='入会金'), true , false)}">
+                                        </apex:commandButton>
+                                        <apex:commandButton id="btnChangeMbr" value="変更"  onclick="ApplyChange('{!a.theRow.Id}');return false;"
+                                                            rendered="{!IF(AND(AND(AND(a.theRow.PendingAction__c==null,a.theRow.CancellationDate__c==null),a.IsReplaced!=true),a.theRow.Type__c!='入会金'), true , false)}">
+                                        </apex:commandButton>
+                                        
+                                        
+                                        
+                                    </div>
+                                    
+                                </apex:column>
+                                
+                                <apex:column >
+                                    
+                                    <div style="width:60px;" >
+                                        <apex:outputfield value="{!a.theRow.Name}"
+                                                          rendered="{!IF(a.theRow.PendingAction__c==null, true , false)}"></apex:outputfield>
+                                    </div>
+                                    
+                                    <apex:variable var="index" value="{!index + 1}" /> 
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Type__c.label}">
+                                    <div style="width:35px;">
+                                        
+                                        <apex:outputfield value="{!a.theRow.Type__c}" id="Type__c" rendered="{!IF(OR(a.theRow.Name!=null,a.theRow.Service__c!=null), true , false)}"></apex:outputfield>
+                                        
+                                    </div>
+                                </apex:column>
+                                <apex:column headerValue="プラン">
+                                    
+                                    <div  style="width:120px;">
+                                        
+                                        <apex:outputField value="{!a.theRow.MembershipPlan__c}"
+                                                          rendered="{!IF(a.theRow.PendingAction__c==null, true , false)}" />
+                                        
+                                    </div>
+                                    
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}">
+                                    <div  style="width:140px;">
+                                        <apex:outputField value="{!a.theRow.WorkingCompany__c}"  style="width:120px;"
+                                                          rendered="{!IF(a.theRow.PendingAction__c==null, true , false)}" />
+                                        
+                                        
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    
+                                    <apex:outputPanel rendered="{!IF(OR(a.selectedValue=='1', a.selectedValue=='4'), true , false)}" >                               
+                                        <div  style="width:150px;">
+                                            
+                                            <apex:outputText value=" "> </apex:outputText>
+                                            <apex:outputField value="{!a.theRow.Quantity__c}"  style="width:50px;">
+                                            </apex:outputField>
+                                            <apex:outputText value="名 " rendered="{!IF(a.theRow.Quantity__c != null, true , false)}"  >
+                                            </apex:outputText> 
+                                            
+                                            
+                                        </div>
+                                        
+                                    </apex:outputPanel>
+                                    
+                                    <apex:outputPanel rendered="{!IF((a.selectedValue=='2'), true , false)}" id="pl1">                               
+                                        <div  style="width:150px;">
+                                            
+                                            <apex:outputField value="{!a.theRow.Individual__c}" style="width:80px;"
+                                                              rendered="{!IF(a.theRow.Classification__c!='入替', true , false)}">
+                                            </apex:outputField>
+                                            
+                                            
+                                            
+                                            <apex:outputText value=" "> </apex:outputText>
+                                            <apex:outputField value="{!a.theRow.MemberNo__c}" style="width:80px;">
+                                            </apex:outputField>
+                                        </div>
+                                    </apex:outputPanel>  
+                                    
+                                    
+                                    <apex:outputPanel rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}" id="p3">  
+                                        <span style="color: #00F;font-size: 11px;font-family:verdana;font-weight: bold;" >
+                                            <apex:outputText value="家族: {!a.NoofFamilyMembers}名"  rendered="{!IF(a.theRow.Type__c =='家族', true , false)}" ></apex:outputText> 
+                                            <apex:outputtext value="利用{!a.theInQty}名 "  style="width:50px;"
+                                                             rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theInQty!=0), true , false)}"></apex:outputtext>  
+                                            <apex:outputtext value="貸出{!a.theOutQty}名 "  style="width:50px;"
+                                                             rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theOutQty!=0), true , false)}"></apex:outputtext>  
+                                        </span>
+                                        <span id="Family-sign-{!index}" class="sign-class" onclick="toggleCHDateTable('{!index}');" 
+                                              rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}"
+                                              >+</span>
+                                        <apex:variable value="{!0}" var="FamilyMemberIndex"/>
+                                        <style>
+                                            .hidden {
+                                            display: none;
+                                            }
+                                        </style>
+                                        
+                                        
+                                        <apex:datatable value="{!a.theFamilies[a.theRow.name]}" var="f" id="CHTable"  headerClass="hidden" cellpadding="1" style="display:none;margin-top:1px;margin-left:2px;width:98%;"> 
+                                            <apex:column value="{!f.MemberName__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.MemberNo__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.SecondType__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.CrossReference__r.ParentDetail__r.name}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.CrossReference__r.ParentDetail__r.CancellationDate__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.Quantity__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        </apex:datatable>  
+                                    </apex:outputPanel> 
+                                    
+                                    
+                                    
+                                </apex:column>
+                                
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStartDate__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="MembershipStartDate__c" value="{!a.theRow.MembershipStartDate__c}"  style="width:70px;">
+                                        </apex:outputField>
+                                        
+                                    </div>
+                                </apex:column> 
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStopDate__c.label}" id="MembershipStopDate__c">
+                                    <div  style="width:70px;">
+                                        
+                                        <a href="" onclick="CallApexMethod2ChangeStopDate('{!a.theRow.Id}');" > 
+                                            <apex:outputField value="{!a.theRow.MembershipStopDate__c}" style="width:70px;"
+                                                              rendered="{!IF(AND(a.theRow.PendingAction__c==null,a.AllowChangeStopDate==true), true , false)}"/>
+                                        </a>
+                                        
+                                        <apex:outputField value="{!a.theRow.MembershipStopDate__c}" style="width:70px;"
+                                                              rendered="{!IF(AND(a.theRow.PendingAction__c==null,a.AllowChangeStopDate==false), true , false)}"/>
+                                        
+                                        <br/>
+                                        <apex:outputText value="(" rendered="{!IF(AND(a.theRow.PendingAction__c==null,a.theRow.MembershipStopDate__c!=null), true , false)}"></apex:outputText>
+                                        <apex:outputField value="{!a.theRow.CancellationDate__c}" style="width:70px;"
+                                                          rendered="{!IF(AND(a.theRow.PendingAction__c==null,a.theRow.MembershipStopDate__c!=null), true , false)}" />
+                                        <apex:outputText value=")" rendered="{!IF(AND(a.theRow.PendingAction__c==null,a.theRow.MembershipStopDate__c!=null), true , false)}"></apex:outputText>
+                                        
+                                    </div>
+                                    <!--
+                                        <div>
+                                            {!a.AllowChangeStopDate}
+                                        </div>
+									-->
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipEndDate__c.label}" id="MembershipEndDate__c">
+                                    <div  style="width:70px;">
+                                        <apex:outputField value="{!a.theRow.MembershipEndDate__c}" style="width:70px;" />
+                                    </div>
+                                </apex:column>
+                                
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.CancellationDate__c.label}"
+                                             rendered="{!IF( Membership.Status__c='キャンセル', true , false)}" id="CancellationDate__c">
+                                    <div  style="width:100px;">
+                                        <apex:outputField value="{!a.theRow.CancellationDate__c}" style="width:100px;" />
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.UnitAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="Amount__c" value="{!a.theRow.UnitAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Amount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="RemainingAmount__c" value="{!a.theRow.Amount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.BillingAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="BillingAmount__c" value="{!a.theRow.BillingAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.BalanceAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="BalanceAmount__c" value="{!a.theRow.BalanceAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                
+                            </apex:datatable>
+                            
+                            <style type="text/css">
+                                .dateFormat{
+                                visibility:hidden;
+                                }
+                            </style>
+                            
+                        </apex:outputPanel>
+                        
+                    </apex:tab>
+                    
+                    <apex:tab label="処理中" name="Tab2" id="tabTwo" >
+                        <apex:outputPanel >
+                            
+                            <apex:commandButton action="{!ConfirmSelectedPendingRow}" value="確定"/>
+                            <apex:commandButton action="{!DeleteSelectedPendingAmendRow}" value="削除"/>
+                            <apex:commandButton id="btnSaveAmend" value="一時保存"  action="{!SaveAmendasDraft}"
+                                                rerender="TheBeingAmendDataTableWrapper">
+                            </apex:commandButton>
+                            <apex:commandButton id="btnGenerateAmendMemberNo" value="会員号番付与"  action="{!GenerateMemeberNoforBeingAmendingRow}"
+                                                rerender="TheBeingAmendDataTableWrapper">
+                            </apex:commandButton>    
+                            
+                            <apex:inputCheckbox value="{!AmendmentAdditionItemMode}"  >
+                                <apex:actionSupport event="onchange"
+                                                    action="{!AutoAddEmptyAmendRowModeNoOff}"
+                                                    reRender="TheBeingAmendDataTableWrapper" /> 
+                            </apex:inputCheckbox> 新規追加
+                            
+                            
+                        </apex:outputPanel>
+                        <apex:outputPanel id="TheBeingAmendDataTableWrapper">
+                            
+                            <apex:variable var="Aindex" value="{!0}" /> 
+                            
+                            <apex:datatable value="{!theBeingAmendedMembershipDetail}" var="a" columns="19" border="1" cellpadding="3" id="AmenddateTable" onRowClick="highlight(this);" >  
+                                
+                                <apex:column rendered="{!IF(Membership.Status__c=='確定', true , false)}" >
+                                    
+                                    
+                                    <apex:facet name="header">
+                                        <apex:outputPanel >
+                                            
+                                            
+                                        </apex:outputPanel>
+                                    </apex:facet>
+                                    
+                                    <apex:inputCheckbox value="{!a.IsSelected}"
+                                                        rendered="{!IF(OR(a.theRow.PendingAction__c=='確認',a.theRow.PendingAction__c=='解約'), true , false)}">
+                                    </apex:inputCheckbox>
+                                </apex:column>
+                                <apex:column rendered="{!IF(Membership.Status__c=='確定', true , false)}" >
+                                    
+                                    <div style="width:15px;">
+                                        
+                                        
+                                        <apex:commandButton id="btnCnl" value="削"  onclick="DeleteAmendRow('{!a.theRow.Id}','{!a.theRowIndex}');return false;"
+                                                            rendered="{!IF(OR(a.theRow.PendingAction__c=='確認',a.theRow.PendingAction__c=='解約'), true , false)}"
+                                                            reRender="TheBeingAmendDataTableWrapper,TheDataTableWrapper">
+                                        </apex:commandButton>
+                                        
+                                        
+                                        <apex:commandButton id="btnCfm" value="確"  onclick="ConfirmPending('{!a.theRow.Id}','{!a.theRowIndex}');return false;"
+                                                            rendered="{!IF(OR(a.theRow.PendingAction__c=='確認',a.theRow.PendingAction__c=='解約'), true , false)}"
+                                                            reRender="pagemessage">
+                                        </apex:commandButton>
+                                        
+                                        
+                                    </div>
+                                    
+                                </apex:column>
+                                <apex:column >
+                                    
+                                    <div style="width:60px;" >
+                                        
+                                        <apex:outputtext value="{!a.theRowChangeType}" ><br/>
+                                        </apex:outputtext>
+                                        
+                                        <apex:commandButton id="btnReplaceCancellation" value="退会交替"
+                                                            onClick="ShowAndSelectCancellationAsReplacement('{!a.theRow.id}','{!a.theRowIndex}','{!a.theRow.Membership__c}');return false;"
+                                                            rendered="{!IF(a.CancallationReplacement==true, true , false)}">
+                                        </apex:commandButton>
+                                        
+                                        <script>
+                                        function ShowAndSelectCancellationAsReplacement(RId,Ridx,MdId){
+                                            try {
+                                                
+                                                var baseURL = getBaseURL();
+                                                baseURL = baseURL + "apex/wb_MembershipReplacement";
+                                                
+                                                var para ='';
+                                                
+                                                para　='?Id=' +MdId +'&'+'pv0=' + RId +'&'+'pv1=' + Ridx + '&'+'pv2=Cancellation' ;
+                                                
+                                                window.childWin = window.open(baseURL + para ,'Popup','height=480,width=640,left=0,top=0,scrollbars=no,toolbar=no,status=no,directories=no,menubar=no,scrollable=no,resizable=yes');
+                                                
+                                                var winClosed = setInterval(function () {
+                                                    
+                                                    if (window.childWin.closed) {
+                                                        clearInterval(winClosed);
+                                                    }
+                                                    
+                                                }, 250);
+                                                
+                                            }
+                                            catch(e)
+                                            {
+                                                alert(e);
+                                            } 
+                                        }
+                                        
+                                        function getBaseURL() {
+                                            var url = location.href;  // entire url including querystring - also: window.location.href;
+                                            var baseURL = url.substring(0, url.indexOf('/', 14));
+                                            
+                                            if (baseURL.indexOf('http://localhost') != -1) {
+                                                // Base Url for localhost
+                                                var url = location.href;  // window.location.href;
+                                                var pathname = location.pathname;  // window.location.pathname;
+                                                var Aindex1 = url.indexOf(pathname);
+                                                var Aindex2 = url.indexOf("/", Aindex1 + 1);
+                                                var baseLocalUrl = url.substr(0, Aindex2);
+                                                
+                                                return baseLocalUrl + "/";
+                                            }
+                                            else {
+                                                // Root Url for domain name
+                                                return baseURL + "/";
+                                            }
+                                            
+                                        }
+                                        
+                                        </script>
+                                        
+                                    </div> 
+                                    <script>
+                                    function UpdateChangeType(RId,Ridx,ChangeOpt){
+                                        
+                                        try {
+                                            // alert(RId + ':' + Ridx  + ':' + ChangeOpt );
+                                            CallApexMethod2UpdatePendingRowChangeType(RId,Ridx,ChangeOpt);
+                                        }
+                                        catch(e)
+                                        {
+                                            alert(e);
+                                        } 
+                                    }
+                                    </script>
+                                </apex:column>
+                                
+                                <apex:column >
+                                    
+                                    <div style="width:70px;" >
+                                        <apex:outputfield value="{!a.theRow.Name}" rendered="{!IF(a.theRow.Classification__c!='入替', true , false)}"></apex:outputfield>
+                                    </div>
+                                    <div style="width:70px;color:#F00">
+                                        <apex:outputfield value="{!a.theRow.Name}" rendered="{!IF(a.theRow.Classification__c=='入替', true , false)}"></apex:outputfield>
+                                    </div>
+                                    <apex:variable var="Aindex" value="{!Aindex + 1}" /> 
+                                    
+                                    <apex:commandButton id="btnReplace" value="交換退会者"
+                                                        onClick="ShowAndSelectReplacement('{!a.theRow.id}','{!a.theRowIndex}','{!a.theRow.Membership__c}');return false;"
+                                                        rendered="{!IF(OR(a.MemberReplacement==true,
+                                                                  AND(a.theRow.Classification__c=='追加',OR(a.theRow.Type__c=='家族',a.theRow.Type__c=='単身'))), true , false)}">
+                                    </apex:commandButton>
+                                    
+                                    <script>
+                                    function ShowAndSelectReplacement(RId,Ridx,MdId){
+                                        try {
+                                            // alert(RId + ':' + Ridx  );
+                                            //alert(MdId);
+                                            var baseURL = getBaseURL();
+                                            baseURL = baseURL + "apex/wb_MembershipReplacement";
+                                            
+                                            var para ='';
+                                            
+                                            para　='?Id=' +MdId +'&'+'pv0=' + RId +'&'+'pv1=' + Ridx;
+                                            // alert(para);
+                                            window.childWin = window.open(baseURL + para ,'Popup','height=480,width=640,left=0,top=0,scrollbars=no,toolbar=no,status=no,directories=no,menubar=no,scrollable=no,resizable=yes');
+                                            
+                                            var winClosed = setInterval(function () {
+                                                
+                                                if (window.childWin.closed) {
+                                                    clearInterval(winClosed);
+                                                    //ValidateAndAlertMembershipFee2(); 
+                                                }
+                                                
+                                            }, 250);
+                                            
+                                        }
+                                        catch(e)
+                                        {
+                                            alert(e);
+                                        } 
+                                    }
+                                    function GettheReplacement(RId,Ridx,ChangeOpt){
+                                        
+                                        try {
+                                            // alert(RId + ':' + Ridx  + ':' + ChangeOpt );
+                                            CallApexMethod2UpdatePendingRowReplacement(RId,Ridx,ChangeOpt);
+                                        }
+                                        catch(e)
+                                        {
+                                            alert(e);
+                                        } 
+                                    }
+                                    </script>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Type__c.label}">
+                                    <div style="width:70px;">
+                                        
+                                        <apex:outputfield value="{!a.theRow.Type__c}" id="Type__c"
+                                                          rendered="{!IF(OR(a.theRow.Name!=null,a.theRow.Service__c!=null), true , false)}"></apex:outputfield>
+                                        
+                                        <apex:selectRadio value="{!a.selectedValue}" layout="pageDirection"
+                                                          rendered="{!IF( a.theRow.Type__c==null, true , false)}" style="width:80px;">
+                                            <apex:selectOption itemValue="1" itemLabel="入会金">
+                                            </apex:selectOption>
+                                            <apex:selectOption itemValue="2" itemLabel="単・家"> 
+                                            </apex:selectOption>
+                                            <apex:selectOption itemValue="3" itemLabel="無記名"> 
+                                            </apex:selectOption>
+                                            <apex:selectOption itemValue="4" itemLabel="仮名"> 
+                                            </apex:selectOption>
+                                            
+                                            <apex:actionSupport event="onchange" action="{!a.fetchServiceOptions}"
+                                                                reRender="TheBeingAmendDataTableWrapper" /> 
+                                        </apex:selectRadio>
+                                        
+                                        
+                                    </div>
+                                    
+                                </apex:column>
+                                <apex:column headerValue="プラン">
+                                    
+                                    <div  style="width:120px;">
+                                        
+                                        <apex:outputField value="{!a.theRow.MembershipPlan__c}"
+                                                          rendered="{!IF(OR(OR(AND(OR(a.theRow.PendingAction__c=='解約',OR(a.theRow.PendingAction__c=='交替',a.theRow.PendingAction__c=='変更')),a.theRowAttribute !='A' ),
+                                                                    a.theRow.PendingAction__c=='解約変更'),
+                                                                    AND(a.theRow.Classification__c=='解約変更', a.theRow.PendingAction__c=='確認')),
+                                                                    true , false)}"/>
+                                        
+                                        
+                                        <apex:selectList id="Service__c" value="{!a.theRow.Service__c}" size="1" style="width:120px;"
+                                                         rendered="{!IF(OR(AND(OR(a.theRow.Classification__c=='交替',a.theRow.Classification__c=='変更'),a.theRow.PendingAction__c=='確認'),a.theRowAttribute =='A' ), true , false)}" 
+                                                         >  
+                                            <apex:selectOptions value="{!a.ServiceOptions}"/>  
+                                            
+                                            <apex:actionSupport event="onchange"
+                                                                action="{!a.fetchServiceFeeOnly}"
+                                                                onComplete="CalculateBalanceAmountRow('{!a.theRow.id}',{!a.theRowIndex});" reRender="TheBeingAmendDataTableWrapper"
+                                                                />
+                                            
+                                        </apex:selectList>  
+                                        
+                                        
+                                        
+                                    </div>
+                                    
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.WorkingCompany__c.label}">
+                                    <div  style="width:140px;">
+                                        <apex:outputField value="{!a.theRow.WorkingCompany__c}"  style="width:120px;"
+                                                          rendered="{!IF(OR(OR(OR(a.theRow.PendingAction__c=='解約',OR(a.theRow.PendingAction__c=='交替',a.theRow.PendingAction__c=='変更')),
+                                                                    a.theRow.PendingAction__c=='解約変更'),
+                                                                    AND(a.theRow.Classification__c=='解約変更',a.theRow.PendingAction__c=='確認')
+                                                                    ), true , false)}" />
+                                        
+                                        <apex:inputField id="WorkingCompany__c" value="{!a.theRow.WorkingCompany__c}"  style="width:120px;"
+                                                         
+                                                         rendered="{!IF(AND(OR(AND(OR(a.theRow.Classification__c=='交替',a.theRow.Classification__c=='変更'),a.theRow.PendingAction__c=='確認'),a.theRowAttribute =='A'),a.theRow.Type__c!='入会金'), true , false)}" >
+                                            <apex:actionSupport event="onchange"
+                                                                onComplete="AutoAddAmendmentEmptyRow('{!Aindex}');"
+                                                                reRender="TheBeingAmendDataTableWrapper" >
+                                            </apex:actionSupport>
+                                        </apex:inputField>
+                                    </div>
+                                    
+                                </apex:column>
+                                
+                                <apex:column >
+                                    
+                                    <apex:outputPanel rendered="{!IF(OR(a.selectedValue=='1', a.selectedValue=='4'), true , false)}" >                               
+                                        <div  style="width:150px;">
+                                            
+                                            <apex:outputText value=" "> </apex:outputText>
+                                            <apex:inputField value="{!a.theRow.Quantity__c}"  style="width:50px;">
+                                                <apex:actionSupport event="onchange"
+                                                                    action="{!a.fetchServiceFee}"
+                                                                    onComplete="AutoAddAmendmentEmptyRow('{!Aindex}');"
+                                                                    reRender="TheBeingAmendDataTableWrapper" >
+                                                    
+                                                </apex:actionSupport>
+                                            </apex:inputField>
+                                            <apex:outputText value="名 "   >
+                                            </apex:outputText> 
+                                            
+                                            
+                                        </div>
+                                        
+                                    </apex:outputPanel>
+                                    
+                                    <apex:outputPanel rendered="{!IF((a.selectedValue=='2'), true , false)}" id="pl1">                               
+                                        <div  style="width:150px;">
+                                            
+                                            <apex:outputField value="{!a.theRow.Individual__c}" style="width:80px;"
+                                                              rendered="{!IF(OR(OR(OR(a.theRow.PendingAction__c=='解約',OR(a.theRow.PendingAction__c=='交替',OR(a.theRow.PendingAction__c=='変更',a.theRow.Classification__c=='変更'))),
+                                                                        a.theRow.PendingAction__c=='解約変更'),
+                                                                        AND(a.theRow.Classification__c=='解約変更',a.theRow.PendingAction__c=='確認')), true , false)}">
+                                            </apex:outputField>
+                                            <apex:inputField id="Individual__c" value="{!a.theRow.Individual__c}" style="width:80px;"
+                                                             rendered="{!IF(OR(AND(a.theRow.Classification__c=='交替',a.theRow.PendingAction__c=='確認'),a.theRowAttribute =='A'), true , false)}">
+                                                
+                                                <apex:actionSupport event="onchange"
+                                                                    oncomplete="PendingAmendRowfetchFamily('{!a.theRow.id}','{!a.theRowIndex}','{!a.theRow.Individual__c}');"/> 
+                                                
+                                                <script type="text/javascript"> 
+                                                // To hide the default lookup Icon
+                                                
+                                                try {
+                                                    var theInd = '{!Aindex}';
+                                                    // alert(theInd);
+                                                    theInd = theInd - 1;
+                                                    var lpi = document.getElementById('pg:theForm:pb:theDetail:AmenddateTable:' + theInd  + ':Individual__c_lkwgt');
+                                                    var myProp = 'style';
+                                                    if (lpi.style.visibility !='hidden' )
+                                                        lpi.style.visibility = 'hidden';
+                                                    //  document.getElementById('pg:theForm:pb:theDetail:dateTable:' + theInd  + ':Individual__c_lkwgt').style.visibility = 'hidden';
+                                                }
+                                                catch(e)
+                                                {
+                                                    alert(theInd);
+                                                    alert(e);
+                                                }   
+                                                </script>
+                                            </apex:inputField>
+                                            <apex:commandButton value="検・新"
+                                                                onClick="openPopupSearchIndividual('{!a.theRow.id}','{!Aindex}','{!a.theRow.Service__c}','{!a.theRow.WorkingCompany__c}','{!a.theRow.MembershipStartDate__c}');return false;"
+                                                                rendered="{!IF(OR(AND(a.theRow.Classification__c=='交替',a.theRow.PendingAction__c=='確認'),a.theRowAttribute =='A'), true , false)}"/> 
+                                            
+                                            <script>
+                                            
+                                            
+                                            function openPopupSearchIndividual(Id, Indx, serviceId, wkId, startdate){
+                                                try {
+                                                    var baseURL = getBaseURL();
+                                                    baseURL = baseURL + "apex/wb_Individual_SearchAndNew";
+                                                    
+                                                    var para ='';
+                                                    var idx = Indx -1;
+                                                    
+                                                    var workingcompid = getLookUpId('pg:theForm:pb:theDetail:AmenddateTable:' +idx + ':WorkingCompany__c');
+                                                    if ( workingcompid !='')
+                                                        para　='?pv0=' +Id +'&'+'pv1='  + Indx + '&'+'pv2=' + serviceId +  '&'+'pv3=' + workingcompid +'&'+'pv4=' + startdate +'&'+'pv5=S'+'&' +'pv6=nodate';  
+                                                    else
+                                                        para　='?pv0=' +Id +'&'+'pv1='  + Indx + '&'+'pv2=' + serviceId +  '&'+'pv3=' + wkId +'&'+'pv4=' + startdate +'&'+'pv5=S'+'pv6=nodate';  
+                                                    
+                                                    window.childWin = window.open(baseURL + para ,'Popup','height=480,width=640,left=0,top=0,scrollbars=no,toolbar=no,status=no,directories=no,menubar=no,scrollable=no,resizable=yes');
+                                                    
+                                                    var winClosed = setInterval(function () {
+                                                        
+                                                        if (window.childWin.closed) {
+                                                            clearInterval(winClosed);
+                                                            //ValidateAndAlertMembershipFee2(); 
+                                                        }
+                                                        
+                                                    }, 250);
+                                                    
+                                                }
+                                                catch(e)
+                                                {
+                                                    alert(e);
+                                                } 
+                                            } 
+                                            
+                                            function getBaseURL() {
+                                                var url = location.href;  // entire url including querystring - also: window.location.href;
+                                                var baseURL = url.substring(0, url.indexOf('/', 14));
+                                                
+                                                if (baseURL.indexOf('http://localhost') != -1) {
+                                                    // Base Url for localhost
+                                                    var url = location.href;  // window.location.href;
+                                                    var pathname = location.pathname;  // window.location.pathname;
+                                                    var Aindex1 = url.indexOf(pathname);
+                                                    var Aindex2 = url.indexOf("/", Aindex1 + 1);
+                                                    var baseLocalUrl = url.substr(0, Aindex2);
+                                                    
+                                                    return baseLocalUrl + "/";
+                                                }
+                                                else {
+                                                    // Root Url for domain name
+                                                    return baseURL + "/";
+                                                }
+                                                
+                                            }
+                                            
+                                            function getLookUpId(str) {
+                                                return document.getElementById(str+'_lkid').value;
+                                            }
+                                            
+                                            
+                                            </script>   
+                                            <apex:outputText value=" "> </apex:outputText>
+                                            <apex:outputField value="{!a.theRow.MemberNo__c}" style="width:80px;">
+                                            </apex:outputField>
+                                        </div>
+                                    </apex:outputPanel>  
+                                    
+                                    
+                                    <apex:outputPanel rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}" id="p3">  
+                                        <span style="color: #00F;font-size: 11px;font-family:verdana;font-weight: bold;" >
+                                            <apex:outputText value="家族: {!a.NoofFamilyMembers}名"  rendered="{!IF(a.theRow.Type__c =='家族', true , false)}" ></apex:outputText> 
+                                            <apex:outputtext value="利用{!a.theInQty}名 "  style="width:50px;"
+                                                             rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theInQty!=0), true , false)}"></apex:outputtext>  
+                                            <apex:outputtext value="貸出{!a.theOutQty}名 "  style="width:50px;"
+                                                             rendered="{!IF(AND(a.theRow.Type__c =='入会金',a.theOutQty!=0), true , false)}"></apex:outputtext>  
+                                        </span>
+                                        <span id="Family-sign-{!Aindex}" class="sign-class" onclick="toggleAmenddateTableCHDateTable('{!Aindex}');" 
+                                              rendered="{!IF(a.NoofFamilyMembers > 0, true , false)}"
+                                              >+</span>
+                                        <apex:variable value="{!0}" var="FamilyMemberAindex"/>
+                                        <style>
+                                            .hidden {
+                                            display: none;
+                                            }
+                                        </style>
+                                        
+                                        
+                                        <apex:datatable value="{!a.theFamilies[a.theRow.name]}" var="f" id="CHTable"  headerClass="hidden" cellpadding="1" style="display:none;margin-top:1px;margin-left:2px;width:98%;"> 
+                                            <apex:column value="{!f.MemberName__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.MemberNo__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.SecondType__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.CrossReference__r.ParentDetail__r.name}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.CrossReference__r.ParentDetail__r.CancellationDate__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                            <apex:column value="{!f.Quantity__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        </apex:datatable>  
+                                    </apex:outputPanel> 
+                                    
+                                    
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStartDate__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="MembershipStartDate__c" value="{!a.theRow.MembershipStartDate__c}"
+                                                          style="width:70px;" rendered="{!IF(OR(OR(OR(OR(OR(OR(a.theRow.Classification__c == '新規',
+                                                                                        AND(a.theRow.Classification__c=='解約変更',a.theRow.PendingAction__c=='確認'),
+                                                                                        a.theRow.PendingAction__c=='交替'),
+                                                                                        AND(a.theRow.Classification__c=='変更',a.theRow.PendingAction__c=='確認'))),
+                                                                                        a.theRow.PendingAction__c=='変更'),a.theRow.PendingAction__c=='解約'),a.theRow.PendingAction__c=='解約変更'),
+                                                                                        true , false)}"	 >
+                                        </apex:outputField>
+                                        
+                                        <apex:inputField id="MembershipStartDate__ci" value="{!a.theRow.MembershipStartDate__c}"  style="width:70px;"
+                                                         rendered="{!IF(AND(AND(OR(AND(a.theRowAttribute =='A',IsBlank(a.theRow.PendingAction__c)),AND(a.theRow.PendingAction__c=='確認',a.theRow.Classification__c != '変更')),
+                                                                   a.theRow.PendingAction__c!='解約'),
+                                                                   !OR(a.theRow.Type__c == '入会金',a.theRow.Classification__c == '解約変更' )), 
+                                                                   true , false)}">
+                                            
+                                            <apex:actionSupport event="onchange" action="{!a.fetchServiceFee}"
+                                                                onComplete="CalculateBalanceAmountRow('{!a.theRow.id}',{!a.theRowIndex});" reRender="TheBeingAmendDataTableWrapper" />
+                                        </apex:inputField>
+                                        
+                                    </div>
+                                    <!--
+                                	<div>
+                                        {!a.theRow.Classification__c}
+                                       
+                                    </div>
+                                    <div>
+                                        
+                                        {!a.theRow.PendingAction__c}
+                                    </div> 
+                                    -->
+                                    <script>
+                                    function CalculateBalanceAmountRow(RId,Ridx){
+                                        
+                                        try {
+                                            // alert(RId + ':' + Ridx  );
+                                            CallApexMethod2CalculateBalanceAmountRow(RId,Ridx);
+                                        }
+                                        catch(e)
+                                        {
+                                            alert(e);
+                                        } 
+                                    }
+                                    </script>
+                                    
+                                </apex:column> 
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipStopDate__c.label}" id="MembershipStopDate__c">
+                                    <div  style="width:70px;">
+                                        <apex:outputField value="{!a.theRow.MembershipStopDate__c}" style="width:70px;"
+                                                          rendered="{!IF(OR(a.theRow.PendingAction__c==null,a.theRow.CancellationDate__c!=null), true , false)}"/>
+                                        <apex:inputField value="{!a.theRow.MembershipStopDate__c}" style="width:70px;"
+                                                         rendered="{!IF(OR(OR(OR(a.theRow.PendingAction__c=='交替',a.theRow.PendingAction__c=='変更'),a.theRow.PendingAction__c=='解約'), AND(a.theRow.Classification__c=='解約変更',a.theRow.PendingAction__c=='確認') ), true , false)}">
+                                            <apex:actionSupport event="onchange"
+                                                                onComplete="RefreshChangesByStopdate('{!a.theRow.id}','{!a.theRowIndex}','{!a.theRow.Classification__c}');"
+                                                                reRender="TheBeingAmendDataTableWrapper">
+                                            </apex:actionSupport>
+                                            <!--  onComplete="RefreshReplacerStartDate('{!a.theRow.id}','{!a.theRowIndex}');" -->
+                                        </apex:inputField>
+                                        
+                                        <script>
+                                        function RefreshChangesByStopdate(RId,Ridx,RClass){
+                                            try {
+                                                // alert(RClass);
+                                                if ( RClass !='解約変更' )
+                                                {
+                                                    CallApexMethod2RefreshReplacerStartDate(RId,Ridx);
+                                                } else {
+                                                    //alert(RId + ' ' + Ridx);
+                                                    CallApexMethod2RefreshPendingStopDateChangeRefund(RId,Ridx);
+                                                }
+                                            }
+                                            catch(e)
+                                            {
+                                                alert(e);
+                                            } 
+                                            
+                                        }
+                                        function RefreshReplacerStartDate(RId,Ridx){
+                                            try {
+                                                //    alert(RId + ':'  + Ridx + ':' + ReStopD);
+                                                CallApexMethod2RefreshReplacerStartDate(RId,Ridx);
+                                            } catch(e)
+                                            {
+                                                alert(e);
+                                            } 
+                                        }
+                                        </script>
+                                    </div>
+                                    
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MembershipEndDate__c.label}" id="MembershipEndDate__c">
+                                    <div  style="width:70px;">
+                                        <apex:outputField value="{!a.theRow.MembershipEndDate__c}" style="width:70px;"  rendered="{!IF( a.theRow.Type__c != '入会金', true , false)}" />
+                                    </div>
+                                </apex:column>
+                                
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.CancellationDate__c.label}"
+                                             rendered="{!IF( Membership.Status__c='キャンセル', true , false)}" id="CancellationDate__c">
+                                    <div  style="width:100px;">
+                                        <apex:outputField value="{!a.theRow.CancellationDate__c}" style="width:100px;" />
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Rate__c.label}">
+                                    <div  style="width:50px;">
+                                        <apex:outputField id="Rate__c" value="{!a.theRow.Rate__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.UnitAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="UnitAmount__c" value="{!a.theRow.UnitAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MonthlyUnitAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="MonthlyUnitAmount__c" value="{!a.theRow.MonthlyUnitAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="精算期間">
+                                    <div  style="width:70px;">
+                                        <apex:outputtext id="noofmonth" value="{!a.noofmonth}" style="width:70px;"/>
+                                    </div>
+                                    
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Amount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="Amount__c" value="{!a.theRow.Amount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.BillingAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="BillingAmount__c" value="{!a.theRow.BillingAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.BalanceAmount__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:outputField id="BalanceAmount__c" value="{!a.theRow.BalanceAmount__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                                <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Remarks__c.label}">
+                                    <div  style="width:70px;">
+                                        <apex:inputField id="Remarks__c" value="{!a.theRow.Remarks__c}" style="width:70px;"/>
+                                    </div>
+                                </apex:column>
+                                
+                            </apex:datatable>
+                            
+                            <script>
+                            function  AutoAddAmendmentEmptyRow(index) {
+                                CallApexMethod2AutoAddAmendmentEmptyRow(index);
+                            }
+                            </script>
+                            <style type="text/css">
+                                .dateFormat{
+                                visibility:hidden;
+                                }
+                            </style>
+                            
+                        </apex:outputPanel>                      
+                    </apex:tab>
+                    
+                </apex:tabPanel>
+                
+                
+                <style>
+                    .sign-class{
+                    font-size: 12px;
+                    font-weight: 700;
+                    padding: 0px 5px;
+                    margin-right: 10px;
+                    border: 1px solid blue;
+                    background: blue;
+                    color: whitesmoke;
+                    margin-bottom:10px;
+                    cursor:pointer;
+                    }
+                    .pbBody table.list tr.dataRow td {
+                    font-family: verdana;
+                    font-weight: normal;
+                    }
+                </style>
+                
+                <apex:variable var="index" value="{!0}" /> 
+                <!--   <apex:variable value="{!0}" var="FamilyIndex"/> -->
+                <style type="text/css">
+                    .dateFormat{
+                    visibility:hidden;
+                    }
+                </style>
+                
+                
+                
+                <script>
+                var lastRow;
+                function highlight(elem){
+                    if(lastRow != undefined)
+                        lastRow.style.backgroundColor = 'white';
+                    
+                    elem.style.backgroundColor = 'yellow';
+                    lastRow = elem;
+                }
+                </script>
+                
+                
+            </apex:pageBlockSection>
+            
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

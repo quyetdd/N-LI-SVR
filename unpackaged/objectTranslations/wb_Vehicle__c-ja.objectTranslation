@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>車両</value>
+    </caseValues>
+    <fields>
+        <label><!-- エンジン番号 --></label>
+        <name>EngineNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 車台番号 --></label>
+        <name>FrameNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 法定座席数 --></label>
+        <name>LegalNumberofSeats__c</name>
+    </fields>
+    <fields>
+        <label><!-- 車型 --></label>
+        <name>Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- 所有区分 --></label>
+        <name>Ownership__c</name>
+        <picklistValues>
+            <masterLabel>リース／レンタル</masterLabel>
+            <translation><!-- リース／レンタル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>所有</masterLabel>
+            <translation><!-- 所有 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 利用会社 --></label>
+        <name>UsingCompany__c</name>
+        <relationshipLabel><!-- 車両 --></relationshipLabel>
+    </fields>
+</CustomObjectTranslation>

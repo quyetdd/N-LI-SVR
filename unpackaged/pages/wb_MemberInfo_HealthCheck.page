@@ -1,0 +1,26 @@
+<apex:page standardController="MemberInfo__c" extensions="wb_MemberInfo_HealthCheck" id="pg">
+    <apex:form id="theForm">
+        <!--
+         <apex:pageBlock id="pb" >
+              <apex:pageBlockSection> -->
+        <apex:commandButton value="編集"  action="{!Edit}"
+                            rendered="{!IF(AND(Healthcheck_NOT_WB_Editable==true,EditMode==false), true , false)}"/>   
+        <apex:commandButton value="保存"  action="{!View}"
+                            rendered="{!IF(AND(Healthcheck_NOT_WB_Editable==true,EditMode==true), true , false)}"/> 
+        <br/>
+        <apex:outputtext value="{!$ObjectType.MemberInfo__c.fields.Healthcheck_NOT_WB__c.label}"></apex:outputtext>
+        <apex:outputtext value="  "></apex:outputtext>
+        <apex:outputfield value="{!MemberInfo.Healthcheck_NOT_WB__c}"
+                          title="{!$ObjectType.MemberInfo__c.fields.Healthcheck_NOT_WB__c.label}" 
+                          rendered="{!IF(OR(Healthcheck_NOT_WB_Editable==false,EditMode==false), true , false)}"></apex:outputfield>
+        <apex:inputfield value="{!MemberInfo.Healthcheck_NOT_WB__c}"
+                         label="{!$ObjectType.MemberInfo__c.fields.Healthcheck_NOT_WB__c.label}" 
+                         rendered="{!IF(AND(Healthcheck_NOT_WB_Editable==true,EditMode==true), true , false)}">
+         <!--   <apex:actionSupport event="onchange"
+                                action="{!UpdateMemberInfo}"
+                                reRender="theForm" /> -->
+        </apex:inputfield>
+           <!--       </apex:pageBlockSection>
+             </apex:pageBlock> -->
+    </apex:form>
+</apex:page>

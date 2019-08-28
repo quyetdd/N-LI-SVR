@@ -1,0 +1,76 @@
+<apex:page standardController="ContractInfo__c" extensions="ContractMassUpdateControllerEx" showHeader="false"  sideBar="false" >
+
+  <apex:sectionHeader title="会社契約No      {!ContractInfo__c.Name}"
+    subtitle="契約会社名称      {!ContractInfo__c.KeiyakuCompanyName__r.Name}" />
+
+  <apex:pageMessages ></apex:pageMessages>
+
+  <apex:form >
+  
+    <apex:pageBlock >
+        <apex:commandButton value="更新" action="{!save2}"  />
+        <apex:commandButton value="戻る" action="{!cancel2}"  />
+        <apex:commandButton value="コピー" action="{!copyCommon}"  />
+        <apex:commandButton value="終了" action="{!end}" />
+        <br /><br />
+ 
+      <table class="list" cellspacing="0">
+        <tr class="headerrow">
+          <td class="headercell"><div style="width:150px;">勤務先会社名</div></td>
+          <td class="headercell"><div style="width:120px;">会員番号</div></td>
+          <td class="headercell"><div style="width:120px;">会員氏名</div></td>
+          <td class="headercell"><div style="width:120px;">所属地区</div></td>
+          <td class="headercell"><div style="width:120px;">AC用伝達事項</div></td>
+  
+        </tr>
+          <tr style="border-bottom:2px solid black;background-color:#ffffff;">
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.KinmuCompany__r.Name}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.MemberNo__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.Name}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:outputField value="{!Common.ShozokuArea__c}" /></td>
+            <td class="datacell" style="border-bottom:2px solid black;background-color:#ffffff;"><apex:inputField value="{!Common.Issues_To_AC__c}" /></td> 
+      
+          </tr>
+        <apex:repeat value="{!Rows2}" var="r">
+            <!-- <apex:repeat value="{!Rows2Member}" var="rM">-->
+                <apex:outputpanel rendered="{!r.hasMember}"><!-- rendered="{!if(r.Member.id == rM.Member.id,true,false)}"-->
+                  <tr class="datarow">
+                    <td class="datacell"><apex:outputField value="{!r.Member.KinmuCompany__r.Name}" /></td>
+                    <td class="datacell"><apex:outputField value="{!r.Member.MemberNo__c}" /></td>
+                    <td class="datacell"><apex:outputField value="{!r.Member.Name}" /></td>
+                    <td class="datacell"><apex:outputField value="{!r.Member.ShozokuArea__c}" /></td>
+                     <td class="datacell"><apex:inputField value="{!r.Member.Issues_To_AC__c}" /></td> <!-- 20180129 -->
+                      
+                
+                  </tr>
+                </apex:outputpanel>
+            <!--</apex:repeat>-->
+            <!--<apex:repeat value="{!Rows2FamilyMember}" var="rF">-->
+                <apex:outputpanel ><!-- rendered="{!if(r.Member.id == rF.Member.id,true,false)}" -->  
+                    <apex:repeat value="{!r.FamilyMembers}" var="fr">
+                      <tr class="datarow">
+                        <td class="datacell"><apex:outputField value="{!r.Member.KinmuCompany__r.Name}" /></td>
+                        <td class="datacell"><apex:outputField value="{!fr.Family.MemberNo__c}" /></td>
+                        <td class="datacell">&nbsp;&nbsp;<apex:outputField value="{!fr.Family.Name}" /></td>
+                        <td class="datacell"><apex:outputField value="{!fr.Family.ShozokuArea__c}" /></td>
+                           <td class="datacell"><apex:inputField value="{!fr.Family.Issues_To_AC__c}" /></td> <!-- 20180129 -->
+                 
+                      </tr>
+                    </apex:repeat>
+                </apex:outputpanel>  
+            <!--</apex:repeat>-->
+          
+        </apex:repeat>
+      </table>  
+    
+    </apex:pageBlock>
+  
+  </apex:form>
+  
+<apex:outputPanel rendered="{! PopupMessage!=''}">  
+<script>
+alert("{! PopupMessage}");
+</script>  
+</apex:outputPanel>
+  
+</apex:page>

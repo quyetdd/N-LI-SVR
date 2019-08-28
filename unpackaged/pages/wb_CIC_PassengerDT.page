@@ -1,0 +1,251 @@
+<apex:page standardcontroller="wb_CarInsurance__c" extensions="wb_CIC_PassengerDT" id="thePage" sidebar="false" showHeader="false">
+    
+    <apex:dataTable id="PassengerRead" rendered="{!IF((PassengerDTSize>0), true , false)}"
+                    value="{!PassengerDT}" var="row"  cellpadding="4" border="1" onRowClick="highlight(this);" >
+        <apex:column >
+            <apex:facet name="header"> 
+                <apex:outputPanel >
+                    <div style="width:120px;">
+                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceCompany__c.label}"></apex:outputtext><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <apex:outputField style="font-size:9pt;font-weight:bold!important;"
+                              value="{!row.thePassenger.Psgr_InsuranceCompany__c}" />
+        </apex:column>
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel >
+                    <div style="width:120px;">
+                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CommodityName__c.label}"></apex:outputtext><br/>
+                    </div>
+                    <div style="width:120px;">
+                        <apex:outputText value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CommodityName__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <div style="width:120px;">
+                <apex:outputField value="{!row.thePassenger.Psgr_CommodityName__c}" style="width:120px;"/>
+            </div>
+            <div style="width:120px;">
+                <apex:outputField value="{!row.thePassenger.OP_CommodityName__c}" style="width:120px;"/>
+            </div>
+        </apex:column>    
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel >
+                    <div style="width:100px;">
+                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsurancePlan__c.label}"></apex:outputtext><br/>
+                        <apex:outputtext style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_Plan__c.label}"></apex:outputtext><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <div style="width:100px;">
+                <apex:outputField value="{!row.thePassenger.Psgr_InsurancePlan__c}" style="width:100px;"/>
+            </div>
+            <div style="width:100px;">
+                <apex:outputField value="{!row.thePassenger.OP_Plan__c}" style="width:100px;"/>
+            </div>
+        </apex:column>   
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel >
+                    <div style="width:100px;">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CurrentStartDate__c.label}"></apex:outputText><br/>
+                    </div>
+                    <div style="width:100px;">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CurrentStartDate__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <apex:outputPanel >
+                <div style="width:100px;">
+                    <apex:outputField value="{!row.thePassenger.Psgr_CurrentStartDate__c}" style="width:100px;">
+                        
+                    </apex:outputField>
+                </div>
+                <div style="width:100px;">
+                    <apex:outputField id="OP_CurrentStartDate__c" value="{!row.thePassenger.OP_CurrentStartDate__c}" style="width:100px;">
+                        
+                    </apex:outputField>
+                </div>
+            </apex:outputPanel>
+        </apex:column>  
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel >
+                    <div style="width:100px;">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CurrentEndDate__c.label}"></apex:outputText><br/>
+                    </div>
+                    <div style="width:100px;">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CurrentEndDate__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <apex:outputPanel >
+                <div style="width:100px;">
+                    <apex:outputField id="Psgr_CurrentEndDate__c" value="{!row.thePassenger.Psgr_CurrentEndDate__c}" style="width:100px;"></apex:outputField>
+                </div>
+                <div style="width:100px;">
+                    <apex:outputField id="OP_CurrentEndDate__c" value="{!row.thePassenger.OP_CurrentEndDate__c}" style="width:100px;"></apex:outputField>
+                </div>
+            </apex:outputPanel>
+        </apex:column>  
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel >
+                    <div style="width:100px;">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CancelDate__c.label}"></apex:outputText><br/>
+                    </div>
+                    <div style="width:100px;">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_CancelDate__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <apex:outputPanel >
+                <div style="width:100px;">
+                    <apex:outputField id="Psgr_CancelDate__c" value="{!row.thePassenger.Psgr_CancelDate__c}" style="width:100px;"></apex:outputField>
+                </div>
+                <div style="width:100px;">
+                    <apex:outputField id="OP_CancelDate__c" value="{!row.thePassenger.OP_CancelDate__c}" style="width:100px;"></apex:outputField>
+                </div>
+            </apex:outputPanel>
+        </apex:column>  
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel >
+                    <div style="width:130px;word-wrap:break-word">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_StdPassengerSeatFee__c.label}"></apex:outputText><br/>
+                    </div>
+                    <div style="width:130px;word-wrap:break-word">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_StdPassengerSeatFee__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <div style="width:100px;">
+                <apex:outputField id="Psgr_StdPassengerSeatFee__c" value="{!row.thePassenger.Psgr_StdPassengerSeatFee__c}" style="width:130px;"></apex:outputField>
+            </div>
+            <div style="width:100px;">
+                <apex:outputField id="OP_StdPassengerSeatFee__c" value="{!row.thePassenger.OP_StdPassengerSeatFee__c}" style="width:130px;"></apex:outputField>
+            </div>
+        </apex:column>  
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel style="word-wrap" >
+                    <div style="width:130px;word-wrap:break-word">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_StdDriverSeatFee__c.label}"></apex:outputText><br/>
+                    </div>
+                    <div style="width:130px;word-wrap:break-word">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_StdDriverSeatFee__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <div style="width:100px;">
+                <apex:outputField id="Psgr_StdDriverSeatFee__c" value="{!row.thePassenger.Psgr_StdDriverSeatFee__c}" style="width:130px;"></apex:outputField>
+            </div>
+            <div style="width:100px;">
+                <apex:outputField id="OP_StdDriverSeatFee__c" value="{!row.thePassenger.OP_StdDriverSeatFee__c}" style="width:130px;"></apex:outputField>
+            </div>
+        </apex:column>  
+        <!--
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel >
+                    <div style="width:100px">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceSeat__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <apex:outputField id="Psgr_InsuranceSeat__c" value="{!row.thePassenger.Psgr_InsuranceSeat__c}" style="width:100px;"></apex:outputField>
+        </apex:column>  
+        -->
+           <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+
+                                <div style="width:100px">
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Passenger__c.fields.PassagerSeatInsurance__c.label}"></apex:outputText><br/>
+                                </div>
+                                                                <div style="width:100px">
+                                    <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                                     value="{!$ObjectType.wb_CIC_Passenger__c.fields.DriverSeatInsurance__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                            <apex:outputField id="PassagerSeatInsurance__c" value="{!row.thePassenger.PassagerSeatInsurance__c}" style="width:50px;">
+                            
+                        </apex:outputField>
+             
+                        <apex:outputText value=" + ">
+                        </apex:outputText>
+                        
+                         <apex:outputField id="DriverSeatInsurance__o" value="{!row.thePassenger.DriverSeatInsurance__c}" style="width:10px;">
+                        </apex:outputField> 
+                        
+   					                        
+                    </apex:column>  
+                    
+
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel style="word-wrap" >
+                    <div style="width:100px;word-wrap:break-word">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceFee__c.label}"></apex:outputText><br/>
+                    </div> 
+                    <div style="width:100px;word-wrap:break-word">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_InsuranceFee__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <div style="width:100px;">
+                <apex:outputField id="Psgr_InsuranceFee__c" value="{!row.thePassenger.Psgr_InsuranceFee__c}" style="width:100px;"></apex:outputField>
+            </div>
+            <div style="width:100px;">
+                <apex:outputField id="OP_InsuranceFee__c" value="{!row.thePassenger.OP_InsuranceFee__c}" style="width:130px;"></apex:outputField>
+            </div>
+        </apex:column>  
+        
+             
+        <apex:column >
+            <apex:facet name="header">
+                <apex:outputPanel style="word-wrap" >
+                    <div style="width:100px;word-wrap:break-word">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_Commission__c.label}"></apex:outputText><br/>
+                    </div>
+                    <div style="width:100px;word-wrap:break-word">
+                        <apex:outputText style="font-size:9pt;font-weight:bold!important;"
+                                         value="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_Commission__c.label}"></apex:outputText><br/>
+                    </div>
+                </apex:outputPanel>
+            </apex:facet>
+            <apex:outputField id="Psgr_Commission__c" value="{!row.thePassenger.Psgr_Commission__c}" style="width:100px;">
+                
+            </apex:outputField><br/>
+            <apex:outputField id="OP_Commission__c" value="{!row.thePassenger.OP_Commission__c}" style="width:100px;">
+      
+            </apex:outputField>
+        </apex:column>  
+                    
+        
+    </apex:dataTable>
+   
+</apex:page>

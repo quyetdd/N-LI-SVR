@@ -1,0 +1,105 @@
+<apex:page standardController="wb_Individual__c" extensions="wb_Individual" >
+    
+    
+ <apex:form id="theForm">
+	<apex:sectionHeader title="個人" subtitle="{!wb_Individual__c.Name}"/>
+
+	<apex:pageBlock >
+        
+        <a href="#f_list" id="hover1"
+           onblur="LookupHoverDetail.getHover('hover1').hide();" 
+           onfocus="LookupHoverDetail.getHover('hover1', '/apex/wb_individual_Family_View?id={!Individual.id}&/m?retURL=%2F{!Individual.id}&isAjaxRequest=1').show();" 
+           onmouseout="LookupHoverDetail.getHover('hover1').hide();" 
+           onmouseover="LookupHoverDetail.getHover('hover1', '/apex/wb_individual_Family_View?id={!Individual.id}&/m?retURL=%2F{!Individual.id}&isAjaxRequest=1').show();">
+            家族[{!NoofFamilyMembers}]名</a>  |
+        <a href="#md_list" id="hover2"
+           onblur="LookupHoverDetail.getHover('hover2').hide();" 
+           onfocus="LookupHoverDetail.getHover('hover2', '/apex/wb_Individual_Member_Hover?id={!Individual.id}&/m?retURL=%2F{!Individual.id}&isAjaxRequest=1').show();" 
+           onmouseout="LookupHoverDetail.getHover('hover2').hide();" 
+           onmouseover="LookupHoverDetail.getHover('hover2', '/apex/wb_Individual_Member_Hover?id={!Individual.id}&/m?retURL=%2F{!Individual.id}&isAjaxRequest=1').show();">
+            ＭＤ会員</a>  |
+        <a href="#mid_list" id="hover3"
+           onblur="LookupHoverDetail.getHover('hover3').hide();" 
+           onfocus="LookupHoverDetail.getHover('hover3', '/apex/wb_Individual_MedicalInsuranceDetail_H?id={!Individual.id}&/m?retURL=%2F{!Individual.id}&isAjaxRequest=1').show();" 
+           onmouseout="LookupHoverDetail.getHover('hover3').hide();" 
+           onmouseover="LookupHoverDetail.getHover('hover3', '/apex/wb_Individual_MedicalInsuranceDetail_H?id={!Individual.id}&/m?retURL=%2F{!Individual.id}&isAjaxRequest=1').show();">
+            医療保険</a>
+        <br/> 
+        
+        <br/> 
+        
+           <apex:commandButton value="編集"  action="{!Edit}"/>  
+        
+		<apex:pageBlockSection title="個人情報" columns="2">
+			<apex:outputField title="氏名" value="{!Individual.Name}"/>
+			<apex:outputField title="性別" value="{!Individual.Sex__c}"/>
+			<apex:outputField title="姓（カナ）" value="{!Individual.LastNameKana__c}"/>
+			<apex:outputField title="名（カナ）" value="{!Individual.FirstNameKana__c}"/>co
+			<apex:outputField title="姓（ローマ字）" value="{!Individual.LastNameRoma__c}"/>
+			<apex:outputField title="名（ローマ字）" value="{!Individual.FirstNameRoma__c}"/>
+			<apex:outputField title="生年月日" value="{!Individual.DateOfBirth__c}"/>
+			<!--<apex:outputField title="国" value="{!Individual.Country__c}"/>-->
+			<apex:outputField title="住所" value="{!Individual.Address__c}"/>
+			<apex:outputField title="国際電話国番号" value="{!Individual.CountryCallingCodes__c}"/>
+			<apex:outputField title="携帯TEL" value="{!Individual.Mobile__c}"/>
+         <!--   <apex:outputField title="現会員番号" value="{!Individual.CurrentMemberNo__c}"/> -->
+		<!--	<apex:outputField title="会員開始日" value="{!Individual.MembershipStartDate__c}"/>
+			<apex:outputField title="会員終了日" value="{!Individual.MembershipEndDate__c}"/> -->
+		<!--	<apex:outputField title="(退会後）役職" value="{!Individual.PositionAfterWithdrawal__c}"/>
+			<apex:outputField title="(退会後）部署" value="{!Individual.DeptAfterWithdrawal__c}"/>
+			<apex:outputField title="(退会後）勤務先会社" value="{!Individual.CompanyAfterWithdrawal__c}"/> -->
+			<apex:outputField title="AC用顧客情報" value="{!Individual.AC_Information__c}"/>
+			<!--<apex:outputField title="一時帰国中担保" value="{!Individual.ReturningHomeCountryCoverage__c}"/>-->
+			<apex:outputField title="役職" value="{!Individual.Position__c}"/>
+			<!--<apex:outputField title="所属地区" value="{!Individual.AffiliationDistrict__c}"/>-->
+            <apex:outputField title="所属地区" value="{!Individual.WorkingCompany__r.Jurisdiction__c}"/>
+			<apex:outputField title="持病" value="{!Individual.ChronicDisease__c}"/>
+			<apex:outputField title="苦情区分" value="{!Individual.Complaint__c}"/>
+			<apex:outputField title="家族番号" value="{!Individual.FamilyNo__c}"/>
+			<apex:outputField title="家族関係" value="{!Individual.FamilyRelationship__c}"/>
+			<apex:outputField title="健診システム番号" value="{!Individual.HealthCheckSystemNo__c}"/>
+		<!--	<apex:outputField title="現メンバー番号" value="{!Individual.CurrentMemberNo__c}"/> -->
+			<apex:outputField title="郵便番号" value="{!Individual.PostalCode__c}"/>
+			<apex:outputField title="勤務会社" value="{!Individual.WorkingCompany__c}"/>
+			<!--<apex:outputField title="管轄地区" value="{!Individual.Jurisdiction__c}"/>-->
+			<apex:outputField title="親" value="{!Individual.Parent__c}"/>
+			<apex:outputField title="メール配信" value="{!Individual.MailDelivery__c}"/>
+			<apex:outputField title="メールアドレス" value="{!Individual.EmailAddress__c}"/>
+			<!--<apex:outputField title="区分" value="{!Individual.Classification__c}"/> -->
+		</apex:pageBlockSection>
+
+        <p id="f_list"></p>
+        <apex:pageBlockSection title="家族情報" columns="１">
+            <apex:datatable value="{!WholeFamily}" var="a" columns="9" border="1" cellpadding="4"  >  
+                
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.Name.label}">{!a.Name}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.Sex__c.label}">{!a.Sex__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FamilyRelationship__c.label}">{!a.FamilyRelationship__c}</apex:column>
+            
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FamilyNo__c.label}">{!a.FamilyNo__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FirstNameKana__c.label}">{!a.FirstNameKana__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.LastNameKana__c.label}">{!a.LastNameKana__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.FirstNameRoma__c.label}">{!a.FirstNameRoma__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.LastNameRoma__c.label}">{!a.LastNameRoma__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_Individual__c.fields.DateOfBirth__c.label}">
+                     <apex:outputField value="{!a.DateOfBirth__c}"/>
+                </apex:column>
+      
+            </apex:datatable>
+        </apex:pageBlockSection>
+        
+  		 <p id="md_list"></p>
+        <apex:pageBlockSection id="Individual_Member" title="ＭＤ会員" columns="１">
+            <apex:include id="wb_Individual_Member" pageName="wb_Individual_Member_View"/>
+        </apex:pageBlockSection>
+        
+         <p id="mid_list"></p>
+        <apex:pageBlockSection id="Individual_MedicalInsuranceDetail" title="医療保険" columns="１">
+            <apex:include id="wb_Individual_MedicalInsuranceDetail" pageName="wb_Individual_MedicalInsuranceDetail_V"/>
+        </apex:pageBlockSection>
+        
+
+        
+	</apex:pageBlock>
+     </apex:form>
+</apex:page>

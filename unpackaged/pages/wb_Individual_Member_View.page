@@ -1,0 +1,26 @@
+<apex:page standardController="wb_Individual__c" extensions="wb_Individual_Member">
+    
+    <apex:datatable value="{!theList}" var="a" columns="5" border="1" cellpadding="4"  >  
+        
+        <apex:column headerValue="{!$ObjectType.wb_Member__c.fields.Name.label}" styleClass="greyColour">
+            <apex:outputfield value="{!a.theRow.Name}"></apex:outputfield>
+        </apex:column>
+        
+       <apex:column headerValue="会員番号" styleClass="greyColour">
+            <apex:outputtext value="{!a.CurrentMemberNo}"></apex:outputtext>
+        </apex:column> 
+
+        <apex:column headerValue="{!$ObjectType.wb_Member__c.fields.WorkingCompany__c.label}">
+            <apex:outputfield value="{!a.theRow.WorkingCompany__c}"></apex:outputfield>
+        </apex:column>
+        <apex:column headerValue="{!$ObjectType.wb_Member__c.fields.MembershipDetail__c.label}">
+             <apex:outputfield value="{!a.theRow.MembershipDetail__c}"></apex:outputfield>
+        </apex:column>        
+        <apex:column headerValue="{!$ObjectType.wb_Member__c.fields.EndDate__c.label}">
+            <apex:outputfield value="{!a.theRow.EndDate__c}"></apex:outputfield>
+        </apex:column>
+   
+        
+    </apex:datatable>
+    
+</apex:page>

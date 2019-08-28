@@ -1,0 +1,4 @@
+<apex:page controller="wb_Membership_Quotation"   contentType="txt/xml#{!filename}" cache="true" > 
+    <c:wb_Membership_Invoice xlsHeader="{!xlsHeader}" theContract="{!theContract}" theContractDetailInsurance="{!theContractDetailInsurance}"/>
+ 
+</apex:page>

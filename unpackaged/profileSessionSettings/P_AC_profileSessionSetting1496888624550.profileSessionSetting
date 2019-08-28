@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ProfileSessionSetting xmlns="http://soap.sforce.com/2006/04/metadata">
+    <externalCommunityUserIdentityVerif>false</externalCommunityUserIdentityVerif>
+    <forceLogout>false</forceLogout>
+    <profile>営業P%EF%BC%88AC付%E3%83%BB削除%EF%BC%89</profile>
+    <sessionPersistence>false</sessionPersistence>
+    <sessionTimeout>0</sessionTimeout>
+    <sessionTimeoutWarning>false</sessionTimeoutWarning>
+</ProfileSessionSetting>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>変更依頼</value>
+    </caseValues>
+    <fields>
+        <label><!-- 依頼者 --></label>
+        <name>Field5__c</name>
+    </fields>
+    <fields>
+        <label><!-- 変更者 --></label>
+        <name>Field6__c</name>
+    </fields>
+    <fields>
+        <label><!-- 契約地区 --></label>
+        <name>Field8__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員地区 --></label>
+        <name>KaiinArea__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員氏名 --></label>
+        <name>Kaiin__c</name>
+        <relationshipLabel><!-- 変更依頼 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 家族地区 --></label>
+        <name>KazokuArea__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員（家族）情報 --></label>
+        <name>Kazoku__c</name>
+        <relationshipLabel><!-- 変更依頼 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員番号 --></label>
+        <name>MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 変更内容 --></label>
+        <name>ModificationNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- 内務担当 --></label>
+        <name>NaimuTanto__c</name>
+    </fields>
+    <layouts>
+        <layout>変更依頼レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- システム情報 --></label>
+            <section>システム情報</section>
+        </sections>
+        <sections>
+            <label><!-- 変更依頼内容 --></label>
+            <section>変更依頼内容</section>
+        </sections>
+        <sections>
+            <label><!-- 情報 --></label>
+            <section>情報</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage><!-- 会員氏名もしくは、会員家族氏名のどちらか一方しか入力できません。 --></errorMessage>
+        <name>MemberCheck</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 会員氏名または家族氏名を入力してください --></errorMessage>
+        <name>Member_Check2</name>
+    </validationRules>
+</CustomObjectTranslation>

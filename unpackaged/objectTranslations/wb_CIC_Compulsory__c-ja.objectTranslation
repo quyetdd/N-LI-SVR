@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>車保険</value>
+    </caseValues>
+    <fields>
+        <label><!-- 対象車 --></label>
+        <name>CarInsurancedCar__c</name>
+        <relationshipLabel><!-- 車保険 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 車両 --></label>
+        <name>Car__c</name>
+        <relationshipLabel><!-- 車保険 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- （強制）死亡後遺障害 --></label>
+        <name>Cps_AfterDeathImpediment__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険解約日 （24時迄） --></label>
+        <name>Cps_CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険解約理由 --></label>
+        <name>Cps_CancelReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）手数料率 --></label>
+        <name>Cps_CommissionRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）手数料 --></label>
+        <name>Cps_Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険通貨 --></label>
+        <name>Cps_Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険終期 --></label>
+        <name>Cps_CurrentEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険始期 --></label>
+        <name>Cps_CurrentStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険料 --></label>
+        <name>Cps_InsuranceAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）保険会社名 --></label>
+        <name>Cps_InsuranceCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）医療費用 --></label>
+        <name>Cps_MedicalCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任死亡後遺障害 --></label>
+        <name>Cps_NoLbtAfterDeathImpediment__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任医療費用 --></label>
+        <name>Cps_NoLbtAfterDeathMedicalCost__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）無責任財産損失 --></label>
+        <name>Cps_NoLbtPropertyLoss__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）証券番号 --></label>
+        <name>Cps_PolicyNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）財産損失 --></label>
+        <name>Cps_PropertyLoss__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制)サービス --></label>
+        <name>Cps_Service__c</name>
+        <relationshipLabel><!-- 車保険 (（強制)サービス) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- （任意）鈎損 --></label>
+        <name>VIt_ScratchDamage__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）車両損失 --></label>
+        <name>VIt_VehicleDamage__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）車両盗難 --></label>
+        <name>VIt_VehicleTheft__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）第三者賠償 --></label>
+        <name>Vlt_3rdPartyDamage__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険解約日 （24時迄） --></label>
+        <name>Vlt_CancelDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険解約理由 --></label>
+        <name>Vlt_CancelReason__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）手数料率 --></label>
+        <name>Vlt_CommissionRate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）手数料 --></label>
+        <name>Vlt_Commission__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険通貨 --></label>
+        <name>Vlt_Currency__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）車上人責任（運転） --></label>
+        <name>Vlt_DriverInjury__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険終期 --></label>
+        <name>Vlt_EndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）ガラス単独破壊 --></label>
+        <name>Vlt_GlassBreakage__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険料 --></label>
+        <name>Vlt_InsuranceAmount__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険会社名 --></label>
+        <name>Vlt_InsuranceCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）他の保険項目 --></label>
+        <name>Vlt_OtherItems__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）車上人責任（搭乗） --></label>
+        <name>Vlt_PassengerInjury__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）証券番号 --></label>
+        <name>Vlt_PolicyNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）搭乗者意外保険 --></label>
+        <name>Vlt_PsgrPersonalAccident__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）備考 --></label>
+        <name>Vlt_Remark__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）車体自燃 --></label>
+        <name>Vlt_Selfburning__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）サービス --></label>
+        <name>Vlt_Service__c</name>
+        <relationshipLabel><!-- 車保険 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- （任意）保険始期 --></label>
+        <name>Vlt_StartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）水没険 --></label>
+        <name>Vlt_Submersion__c</name>
+    </fields>
+    <fields>
+        <label><!-- （強制）緊急連絡電話番号 --></label>
+        <name>f_Cps_ContactNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 強制有効 --></label>
+        <name>f_Cps_Effective__c</name>
+    </fields>
+    <fields>
+        <label><!-- 登録番号 --></label>
+        <name>f_RegistryNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- （任意）緊急連絡電話番号 --></label>
+        <name>f_Vlt_ContactNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 任意有効 --></label>
+        <name>f_Vlt_Effective__c</name>
+    </fields>
+    <layouts>
+        <layout>車保険レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 任意 --></label>
+            <section>任意</section>
+        </sections>
+        <sections>
+            <label><!-- 保障内容 --></label>
+            <section>保障内容</section>
+        </sections>
+        <sections>
+            <label><!-- 強制 --></label>
+            <section>強制</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

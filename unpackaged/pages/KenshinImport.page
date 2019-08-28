@@ -1,0 +1,35 @@
+<apex:page standardController="Kenshin__c" extensions="KenshinImportControllerEx"
+  recordSetVar="records" action="{!init}" >
+  <apex:form >
+  <apex:pageMessages rendered="{!showUploadMesssage}"></apex:pageMessages>
+    <apex:sectionHeader title="" subtitle="健診インポート" />
+        
+    <apex:pageBlock title="前回インポート" rendered="{!KenshinImport.Id!=null}">
+      <table border="0" cellpadding="3px">
+        <tr>
+          <td width="150px">処理日時:</td>
+          <td><apex:outputField value="{!KenshinImport.Last_Import_Date__c}"/></td>
+        </tr>
+        <tr>
+          <td width="150px">ファイル名:</td>
+          <td>{!Attachment.Name}</td>
+        </tr>
+        <tr>
+          <td width="150px">結果:</td>
+          <td><apex:outputField value="{!KenshinImport.Import_Status__c}"/></td>
+        </tr>
+      </table>
+      <br />
+      <apex:commandButton value=" 再実行 " action="{!runBatch}"/>
+    </apex:pageBlock>    
+        
+    <apex:pageBlock title="今回インポート">
+      「参照」をクリックし、CSVファイルを選択して下さい。<br />
+      <apex:inputFile value="{!Attachment.Body}" fileName="{!Attachment.Name}" accept="text/csv" size="40" /> 
+      <br />
+      <br />
+      <apex:commandButton value=" 実行 " action="{!upload}"/>
+      
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

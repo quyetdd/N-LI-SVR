@@ -1,0 +1,160 @@
+<apex:page standardController="account" extensions="wb_Account" id="thePage">
+	<apex:sectionHeader title="会社情報 編集" subtitle="{!theAccount.Name}"/>
+	<apex:form id="theForm">
+		<apex:pageBlock title="会社情報の編集" mode="edit">
+
+			<apex:pageBlockButtons >
+				<apex:commandButton value="保存＆戻る" action="{!save}"/>
+                <!--<apex:commandButton value="保存 & 新規" action="{!save}" />-->
+				<apex:commandButton value="参照に戻る" action="{!cancel}"/>
+			</apex:pageBlockButtons>
+
+
+            <apex:pageBlockSection title="会社情報" columns="2">
+                <apex:inputField value="{!theAccount.CompanyCd__c}" required="false"/>
+                <apex:outputField value="{!theAccount.CountryCode__c}" id="CountryCode__c"/>
+                <apex:inputField value="{!theAccount.Name}" required="true"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:inputField value="{!theAccount.CompanyNameEng__c}" required="false"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+               <!-- <apex:inputField value="{!theAccount.UseHealthCheckUpInfo__c}" required="false"/> -->
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:inputField value="{!theAccount.ParentId}" required="false"/>
+               	<apex:inputField value="{!theAccount.GroupStandardCompany__c}" required="false"/>
+                <apex:inputField value="{!theAccount.AffiliatedCompanyName__c}" required="false"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+               <!-- <apex:inputField value="{!theAccount.Classification__c}" required="false"/> -->
+                <apex:inputField value="{!theAccount.GroupName__c}" required="false"/>
+          <!--      <apex:inputField value="{!theAccount.Email__c}" required="false"/> -->
+                <!-- -->
+                <apex:inputField value="{!theAccount.Region_and_Area__c}" required="true"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem> 
+                <apex:inputField value="{!theAccount.CountryName__c}" required="true"> 
+                        <apex:actionSupport event="onchange" action="{!fetchCountryCode}"
+                                                    reRender="CountryCode__c" /> 
+                </apex:inputField>
+                <apex:inputField value="{!theAccount.EigyoTanto__c}" required="false"/>
+                <apex:inputField value="{!theAccount.Jurisdiction__c}" required="false"/>
+                <apex:inputField value="{!theAccount.NaimuTanto__c}" required="false"/>
+                <apex:inputField value="{!theAccount.ShozokuArea__c}" required="false"/>
+                <apex:inputField value="{!theAccount.BlEigyoTanto__c}" required="false"/>
+            </apex:pageBlockSection>
+
+
+
+
+			<apex:pageBlockSection title="企業情報" columns="2">
+				<apex:inputField value="{!theAccount.President__c}" required="false"/>
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="メディック企業様担当者情報" columns="2">
+				<apex:inputField value="{!theAccount.Shimei__c}" required="false"/>
+				<apex:inputField value="{!theAccount.SubShimei__c}" required="false"/>
+				<apex:inputField value="{!theAccount.Yakushoku__c}" required="false"/>
+				<apex:inputField value="{!theAccount.SubYakushoku__c}" required="false"/>
+				<apex:inputField value="{!theAccount.Busho__c}" required="false"/>
+				<apex:inputField value="{!theAccount.SubBusho__c}" required="false"/>
+				<apex:inputField value="{!theAccount.TantoEmail__c}" required="false"/>
+				<apex:inputField value="{!theAccount.SubTantoEmail__c}" required="false"/>
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="住所情報　　※住所が変更になった場合は、BL手配、健診手配の可能性がある為、契約地（日本以外）、管轄地区のBL担当者または内務、上海健診部へ通達する事！" columns="2">
+                <apex:inputField value="{!theAccount.OfficePostcd__c}" required="false" />
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:inputField value="{!theAccount.OfficeAdd__c}" required="false" style="width:300px;"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:inputField value="{!theAccount.CountryCallingCodes__c}" required="false"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                <apex:inputField value="{!theAccount.Phone}" required="false"/>
+                <apex:inputField value="{!theAccount.Fax}" required="false"/>
+                <apex:inputField value="{!theAccount.ExtNo__c}" required="false"/>
+			</apex:pageBlockSection>
+
+
+	
+
+
+			<apex:pageBlockSection title="税務情報" columns="2">
+				<apex:inputField value="{!theAccount.TaxIncentives__c}" required="false"/>
+				<apex:inputField value="{!theAccount.Tax_Identification_Number__c}" required="false"/>
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="BL情報" columns="1">
+				<apex:inputField value="{!theAccount.BlShimei__c}" required="false"/>
+
+				<apex:inputField value="{!theAccount.BlEmail__c}" required="false"/>
+				<apex:inputField value="{!theAccount.BlKeiyaku__c}" required="false"/>
+				<apex:inputField value="{!theAccount.BlInsuranceCompanyName__c}" required="false"/>
+				<apex:inputField value="{!theAccount.LetterOfAttorneyGet__c}" required="false"/>
+			</apex:pageBlockSection>
+            
+            <apex:pageBlockSection title="健診情報" columns="1">
+                <apex:inputField value="{!theAccount.Company_MC_Plan__c}" required="false"/>
+                
+                <apex:inputField value="{!theAccount.Notes_for_Claim_and_Payment__c}" required="false"/>
+                <apex:inputField value="{!theAccount.Inspection_Items_by_HQ_Personnel__c}" required="false"/>
+                <apex:inputField value="{!theAccount.Special_Price_Application__c}" required="false"/>
+                <apex:inputField value="{!theAccount.PersonalInfoDisclosure__c}" required="false"/>
+                <apex:inputField value="{!theAccount.Notes_for_MC__c}" required="false"/>
+            </apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="自動車情報" columns="1">
+				<apex:inputField value="{!theAccount.VehicleShimei__c}" required="false" />
+				<apex:inputField value="{!theAccount.VehicleEmail__c}" required="false" style="width:300px;"/>
+				<apex:inputField value="{!theAccount.OrgMechNo__c}" required="false" style="width:300px;"/>
+				<apex:inputField value="{!theAccount.CarOwnedNum__c}" required="false"/>
+				<apex:inputField value="{!theAccount.CarInsuranceNote__c}" required="false" style="width:300px;"/>
+			</apex:pageBlockSection>
+
+
+
+
+			<apex:pageBlockSection title="概要" columns="2">
+				<apex:inputField value="{!theAccount.DateOfFoundation__c}" required="false"/>
+				<apex:inputField value="{!theAccount.BigShareholder__c}" required="false" style="width:300px;"/>
+				<apex:inputField value="{!theAccount.CapitalContributionRatio__c}" required="false"/>
+				<apex:inputField value="{!theAccount.MainFinancingBank__c}" required="false"/>
+				<apex:inputField value="{!theAccount.Industry}" required="false"/>
+				<apex:inputField value="{!theAccount.MainInsuranceCompany__c}" required="false"/>
+
+				<apex:inputField value="{!theAccount.ContentOfBusiness__c}" required="false" style="width:300px;"/>
+                    <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+
+				<apex:inputField value="{!theAccount.NumberOfEmployees}" required="false"/>
+				<apex:inputField value="{!theAccount.ExpandOverseasSituation__c}" required="false" style="width:300px;"/>
+				<apex:inputField value="{!theAccount.MainCustomerCompany__c}" required="false"/>
+
+				<apex:inputField value="{!theAccount.Note_2__c}" required="false" style="width:300px;"/>
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="キーマン情報" columns="2">
+				<apex:inputField value="{!theAccount.MoverAndShakerBusho__c}" required="false"/>
+				<apex:inputField value="{!theAccount.MoverAndShakerOldSchool__c}" required="false"/>
+				<apex:inputField value="{!theAccount.MoverAndShakerYakushoku__c}" required="false"/>
+				<apex:inputField value="{!theAccount.MoverAndShakerHobby__c}" required="false"/>
+				<apex:inputField value="{!theAccount.MoverAndShakerShimei__c}" required="false"/>
+				<apex:inputField value="{!theAccount.WbHumanNetwork__c}" required="false"/>
+
+				<apex:inputField value="{!theAccount.MoverAndShakerNote__c}" required="false" style="width:300px;"/>
+			</apex:pageBlockSection>
+
+
+			<apex:pageBlockSection title="備考" columns="1">
+				<apex:inputField value="{!theAccount.Description}" required="false" style="width:300px;"/>
+			</apex:pageBlockSection>
+
+
+
+
+			<apex:pageBlockSection title="システム情報" columns="2">
+				<apex:inputField value="{!theAccount.DeleteDate__c}" required="false"/>
+			</apex:pageBlockSection>
+
+		</apex:pageBlock>
+	</apex:form>
+</apex:page>

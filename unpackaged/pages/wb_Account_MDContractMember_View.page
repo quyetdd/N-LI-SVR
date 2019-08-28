@@ -1,0 +1,224 @@
+<apex:page standardController="account" extensions="wb_Account_MDContractMember" id="pg">
+    <apex:form id="theForm">
+        <apex:actionFunction name="CallApexMethod2GetMemberHistory" action="{!GetMemberHistory}"  reRender="TheMemberHistory" status="myStatus">
+            <apex:param name="firstParam" assignTo="{!theHighlightedMember}" value="" />
+        </apex:actionFunction>
+        <apex:includeScript value="{!URLFOR($Resource.jQuery3)}" /> 
+        <script>
+        var lastRow;
+        function highlight(elem){
+            //alert(elem);
+            // alert(elem.cells.item(1).innerText);
+            CallApexMethod2GetMemberHistory(elem.cells.item(1).innerText);
+            if(lastRow != undefined)
+                lastRow.style.backgroundColor = 'white';
+            
+            elem.style.backgroundColor = 'yellow';
+            lastRow = elem;
+        }
+        </script>
+        
+        <script>
+        $(document).ready(function(){
+            $(esc('pg:theForm:CMTable:tb')+" > tr").attr("onmouseover","");
+            $("[id$='CHTable:tb'] > tr").attr("onmouseover","");
+            $(esc('pg:theForm:CMTable:tb')+" > tr > td").hover(function(){$(this).css("background-color","ghostwhite");}, function(){$(this).css("background-color","white");});
+            $("[id$='CHTable:tb'] > tr > td").hover(function(){$(this).css("background-color","greenyellow");}, function(){$(this).css("background-color","white");});
+            $("[id$='CHTable'] > thead .headerRow").css("background-color","deepskyblue");
+        });
+        
+        
+        function toggleCHDateTable(index){
+            var signtext = $("#Family-sign-"+index).text();
+            var idx = index ;
+            
+            var tableId = 'pg:theForm:CMTable:'+index+':CHTable';
+            
+            if(signtext == '+'){
+                $("#Family-sign-"+index).text('-').css("padding", " 0px 7px");
+                $(esc(tableId)).show();
+            }
+            else{
+                $("#Family-sign-"+index).text('+').css("padding", " 0px 5px");
+                $(esc(tableId)).hide();
+            }
+        }
+        
+        function esc(myid) {
+            try {
+                return '#' + myid.replace(/(:|\.)/g,'\\\$1');
+            }catch(e)
+            {
+                alert(e);
+            };  
+        } 
+        
+        
+        </script>
+        <style>
+            .sign-class{
+            font-size: 12px;
+            font-weight: 700;
+            padding: 0px 5px;
+            margin-right: 10px;
+            border: 1px solid blue;
+            background: blue;
+            color: whitesmoke;
+            margin-bottom:10px;
+            cursor:pointer;
+            }
+            .pbBody table.list tr.dataRow td {
+            font-family: verdana;
+            font-weight: normal;
+            }
+        </style>
+        <table id="tb">
+            <tr>
+                <td valign="top" id ="td">
+                    <apex:outputPanel id="theContractedMembers">
+                        <div align="left" style="display:{!IF(NOT(ISNULL(ContractedMembersPage.MemberDetails)),'block','none')}">
+                            <font size="1pt">Page #:&nbsp;<apex:outputLabel value="{!ContractedMembersPage.PageNumber}"/>&nbsp;out of&nbsp;<apex:outputLabel value="{!ContractedMembersPage.totalPageNumber}"/>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                            <apex:commandButton value="Previous" action="{!ContractedMembersPage.previousBtnClick}"
+                                                disabled="{!ContractedMembersPage.previousButtonEnabled}"
+                                                reRender="theContractedMembers" ></apex:commandButton> 
+                            <apex:commandButton value="Next" action="{!ContractedMembersPage.nextBtnClick}"
+                                                reRender="theContractedMembers" disabled="{!ContractedMembersPage.nextButtonDisabled}"
+                                                ></apex:commandButton> 
+                        </div>  
+                        <apex:variable var="index" value="{!0}" /> 
+                        <apex:datatable value="{!ContractedMembersPage.pageMemberContractFamilies}" id="CMTable" var="a" columns="6" border="1" cellpadding="4" onRowClick="highlight(this);"   >  
+
+                            <apex:column headerValue="{!$ObjectType.wb_Member__c.fields.Individual__c.label}" styleClass="greyColour">
+                                <a href="/{!a.theMember.Individual__c}" target="_blank">
+                                    <apex:outputfield value="{!a.theMember.Individual__r.name} "></apex:outputfield>
+                                </a> 
+                                <apex:outputPanel rendered="{!IF(a.theMember.MembershipDetail__r.Type__c =='家族', true , false)}">                            
+                                  
+                                    <span id="Family-sign-{!index}" class="sign-class" onclick="toggleCHDateTable('{!index}');" 
+                                          rendered="{!IF(a.NoOfFamily > 0, true , false)}"
+                                          >+</span>
+                                      <apex:outputText value="{!a.NoOfFamily}名" rendered="{!IF(a.theMember.MembershipDetail__r.Type__c =='家族', true , false)}" ></apex:outputText> 
+                                    <style>
+                                        .hidden {
+                                        display: none;
+                                        }
+                                    </style>
+                                    
+                                    
+                                    <apex:datatable value="{!a.theFamilies[a.theMember.name]}" var="f" id="CHTable"  headerClass="hidden" cellpadding="1" style="display:none;margin-top:1px;margin-left:2px;width:98%;"> 
+                                        <apex:column value="{!f.Individual__r.name}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.MemberNo__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        
+                                    </apex:datatable>  
+                                </apex:outputPanel> 
+                            </apex:column> 
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.MemberNo__c.label}">
+                                <apex:outputfield value="{!a.theMember.MembershipDetail__r.MemberNo__c}"></apex:outputfield>
+                            </apex:column>
+                            <!--
+                            <apex:column headerValue="{!$ObjectType.wb_MembershipDetail__c.fields.Type__c.label}">
+                                <apex:outputfield value="{!a.theMember.MembershipDetail__r.Type__c}"></apex:outputfield>
+                                <apex:outputPanel rendered="{!IF(a.theMember.MembershipDetail__r.Type__c =='家族', true , false)}">                            
+                                    <apex:outputText value=": {!a.NoOfFamily}名" rendered="{!IF(a.theMember.MembershipDetail__r.Type__c =='家族', true , false)}" ></apex:outputText> 
+                                    <span id="Family-sign-{!index}" class="sign-class" onclick="toggleCHDateTable('{!index}');" 
+                                          rendered="{!IF(a.NoOfFamily > 0, true , false)}"
+                                          >+</span>
+                                    <style>
+                                        .hidden {
+                                        display: none;
+                                        }
+                                    </style>
+                                    
+                                    
+                                    <apex:datatable value="{!a.theFamilies[a.theMember.name]}" var="f" id="CHTable"  headerClass="hidden" cellpadding="1" style="display:none;margin-top:1px;margin-left:2px;width:98%;"> 
+                                        <apex:column value="{!f.Individual__r.name}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        <apex:column value="{!f.MemberNo__c}" style="color: #000;font-size: 11px;font-family:verdana;"/>
+                                        
+                                    </apex:datatable>  
+                                </apex:outputPanel> 
+                            </apex:column>
+                            -->
+                            <apex:column headerValue="{!$ObjectType.wb_Member__c.fields.EndDate__c.label}">
+                                <apex:outputfield value="{!a.theMember.EndDate__c}"></apex:outputfield>
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.wb_Member__c.fields.WorkingCompany__c.label}">
+                                <a href="/{!a.theMember.WorkingCompany__c}" target="_blank">
+                                    <apex:outputfield value="{!a.theMember.WorkingCompany__r.name}"></apex:outputfield>
+                                </a> 
+                                <!--
+                                <apex:outputfield value="{!a.theMember.WorkingCompany__c}"></apex:outputfield>
+								-->
+                                <apex:variable var="index" value="{!index + 1}" /> 
+                            </apex:column>
+                            
+                        </apex:datatable>
+                    </apex:outputPanel>
+                </td>
+                
+                <td valign="top"> 
+                    <apex:outputPanel id="TheMemberHistory">
+                        <div align="left" >
+                            <font size="1pt">Page #:&nbsp;<apex:outputLabel value="{!ContractedMemberHistoryPage.PageNumber}"/>&nbsp;out of&nbsp;<apex:outputLabel value="{!ContractedMemberHistoryPage.totalPageNumber}"/>&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                            <apex:commandButton value="Previous" action="{!ContractedMemberHistoryPage.previousBtnClick}" disabled="{!ContractedMemberHistoryPage.previousButtonEnabled}" reRender="TheConfirmedDetail"></apex:commandButton> 
+                            <apex:commandButton value="Next" action="{!ContractedMemberHistoryPage.nextBtnClick}" reRender="TheConfirmedDetail" disabled="{!ContractedMemberHistoryPage.nextButtonDisabled}" ></apex:commandButton> 
+                        </div>  
+                        <!--
+                        <apex:datatable value="{!ContractedMemberHistoryPage.pageMemberHistories}" var="a" columns="4"   cellpadding="4"  >  
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.MemberNo__c.label}" styleClass="greyColour">
+                                
+                                <apex:outputfield value="{!a.MemberNo__c}"></apex:outputfield>
+                              
+                            </apex:column>
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.MembershipDetail__c.label}" styleClass="greyColour">
+                              
+                                <a href="/{!a.MembershipDetail__c}" target="_blank">
+                                    <apex:outputfield value="{!a.MembershipDetail__r.name}"></apex:outputfield>
+                                </a> 
+                            </apex:column> 
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.MembershipEndDate__c.label}">
+                                <apex:outputfield value="{!a.MembershipEndDate__c}"></apex:outputfield>
+                            </apex:column>
+                            
+                        </apex:datatable>
+                        -->
+                         <apex:datatable value="{!ContractedMemberHistoryPage.pageMemberHistories}" var="a" columns="7"   cellpadding="4"  >  
+                            <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.Classification__c.label}" styleClass="greyColour">
+                                <apex:outputfield value="{!a.Classification__c}"></apex:outputfield>
+                            </apex:column> 
+                            <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.MemberNo__c.label}" styleClass="greyColour">
+                                <!-- <a href="/{!a.MembershipDetail__r.Membership__r.Id}" target="_blank"> -->
+                                <apex:outputfield value="{!a.MemberNo__c}"></apex:outputfield>
+                                <!--   </a> --> 
+                            </apex:column>
+                            
+                            <apex:column headerValue="プラン" styleClass="greyColour">
+                                <apex:outputfield value="{!a.MembershipDetail__r.MembershipPlan__c}"></apex:outputfield>
+                                (
+                                 <apex:outputfield value="{!a.MembershipDetail__r.Type__c}"></apex:outputfield>
+                                )
+                            </apex:column> 
+                            
+                            <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.MembershipDetail__c.label}" styleClass="greyColour">
+                                <apex:outputfield value="{!a.MembershipDetail__c}"></apex:outputfield>
+                            </apex:column> 
+                            <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.MembershipStartDate__c.label}">
+                                <apex:outputfield value="{!a.MembershipStartDate__c}"></apex:outputfield>
+                            </apex:column>
+                             <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.MembershipStopDate__c.label}">
+                                <apex:outputfield value="{!a.MembershipStopDate__c}"></apex:outputfield>
+                            </apex:column>
+                            <apex:column headerValue="{!$ObjectType.wb_MemberHistory__c.fields.MembershipEndDate__c.label}">
+                                <apex:outputfield value="{!a.MembershipEndDate__c}"></apex:outputfield>
+                            </apex:column>
+                            
+                        </apex:datatable>
+                        
+                    </apex:outputPanel>
+                </td>
+            </tr>
+        </table>
+    </apex:form>
+</apex:page>

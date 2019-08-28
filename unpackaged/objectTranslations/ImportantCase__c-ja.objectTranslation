@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>重大ケース</value>
+    </caseValues>
+    <fields>
+        <label><!-- AC受付者 --></label>
+        <name>AcReceiptTanto__c</name>
+    </fields>
+    <fields>
+        <label><!-- 事故日付 --></label>
+        <name>AccidentDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 事故内容 --></label>
+        <name>AccidentNaiyo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 事故発生地 --></label>
+        <name>AccidentPlace__c</name>
+    </fields>
+    <fields>
+        <label><!-- 傷病区分 --></label>
+        <name>AccidentSicknessKubun__c</name>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>予防接種</masterLabel>
+            <translation><!-- 予防接種 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>伝染病（肝炎除く）</masterLabel>
+            <translation><!-- 伝染病（肝炎除く） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>健康診断</masterLabel>
+            <translation><!-- 健康診断 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>呼吸道感染</masterLabel>
+            <translation><!-- 呼吸道感染 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>外傷損傷</masterLabel>
+            <translation><!-- 外傷損傷 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>妊娠</masterLabel>
+            <translation><!-- 妊娠 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>循環器疾患（高血圧以外）</masterLabel>
+            <translation><!-- 循環器疾患（高血圧以外） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>性病</masterLabel>
+            <translation><!-- 性病 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>整形外科</masterLabel>
+            <translation><!-- 整形外科 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>歯科疾病</masterLabel>
+            <translation><!-- 歯科疾病 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>泌尿器疾患</masterLabel>
+            <translation><!-- 泌尿器疾患 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>消化器疾患</masterLabel>
+            <translation><!-- 消化器疾患 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>産婦人科（妊娠以外）</masterLabel>
+            <translation><!-- 産婦人科（妊娠以外） --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>疾病としての損傷、骨折</masterLabel>
+            <translation><!-- 疾病としての損傷、骨折 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>皮膚科疾患</masterLabel>
+            <translation><!-- 皮膚科疾患 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>眼科疾患</masterLabel>
+            <translation><!-- 眼科疾患 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>糖尿病</masterLabel>
+            <translation><!-- 糖尿病 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>耳鼻科疾患</masterLabel>
+            <translation><!-- 耳鼻科疾患 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>肝炎系</masterLabel>
+            <translation><!-- 肝炎系 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>脳疾患</masterLabel>
+            <translation><!-- 脳疾患 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>虫垂炎腹膜炎</masterLabel>
+            <translation><!-- 虫垂炎腹膜炎 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>高血圧</masterLabel>
+            <translation><!-- 高血圧 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 年齢 --></label>
+        <name>Age__c</name>
+    </fields>
+    <fields>
+        <label><!-- CASE NO --></label>
+        <name>CaseNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 企業側案件担当者 --></label>
+        <name>CompanyTanto__c</name>
+    </fields>
+    <fields>
+        <label><!-- 付保内容（保険金額） --></label>
+        <name>CoveringInsuranceNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- DP使用欄 --></label>
+        <name>DPNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- DP担当 --></label>
+        <name>DPTanto__c</name>
+    </fields>
+    <fields>
+        <label><!-- 役職 --></label>
+        <name>Field1__c</name>
+    </fields>
+    <fields>
+        <label><!-- （親会社情報）営業担当 --></label>
+        <name>HeadquartersEigyoTanto__c</name>
+    </fields>
+    <fields>
+        <label><!-- 病院名 --></label>
+        <name>HospitalName__c</name>
+    </fields>
+    <fields>
+        <label><!-- 入院期間(FROM) --></label>
+        <name>HospitalizationDateFrom__c</name>
+    </fields>
+    <fields>
+        <label><!-- 入院期間(TO) --></label>
+        <name>HospitalizationDateTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 入院日数 --></label>
+        <name>HospitalizationDays__c</name>
+    </fields>
+    <fields>
+        <label><!-- 重大ケース区分 --></label>
+        <name>ImportantCase__c</name>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation><!-- その他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>入院</masterLabel>
+            <translation><!-- 入院 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搬送</masterLabel>
+            <translation><!-- 搬送 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現地火葬</masterLabel>
+            <translation><!-- 現地火葬 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>遺体搬送</masterLabel>
+            <translation><!-- 遺体搬送 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 保険会社 --></label>
+        <name>InsuranceCompany__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険契約者 --></label>
+        <name>InsuranceContractant__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険期間(FROM) --></label>
+        <name>InsuranceDateFrom__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険期間(TO) --></label>
+        <name>InsuranceDateTo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険報告 --></label>
+        <name>InsuranceReport__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務先会社 --></label>
+        <name>KinmuCompany__c</name>
+        <relationshipLabel><!-- 重大ケース --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 医サ部使用欄 --></label>
+        <name>MdSrvDepNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- 医療サービス担当 --></label>
+        <name>MedicalServiceTanto__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員区分 --></label>
+        <name>MemberKubun__c</name>
+        <picklistValues>
+            <masterLabel>会員</masterLabel>
+            <translation><!-- 会員 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>非会員</masterLabel>
+            <translation><!-- 非会員 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 精算状況 --></label>
+        <name>PaySituation__c</name>
+        <picklistValues>
+            <masterLabel>完了</masterLabel>
+            <translation><!-- 完了 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>対応中</masterLabel>
+            <translation><!-- 対応中 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 証券番号 --></label>
+        <name>PolicyNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- 営業部使用欄 --></label>
+        <name>SalesDepNote__c</name>
+    </fields>
+    <fields>
+        <label><!-- 性別 --></label>
+        <name>Sex__c</name>
+        <picklistValues>
+            <masterLabel>女</masterLabel>
+            <translation><!-- 女 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>男</masterLabel>
+            <translation><!-- 男 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 対応状況 --></label>
+        <name>SituationKubun__c</name>
+        <picklistValues>
+            <masterLabel>完了</masterLabel>
+            <translation><!-- 完了 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>対応中</masterLabel>
+            <translation><!-- 対応中 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 当事者区分 --></label>
+        <name>ToujishaKubun__c</name>
+        <picklistValues>
+            <masterLabel>出張者</masterLabel>
+            <translation><!-- 出張者 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>妻</masterLabel>
+            <translation><!-- 妻 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>子供</masterLabel>
+            <translation><!-- 子供 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>駐在員</masterLabel>
+            <translation><!-- 駐在員 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 当事者（被保険者） --></label>
+        <name>Toujisha__c</name>
+    </fields>
+    <fields>
+        <label><!-- WB営業担当 --></label>
+        <name>WbEigyoTanto__c</name>
+    </fields>
+    <layouts>
+        <layout>重大ケースレイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 内容 --></label>
+            <section>内容</section>
+        </sections>
+        <sections>
+            <label><!-- 内容2 --></label>
+            <section>内容2</section>
+        </sections>
+        <sections>
+            <label><!-- 当事者　担当者情報 --></label>
+            <section>当事者　担当者情報</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

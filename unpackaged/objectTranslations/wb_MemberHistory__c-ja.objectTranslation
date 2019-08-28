@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>会員履歴</value>
+    </caseValues>
+    <fields>
+        <label><!-- キャンセル日付 --></label>
+        <name>CancellationDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 区分 --></label>
+        <name>Classification__c</name>
+    </fields>
+    <fields>
+        <label><!-- 有効終了日 --></label>
+        <name>EffectiveUntil__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員番号 --></label>
+        <name>MemberNo__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員タイプ --></label>
+        <name>MemberType__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員契約詳細 --></label>
+        <name>MembershipDetail__c</name>
+        <relationshipLabel><!-- 会員履歴 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 会員終了日 --></label>
+        <name>MembershipEndDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員開始日 --></label>
+        <name>MembershipStartDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員異動日 --></label>
+        <name>MembershipStopDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 置き換え --></label>
+        <name>ReplacedWith__c</name>
+        <relationshipLabel><!-- 会員履歴 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 有効終了日(F) --></label>
+        <name>f_EffectiveUntil__c</name>
+    </fields>
+    <fields>
+        <label><!-- 有効 --></label>
+        <name>f_effectiveness__c</name>
+    </fields>
+    <fields>
+        <label><!-- 会員 --></label>
+        <name>member__c</name>
+        <relationshipLabel><!-- 会員履歴 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 有効 --></label>
+        <name>r_effectiveness__c</name>
+    </fields>
+</CustomObjectTranslation>

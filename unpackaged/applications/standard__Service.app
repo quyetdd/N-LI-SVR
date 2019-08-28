@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <defaultLandingTab>standard-home</defaultLandingTab>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <tabs>standard-Case</tabs>
+    <tabs>standard-Solution</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>wb_Membership__c</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>Ichiroheian__c</tabs>
+    <tabs>Shimei__c</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <tabs>OTAHistory__c</tabs>
+    <tabs>HaishinTsuika__c</tabs>
+    <tabs>ModificationRequest__c</tabs>
+    <tabs>AffiliatedCompany__c</tabs>
+    <tabs>BL__c</tabs>
+    <tabs>Kenshin__c</tabs>
+    <tabs>BusinessReport__c</tabs>
+    <tabs>ImportantCase__c</tabs>
+    <tabs>CSReport__c</tabs>
+    <tabs>Summary_of_members__c</tabs>
+    <tabs>AffiliatedHospital__c</tabs>
+    <tabs>wb_Service__c</tabs>
+    <tabs>wb_CarInsurance__c</tabs>
+    <tabs>wb_Vehicle__c</tabs>
+    <tabs>wb_Individual__c</tabs>
+    <tabs>Knowledge__kav</tabs>
+</CustomApplication>

@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>BL</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>BL</value>
+    </caseValues>
+    <fields>
+        <label>Contract Agency</label>
+        <name>Agency__c</name>
+        <picklistValues>
+            <masterLabel>ブローカー</masterLabel>
+            <translation>Broker</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>代理店</masterLabel>
+            <translation>Agency</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>BL General Affairs PIC</label>
+        <name>BLNaimuTanto__c</name>
+        <relationshipLabel><!-- BL --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- BL営業担当者9 --></label>
+        <name>BlEigyoTanto9__c</name>
+    </fields>
+    <fields>
+        <label>BL Sales PIC</label>
+        <name>BlEigyoTanto__c</name>
+        <relationshipLabel><!-- BL (BL営業担当) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Insurance Type</label>
+        <name>BranchOfInsurance__c</name>
+        <picklistValues>
+            <masterLabel>OTA（香港）</masterLabel>
+            <translation>Travel Accident Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PL保険</masterLabel>
+            <translation>Product-liability Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>オフィスパッケージ</masterLabel>
+            <translation>Office Package</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>コンピュータ保険</masterLabel>
+            <translation>Computer Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ゴルファー</masterLabel>
+            <translation>Golfer&apos;s Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>バイク保険</masterLabel>
+            <translation>Motorbike Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>住宅総合</masterLabel>
+            <translation>Householders&apos; Comprehensive Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>信用保険</masterLabel>
+            <translation>Credit Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>個人意外傷害</masterLabel>
+            <translation>Personal Accident Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>公衆責任保険</masterLabel>
+            <translation>Public Liability Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>利益保険</masterLabel>
+            <translation>Business Interruption Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>団体傷害/医療保険</masterLabel>
+            <translation>Group Accident / Medical Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>店舗賠償責任</masterLabel>
+            <translation>Shop Liability Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>建設工事保険</masterLabel>
+            <translation>Construction Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>搭乗者傷害保険（香港）</masterLabel>
+            <translation>Passenger Injury Insurance(HK)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>操業停止損害保険（香港）</masterLabel>
+            <translation>Business Interruption Insurance(HK)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>機械保険</masterLabel>
+            <translation>Machinery Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>物流</masterLabel>
+            <translation>Marine Cargo Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現金保険</masterLabel>
+            <translation>Cash Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>組立工事保険</masterLabel>
+            <translation>Erection Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>総合賠償責任保険</masterLabel>
+            <translation>Commercial General Liability Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>職業責任</masterLabel>
+            <translation>Professional Liability Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自動車保険(香港)</masterLabel>
+            <translation>Motor Insurance(HK)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産一切保険</masterLabel>
+            <translation>Property All Risk Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産保険</masterLabel>
+            <translation>Property Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>逆OTA</masterLabel>
+            <translation>Travel Accident Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>運送賠償</masterLabel>
+            <translation>Inland Transit Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主工傷</masterLabel>
+            <translation><!-- 雇主工傷 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主責任保険</masterLabel>
+            <translation>Employers&apos; Liability Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>食品責任保険</masterLabel>
+            <translation>Food Responsibility Insurance</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Branch</label>
+        <name>Branch__c</name>
+    </fields>
+    <fields>
+        <label>Inception Date through Broker</label>
+        <name>BrokerKeiyakuStartDate__c</name>
+    </fields>
+    <fields>
+        <label>Date of Termination</label>
+        <name>CancelDate__c</name>
+    </fields>
+    <fields>
+        <label>Reason for Termination</label>
+        <name>CancelReason__c</name>
+    </fields>
+    <fields>
+        <label>Commission</label>
+        <name>CommissionAmount__c</name>
+    </fields>
+    <fields>
+        <label>Commission Currency</label>
+        <name>CommissionCurrency__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation>HKD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IDR</masterLabel>
+            <translation><!-- IDR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JPY</masterLabel>
+            <translation>JPY(Unit 1,000JPY)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MYR</masterLabel>
+            <translation><!-- MYR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PHP</masterLabel>
+            <translation><!-- PHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation>RMB</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>USD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VND</masterLabel>
+            <translation><!-- VND --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Commission Rate</label>
+        <name>CommissionRate__c</name>
+    </fields>
+    <fields>
+        <label>Detail of insurance type</label>
+        <name>CommodityName__c</name>
+        <picklistValues>
+            <masterLabel>Well Care</masterLabel>
+            <translation><!-- Well Care --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Well House</masterLabel>
+            <translation><!-- Well House --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>万国游踪</masterLabel>
+            <translation>WanGuoYouZong(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>住宅総合険</masterLabel>
+            <translation>Householders&apos; Comprehensive Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>優逸団体医療補充</masterLabel>
+            <translation>Youyi Group Supplementary Medical Insurance(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>公衆責任保険</masterLabel>
+            <translation>Public Liability Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>団体交通事故傷害</masterLabel>
+            <translation>Traffic Personal Accident Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>団体重大疾病</masterLabel>
+            <translation>Group Critical Illness Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>国内</masterLabel>
+            <translation>Domestic</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>国外</masterLabel>
+            <translation>Overseas</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安居楽行</masterLabel>
+            <translation>AnJuLeXing(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安新世界</masterLabel>
+            <translation>PingAnXinShiJie(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安畅行天下</masterLabel>
+            <translation>PingAnChangXingTianXia(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>楽悠遊</masterLabel>
+            <translation>LeYouYou(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>楽行四海</masterLabel>
+            <translation>LeXingSiHai(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>漫遊桜花</masterLabel>
+            <translation>ManYouYingHua(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>物流(内航)</masterLabel>
+            <translation>Marine Cargo (Inland)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>物流(外航)</masterLabel>
+            <translation>Marine Cargo (Overseas)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>現金保険</masterLabel>
+            <translation>Cash Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産保険</masterLabel>
+            <translation>Property Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産基本険</masterLabel>
+            <translation>Basic Property Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>財産総合険</masterLabel>
+            <translation>Comprehensive Property Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>賃貸料損失</masterLabel>
+            <translation>Rental Income Insurance</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>迅速！物流平安</masterLabel>
+            <translation>Jinsoku! Butsuryu Heian(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>逸行全球</masterLabel>
+            <translation>YiXingQuanQiu(CN)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雇主責任保険</masterLabel>
+            <translation>Employers&apos; Liability Insurance</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Premium Currency</label>
+        <name>Currency__c</name>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation>HKD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IDR</masterLabel>
+            <translation><!-- IDR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JPY</masterLabel>
+            <translation>JPY(Unit 1,000JPY)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MOP</masterLabel>
+            <translation>MOP</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MYR</masterLabel>
+            <translation><!-- MYR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PHP</masterLabel>
+            <translation><!-- PHP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation>RMB</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>USD</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VND</masterLabel>
+            <translation>VND(Unit 1,000VND)</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>DP Appoint</label>
+        <name>DPAppoint__c</name>
+    </fields>
+    <fields>
+        <label>Sales PIC</label>
+        <name>EigyoTanto__c</name>
+    </fields>
+    <fields>
+        <label>Premium</label>
+        <name>InsuranceAmount__c</name>
+    </fields>
+    <fields>
+        <label>Insurance Company Name</label>
+        <name>InsuranceCompanyName__c</name>
+        <picklistValues>
+            <masterLabel>AIA（香港）</masterLabel>
+            <translation>AIA(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AIG（香港）</masterLabel>
+            <translation>AIG(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AIU（香港）</masterLabel>
+            <translation>AIU(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AXA（香港）</masterLabel>
+            <translation>AXA(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Baoviet Tokio Marine</masterLabel>
+            <translation>Baoviet Tokio Marine</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BlueCross（香港）</masterLabel>
+            <translation>Blue Cross(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LIBERTY（香港）</masterLabel>
+            <translation>LIBERTY(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MALAYAN</masterLabel>
+            <translation><!-- MALAYAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PICC</masterLabel>
+            <translation>PICC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PICC（香港）</masterLabel>
+            <translation>PICC(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SJNK（香港）</masterLabel>
+            <translation>SJNK(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokio Marine(Malaysia)</masterLabel>
+            <translation><!-- Tokio Marine(Malaysia) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UIC</masterLabel>
+            <translation>UIC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zurich（香港）</masterLabel>
+            <translation>Zurich(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>あいおい（中国）</masterLabel>
+            <translation>Aioi(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友（中国）</masterLabel>
+            <translation>Mitsui Sumitomo(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友（香港）</masterLabel>
+            <translation>Mitsui Sumitomo(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中国人寿財産</masterLabel>
+            <translation>Zhongguo Renshou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太平洋</masterLabel>
+            <translation>Taipingyang</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安</masterLabel>
+            <translation>Pingan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安養老</masterLabel>
+            <translation>Pingan Yanglao</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>損保ジャパン（中国）</masterLabel>
+            <translation>Sompo Japan(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>損保ジャパン（香港）</masterLabel>
+            <translation>Sompo Japan(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本興亜（中国）</masterLabel>
+            <translation>Nipponkoa(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本興亜（香港）</masterLabel>
+            <translation>Nipponkoa(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上日動（中国）</masterLabel>
+            <translation>Tokio Marine(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上日動（香港）</masterLabel>
+            <translation>Tokio Marine(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>民安（中国）</masterLabel>
+            <translation>Minan(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>民安（香港）</masterLabel>
+            <translation>Minan(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>美亜（AIG）</masterLabel>
+            <translation>AIG</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華泰財産</masterLabel>
+            <translation>Huatai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>陽光人寿</masterLabel>
+            <translation>Yangguang Renshou</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 種目詳細 --></label>
+        <name>InsuranceContent__c</name>
+    </fields>
+    <fields>
+        <help><!-- OPEN POLICYの場合
+満期日があるものは、
+満期日を入力し、
+満期日がないものは、
+空欄にしてください。 --></help>
+        <label>To</label>
+        <name>InsuranceManki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険始期月 --></label>
+        <name>InsuranceShikiMonth__c</name>
+    </fields>
+    <fields>
+        <label>From</label>
+        <name>InsuranceShiki__c</name>
+    </fields>
+    <fields>
+        <label><!-- 保険種目 --></label>
+        <name>Insurance__c</name>
+    </fields>
+    <fields>
+        <label>Policy Holder(Insured)</label>
+        <name>Insurant__c</name>
+        <relationshipLabel><!-- BL(契約者（被保険者）) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 計上月(BL) --></label>
+        <name>KeijoMonthBl__c</name>
+    </fields>
+    <fields>
+        <label>Contract Area</label>
+        <name>KeiyakuArea__c</name>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation>Hanoi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation>Ho Chi Minh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation>Shanghai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation>Dalian</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation>Guangzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江蘇</masterLabel>
+            <translation>Jiangsu</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation>Shenzhen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華中</masterLabel>
+            <translation>Central China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華北</masterLabel>
+            <translation>North China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華南</masterLabel>
+            <translation>South China</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation>Suzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- 契約会社コード --></label>
+        <name>KeiyakuCompanyCde__c</name>
+    </fields>
+    <fields>
+        <label>Contract Company Name</label>
+        <name>KeiyakuCompanyName__c</name>
+        <relationshipLabel><!-- BL (契約会社名称) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Insurance Type</label>
+        <name>KeiyakuShubetsu__c</name>
+        <picklistValues>
+            <masterLabel>上海契約特別対応</masterLabel>
+            <translation>Shanghai Special</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Remarks</label>
+        <name>Note__c</name>
+    </fields>
+    <fields>
+        <label>Declaration Month</label>
+        <name>NoticeMonth__c</name>
+    </fields>
+    <fields>
+        <help>It send notice by e-mail to customer in every 3 month. Quarterly (Calendar Month):1,4,7,10 / Quarterly (Non-Calendar Month):On the every 3 month of contract start date.</help>
+        <label>Declaration Rule</label>
+        <name>NoticeRule__c</name>
+        <picklistValues>
+            <masterLabel>四半期</masterLabel>
+            <translation>Quarterly</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>四半期（自然月）</masterLabel>
+            <translation>Quarterly (Calendar Month)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>四半期（非自然月）</masterLabel>
+            <translation>Quarterly (Non-Calendar Month)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>年度末</masterLabel>
+            <translation>End of Year</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>毎月</masterLabel>
+            <translation>Every Month</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>発生月</masterLabel>
+            <translation>Incidence Month</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>通知なし</masterLabel>
+            <translation>Unnecessary</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Email of Declaration PIC</label>
+        <name>NoticeTantoMail__c</name>
+    </fields>
+    <fields>
+        <label>Declaration PIC</label>
+        <name>NoticeTanto__c</name>
+    </fields>
+    <fields>
+        <label>Open Policy</label>
+        <name>OpenPolicy__c</name>
+    </fields>
+    <fields>
+        <label>Adjustment Rule</label>
+        <name>PayRule__c</name>
+        <picklistValues>
+            <masterLabel>四半期</masterLabel>
+            <translation>Quarterly</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>年度末</masterLabel>
+            <translation>End of Year</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>毎月</masterLabel>
+            <translation>Every Month</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Individual Policy (Insured)</label>
+        <name>PersonalKeiyakuInsurant__c</name>
+    </fields>
+    <fields>
+        <label>Policy No.</label>
+        <name>ShokenNo__c</name>
+    </fields>
+    <fields>
+        <label>Affiliation Area</label>
+        <name>ShozokuArea__c</name>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>クアラルンプール</masterLabel>
+            <translation><!-- クアラルンプール --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ジョホールバル</masterLabel>
+            <translation><!-- ジョホールバル --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>セブ</masterLabel>
+            <translation><!-- セブ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ダナン</masterLabel>
+            <translation><!-- ダナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハイフォン</masterLabel>
+            <translation><!-- ハイフォン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ハノイ</masterLabel>
+            <translation>Hanoi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ペナン</masterLabel>
+            <translation><!-- ペナン --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ホーチミン</masterLabel>
+            <translation>Ho Chi Minh</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>マニラ</masterLabel>
+            <translation><!-- マニラ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海</masterLabel>
+            <translation>Shanghai</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京</masterLabel>
+            <translation>Beijing</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大連</masterLabel>
+            <translation>Dalian</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津</masterLabel>
+            <translation>Tianjin</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安徽省</masterLabel>
+            <translation>Anhui Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>山東省</masterLabel>
+            <translation>Shandong Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州</masterLabel>
+            <translation>Changzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平湖</masterLabel>
+            <translation>Pinghu</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>広州</masterLabel>
+            <translation>Guangzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山</masterLabel>
+            <translation>Kunshan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州</masterLabel>
+            <translation>Hangzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東莞</masterLabel>
+            <translation>Dongguan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武漢</masterLabel>
+            <translation>Wuhan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>浙江省</masterLabel>
+            <translation>Zhejiang Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深セン</masterLabel>
+            <translation>Shenzhen</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>無錫</masterLabel>
+            <translation>Wuxi</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福建省</masterLabel>
+            <translation>Fujian Prov.</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蘇州</masterLabel>
+            <translation>Suzhou</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青島</masterLabel>
+            <translation>Qingdao</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港</masterLabel>
+            <translation>Hong Kong</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Insurance Company Name from Transferred</label>
+        <name>TransferBeforeInsuranceCompany__c</name>
+        <picklistValues>
+            <masterLabel>AIA（香港）</masterLabel>
+            <translation>AIA(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AIU（香港）</masterLabel>
+            <translation>AIU(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AXA（香港）</masterLabel>
+            <translation>AXA(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BlueCross（香港）</masterLabel>
+            <translation>Blue Cross(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LIBERTY（香港）</masterLabel>
+            <translation>LIBERTY(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PICC</masterLabel>
+            <translation>PICC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PICC（香港）</masterLabel>
+            <translation>PICC(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zurich（香港）</masterLabel>
+            <translation>Zurich(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>その他</masterLabel>
+            <translation>Other</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友（中国）</masterLabel>
+            <translation>Mitsui Sumitomo(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三井住友（香港）</masterLabel>
+            <translation>Mitsui Sumitomo(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太平洋</masterLabel>
+            <translation>Taipingyang</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平安</masterLabel>
+            <translation>Pingan</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>損保ジャパン（中国）</masterLabel>
+            <translation>Sompo Japan(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>損保ジャパン（香港）</masterLabel>
+            <translation>Sompo Japan(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本興亜（中国）</masterLabel>
+            <translation>Nipponkoa(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日本興亜（香港）</masterLabel>
+            <translation>Nipponkoa(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上日動（中国）</masterLabel>
+            <translation>Tokio Marine(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>東京海上日動（香港）</masterLabel>
+            <translation>Tokio Marine(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>民安（中国）</masterLabel>
+            <translation>Minan(China)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>民安（香港）</masterLabel>
+            <translation>Minan(Hong Kong)</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>美亜（AIG）</masterLabel>
+            <translation>AIG</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>華泰財産保険会社</masterLabel>
+            <translation>Huatai</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Transfer Date</label>
+        <name>TransferDate__c</name>
+    </fields>
+    <layouts>
+        <layout>BLレイアウト</layout>
+        <sections>
+            <label><!-- BL情報2 --></label>
+            <section>BL情報2</section>
+        </sections>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 代理店情報 --></label>
+            <section>代理店情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約者情報 --></label>
+            <section>契約者情報</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BLレイアウト2</layout>
+        <sections>
+            <label><!-- BL情報2 --></label>
+            <section>BL情報2</section>
+        </sections>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 代理店情報 --></label>
+            <section>代理店情報</section>
+        </sections>
+        <sections>
+            <label><!-- 保険情報 --></label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label><!-- 備考情報 --></label>
+            <section>備考情報</section>
+        </sections>
+        <sections>
+            <label><!-- 契約者情報 --></label>
+            <section>契約者情報</section>
+        </sections>
+        <sections>
+            <label><!-- 担当者情報 --></label>
+            <section>担当者情報</section>
+        </sections>
+        <sections>
+            <label><!-- 新規セクション --></label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label><!-- 移管情報 --></label>
+            <section>移管情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BLレイアウト20130107</layout>
+        <sections>
+            <label>BL Information</label>
+            <section>BL情報2</section>
+        </sections>
+        <sections>
+            <label>Custom Link</label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label>Agency Information</label>
+            <section>代理店情報</section>
+        </sections>
+        <sections>
+            <label>Insurance Information</label>
+            <section>保険情報</section>
+        </sections>
+        <sections>
+            <label>Remarks Information</label>
+            <section>備考情報</section>
+        </sections>
+        <sections>
+            <label>Policy Owner Information</label>
+            <section>契約者情報</section>
+        </sections>
+        <sections>
+            <label>New Section</label>
+            <section>新規セクション</section>
+        </sections>
+        <sections>
+            <label>Transfer Information</label>
+            <section>移管情報　※保険会社から代理店へ移管する契約</section>
+        </sections>
+        <sections>
+            <label>Warning Information</label>
+            <section>通知関係</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>BL No.</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- 満期日とOpenPolicyはどちらか一方のみ入力できます。
+OpenPolicyの場合は、OpenPolicyにチェックをつけてください。 --></errorMessage>
+        <name>Chk_OpenPolicy2</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- 満期日または、OpenPolicyが入力されていません。 --></errorMessage>
+        <name>chk_OpenPolicy</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- CreateACRecept --></label>
+        <name>CreateACRecept</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CreateACReceptMedical --></label>
+        <name>CreateACReceptMedical</name>
+    </webLinks>
+</CustomObjectTranslation>

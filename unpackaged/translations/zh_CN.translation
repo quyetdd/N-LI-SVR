@@ -1,0 +1,2334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- アラームセンター（MDL） --></label>
+        <name>MDL</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- 設定取得 --></label>
+        <name>SetupCheckApplication</name>
+    </customApplications>
+    <customLabels>
+        <label><!-- Affiliation Area --></label>
+        <name>AffiliationArea</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Affilliation Area --></label>
+        <name>AffilliationArea</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Aggregate Sheet ( Affiliation ) --></label>
+        <name>AggregateSheetAffiliation</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Aggregate Sheet ( Contract ) --></label>
+        <name>AggregateSheetContract</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All Clear --></label>
+        <name>AllClear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- All Uncheck --></label>
+        <name>AllUncheck</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Automotive --></label>
+        <name>Automotive</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Back --></label>
+        <name>Back</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Car Insurance Batch Process --></label>
+        <name>CarInsuranceBatchUpdate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Check All --></label>
+        <name>CheckAll</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Commodity --></label>
+        <name>Commodity</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- (Company) GA PIC --></label>
+        <name>CompanyGAPIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- (Company) Sales PIC --></label>
+        <name>CompanySalesPIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Company Sales PIC Batch Process --></label>
+        <name>CompanySalesPICBatchProcess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Complete --></label>
+        <name>Complete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contract --></label>
+        <name>Contract</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contract Company Name --></label>
+        <name>ContractCompanyName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- (Contract) GA PIC --></label>
+        <name>ContractGAPIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 契約情報　営業担当一括更新 --></label>
+        <name>ContractInfoBatchProcess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contract No --></label>
+        <name>ContractNo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- (Contract) Sales PIC --></label>
+        <name>ContractSalesPIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Copied --></label>
+        <name>Copied</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Copy --></label>
+        <name>Copy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Data --></label>
+        <name>Data</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Date of Expire --></label>
+        <name>DateOfExpire</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Date of Expire Now --></label>
+        <name>DateOfExpireNow</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Entrained Family --></label>
+        <name>EntrainedFamily</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please enter all search information --></label>
+        <name>ErrorMessageSearch</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Excel Generate Completed --></label>
+        <name>ExcelGenerateCompleted</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Excel Generate Error --></label>
+        <name>ExcelGenerateError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ExcelGenerating --></label>
+        <name>ExcelGenerating</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Expiry Date Batch Process --></label>
+        <name>ExpiryDateBatchProcess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Expiry Date Update --></label>
+        <name>ExpiryDateUpdate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Family --></label>
+        <name>Family</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- From --></label>
+        <name>From</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- From_ContractNum --></label>
+        <name>From_ContractNum</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Get Account Error --></label>
+        <name>GetAccountError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Get Child Account Error --></label>
+        <name>GetChildAccountError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Get Member Error --></label>
+        <name>GetMemberError</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Health Examination --></label>
+        <name>HealthExamination</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Individual Contract --></label>
+        <name>IndividualContract</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Insurance Expire --></label>
+        <name>InsuranceExpire</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Insurance Type --></label>
+        <name>InsuranceType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Invoice --></label>
+        <name>Invoice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Issue --></label>
+        <name>Issue</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Issue For Printing --></label>
+        <name>IssueForPrinting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Item Clear --></label>
+        <name>ItemClear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Keiyaku --></label>
+        <name>Keiyaku</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Kenshin import loading message --></label>
+        <name>KenshinImportloadingMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Kinmu --></label>
+        <name>Kinmu</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- KinmuCompany --></label>
+        <name>KinmuCompany</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Last Year --></label>
+        <name>LastYear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MD Header --></label>
+        <name>MDHeader</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MD Specification --></label>
+        <name>MDSpecification</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MankiDate --></label>
+        <name>MankiDate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Update PIC --></label>
+        <name>MaturityUpdate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Medical member distribution --></label>
+        <name>MedicalMemberDistribution</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Member&apos;s Company --></label>
+        <name>MemberCompany</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Member Data File Name --></label>
+        <name>MemberDataFileName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Member&apos;s Name --></label>
+        <name>MemberName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Members List --></label>
+        <name>MembersList</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- MembersListTemplate_Eng --></label>
+        <name>MembersListTemplate_Eng</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Membership No --></label>
+        <name>MembershipNo</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New --></label>
+        <name>New</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- New Date of Expire --></label>
+        <name>NewDateOfExpire</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- No Result --></label>
+        <name>No_Result</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Not IE Browser --></label>
+        <name>NotIEBrowser</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- (OP) Update --></label>
+        <name>OP_Update</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OTA Update --></label>
+        <name>OTAUpdate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Output Form --></label>
+        <name>OutputForm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- OverRecords --></label>
+        <name>OverRecords</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PIC --></label>
+        <name>PIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- PassengerContractStore --></label>
+        <name>PassengerContractStore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Refine --></label>
+        <name>Refine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Relevance Account --></label>
+        <name>RelevanceAccount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Renewal Notice --></label>
+        <name>RenewalNotice</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Renewal Notice Batch Process --></label>
+        <name>RenewalNoticeBatchProcess</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Run --></label>
+        <name>Run</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Search --></label>
+        <name>Search</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select --></label>
+        <name>Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Single --></label>
+        <name>Single</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_ActionLable --></label>
+        <name>TRC_AB__AutobahnAction_ActionLable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_ActionSettingLable --></label>
+        <name>TRC_AB__AutobahnAction_ActionSettingLable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_ErrormailLabel --></label>
+        <name>TRC_AB__AutobahnAction_ErrormailLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_OpenTypeLable --></label>
+        <name>TRC_AB__AutobahnAction_OpenTypeLable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_ReplaceCodeMessage --></label>
+        <name>TRC_AB__AutobahnAction_ReplaceCodeMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_ReplaceDateMessage --></label>
+        <name>TRC_AB__AutobahnAction_ReplaceDateMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_ReplaceFormatErrorMessage --></label>
+        <name>TRC_AB__AutobahnAction_ReplaceFormatErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_ReplaceUserAgentMessage --></label>
+        <name>TRC_AB__AutobahnAction_ReplaceUserAgentMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_SelectField_ErrorMessage --></label>
+        <name>TRC_AB__AutobahnAction_SelectField_ErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnAction_TrackLabel --></label>
+        <name>TRC_AB__AutobahnAction_TrackLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnClickAction_EditPageTitle --></label>
+        <name>TRC_AB__AutobahnClickAction_EditPageTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnClickAction_RedirectURL --></label>
+        <name>TRC_AB__AutobahnClickAction_RedirectURL</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnClickAction_TargetFieldLabel --></label>
+        <name>TRC_AB__AutobahnClickAction_TargetFieldLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnClickAction_TargetObject --></label>
+        <name>TRC_AB__AutobahnClickAction_TargetObject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnClickAction_TargetObjectLabel --></label>
+        <name>TRC_AB__AutobahnClickAction_TargetObjectLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnClickAction_UpdateClickdate_DescriptionLabel --></label>
+        <name>TRC_AB__AutobahnClickAction_UpdateClickdate_DescriptionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnClickAction_UpdateValueLabel --></label>
+        <name>TRC_AB__AutobahnClickAction_UpdateValueLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_CustomCriteriaInvalidMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_CustomCriteriaInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_DataSourceObjectInvalidMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_DataSourceObjectInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_EmailFieldInvalidMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_EmailFieldInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_FeildInaccessibleMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_FeildInaccessibleMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_FieldInvalidMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_FieldInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_FieldTypeDisableMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_FieldTypeDisableMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_FieldTypeInvalidMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_FieldTypeInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_MatchValueInvalidMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_MatchValueInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_OperandInvalidMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_OperandInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_RecordIDNullMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_RecordIDNullMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteriaInfo_XMLInvalidMessage --></label>
+        <name>TRC_AB__AutobahnCriteriaInfo_XMLInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_AndLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_AndLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ConditionFieldNameLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ConditionFieldNameLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ConditionLalel --></label>
+        <name>TRC_AB__AutobahnCriteria_ConditionLalel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ConditionValueLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ConditionValueLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_CustomCondition_ErrorCombinationMessage --></label>
+        <name>TRC_AB__AutobahnCriteria_CustomCondition_ErrorCombinationMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_CustomCondition_ErrorSpellMessage --></label>
+        <name>TRC_AB__AutobahnCriteria_CustomCondition_ErrorSpellMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_CustomCondition_ErrorUnDefineMessage --></label>
+        <name>TRC_AB__AutobahnCriteria_CustomCondition_ErrorUnDefineMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_CustomLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_CustomLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_EditPageTitle --></label>
+        <name>TRC_AB__AutobahnCriteria_EditPageTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_EmailFieldErrorLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_EmailFieldErrorLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Field_DoesNotExistInListLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Field_DoesNotExistInListLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Field_NotAccessibleLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Field_NotAccessibleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Field_NotExistsValueLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Field_NotExistsValueLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_FilterByOwnerLalel --></label>
+        <name>TRC_AB__AutobahnCriteria_FilterByOwnerLalel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_FilterByOwner_ErrorMessage --></label>
+        <name>TRC_AB__AutobahnCriteria_FilterByOwner_ErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_MailAddress --></label>
+        <name>TRC_AB__AutobahnCriteria_MailAddress</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_MainTitleLalel --></label>
+        <name>TRC_AB__AutobahnCriteria_MainTitleLalel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_NameLalel --></label>
+        <name>TRC_AB__AutobahnCriteria_NameLalel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ObjectFieldErrorLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ObjectFieldErrorLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ObjectLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ObjectLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_OperandLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_OperandLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_OperandTypeErrorLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_OperandTypeErrorLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_EqualLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_EqualLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_GearterLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_GearterLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_GearterThanLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_GearterThanLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_IncludeCharLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_IncludeCharLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_IncludeLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_IncludeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_InvalidValueLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_InvalidValueLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_LessLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_LessLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_LessThanLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_LessThanLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_NotEqualLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_NotEqualLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_NotIncludeCharLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_NotIncludeCharLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_NotIncludeLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_NotIncludeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_Operand_StartCharLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_Operand_StartCharLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_OrLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_OrLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_TitleLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_TitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ValidateBooleanTypeErrorLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ValidateBooleanTypeErrorLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ValidateDateFormatErrorLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ValidateDateFormatErrorLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ValidateDateInvalidOperandErrorLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ValidateDateInvalidOperandErrorLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ValidateNotSelectedFieldAndOperandErrorLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ValidateNotSelectedFieldAndOperandErrorLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnCriteria_ValueTypeErrorLabel --></label>
+        <name>TRC_AB__AutobahnCriteria_ValueTypeErrorLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDelivertList_Title --></label>
+        <name>TRC_AB__AutobahnDelivertList_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListCounter_IDFieldInvalidMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListCounter_IDFieldInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListCounter_QueryErrorMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListCounter_QueryErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListCounter_QuerySizeLimitMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListCounter_QuerySizeLimitMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListView_CampaignMemberInvalidMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListView_CampaignMemberInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListView_FeildInaccessibleMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListView_FeildInaccessibleMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListView_FieldInvalidMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListView_FieldInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListView_FieldTypeDisableMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListView_FieldTypeDisableMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListView_FieldTypeInvalidMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListView_FieldTypeInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListView_IDFieldInvalidMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListView_IDFieldInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListView_OperandInvalidMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListView_OperandInvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryListView_QueryErrorMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryListView_QueryErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_CountInfoMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryList_CountInfoMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_DeliveryCountLabel --></label>
+        <name>TRC_AB__AutobahnDeliveryList_DeliveryCountLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_EmptyEmailAddressCountLabel --></label>
+        <name>TRC_AB__AutobahnDeliveryList_EmptyEmailAddressCountLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_EnableDeliveryCountLabel --></label>
+        <name>TRC_AB__AutobahnDeliveryList_EnableDeliveryCountLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_InvalidEmailAddressCountLabel --></label>
+        <name>TRC_AB__AutobahnDeliveryList_InvalidEmailAddressCountLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_LimitCountInfoMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryList_LimitCountInfoMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_ListInfoMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryList_ListInfoMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_ListTitle --></label>
+        <name>TRC_AB__AutobahnDeliveryList_ListTitle</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_MergeExsistLimitOverMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryList_MergeExsistLimitOverMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_MergeExsistMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryList_MergeExsistMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryList_MergeNotExsistMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryList_MergeNotExsistMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryTest_DestinationListTitleLabel --></label>
+        <name>TRC_AB__AutobahnDeliveryTest_DestinationListTitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryTest_NotExistRecordMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryTest_NotExistRecordMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryTest_NotSelectedTargetMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryTest_NotSelectedTargetMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryTest_QueryErrorMessage --></label>
+        <name>TRC_AB__AutobahnDeliveryTest_QueryErrorMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnDeliveryTest_TitleLabel --></label>
+        <name>TRC_AB__AutobahnDeliveryTest_TitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContentAction_DeleteButtonLabel --></label>
+        <name>TRC_AB__AutobahnEmailContentAction_DeleteButtonLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContentAction_SaveButtonLabel --></label>
+        <name>TRC_AB__AutobahnEmailContentAction_SaveButtonLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContentInsertion_CopyMessage --></label>
+        <name>TRC_AB__AutobahnEmailContentInsertion_CopyMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContentInsertion_FieldLabel --></label>
+        <name>TRC_AB__AutobahnEmailContentInsertion_FieldLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContentInsertion_PageTitleLabel --></label>
+        <name>TRC_AB__AutobahnEmailContentInsertion_PageTitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContentInsertion_RelationFieldLabel --></label>
+        <name>TRC_AB__AutobahnEmailContentInsertion_RelationFieldLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContentInsertion_SObjectLabel --></label>
+        <name>TRC_AB__AutobahnEmailContentInsertion_SObjectLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ActionCreateableBtnLabel --></label>
+        <name>TRC_AB__AutobahnEmailContent_ActionCreateableBtnLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ActionFailedSaveMsg --></label>
+        <name>TRC_AB__AutobahnEmailContent_ActionFailedSaveMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ActionInitializeLabel --></label>
+        <name>TRC_AB__AutobahnEmailContent_ActionInitializeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ActionListDescriptionMsg --></label>
+        <name>TRC_AB__AutobahnEmailContent_ActionListDescriptionMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ActionSaveLabel --></label>
+        <name>TRC_AB__AutobahnEmailContent_ActionSaveLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ActionValidationBtnLabel --></label>
+        <name>TRC_AB__AutobahnEmailContent_ActionValidationBtnLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_EditPageBackBtnLabel --></label>
+        <name>TRC_AB__AutobahnEmailContent_EditPageBackBtnLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ExsistActionTableLabel --></label>
+        <name>TRC_AB__AutobahnEmailContent_ExsistActionTableLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_InfomationLabel --></label>
+        <name>TRC_AB__AutobahnEmailContent_InfomationLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_InsertionPopupButtonLalel --></label>
+        <name>TRC_AB__AutobahnEmailContent_InsertionPopupButtonLalel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_NotFoundActionMsg --></label>
+        <name>TRC_AB__AutobahnEmailContent_NotFoundActionMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_NotFoundUrlMsg --></label>
+        <name>TRC_AB__AutobahnEmailContent_NotFoundUrlMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_OpenRateDisplayMsg --></label>
+        <name>TRC_AB__AutobahnEmailContent_OpenRateDisplayMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_PageSubTitleLalel --></label>
+        <name>TRC_AB__AutobahnEmailContent_PageSubTitleLalel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_PageTitleLalel --></label>
+        <name>TRC_AB__AutobahnEmailContent_PageTitleLalel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_UrlDetectionButtonLabel --></label>
+        <name>TRC_AB__AutobahnEmailContent_UrlDetectionButtonLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_UrlListDescriptionMsg --></label>
+        <name>TRC_AB__AutobahnEmailContent_UrlListDescriptionMsg</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ValidateActionAccesibleMessage --></label>
+        <name>TRC_AB__AutobahnEmailContent_ValidateActionAccesibleMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ValidateOpenCheckMessage --></label>
+        <name>TRC_AB__AutobahnEmailContent_ValidateOpenCheckMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ValidateOpenEqualSettingMessage --></label>
+        <name>TRC_AB__AutobahnEmailContent_ValidateOpenEqualSettingMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ValidateOpenSettingDeleteMessage --></label>
+        <name>TRC_AB__AutobahnEmailContent_ValidateOpenSettingDeleteMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnEmailContent_ValidateOpenSettingOverMessage --></label>
+        <name>TRC_AB__AutobahnEmailContent_ValidateOpenSettingOverMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code110 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code110_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code110 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code110_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code120 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code120_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code120 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code120_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code130 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code130_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code130 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code130_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code131 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code131_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code131 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code131_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code140 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code140_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code140 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code140_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code1xx --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code1xx_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code1xx --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code1xx_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code210 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code210_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code210 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code210_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code220 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code220_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code220 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code220_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code221 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code221_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code221 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code221_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code230 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code230_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code230 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code230_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code240 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code240_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code240 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code240_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code2xx --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code2xx_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code2xx --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code2xx_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code510 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code510_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code510 --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code510_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code5xx --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code5xx_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Code5xx --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Code5xx_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CodeUndefined --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_CodeUndefined_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CodeUndefined --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_CodeUndefined_Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Description --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Description</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- ErrorCode --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_ErrorCode</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Title --></label>
+        <name>TRC_AB__AutobahnErrorCodeList_Title</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnHelpMessage_CheckBoxTypeLabel --></label>
+        <name>TRC_AB__AutobahnHelpMessage_CheckBoxTypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnHelpMessage_IdTypeLabel --></label>
+        <name>TRC_AB__AutobahnHelpMessage_IdTypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnHelpMessage_IntegerTypeLabel --></label>
+        <name>TRC_AB__AutobahnHelpMessage_IntegerTypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnHelpMessage_MultiPickListTypeLabel --></label>
+        <name>TRC_AB__AutobahnHelpMessage_MultiPickListTypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnMessage_DuplicateInsertion --></label>
+        <name>TRC_AB__AutobahnMessage_DuplicateInsertion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnMessage_DuplicateRelativeInsertion --></label>
+        <name>TRC_AB__AutobahnMessage_DuplicateRelativeInsertion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnMessage_NoExsistObject --></label>
+        <name>TRC_AB__AutobahnMessage_NoExsistObject</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Action_ActionTypeTable --></label>
+        <name>TRC_AB__AutobahnSchedule_Action_ActionTypeTable</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Action_AllClickCount --></label>
+        <name>TRC_AB__AutobahnSchedule_Action_AllClickCount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Action_CkucjRate --></label>
+        <name>TRC_AB__AutobahnSchedule_Action_CkucjRate</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Action_NotDataLabel --></label>
+        <name>TRC_AB__AutobahnSchedule_Action_NotDataLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Action_TableCalcHelp --></label>
+        <name>TRC_AB__AutobahnSchedule_Action_TableCalcHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Action_UniqueClickCount --></label>
+        <name>TRC_AB__AutobahnSchedule_Action_UniqueClickCount</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Bounce_CodeTabel --></label>
+        <name>TRC_AB__AutobahnSchedule_Bounce_CodeTabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Bounce_NotDataLabel --></label>
+        <name>TRC_AB__AutobahnSchedule_Bounce_NotDataLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_Bounce_TabelCalcHelp --></label>
+        <name>TRC_AB__AutobahnSchedule_Bounce_TabelCalcHelp</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_EditLabel --></label>
+        <name>TRC_AB__AutobahnSchedule_EditLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_ErrormailActionTitleLabel --></label>
+        <name>TRC_AB__AutobahnSchedule_ErrormailActionTitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobahnSchedule_TitleLabel --></label>
+        <name>TRC_AB__AutobahnSchedule_TitleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_ActionLabel --></label>
+        <name>TRC_AB__Autobahn_ActionLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_BackLabel --></label>
+        <name>TRC_AB__Autobahn_BackLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_CancelLabel --></label>
+        <name>TRC_AB__Autobahn_CancelLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_CloseLabel --></label>
+        <name>TRC_AB__Autobahn_CloseLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_ComfirmSetting --></label>
+        <name>TRC_AB__Autobahn_ComfirmSetting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_CountLabel --></label>
+        <name>TRC_AB__Autobahn_CountLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_CountTestMail_MessageLabel --></label>
+        <name>TRC_AB__Autobahn_CountTestMail_MessageLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_DeleteLabel --></label>
+        <name>TRC_AB__Autobahn_DeleteLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_DeliveringStatusLabel --></label>
+        <name>TRC_AB__Autobahn_DeliveringStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_DeliveryErrorStatusLabel --></label>
+        <name>TRC_AB__Autobahn_DeliveryErrorStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_DeliveryStopStatusLabel --></label>
+        <name>TRC_AB__Autobahn_DeliveryStopStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_DeliveryedStatusLabel --></label>
+        <name>TRC_AB__Autobahn_DeliveryedStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_EditLabel --></label>
+        <name>TRC_AB__Autobahn_EditLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_ExampleLabel --></label>
+        <name>TRC_AB__Autobahn_ExampleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_FirstPageLabel --></label>
+        <name>TRC_AB__Autobahn_FirstPageLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_InfomationLabel --></label>
+        <name>TRC_AB__Autobahn_InfomationLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_InvalidMessage --></label>
+        <name>TRC_AB__Autobahn_InvalidMessage</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_LastPageLabel --></label>
+        <name>TRC_AB__Autobahn_LastPageLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_NewLabel --></label>
+        <name>TRC_AB__Autobahn_NewLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_NextPageLabel --></label>
+        <name>TRC_AB__Autobahn_NextPageLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_NotDeliveryStatusLabel --></label>
+        <name>TRC_AB__Autobahn_NotDeliveryStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_NotTestDeliveryStatusLabel --></label>
+        <name>TRC_AB__Autobahn_NotTestDeliveryStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_PageLabel --></label>
+        <name>TRC_AB__Autobahn_PageLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_PreviousPageLabel --></label>
+        <name>TRC_AB__Autobahn_PreviousPageLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_RecordesPerPageLabel --></label>
+        <name>TRC_AB__Autobahn_RecordesPerPageLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_ReferenceLabel --></label>
+        <name>TRC_AB__Autobahn_ReferenceLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_ReserveLabel --></label>
+        <name>TRC_AB__Autobahn_ReserveLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_AnytypeLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_AnytypeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_Base64Label --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_Base64Label</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_ByteLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_ByteLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_CheckboxLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_CheckboxLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_ComboboxLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_ComboboxLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_CurrencyLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_CurrencyLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_DateLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_DateLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_DatetimeLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_DatetimeLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_DoubleLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_DoubleLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_EncryptedstringLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_EncryptedstringLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_IdLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_IdLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_IntegerLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_IntegerLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_MailLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_MailLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_MultipicklistLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_MultipicklistLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_PercentLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_PercentLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_PhoneLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_PhoneLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_PicklistLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_PicklistLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_ReferenceLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_ReferenceLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_TextLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_TextLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_TextareaLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_TextareaLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SalesforceType_UrlLabel --></label>
+        <name>TRC_AB__Autobahn_SalesforceType_UrlLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SaveAndNewLabel --></label>
+        <name>TRC_AB__Autobahn_SaveAndNewLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SaveLabel --></label>
+        <name>TRC_AB__Autobahn_SaveLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SearchLabel --></label>
+        <name>TRC_AB__Autobahn_SearchLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SearchResetLabel --></label>
+        <name>TRC_AB__Autobahn_SearchResetLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SearchResultLabel --></label>
+        <name>TRC_AB__Autobahn_SearchResultLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SearchResultPreLabel --></label>
+        <name>TRC_AB__Autobahn_SearchResultPreLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SelectLabel --></label>
+        <name>TRC_AB__Autobahn_SelectLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SendTestLabel --></label>
+        <name>TRC_AB__Autobahn_SendTestLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_SettingLabel --></label>
+        <name>TRC_AB__Autobahn_SettingLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_TestDeliveredStatusLabel --></label>
+        <name>TRC_AB__Autobahn_TestDeliveredStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_TestDeliveryErrorStatusLabel --></label>
+        <name>TRC_AB__Autobahn_TestDeliveryErrorStatusLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_TestMail_RegistLabel --></label>
+        <name>TRC_AB__Autobahn_TestMail_RegistLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_UnitLabel --></label>
+        <name>TRC_AB__Autobahn_UnitLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Autobahn_UnregisteredLabel --></label>
+        <name>TRC_AB__Autobahn_UnregisteredLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobanErrorMessage_ExcludeValueLabel --></label>
+        <name>TRC_AB__AutobanErrorMessage_ExcludeValueLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobanErrorMessage_InaccurateFieldLabel --></label>
+        <name>TRC_AB__AutobanErrorMessage_InaccurateFieldLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobanErrorMessage_InvalidInputLabel --></label>
+        <name>TRC_AB__AutobanErrorMessage_InvalidInputLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- AutobanErrorMessage_NotCorrespondLabel --></label>
+        <name>TRC_AB__AutobanErrorMessage_NotCorrespondLabel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Template --></label>
+        <name>Template</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- This Year --></label>
+        <name>ThisYear</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- To --></label>
+        <name>To</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- To_ContractNum --></label>
+        <name>To_ContractNum</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Type of Contract --></label>
+        <name>TypeOfContract</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Unnamed Employee --></label>
+        <name>UnnamedEmployee</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Update --></label>
+        <name>Update</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UpdatePassenger --></label>
+        <name>UpdatePassenger</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- UpdateSalesPIC --></label>
+        <name>UpdateSalesPIC</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Updated --></label>
+        <name>Updated</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Validate Customer Data --></label>
+        <name>ValidateCustomerData</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- WB medical member list --></label>
+        <name>WBMedicalMemberList</name>
+    </customLabels>
+    <customTabs>
+        <label><!-- テーブル設定取得 --></label>
+        <name>SetupCheckVFTab</name>
+    </customTabs>
+    <quickActions>
+        <label><!-- LogACall --></label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewAccount --></label>
+        <name>NewAccount</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewCase --></label>
+        <name>NewCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewContact --></label>
+        <name>NewContact</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewGroup --></label>
+        <name>NewGroup</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewLead --></label>
+        <name>NewLead</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewNote --></label>
+        <name>NewNote</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewOpportunity --></label>
+        <name>NewOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewTask --></label>
+        <name>NewTask</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- SendEmail --></label>
+        <name>SendEmail</name>
+    </quickActions>
+    <reportTypes>
+        <description><!-- 契約会社が関連する契約と会員 --></description>
+        <label><!-- 契約会社が関連する契約と会員 --></label>
+        <name>A123456</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 取引先が関連するAC受付内容 --></description>
+        <label><!-- 取引先が関連するAC受付内容 --></label>
+        <name>ACReceptCompany</name>
+        <sections>
+            <label><!-- ケース --></label>
+            <name>ケース</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 配信追加と取引先 --></description>
+        <label><!-- 配信追加と取引先 --></label>
+        <name>ADDITIONAL_EMAIL</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 配信追加 --></label>
+            <name>配信追加</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- アジアン会員（香港） --></description>
+        <label><!-- アジアン会員（香港） --></label>
+        <name>Asian_Member_in_HK</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <name>契約情報</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 自動車関連車保険 --></description>
+        <label><!-- 自動車関連車保険 --></label>
+        <name>CRT_CI_Cps</name>
+        <sections>
+            <label><!-- 対象車 --></label>
+            <name>対象車</name>
+        </sections>
+        <sections>
+            <label><!-- 自動車関連保険契約 --></label>
+            <name>自動車関連保険契約</name>
+        </sections>
+        <sections>
+            <label><!-- 車保険 --></label>
+            <name>車保険</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 自動車保険搭乗 --></description>
+        <label><!-- 自動車保険搭乗 --></label>
+        <name>CRT_CI_Psg</name>
+        <sections>
+            <label><!-- 対象車 --></label>
+            <name>対象車</name>
+        </sections>
+        <sections>
+            <label><!-- 搭乗保険 --></label>
+            <name>搭乗保険</name>
+        </sections>
+        <sections>
+            <label><!-- 自動車関連保険契約 --></label>
+            <name>自動車関連保険契約</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 自動車関連搭乗 --></description>
+        <label><!-- 自動車関連搭乗 --></label>
+        <name>CRT_CI_Psgr</name>
+        <sections>
+            <label><!-- 対象車 --></label>
+            <name>対象車</name>
+        </sections>
+        <sections>
+            <label><!-- 搭乗保険 --></label>
+            <name>搭乗保険</name>
+        </sections>
+        <sections>
+            <label><!-- 自動車関連保険契約 --></label>
+            <name>自動車関連保険契約</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 勤務先担当一覧 --></description>
+        <label><!-- 勤務先担当一覧 --></label>
+        <name>China_Branch_List</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 本社契約の勤務先一覧 --></description>
+        <label><!-- 本社契約の勤務先一覧 --></label>
+        <name>Companies_List_by_Place</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 契約情報と会社情報 --></description>
+        <label><!-- 契約情報と会社情報 --></label>
+        <name>Companies_Report_detail</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 取引先と会員家族が関連するAC受付内容 --></description>
+        <label><!-- 取引先と会員家族が関連するAC受付内容 --></label>
+        <name>Company_MemberFamily_AC</name>
+        <sections>
+            <label><!-- AC受付内容 --></label>
+            <name>AC受付内容</name>
+        </sections>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 取引先と会員が関連するAC受付内容 --></description>
+        <label><!-- 取引先と会員が関連するAC受付内容 --></label>
+        <name>Company_Member_AC</name>
+        <sections>
+            <label><!-- AC受付内容 --></label>
+            <name>AC受付内容</name>
+        </sections>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 会社情報（勤務先）と会員と家族 --></description>
+        <label><!-- 会社情報（勤務先）と会員と家族 --></label>
+        <name>Company_and_MemberFamily_Report</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Contract --></description>
+        <label><!-- Contract --></label>
+        <name>Contract</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Contract_and_Company --></description>
+        <label><!-- Contract_and_Company --></label>
+        <name>Contract_and_Company</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 契約情報が関連する会員と会員家族 --></description>
+        <label><!-- 契約情報が関連する会員と会員家族 --></label>
+        <name>CustomReport3</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <name>契約情報</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 全てのグループ&amp;会社&amp;会員 --></description>
+        <label><!-- 全てのグループ&amp;会社&amp;会員 --></label>
+        <name>CustomReportType</name>
+        <sections>
+            <label><!-- グループ --></label>
+            <name>グループ</name>
+        </sections>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 勤務先が関連する会員と家族 --></description>
+        <label><!-- 勤務先が関連する会員と家族 --></label>
+        <name>CustomReportType10</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 契約会社と契約と会員全部と家族 --></description>
+        <label><!-- 契約会社と契約と会員全部と家族 --></label>
+        <name>CustomReportType100</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 活動が関連する勤務先会社と会員 --></description>
+        <label><!-- 活動が関連する勤務先会社と会員 --></label>
+        <name>CustomReportType11</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 活動 --></label>
+            <name>活動</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 契約情報全部と会員 --></description>
+        <label><!-- 契約情報全部と会員 --></label>
+        <name>CustomReportType12</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <name>契約情報</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 取引先&amp;契約&amp;会員&amp;家族 --></description>
+        <label><!-- 取引先&amp;契約&amp;会員&amp;家族 --></label>
+        <name>CustomReportType1234</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- すべての会社情報と営業報告 --></description>
+        <label><!-- すべての会社情報と営業報告 --></label>
+        <name>CustomReportType1235</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 営業報告 --></label>
+            <name>営業報告</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 営業担当が関連する勤務先会社 --></description>
+        <label><!-- 営業担当が関連する勤務先会社 --></label>
+        <name>CustomReportType20</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 (社員名簿) --></label>
+            <name>取引先 (社員名簿)</name>
+        </sections>
+        <sections>
+            <label><!-- 社員名簿 --></label>
+            <name>社員名簿</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 契約会社が関連する契約情報と会員と家族 --></description>
+        <label><!-- 契約会社が関連する契約情報と会員と家族 --></label>
+        <name>CustomReportType21</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 割引グループが関連する会社情報 --></description>
+        <label><!-- 割引グループが関連する会社情報 --></label>
+        <name>CustomReportType22</name>
+        <sections>
+            <label><!-- 会社情報 --></label>
+            <name>会社情報</name>
+        </sections>
+        <sections>
+            <label><!-- 割引グループ --></label>
+            <name>割引グループ</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <name>契約情報</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 取引先＆営業報告 --></description>
+        <label><!-- 取引先＆営業報告 --></label>
+        <name>CustomReportType23</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 営業報告 --></label>
+            <name>営業報告</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- グループ&amp;会社&amp;営業報告 --></description>
+        <label><!-- グループ&amp;会社&amp;営業報告 --></label>
+        <name>CustomReportType25</name>
+        <sections>
+            <label><!-- グループ --></label>
+            <name>グループ</name>
+        </sections>
+        <sections>
+            <label><!-- 会社情報 --></label>
+            <name>会社情報</name>
+        </sections>
+        <sections>
+            <label><!-- 営業報告 --></label>
+            <name>営業報告</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- x会員がいる勤務先 --></description>
+        <label><!-- x会員がいる勤務先 --></label>
+        <name>CustomReportType3</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 団体＆会社＆契約 --></description>
+        <label><!-- 団体＆会社＆契約 --></label>
+        <name>CustomReportTypeD2</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 団体割引 --></label>
+            <name>団体割引</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 社員（全部）と営業報告 --></description>
+        <label><!-- 社員（全部）と営業報告 --></label>
+        <name>CustomReportTypeSalesReport</name>
+        <sections>
+            <label><!-- 営業報告 --></label>
+            <name>営業報告</name>
+        </sections>
+        <sections>
+            <label><!-- 社員名簿 --></label>
+            <name>社員名簿</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 会社情報が関連する会員と家族 --></description>
+        <label><!-- 会社情報が関連する会員と家族 --></label>
+        <name>CustomReportType_2</name>
+        <sections>
+            <label><!-- 会員情報 (契約会社名称) --></label>
+            <name>会員情報 (契約会社名称)</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 会社　契約　会員 --></description>
+        <label><!-- 会社　契約　会員 --></label>
+        <name>CustomReportType_3</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 活動履歴(メール配信) --></description>
+        <label><!-- 活動履歴(メール配信) --></label>
+        <name>CustomReportType_MailHaishin</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 活動 --></label>
+            <name>活動</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 契約情報と会社全部 --></description>
+        <label><!-- 契約情報と会社全部 --></label>
+        <name>CustomReportTypek1</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 割引グループ-契約会社-会員 --></description>
+        <label><!-- 割引グループ-契約会社-会員 --></label>
+        <name>CustomReport_DiscountG_Count</name>
+        <sections>
+            <label><!-- 会員情報 (契約会社名称) --></label>
+            <name>会員情報 (契約会社名称)</name>
+        </sections>
+        <sections>
+            <label><!-- 会社情報 --></label>
+            <name>会社情報</name>
+        </sections>
+        <sections>
+            <label><!-- 割引グループ --></label>
+            <name>割引グループ</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 勤務先と家族と健診 --></description>
+        <label><!-- 勤務先と家族と健診 --></label>
+        <name>Family_Healthcheck</name>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 健診 --></label>
+            <name>健診</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 団体&amp;会社&amp;契約&amp;会員 --></description>
+        <label><!-- 団体&amp;会社&amp;契約&amp;会員 --></label>
+        <name>Group1</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 団体割引 --></label>
+            <name>団体割引</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 取引先が関連する一路平安 --></description>
+        <label><!-- 取引先が関連する一路平安 --></label>
+        <name>IchiroheianList2</name>
+        <sections>
+            <label><!-- 一路平安 (契約会社名称) --></label>
+            <name>一路平安 (契約会社名称)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 被保険会社とBL --></description>
+        <label><!-- 被保険会社とBL --></label>
+        <name>Insured_Company_and_BL</name>
+        <sections>
+            <label><!-- BL(契約者（被保険者）) --></label>
+            <name>BL(契約者（被保険者）)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 勤務先と会員と健診 --></description>
+        <label><!-- 勤務先と会員と健診 --></label>
+        <name>Kenshin_Report_No5</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 健診 --></label>
+            <name>健診</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 勤務先が関係する会員情報 --></description>
+        <label><!-- 勤務先が関係する会員情報 --></label>
+        <name>KinmuCompanyList</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MD会員契約詳細 --></description>
+        <label><!-- MD会員契約詳細 --></label>
+        <name>MDContractDetail</name>
+        <sections>
+            <label><!-- 会員契約 --></label>
+            <name>会員契約</name>
+        </sections>
+        <sections>
+            <label><!-- 会員契約詳細 --></label>
+            <name>会員契約詳細</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 会員契約 --></description>
+        <label><!-- 会員契約 --></label>
+        <name>MDContractRT</name>
+        <sections>
+            <label><!-- 会員契約 --></label>
+            <name>会員契約</name>
+        </sections>
+        <sections>
+            <label><!-- 会員契約詳細 --></label>
+            <name>会員契約詳細</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MD会員契約 --></description>
+        <label><!-- MD会員契約 --></label>
+        <name>MDMembershipContract</name>
+        <sections>
+            <label><!-- 会員契約 --></label>
+            <name>会員契約</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 医療保険 --></description>
+        <label><!-- 医療保険 --></label>
+        <name>MedicalInsuranceRT</name>
+        <sections>
+            <label><!-- 医療保険 --></label>
+            <name>医療保険</name>
+        </sections>
+        <sections>
+            <label><!-- 医療保険対象 --></label>
+            <name>医療保険対象</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 会員分布(勤務） --></description>
+        <label><!-- 会員分布(勤務） --></label>
+        <name>MemberDistribution</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 会員と家族 --></description>
+        <label><!-- 会員と家族 --></label>
+        <name>Members_and_Family</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 入金日確認 --></description>
+        <label><!-- 入金日確認 --></label>
+        <name>Payment_Date_Confirmation</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <name>契約情報</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MD満期一覧 --></description>
+        <label><!-- MD満期一覧 --></label>
+        <name>Renewal_Companies_List</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 契約情報 (契約会社名称) --></label>
+            <name>契約情報 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 勤務先が関連する会員と健診情報 --></description>
+        <label><!-- 勤務先が関連する会員と健診情報 --></label>
+        <name>Report_Kinmu_member_kenshin</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 健診 --></label>
+            <name>健診</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 自動車保険関連の契約情報と会社情報 --></description>
+        <label><!-- 自動車保険関連の契約情報と会社情報 --></label>
+        <name>Safety_Line_Custom_Report</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+        <sections>
+            <label><!-- 自動車保険関連 (契約会社名称) --></label>
+            <name>自動車保険関連 (契約会社名称)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 部署別営業報告一覧 --></description>
+        <label><!-- 部署別営業報告一覧 --></label>
+        <name>Sales_Report_by_Dept</name>
+        <sections>
+            <label><!-- 営業報告 --></label>
+            <name>営業報告</name>
+        </sections>
+        <sections>
+            <label><!-- 社員名簿 --></label>
+            <name>社員名簿</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 勤務先が関係する会員と家族情報 --></description>
+        <label><!-- 勤務先が関係する会員と家族情報 --></label>
+        <name>Work_Company_and_members_and_Family</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 勤務先が関連する会員と家族2 --></description>
+        <label><!-- 勤務先が関連する会員と家族2 --></label>
+        <name>X2_Kinmu_Kaiin_Family</name>
+        <sections>
+            <label><!-- 会員情報 (勤務先会社) --></label>
+            <name>会員情報 (勤務先会社)</name>
+        </sections>
+        <sections>
+            <label><!-- 会員（家族）情報 --></label>
+            <name>会員（家族）情報</name>
+        </sections>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 123 --></description>
+        <label><!-- 123 --></label>
+        <name>r11111111111111</name>
+        <sections>
+            <label><!-- 会員情報 --></label>
+            <name>会員情報</name>
+        </sections>
+        <sections>
+            <label><!-- 活動 --></label>
+            <name>活動</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- tmp_引き取り先 --></description>
+        <label><!-- tmp_引き取り先 --></label>
+        <name>tmp</name>
+        <sections>
+            <label><!-- 取引先 --></label>
+            <name>取引先</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- tmp_契約 --></description>
+        <label><!-- tmp_契約 --></label>
+        <name>tmp1</name>
+        <sections>
+            <label><!-- 契約 --></label>
+            <name>契約</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- tmp_契約情報 --></description>
+        <label><!-- tmp_契約情報 --></label>
+        <name>tmp2</name>
+        <sections>
+            <label><!-- 契約情報 --></label>
+            <name>契約情報</name>
+        </sections>
+    </reportTypes>
+    <scontrols>
+        <label><!-- Batch update OTA insurance Back to Pervious Page --></label>
+        <name>BatchUpdateOTAInsuranceBackToPerviousPage</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- Car Insurance Batch Process Back to Pervious Page --></label>
+        <name>CarInsuranceBatchProcessBackToPerviousPage</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- Company Batch Process Back to Pervious Page --></label>
+        <name>CompanyBatchProcessBackToPerviousPage</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- Contract Info  Batch Process Back to Pervious Page --></label>
+        <name>ContractInfoBatchProcessBackToPerviousPage</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- 会員データ発行 --></label>
+        <name>CustomerData</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- 満期一括更新 --></label>
+        <name>ExpirationMassUpdate</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- 保険情報一括更新 --></label>
+        <name>InsuranceInformationMassUpdate</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- 会員証発行 --></label>
+        <name>MembershipCardIssue</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- Renewal Notice Batch Process Back To Pervious Page --></label>
+        <name>RenewalNoticeBatchProcessBackToPerviousPage</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- Renewal Notice Batch Process Pass Id --></label>
+        <name>RenewalNoticeBatchProcessPassId</name>
+    </scontrols>
+    <scontrols>
+        <label><!-- 郵便番号検索 --></label>
+        <name>ZipSearch</name>
+    </scontrols>
+</Translations>

@@ -1,0 +1,114 @@
+<apex:page controller="wb_popup" showHeader="false"   showQuickActionVfHeader="false" 
+           sideBar="false" title="{!param}" action="{!getURLparameters}" >
+    
+    <apex:form >
+<apex:pageBlock >
+    
+            <div class="c">{!param}({!theName})</div>
+        <apex:pageBlockSection columns="1">
+            <apex:commandButton value="データ" onClick="ExportInvoiceData('{!theId}');"/>
+            
+            <apex:commandButton value="テンプレート" action="{!showPopup}" rerender="tstpopup"/>
+            
+            <script>
+
+            function ExportInvoiceData(Id){
+                //  alert(Id);
+                
+                try {
+                    var baseURL = getBaseURL();
+                     var baseURL2 = getBaseURL();
+                    baseURL = baseURL + "apex/wb_Membership_InvoiceExport";
+                    baseURL2 = baseURL2 + "/servlet/servlet.FileDownload";
+                    
+                    var para ='';
+                    para　='?Id=' +Id  ;
+                    //ExportInvoiceTemplate();
+                    var win = window.open(baseURL + para );
+                    var timer = setInterval(function() {
+                        if(win.closed) { 
+                            alert ('closed');
+                            clearInterval(timer); 
+                            var para2 ='?file=0155D000000Fa1h'; //Sandbox
+                            
+                            window.open(baseURL2 + para2 );
+
+                            //window.location.href = window.location.href; 
+                        } 
+                    }, 1000);
+                    //  var para2 ='?file=0155D000000Fa1h'; //Sandbox
+                    
+                    //  window.open(baseURL2 + para2 );
+                    
+                }
+                catch(e)
+                {
+                    alert(e);
+                } 
+            }
+            
+            function ExportInvoiceTemplate(){
+                
+                
+                try {
+                    var baseURL = getBaseURL();
+                    baseURL = baseURL + "/servlet/servlet.FileDownload";
+
+                    var para='?file=0155D000000Fa1h'; //Sandbox
+                    // var para='?file=01510000008cfPB'; //Production
+                    window.open(baseURL + para );
+                    
+                }
+                catch(e)
+                {
+                    alert(e);
+                } 
+            }
+            
+              function getBaseURL() {
+                var url = location.href;  // entire url including querystring - also: window.location.href;
+                var baseURL = url.substring(0, url.indexOf('/', 14));
+                
+                if (baseURL.indexOf('http://localhost') != -1) {
+                    // Base Url for localhost
+                    var url = location.href;  // window.location.href;
+                    var pathname = location.pathname;  // window.location.pathname;
+                    var index1 = url.indexOf(pathname);
+                    var index2 = url.indexOf("/", index1 + 1);
+                    var baseLocalUrl = url.substr(0, index2);
+                    
+                    return baseLocalUrl + "/";
+                }
+                else {
+                    // Root Url for domain name
+                    return baseURL + "/";
+                }
+                
+            }
+            
+            </script>   
+        </apex:pageBlockSection>
+    
+        </apex:pageBlock>
+
+        
+       
+ 
+    </apex:form>
+    
+
+    <style>
+        div.a {
+        font-size: 15px;
+        }
+        
+        div.b {
+        font-size: large;
+        }
+        
+        div.c {
+        font-size: 150%;
+        }
+    </style>
+
+</apex:page>

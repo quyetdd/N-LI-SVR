@@ -1,0 +1,79 @@
+<apex:page standardController="ContractInfo__c" extensions="MankiDateBatchProcessController">
+
+  <apex:sectionHeader title="{!$Label.ContractNo}{!ContractInfo__c.Name}"
+   subtitle="{!$Label.ContractCompanyName}{!accountData.CompanyNameEng__c}" />
+   
+<apex:form id="form">
+
+    <script type="text/javascript">
+        window.onload = function() {
+          document.getElementById("back").focus();
+        };
+    </script> 
+    
+    <apex:pageBlock id="resultPage"> 
+        
+        <apex:pageBlockSection columns="6" id="InputLookUp3">
+            <apex:pageBlockSectionItem id="InputLookUpItem3">
+              {!$Label.DateOfExpireNow} <apex:outputField value="{!outputData.MankiDate__c}"/>
+            </apex:pageBlockSectionItem> 
+            <apex:pageBlockSectionItem id="InputLookUpItem4">
+              {!$Label.NewDateOfExpire} <apex:inputField value="{!updateData.MankiDate__c}" />
+            </apex:pageBlockSectionItem>                   
+        </apex:pageBlockSection>        
+          
+                  
+        <apex:commandButton action="{!updateRecord}" value="{!$Label.Update}" id="update"/>  
+        <apex:commandButton action="{!back}" value="{!$Label.Cancel}" id="cancel" immediate="true"/>  
+        <apex:commandButton action="{!selectAll}" value="{!$Label.CheckAll}" id="selectAll"/> 
+        <apex:commandButton action="{!releaseAll}" value="{!$Label.AllUncheck}" id="releaseAll"/> 
+
+        <br/><br/>
+   
+        <apex:pageBlockTable id="resultTable" value="{!newSearchResults}" var="row"> 
+            <apex:column >
+                <apex:facet name="header">{!$Label.ExpiryDateUpdate}</apex:facet>
+                <apex:inputCheckbox value="{!row.InchargeCheckbox }"/>
+            </apex:column> 
+            <apex:column >       
+                <apex:facet name="header">{!$Label.MembershipNo}</apex:facet>
+                <apex:outputField value="{!row.memberData.MemberNo__c}"/>  
+            </apex:column>   
+            <apex:column rendered="{!!isEnglish}">    
+                <apex:facet name="header">{!$Label.MemberName}</apex:facet>
+                <apex:outputLink value="/{!row.memberData.id}" id="memberId">
+                    <apex:outputField value="{!row.memberData.Name}"/>  
+                </apex:outputLink>
+            </apex:column>            
+            <apex:column rendered="{!isEnglish}">    
+                <apex:facet name="header">{!$Label.MemberName}</apex:facet>
+                <apex:outputLink value="/{!row.memberData.id}" id="memberEngId">
+                    <apex:outputField value="{!row.memberData.SeiMeiRoma__c }"/>  
+                </apex:outputLink>
+            </apex:column>               
+            <apex:column >
+                <apex:facet name="header">{!$Label.MankiDate}</apex:facet>
+                <apex:outputField value="{!row.memberData.MankiDate__c}"/>  
+            </apex:column>                                                                    
+            <apex:column >                        
+                <apex:facet name="header">{!$Label.Commodity}</apex:facet>
+                <apex:outputField value="{!row.memberData.Commodity__c}"/>  
+            </apex:column>          
+            <apex:column rendered="{!!isEnglish}">                       
+                <apex:facet name="header">{!$Label.KinmuCompany}</apex:facet>
+                <apex:outputLink value="/{!row.memberData.KinmuCompany__c}" id="CompanyName">
+                    <apex:outputField value="{!row.memberData.KinmuCompany__c}"/>  
+                </apex:outputLink>
+            </apex:column>       
+            <apex:column rendered="{!isEnglish}">                       
+                <apex:facet name="header">{!$Label.KinmuCompany}</apex:facet>
+                <apex:outputLink value="/{!row.memberData.KinmuCompany__c}" id="CompanyNameEng">
+                    <apex:outputField value="{!row.memberData.KinmuCompany__r.CompanyNameEng__c}"/>  
+                </apex:outputLink>
+            </apex:column>                                                                      
+        </apex:pageBlockTable>                   
+    </apex:pageBlock>  
+</apex:form>
+
+
+</apex:page>

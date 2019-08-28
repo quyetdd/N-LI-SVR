@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>人事関連情報</value>
+    </caseValues>
+    <fields>
+        <label><!-- 日付 --></label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- 社員氏名 --></label>
+        <name>Employee_Name__c</name>
+        <relationshipLabel><!-- 人事関連情報 --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- 終了日 --></label>
+        <name>End_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- 健診備考 --></label>
+        <name>Kenshin_Notes__c</name>
+    </fields>
+    <fields>
+        <label><!-- 受診済 --></label>
+        <name>Kenshin_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- 異動先 --></label>
+        <name>New_Dept__c</name>
+    </fields>
+    <fields>
+        <label><!-- 新役職 --></label>
+        <name>New_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- CD番号 --></label>
+        <name>PCD__c</name>
+    </fields>
+    <fields>
+        <label><!-- 地区 --></label>
+        <name>Place__c</name>
+    </fields>
+    <fields>
+        <label><!-- 異動元 --></label>
+        <name>Previous_Dept__c</name>
+    </fields>
+    <fields>
+        <label><!-- 旧役職 --></label>
+        <name>Previous_Title__c</name>
+    </fields>
+    <fields>
+        <label><!-- 研修内容 --></label>
+        <name>Training_Contents__c</name>
+    </fields>
+    <fields>
+        <label><!-- 研修名 --></label>
+        <name>Training_Course__c</name>
+    </fields>
+    <fields>
+        <label><!-- 勤務地区 --></label>
+        <name>Working_Region__c</name>
+    </fields>
+    <layouts>
+        <layout>人事健診レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 健診情報 --></label>
+            <section>健診情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>人事営業ローラーレイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 営業ローラー情報 --></label>
+            <section>営業ローラー情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>人事昇進レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 昇進情報 --></label>
+            <section>昇進情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>人事異動レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 異動情報 --></label>
+            <section>異動情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>人事研修レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+        <sections>
+            <label><!-- 研修情報 --></label>
+            <section>研修情報</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>人事関連情報レイアウト</layout>
+        <sections>
+            <label><!-- カスタムリンク --></label>
+            <section>カスタムリンク</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- 健診 --></label>
+        <name>Kenshin_Type</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 異動 --></label>
+        <name>Move_Type</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 昇進 --></label>
+        <name>Promotion_Type</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 営業ローラー --></label>
+        <name>Sales_Type</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- 研修 --></label>
+        <name>Training_Type</name>
+    </recordTypes>
+</CustomObjectTranslation>

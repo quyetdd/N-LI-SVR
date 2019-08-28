@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>通貨</value>
+    </caseValues>
+    <fields>
+        <label><!-- CEILING単位 --></label>
+        <name>CeilingUnit__c</name>
+    </fields>
+    <fields>
+        <label><!-- 通貨記号 --></label>
+        <name>CurrencySymbol__c</name>
+    </fields>
+    <fields>
+        <label><!-- Roundup_D --></label>
+        <name>Roundup_D__c</name>
+    </fields>
+    <fields>
+        <label><!-- 切り上げ --></label>
+        <name>Roundup__c</name>
+    </fields>
+</CustomObjectTranslation>

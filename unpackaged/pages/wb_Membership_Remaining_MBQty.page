@@ -1,0 +1,146 @@
+<apex:page controller="wb_Membership_Remaining_MBQty"   title="Search" 
+           showHeader="false"  tabStyle="wb_Membership__c"
+           sideBar="false" 
+           id="pg" action="{!getURLparameters}">
+    <apex:pageBlock title="MD会員入会金残り" id="pb" >
+        <apex:form id="theform" >
+           
+         
+             <apex:datatable value="{!theRemainingMBQty}" var="a" border="1" cellpadding="2" id="dateTable">
+                   <apex:column headerValue="選択">
+                       <apex:inputCheckbox id="IsSelected" value="{!a.IsSelected}">
+                                         
+                           <apex:actionSupport event="onchange" action="{!a.fetchTransferQty}" reRender="theform" /> 
+                       </apex:inputCheckbox>     
+                  
+                 </apex:column>
+                 <apex:column headerValue="会員契約">
+                    <!-- <apex:outputText  value="{!a.Name}"/>    -->
+                     <a id='Id' href="/{!a.id}" style="width:100px;">
+                         <apex:outputText value="{!a.Name}"/>
+                     </a>
+                 </apex:column>
+                    <apex:column headerValue="契約会社">
+                     <apex:outputText value="{!a.ContractCompName}"/>                     
+                 </apex:column>
+                 <apex:column headerValue="タイプ">
+                     <apex:outputText value="{!a.Type}"/>                     
+                 </apex:column>
+                 <apex:column headerValue="開始日">
+                     <apex:outputText value="{!a.StartDate}"/>                     
+                 </apex:column>
+                 <apex:column headerValue="終了日">
+                     <apex:outputText value="{!a.EndDate}"/>                     
+                 </apex:column>
+                 <apex:column headerValue="入会金数">
+                     <apex:outputText value="{!a.Qty}"/>                     
+                 </apex:column>
+                 <apex:column headerValue="IN">
+                     <apex:outputText value="{!a.TransInQty}"/>                     
+                 </apex:column>
+                 <!--
+                 <apex:column headerValue="単身">
+                     <apex:outputText value="{!a.SingleQty}"/>                     
+                 </apex:column>
+                 <apex:column headerValue="家族">
+                     <apex:outputText value="{!a.FamilyQty}"/>                     
+                 </apex:column>
+                 <apex:column headerValue="無記名">
+                     <apex:outputText value="{!a.CardHolderQty}"/>                     
+                 </apex:column>-->
+                 <apex:column headerValue="使用数">
+                     <apex:outputText value="{!a.UsedQty}"/>                     
+                 </apex:column>
+                    <apex:column headerValue="OUT">
+                     <apex:outputText value="{!a.TransOutQty}"/>                     
+                 </apex:column>
+                 
+                 <apex:column headerValue="残り">
+                     <apex:outputText value="{!a.RemainQty}"/>                     
+                 </apex:column>
+                 <apex:column headerValue="譲り" >
+                     
+                     <apex:inputText id="TransferQty" value="{!a.TransferQty}" style="width:50px;"
+                                     rendered="{!IF(a.IsSelected==true, true , false)}"/> 
+                     
+                     
+                 </apex:column>
+            </apex:datatable>
+            <apex:commandButton id="btnApply" value="保存"  onclick="closePopup();">
+            </apex:commandButton>
+            <script>
+            var closePopup = function() {
+                
+                if ( Validation() == true) {
+                    
+                    var dt = document.getElementById("pg:pb:theform:dateTable");
+                    // alert(dt);
+                    var StartRow = [];
+                    StartRow.push('{!CallerRowID}','{!CallerRowIndex}');
+                    //alert(StartRow);
+                    //var sd = document.getElementById("pg:pb:theform:MembershipStartDate__c");
+                    // alert(sd.value);
+                    try {
+                        parent.window.opener.document.getElementById("parentElemStartRow").innerHTML = StartRow;
+                        // parent.window.opener.document.getElementById("parentElemStartDate").innerHTML = sd.value;
+                        parent.window.opener.document.getElementById("parentElemMembershipFee").innerHTML = getSelectValues(dt);
+                        
+                         parent.window.opener.CallParent2AddMBQty();
+                         self.close();
+                        
+                    }       
+                    catch(e)
+                    {
+                        alert(e);
+                    }   
+                }
+                return false;
+            }
+            
+            function Validation(){
+                /* var inputStartDate = document.getElementById("pg:pb:theform:MembershipStartDate__c").value;
+                if (inputStartDate ==''){
+                    alert('Please input start date!');
+                    return false;
+                } else */
+                return true;
+            }
+            
+            function getSelectValues(dt) {
+                // alert('getvalues');
+                var result = [];
+                var options = dt;
+                var ckbox;
+                var tbcell;
+                //alert(options);
+                //alert(options.getElementsByTagName("tr").length);
+                for (var i=1, iLen=options.getElementsByTagName("tr").length; i<iLen; i++) {
+                    
+                    var checkBox = options.rows[i].cells[0].children[0];
+                    
+                    if (checkBox != null ) {
+                        var href = options.rows[i].cells[1].children[0];
+                        var id = href.getAttribute("href");
+                        // alert(id);
+                        id = id.substring(1);
+                        // alert(id);
+                        
+                        // var tranQty = document.getElementById('pg:pb:theform:dateTable:' + i + ':TransferQty');
+                        var tranQty = options.rows[i].cells[11].children[0];
+                        //alert(tranQty.innerHTML);
+                        //  alert(tranQty.value);
+                        if (checkBox.checked) {
+                            result.push([id, tranQty.value ]);
+                        }
+                        
+                    }
+                }
+                
+                return result;
+            }   
+            
+            </script>
+                  
+        </apex:form>
+    </apex:pageBlock>
+</apex:page>

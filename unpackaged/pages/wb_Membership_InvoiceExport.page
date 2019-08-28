@@ -1,0 +1,10 @@
+<apex:page controller="wb_Membership_Invoice"  action="{!saveAttachment}" contentType="txt/xml#{!filename}" cache="true" > 
+<!--<apex:page controller="wb_Membership_Invoice"   > -->
+    <!--
+    <c:wb_Membership_Invoice xlsHeader="{!xlsHeader}" InvoiceHeader="{!InvoiceHeader}" theContractDetailInsurance="{!theContractDetailInsurance}"/>
+-->
+  <c:wb_Membership_Invoice xlsHeader="{!xlsHeader}" Invoice="{!theInvoice}" />
+
+ 
+
+</apex:page>

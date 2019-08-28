@@ -1,0 +1,39 @@
+<apex:page Controller="wb_rpt_MemberLocalMedicalService" id="pg">
+    <apex:form id="theForm" >
+        <apex:pageBlock id="pb" >
+            <apex:pageBlockSection columns="2">
+                <apex:inputfield id="InsuranceStartDate__c"  label="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceStartDate__c.label}"  
+                                 value="{!ReportingCondition.InsuranceStartDate__c}">
+                </apex:inputfield>
+                <apex:inputfield id="InsuranceEndDate__c"  label="{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceEndDate__c.label}" 
+                                 value="{!ReportingCondition.InsuranceEndDate__c}">
+                </apex:inputfield>
+                
+                <apex:commandButton value="実行"  action="{!execute}" reRender="theDetail,resultTable"  />  
+                <apex:commandButton value="エスポート"  action="{!execute}"  /> 
+            </apex:pageBlockSection>
+
+            
+            <apex:pageBlockTable id="resultTable" value="{!LocalMedicalInsuranceIndividual}" var="row"> 
+   
+            <apex:column >       
+                <apex:facet name="header">{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.ContractCompany__c.Label}</apex:facet>
+                <apex:outputField value="{!row.ContractCompany__r.name}"/>  
+            </apex:column>   
+                <apex:column >       
+                    <apex:facet name="header">{!$ObjectType.Account.fields.CountryName__c.Label}</apex:facet>
+                    <apex:outputField value="{!row.ContractCompany__r.CountryName__c}"/>  
+                </apex:column>  
+                <apex:column >       
+                    <apex:facet name="header">{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.Insurance__c.Label}</apex:facet>
+                    <apex:outputField value="{!row.Insurance__c}"/>  
+                </apex:column> 
+              <apex:column >       
+                <apex:facet name="header">{!$ObjectType.wb_MedicalInsuranceDetail__c.fields.InsuranceEndDate__c.Label}</apex:facet>
+                <apex:outputField value="{!row.InsuranceEndDate__c}"/>  
+            </apex:column>   
+        </apex:pageBlockTable>              
+        </apex:pageBlock>
+    </apex:form>     
+    
+</apex:page>

@@ -1,0 +1,320 @@
+<apex:page standardcontroller="wb_CarInsurance__c" extensions="wb_CarInsuranceClone" action="{!CreateOldListforSelectandContinue}" id="thePage">
+    
+    <apex:form id="theForm" >     
+        
+        <apex:pageBlock id="TheMessage">
+            <apex:outputText value="次の自動車保険を継続しますか？"> 	</apex:outputText>	
+        </apex:pageBlock>
+        <apex:pageBlock id="ThePageBlock">
+            
+            <apex:commandButton value="Continue"  action="{!CIContinue}"/>   
+            
+            <apex:commandButton value="Cancel"  action="{!Cancel}"/>  
+            <!--
+            <apex:outputText rendered="{!QuitMe}" id="Quit">
+                <script>
+                
+                
+				// self.close();
+                </script>
+            </apex:outputText>
+            -->
+            <apex:pageBlockSection columns="1" id="theOldContract" title="旧契約">
+                <apex:outputfield value="{!OldCI.Name}"  label="{!$ObjectType.wb_CarInsurance__c.fields.Name.label}"/><br/>
+                 <apex:outputfield value="{!OldCI.ContractCompany__c}"  label="{!$ObjectType.wb_CarInsurance__c.fields.ContractCompany__c.label}"/><br/>
+                
+                <apex:dataTable value="{!OldInsurancedCarsList}" var="row"  cellpadding="2" border="1" >
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:50px;">
+                                    <apex:outputtext value="選択"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:inputcheckbox value="{!row.IsSelected}" style="width:50px;"></apex:inputcheckbox>
+                    </apex:column>
+                    
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputtext value="{!$ObjectType.wb_CarInsurancedCars__c.fields.RegistryNumber__c.label}"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.RegistryNumber__c}"  style="width:80px;"></apex:outputfield>
+                    </apex:column>
+                    
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:180px;">
+                                    <apex:outputText value="搭乗保険"></apex:outputText><br/>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <!--
+                        <apex:outputtext value="{!row.MyPsgrProduct}" style="width:180px;"></apex:outputtext>
+					-->                        
+                        <apex:repeat value="{!row.MyPsgrRow}" var="a" >
+                            <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                <apex:column style="width:180px;">
+                                    <apex:outputtext value="{!b}"/><br/>
+                                    
+                                </apex:column>
+                                
+                                
+                            </apex:datatable>
+                        </apex:repeat>
+                        
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:180px;">
+                                    <apex:outputText value="強制・任意"></apex:outputText><br/>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <!--
+                        <apex:outputtext value="{!row.MyCpsProduct}" style="width:180px;"></apex:outputtext>
+                        -->
+                           <apex:repeat value="{!row.MyCpsRow}" var="a" >
+                            <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                <apex:column style="width:180px;">
+                                    <apex:outputtext value="{!b}"/><br/>
+                                    
+                                </apex:column>
+                                
+                                
+                            </apex:datatable>
+                        </apex:repeat>
+                    </apex:column>
+                    
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:120px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.UsingCompany__c}" style="width:180px;"></apex:outputfield>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.LegalNumberofSeats__c}" style="width:80px;"></apex:outputfield>
+                    </apex:column>  
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.EngineNo__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.EngineNo__c}" style="width:80px;"></apex:outputfield>
+                    </apex:column>  
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:110px;">
+                                    <apex:outputText value="有効保険数"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputtext value="{!row.f_EffectiveInsurance}" style="width:70px;"></apex:outputtext>
+                    </apex:column> 
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.ReplacedDate__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.ReplacedDate__c}" style="width:100px;"></apex:outputfield>
+                    </apex:column> 
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Pattern__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.Pattern__c}" style="width:100px;"></apex:outputfield>
+                    </apex:column> 
+                    
+                </apex:dataTable><br/>
+                
+                <apex:commandButton value="Apply"  action="{!ApplytoContinue}" reRender="theNewContract"/>   
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection columns="1" id="theNewContract" title="新契約">
+                   
+                <apex:dataTable value="{!NewInsurancedCarsList}" var="row"  cellpadding="2" border="1" >
+                                        
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputtext value="{!$ObjectType.wb_CarInsurancedCars__c.fields.RegistryNumber__c.label}"></apex:outputtext><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.RegistryNumber__c}"  style="width:80px;"></apex:outputfield>
+                    </apex:column>
+                    
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:180px;">
+                                    <apex:outputText value="搭乗保険"></apex:outputText><br/>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <!--
+                        <apex:outputtext value="{!row.MyPsgrProduct}" style="width:180px;"></apex:outputtext>
+-->
+                                                <apex:repeat value="{!row.MyPsgrRow}" var="a" >
+                            <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                <apex:column style="width:180px;">
+                                    <apex:outputtext value="{!b}"/><br/>
+                                    
+                                </apex:column>
+                                
+                                
+                            </apex:datatable>
+                        </apex:repeat>
+                        
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:180px;">
+                                    <apex:outputText value="強制・任意"></apex:outputText><br/>
+                                </div>
+                                
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <!--
+                        <apex:outputtext value="{!row.MyCpsProduct}" style="width:180px;"></apex:outputtext>
+                        -->
+                           <apex:repeat value="{!row.MyCpsRow}" var="a" >
+                            <apex:datatable value="{!a}" var="b"  border="0" cellpadding="2" >
+                                <apex:column style="width:180px;">
+                                    <apex:outputtext value="{!b}"/><br/>
+                                    
+                                </apex:column>
+                                
+                                
+                            </apex:datatable>
+                        </apex:repeat>
+                    </apex:column>
+                    
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:120px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.UsingCompany__c}" style="width:180px;"></apex:outputfield>
+                    </apex:column>
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.LegalNumberofSeats__c}" style="width:80px;"></apex:outputfield>
+                    </apex:column>  
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:80px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.EngineNo__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.EngineNo__c}" style="width:80px;"></apex:outputfield>
+                    </apex:column>  
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:110px;">
+                                    <apex:outputText value="有効保険数"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputtext value="{!row.f_EffectiveInsurance}" style="width:70px;"></apex:outputtext>
+                    </apex:column> 
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.ReplacedDate__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.ReplacedDate__c}" style="width:100px;"></apex:outputfield>
+                    </apex:column> 
+                    
+                    <apex:column >
+                        <apex:facet name="header">
+                            <apex:outputPanel >
+                                <div style="width:100px;">
+                                    <apex:outputText value="{!$ObjectType.wb_CarInsurancedCars__c.fields.Pattern__c.label}"></apex:outputText><br/>
+                                </div>
+                            </apex:outputPanel>
+                        </apex:facet>
+                        <apex:outputfield value="{!row.theCar.Pattern__c}" style="width:100px;"></apex:outputfield>
+                    </apex:column> 
+                    
+                </apex:dataTable><br/>
+                
+                <apex:commandButton action="{!SaveSelectContinue}" value="保存" reRender="theNewContract"/>
+                
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel >{!$ObjectType.wb_CarInsurance__c.fields.name.label}</apex:outputLabel>
+                    <apex:outputLink value="/{!NewCI.id}">{!NewCI.name}</apex:outputLink>
+                </apex:pageBlockSectionItem>
+                
+                
+            </apex:pageBlockSection>    
+        </apex:pageBlock>
+        
+    </apex:form>
+    
+</apex:page>

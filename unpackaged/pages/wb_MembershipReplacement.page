@@ -1,0 +1,104 @@
+<apex:page controller="wb_Membership_Search" action="{!getReplacementList}"  title="退会者" 
+           showHeader="false"  tabStyle="wb_Membership__c"
+           sideBar="false" 
+           id="pg" >
+    <apex:pageBlock id="pb" >
+                <apex:form id="theform" >
+                    <apex:commandButton id="btnApply" value="適用"  onclick="closePopup();">
+                    </apex:commandButton>
+                           <script>
+                                    var closePopup = function() {
+
+                                            var dt = document.getElementById("pg:pb:theform:dateTable");
+                                             
+                                            var rowname;
+                                            for (var i=0, iLen=dt.getElementsByTagName("tr").length; i<iLen; i++) {
+                                                if ( dt.rows[i].cells[0].children[0].checked)
+                                                    rowname = dt.rows[i].cells[1].children[0].innerHTML;
+                                            }
+                                        
+                                
+                                            try {
+                                                
+                                                var StartRow = [];
+                                                StartRow.push('{!theReplaceeID}','{!theReplaceeIdx}');
+                                                
+                                                //alert('StartRow:' + StartRow);
+                                                
+                                                parent.window.opener.document.getElementById("parentElemStartRow").innerHTML = StartRow;
+                                        
+                                                parent.window.opener.document.getElementById("parentElemIndividual").innerHTML = rowname;
+                                                var opt = '{!theOption}';
+                                                //alert(opt);
+                                                if (opt == 'Cancellation'){
+                                                    //alert('C ' + opt);
+                                                    parent.window.opener.CallParentCancellationAsReplacement();
+                                                }
+                                                else {
+                                                    //    alert('N');
+                                                    parent.window.opener.CallParentReplacement();
+                                                }
+                                                self.close();
+                                                
+                                            }       
+                                            catch(e)
+                                            {
+                                                alert(e);
+                                            }   
+                         
+                                   
+                                    }
+                            </script>
+                    <apex:variable var="index" value="{!0}" /> 
+                    <apex:datatable value="{!ReplacementList}" var="a" border="0" cellpadding="2" id="dateTable">
+                        <apex:column >
+                            <apex:variable var="index" value="{!index + 1}" />  
+                            <apex:inputCheckbox Id="checkbox" value="{!a.IsSelected}"  onclick="changeValue('{!index}')"  >
+                            </apex:inputCheckbox> 
+                                    <script type="text/javascript">
+                                    function changeValue(MyIdx) {
+                                        try {
+                                            MyIdx = MyIdx - 1;
+                                            // alert(MyIdx);
+                                            var dt = document.getElementById("pg:pb:theform:dateTable");
+                                            // alert(dt.getElementsByTagName("tr").length)
+                                            var me = dt.rows[MyIdx].cells[0].children[0];
+                                            //alert(me.checked);
+                                            if(me.checked){
+                                                for (var i=0, iLen=dt.getElementsByTagName("tr").length; i<iLen; i++) {
+                                                    if ( i != MyIdx)
+                                                        dt.rows[i].cells[0].children[0].checked = false;
+                                                        
+                                                }
+                                            }
+                                            /*  var chk = document.getElementsByid('checkbox');            
+                                            for (var i=0; i<chk.length; i++) {
+                                                if(checkbox.value == chk[i].value) {
+                                                    chk[i].checked = true;
+                                                } else {
+                                                    chk[i].checked = false;
+                                                }
+                                            }*/
+                                        } catch(e) {
+                                            alert(e.message);
+                                        }
+                                    }
+                                    </script>
+                        </apex:column>
+                         <apex:column >
+                            <apex:outputtext value="{!a.theRow.name}"  style="width:100px;" />
+                        </apex:column>
+                        <apex:column >
+                            <apex:outputtext value="{!a.theRow.Individual__r.name}"  style="width:100px;" />
+                        </apex:column>
+                        
+                        <apex:column >
+                            <apex:outputField value="{!a.theRow.MembershipStopDate__c}"  style="width:100px;" />
+                        </apex:column>
+                        
+             
+                    </apex:datatable>
+                </apex:form>
+    </apex:pageBlock>
+    
+</apex:page>

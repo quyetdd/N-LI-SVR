@@ -1,0 +1,39 @@
+<apex:page controller="wb_CarInsurance_Data_for_MDReport" cache="true" contenttype="application/vnd.ms-excel#CarInsurance_Data_for_MDReport.xls" showheader="false">
+    
+    <!-- head tag required (and showheader="false" also required in order to specify UTF-8 charset as output -->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+        <style> 
+            br {mso-data-placement:same-cell;}	<!-- MSFT style causes Excel to treat <br/> as soft carriage return 'ALT-ENTER' when constructing cells from SFDC HTML output-->
+        </style>
+    </head>
+    <apex:pageBlock >
+        
+        <apex:datatable style="font-size: xx-small;" value="{!datalist}" var="a" columns="22" border="0" >  
+            <apex:column headerValue="No">{!a.No}</apex:column> 
+            <apex:column headerValue="{!$ObjectType.wb_CarInsurance__c.fields.ContractCompany__c.label}">{!a.ContractCompany}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.UsingCompany__c.label}">{!a.UsingCompany}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.RegistryNumber__c.label}">{!a.RegistryNumber}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.LegalNumberofSeats__c.label}">{!a.LegalNumberofSeats}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.Ownership__c.label}">{!a.Ownership}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CurrentEndDate__c.label}">{!a.Psgr_CurrentEndDate}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceCompany__c.label}">{!a.Psgr_InsuranceCompany}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_CommodityName__c.label}">{!a.Psgr_CommodityName}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsurancePlan__c.label}">{!a.Psgr_InsurancePlan}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.Psgr_InsuranceFee__c.label}">{!a.Psgr_InsuranceFee}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_Plan__c.label}">{!a.OP_Plan}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Passenger__c.fields.OP_InsuranceFee__c.label}">{!a.OP_InsuranceFee}</apex:column>            
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceCompany__c.label}">{!a.Cps_InsuranceCompany}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_CurrentEndDate__c.label}">{!a.Cps_EndDate}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Cps_InsuranceAmount__c.label}">{!a.Cps_InsuranceAmount}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceCompany__c.label}">{!a.Vlt_InsuranceCompany}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_EndDate__c.label}">{!a.Vlt_EndDate}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CIC_Compulsory__c.fields.Vlt_InsuranceAmount__c.label}">{!a.Vlt_InsuranceAmount}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CarInsurance__c.fields.Agent__c.label}">{!a.Agent}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CarInsurance__c.fields.AcctPIC__c.label}">{!a.AcctPIC}</apex:column>
+            <apex:column headerValue="{!$ObjectType.wb_CarInsurancedCars__c.fields.Name.label}">{!a.CICName}</apex:column>
+        </apex:datatable>
+        
+        
+    </apex:pageBlock>
+</apex:page>

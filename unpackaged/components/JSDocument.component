@@ -1,0 +1,75 @@
+<apex:component >
+
+<script>
+
+function getDocumentByName(docName, folder, filename) {
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var doc = sforce.connection.query("select Id, Type, Body from Document where Name='" + docName + "'");
+    if (doc.size == 0) return false;
+    return saveDocumentToFile(doc.getArray("records")[0], folder, filename);
+}
+
+function getDocumentById(docId, folder, filename) {
+    sforce.connection.sessionId = "{!$Api.Session_ID}";
+    var doc = sforce.connection.query("select Id, Type, Body from Document where Id='" + docId + "'");
+    if (doc.size == 0) return false;
+    return saveDocumentToFile(doc.getArray("records")[0], folder, filename);
+}
+  
+function saveDocumentToFile(record, folder, filename) {
+    var fullPath = folder + "\\" + filename;
+
+    // XMLドキュメントとして取得
+    var objDom = new ActiveXObject("Microsoft.XMLDOM");
+    var element = objDom.createElement("root");   // ルートノードを生成
+    element.dataType = "bin.base64";
+    element.text = record.Body;
+    var bin = element.nodeTypedValue;
+
+    var objFso = new ActiveXObject("Scripting.FileSystemObject");
+    if(!objFso.FolderExists(folder)) {
+        // 出力対象フォルダが無い場合は作成
+        objFso.CreateFolder(folder);
+    } else {
+        // フォルダのファイルを検索
+        // 既に同一ファイルがある場合、削除
+        if(objFso.FileExists(fullPath)) {
+            objFso.DeleteFile(fullPath, true);
+        }
+    }
+    
+    var stream = new ActiveXObject("ADODB.Stream");
+    try {
+
+        // テンプレートをローカルに保持
+        // バイナリ
+        stream.type = 1;
+        // Stramを開く
+        stream.open();
+        // ファイル読込
+        stream.write(bin);
+        stream.savetoFile(fullPath);
+        return true;
+    } catch (e) {
+        // エラー発生時にファイルが残らないように作成したファイルを削除
+        if(objFso.FileExists(fullPath)) {
+            objFso.DeleteFile(fullPath, true);
+        }
+        return false;
+    } finally {
+        if (stream != null) {
+            try {
+                stream.close();
+            } catch (e) {
+                // クローズエラーは無視
+            }
+            stream = null;
+        }
+    }
+}
+  
+
+
+</script>
+
+</apex:component>

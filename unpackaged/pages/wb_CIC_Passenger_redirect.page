@@ -1,0 +1,2 @@
+<apex:page standardcontroller="wb_CIC_Passenger__c" extensions="wb_CIC_Passenger_redirect"  action="{!redirect}" id="thePage" sidebar="false" showHeader="false">
+</apex:page>

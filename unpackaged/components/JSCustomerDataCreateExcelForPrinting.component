@@ -1,0 +1,775 @@
+<apex:component >
+
+<apex:attribute name="account" description="Account Object" type="Account" required="true"/>
+<apex:attribute name="data" description="Data" type="CustomerData" required="true"/>
+
+<script>
+  
+  var HERADER_TITLE = new Array(
+    "No", 
+    "契約地区", 
+    "WB管轄地区", 
+    "（勤務先）会社名称", 
+    "（勤務先）住所", 
+    "（勤務先）TEL",
+    "（勤務先）FAX",
+    "（勤務先）総経理", 
+    "（勤務先）担当者",
+    "（勤務先）部署",
+    "（勤務先）役職",
+    "（勤務先）実務担当",
+    "（勤務先）実務担当部署",
+    "（勤務先）実務担当役職",
+    "（勤務先）WB営業担当者",
+    "（勤務先）WB内務担当者",
+    "（契約先）会社名称",
+    "（契約先）住所",
+    "（契約先）TEL",
+    "（契約先）FAX",
+    "（契約先）総経理",
+    "（契約先）担当者",
+    "（契約先）部署",
+    "（契約先）役職",
+    "（契約先）実務担当",
+    "（契約先）実務担当部署",
+    "（契約先）実務担当役職",
+    "（契約先）WB営業担当者",
+    "（契約先）WB内務担当者",
+    "請求先会社名称",
+    "グループ",
+    "団体名称"
+    );
+    
+  var DETAIL_TITLE = new Array(
+    "No",
+    "契約先会社名称",
+    "勤務先会社名称",
+    "会員番号",
+    "会員氏名",
+    "商品",
+    "契約形態",
+    "契約満期日",
+    "自宅住所",
+    "自宅TEL",
+    "携帯番号",
+    "保険会社",
+    "プラン",
+    "取扱",
+    "保険満期日",
+    "証券入手状況",
+    "メールアドレス",
+    "配信"
+    );
+    
+  var Ichiroheian_Title = new Array(
+    "No",
+    "契約会社名称",
+    "使用会社名称",
+    "登録番号",
+    "座席数",
+    "所有",
+    "(一路)保険終期",
+    "(一路)プラン",
+    "(強制)保険会社名称",
+    "(強制)保険終期",
+    "(任意)保険会社名称",
+    "(任意)保険終期"
+    );
+
+  var BL_Title = new Array(
+    "No",
+    "契約会社名称",
+    "契約者（被保険者）",
+    "保険種目",
+    "保険会社名称",
+    "保険終期"
+    );
+    
+  var Kenshin_Title = new Array(
+    "No",
+    "勤務先会社名称",
+    "会員番号",
+    "会員氏名",
+    "受診地区",
+    "受診日",
+    "受診プラン"
+    );
+
+
+
+  
+  var headers = new Array();
+  var members = new Array();
+  var ichiroheian = new Array();
+  var BL = new Array();
+  var Kenshin = new Array();
+  var mindex = 1;
+  var iindex = 1;
+  var bindex = 1;
+  var kindex = 1;
+  var tempDate = "";
+  
+  <apex:repeat value="{!data.data}" var="a">
+    headers[{!a.Index}] = new Object();
+    <apex:repeat value="{!a.Values}" var="v">
+      headers[{!a.Index}].{!v.Name} = "{!v.Value}";
+    </apex:repeat>
+  
+    <apex:repeat value="{!a.Members}" var="m">
+    members[mindex] = new Object();
+    members[mindex].no = "{!a.Index}";
+    members[mindex].KeiyakuCompanyName = "{!m.CompanyKeiyakuNo__r.KeiyakuCompanyName__r.Name}";
+    members[mindex].KinmuCompanyName = "{!m.KinmuCompany__r.Name}";
+    members[mindex].MemberNo = "{!m.MemberNo__c}";
+    members[mindex].Name = "{!m.Name}";
+    //members[mindex].Tanto = "{!IF(m.Tanto__c,'○','')}";
+    members[mindex].Commodity = "{!m.Commodity__c}";
+    members[mindex].ServiceKeitaiCd = "{!m.ServiceKeitaiCd__c}"; //members[mindex].KeiyakuKeitai = "{!m.KeiyakuKeitai__c}";
+    members[mindex].InsuranceKind = "{!m.InsuranceKindRyaku__c}"//[69]
+    members[mindex].MankiDate = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{!m.MankiDate__c}" /></apex:outputText>";
+    members[mindex].Address = "{!m.Address__c}";
+    members[mindex].Tel = "{!m.Tel__c}";
+    members[mindex].Mobile = "{!m.Mobile__c}";
+    members[mindex].AnshinPlan = "{!m.InsurancePlan__c}";
+    members[mindex].OtaName = "{!m.OtaName__c}";
+    members[mindex].Toriatsukai = "{!m.OtaAgency__c}";
+    //members[mindex].ShokenNo = "{!m.ShokenNo__c}";
+    members[mindex].OtaInsuranceShuki = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{!m.OtaInsuranceShuki__c}" /></apex:outputText>";
+    members[mindex].OtaRyaku = "{!m.OtaRyaku__c}";
+    members[mindex].ShokenGetSituation = "{!m.ShokenGetSituation__c}";
+    members[mindex].Email = "{!m.Email__c}";
+    members[mindex].MailHaishin = "{!m.MailHaishin__c}";
+    mindex++;
+    
+      <apex:repeat value="{!m.FamilyMembers__r}" var="f">
+        members[mindex] = new Object();
+        members[mindex].no = "{!a.Index}";
+        members[mindex].KeiyakuCompanyName = "{!m.CompanyKeiyakuNo__r.KeiyakuCompanyName__r.Name}";
+        members[mindex].KinmuCompanyName = "{!m.KinmuCompany__r.Name}";
+        members[mindex].MemberNo = "{!f.MemberNo__c}";
+        members[mindex].Name = "  {!f.Name}";
+        members[mindex].Commodity = "{!f.Commodity__c}";
+        members[mindex].KeiyakuKeitai = "";
+        members[mindex].MankiDate = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{!m.MankiDate__c}" /></apex:outputText>";
+        members[mindex].Address = "";
+        members[mindex].Tel = "";
+        members[mindex].Mobile = "{!f.Mobile__c}";
+        members[mindex].AnshinPlan = "{!f.InsurancePlan__c}";
+        members[mindex].OtaName = "{!f.OtaName__c}";
+        members[mindex].Toriatsukai = "{!f.OtaAgency__c}";
+        //members[mindex].ShokenNo = "{!f.ShokenNo__c}";
+        members[mindex].OtaInsuranceShuki = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{!f.OtaInsuranceShuki__c}" /></apex:outputText>";
+        members[mindex].OtaRyaku = "{!f.OtaRyaku__c}";
+        members[mindex].ShokenGetSituation = "{!f.ShokenGetSituation__c}";
+        members[mindex].Email = "{!f.Email__c}";
+        members[mindex].MailHaishin = "{!f.MailHaishin__c}";
+        mindex++;
+      </apex:repeat>
+    
+    </apex:repeat>
+    
+    <apex:repeat value="{!a.Ichiroheian}" var="i">
+    ichiroheian[iindex] = new Object();
+    ichiroheian[iindex].no = "{!a.Index}";
+    ichiroheian[iindex].KeiyakuCompanyName = "{!i.KeiyakuCompanyName__r.Name}";
+    ichiroheian[iindex].ShiyoCompanyName = "{!i.ShiyoCompanyName__r.Name}";
+    ichiroheian[iindex].Name = "{!i.Name}";
+    ichiroheian[iindex].Seat = {!BLANKVALUE(i.Seat__c,0)};
+    ichiroheian[iindex].OwnerKubun = "{!i.OwnerKubun__c}";
+    ichiroheian[iindex].InsuranceShuki = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{! i.InsuranceShuki__c}" /></apex:outputText>";
+    ichiroheian[iindex].InsurancePlan = "{!i.InsurancePlan__c}";
+    ichiroheian[iindex].OI_CompanyName = "{!i.OI_CompanyName__c}";
+    ichiroheian[iindex].OI_InsuranceShuki = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{! i.OI_InsuranceShuki__c}" /></apex:outputText>";
+    ichiroheian[iindex].VI_CompanyName = "{!i.VI_CompanyName__c}";
+    ichiroheian[iindex].VI_InsuranceShuki = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{! i.VI_InsuranceShuki__c}" /></apex:outputText>";
+    ichiroheian[iindex].agency = "{!i.Agency__c}";
+    iindex++;
+    </apex:repeat>
+    
+    <apex:repeat value="{!a.BL}" var="b">
+    BL[bindex] = new Object();
+    BL[bindex].no = "{!a.Index}";
+    BL[bindex].KeiyakuCompanyName = "{!b.KeiyakuCompanyName__r.Name}";
+    BL[bindex].Agency = "{!b.Agency__c}";
+    BL[bindex].KeiyakuArea = "{!b.KeiyakuArea__c}";
+    BL[bindex].DPAppoint = "{!b.DPAppoint__c}";
+    BL[bindex].ShozokuArea = "{!b.ShozokuArea__c}";
+    BL[bindex].InsurantName = "{!b.Insurant__r.Name}";
+    BL[bindex].BranchOfInsurance = "{!b.BranchOfInsurance__c}";
+    BL[bindex].InsuranceCompanyName = "{!b.InsuranceCompanyName__c}";
+    BL[bindex].InsuranceManki = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{! b.InsuranceManki__c}" /></apex:outputText>";
+    bindex++;
+    </apex:repeat>
+
+    <apex:repeat value="{!a.KenshinName}" var="k">//Print Kenshin record in this year or (Last Year AND this year)
+    Kenshin[kindex] = new Object();
+    Kenshin[kindex].no = "{!a.Index}";
+    Kenshin[kindex].KinmuCompanyName = "{!BLANKVALUE(k.MemberFamilyShimei__r.MemberShimei__r.KinmuCompany__r.Name , k.MemberShimei__r.KinmuCompany__r.Name)}";
+    Kenshin[kindex].MemberNo = "{!k.MemberNo__c}";
+    Kenshin[kindex].MemberShimei = "{!BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)}";
+    Kenshin[kindex].MemberKubunB = "{!BLANKVALUE(k.MemberShimei__r.MemberKubunB__c,k.MemberFamilyShimei__r.MemberKubunB__c)}";
+    //Kenshin[kindex].KenshinArea = "{!k.KenshinArea__c}";
+    //Kenshin[kindex].KenshinDate = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{! k.KenshinDate__c}" /></apex:outputText>";
+    //Kenshin[kindex].KenshinPlan = "{!k.KenshinPlan__c}";
+    Kenshin[kindex].KenshinArea = "";
+    Kenshin[kindex].KenshinDate = "";
+    Kenshin[kindex].KenshinPlan = "";
+    Kenshin[kindex].KenshinAreaLY = "";
+    Kenshin[kindex].KenshinDateLY = "";
+    Kenshin[kindex].KenshinPlanLY = "";
+    	<apex:repeat value="{!a.KenshinLastYear}" var="k2">
+    		Kenshin[kindex].KenshinAreaLY = (Kenshin[kindex].KenshinAreaLY == "" ? "{!if(BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)==BLANKVALUE(k2.MemberFamilyShimei__r.Name , k2.MemberShimei__r.Name),k2.KenshinArea__c,"")}" : Kenshin[kindex].KenshinAreaLY);
+    		Kenshin[kindex].KenshinDateLY = (Kenshin[kindex].KenshinDateLY == "" ? "{!if(BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)==BLANKVALUE(k2.MemberFamilyShimei__r.Name , k2.MemberShimei__r.Name),"match","")}" : Kenshin[kindex].KenshinDateLY);
+    		Kenshin[kindex].KenshinPlanLY = (Kenshin[kindex].KenshinPlanLY == "" ? "{!if(BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)==BLANKVALUE(k2.MemberFamilyShimei__r.Name , k2.MemberShimei__r.Name),k2.KenshinPlan__c,"")}" : Kenshin[kindex].KenshinPlanLY);
+    		if(Kenshin[kindex].KenshinDateLY=="match") Kenshin[kindex].KenshinDateLY = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{! k2.KenshinDate__c}" /></apex:outputText>";
+    	</apex:repeat>
+    	<apex:repeat value="{!a.Kenshin}" var="k3">
+    		Kenshin[kindex].KenshinArea = (Kenshin[kindex].KenshinArea == "" ? "{!if(BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)==BLANKVALUE(k3.MemberFamilyShimei__r.Name , k3.MemberShimei__r.Name),k3.KenshinArea__c,"")}" : Kenshin[kindex].KenshinArea);
+    		Kenshin[kindex].KenshinDate = (Kenshin[kindex].KenshinDate == "" ? "{!if(BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)==BLANKVALUE(k3.MemberFamilyShimei__r.Name , k3.MemberShimei__r.Name),"match","")}" : Kenshin[kindex].KenshinDate);
+    		Kenshin[kindex].KenshinPlan = (Kenshin[kindex].KenshinPlan == "" ? "{!if(BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)==BLANKVALUE(k3.MemberFamilyShimei__r.Name , k3.MemberShimei__r.Name),k3.KenshinPlan__c,"")}" : Kenshin[kindex].KenshinPlan);
+    		if(Kenshin[kindex].KenshinDate=="match") Kenshin[kindex].KenshinDate = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{! k3.KenshinDate__c}" /></apex:outputText>";
+    	</apex:repeat>
+    kindex++;
+    </apex:repeat>
+    
+    /*<apex:repeat value="{!a.KenshinLastYear}" var="k">//Print Kenshin record in last year only
+	    Kenshin[kindex] = new Object();
+	    Kenshin[kindex].no = "{!a.Index}";
+	    Kenshin[kindex].check = "";
+	    <apex:repeat value="{!a.Kenshin}" var="k2">
+	    	Kenshin[kindex].check = (Kenshin[kindex].check == "" ? "{!if(BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)==BLANKVALUE(k2.MemberFamilyShimei__r.Name , k2.MemberShimei__r.Name),"match","")}" : Kenshin[kindex].check);   		
+	    </apex:repeat>
+	    if(Kenshin[kindex].check==""){
+		    Kenshin[kindex].KinmuCompanyName = "{!BLANKVALUE(k.MemberFamilyShimei__r.MemberShimei__r.KinmuCompany__r.Name , k.MemberShimei__r.KinmuCompany__r.Name)}";
+		    Kenshin[kindex].MemberNo = "{!k.MemberNo__c}";
+		    Kenshin[kindex].MemberShimei = "{!BLANKVALUE(k.MemberFamilyShimei__r.Name , k.MemberShimei__r.Name)}";
+		    Kenshin[kindex].MemberKubunB = "{!BLANKVALUE(k.MemberShimei__r.MemberKubunB__c,k.MemberFamilyShimei__r.MemberKubunB__c)}";
+		    Kenshin[kindex].KenshinAreaLY = "{!k.KenshinArea__c}";
+		    Kenshin[kindex].KenshinDateLY = "<apex:outputText value="{0,date,yyyy/MM/dd}"><apex:param value="{! k.KenshinDate__c}" /></apex:outputText>";
+		    Kenshin[kindex].KenshinPlanLY = "{!k.KenshinPlan__c}";
+		    kindex++;
+	    }
+    </apex:repeat>*/
+
+    
+  </apex:repeat>
+  
+  
+/** Excel最大列数 */
+var EXCLE_MAX_COLUMN = 256;
+/** Excel最大行数 */
+var EXCLE_MAX_ROW = 65536;
+
+var DOC_NAME = "memberList2";
+  
+var TODAY = "<apex:outputText value="{0,date,yyyyMMdd}"><apex:param value="{!TODAY()}" /></apex:outputText>";
+var TODAYDISP = "<apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!TODAY()}" /></apex:outputText>";
+
+var detailCnt = 1;
+var iCnt = 1;
+var bCnt = 1;
+var kCnt = 1;
+    
+function createExcel()
+{    
+    var tmpName = "ウェルビーメディック会員リスト";
+    var folder = "c:\\temp";
+    var filename = tmpName + "<apex:outputText value="{0,date,yyyyMMdd}"><apex:param value="{!TODAY()}" /></apex:outputText>.xls";
+    var tfilename = "TEMP-" + tmpName + ".xls";
+    var path = folder + "\\" + filename;
+    var tpath = folder + "\\" + tfilename;
+    
+    var objFso = new ActiveXObject("Scripting.FileSystemObject");
+    if(!objFso.FolderExists(folder)) 
+      objFso.CreateFolder(folder);
+    if(objFso.FileExists(path))
+      objFso.DeleteFile(path, true);
+    if(objFso.FileExists(tpath))
+      objFso.DeleteFile(tpath, true);
+        
+    var excel;
+    var book;
+    var sheet;
+
+    try {
+    
+        if (!getDocumentByName(tmpName, folder, tfilename)) return;
+
+        
+        // Excelオブジェクト生成
+        excel = new ActiveXObject("Excel.Application");
+        // 表示無効
+        excel.visible = false;
+        // ダイアログ無効
+        excel.DisplayAlerts = false;
+        // WorkBookを追加
+        book = excel.workbooks.Add(tpath);
+
+        var tempSheet1 = book.Worksheets("テンプレート1");
+        var tempSheet2 = book.Worksheets("テンプレート2");
+        var tempSheet3 = book.Worksheets("テンプレート3");
+        var tempSheet4 = book.Worksheets("テンプレート4");
+        var tempSheet5 = book.Worksheets("テンプレート5");
+        var sheetName = "テンプレート5";
+        sheet = book.Worksheets(sheetName);
+        
+        detailCnt = 1;
+        iCnt = 1;
+        bCnt = 1;
+        kCnt = 1;
+        // 作成日を取得
+        for (var i = 1; i < headers.length; i++) {
+            // シート追加
+            tempSheet1.Copy(null, sheet);  //アクティブシートの後へ追加する
+            // 新規シートの取得
+            sheet = book.Worksheets(excel.Worksheets.Count);
+            // シート名
+            sheet.Name = "会員リスト" + i;
+
+            // 作成日の設定
+            setCell(sheet.Cells(2, 63), TODAYDISP);
+
+            // ヘッダー情報出力
+            sheet = createHeader(sheet, headers[i]);
+            // 明細出力
+            sheet = createDetail(sheet, members, excel.Worksheets.Count, tempSheet2, TODAYDISP, i, book);
+            
+            //tempSheet3.Copy(null, sheet);
+            //sheet = book.Worksheets(excel.Worksheets.Count);
+            //sheet.Name = "自動車関連" + i;
+            //setCell(sheet.Cells(2, 62), TODAYDISP);
+            //setCell(sheet.Cells(3, 9), headers[i].KinmuCompany);
+            sheet = createIchiroheian(sheet, ichiroheian, excel.Worksheets.Count, tempSheet3, TODAYDISP, i, headers[i].KinmuCompany, book);
+            
+            //tempSheet4.Copy(null, sheet);
+            //sheet = book.Worksheets(excel.Worksheets.Count);
+            //sheet.Name = "BL" + i;
+            //setCell(sheet.Cells(2, 62), TODAYDISP);
+            //setCell(sheet.Cells(3, 8), headers[i].KinmuCompany);
+            sheet = createBL(sheet, BL, excel.Worksheets.Count, tempSheet4, TODAYDISP, i, headers[i].KinmuCompany, book);
+            
+            //tempSheet5.Copy(null, sheet);
+            //sheet = book.Worksheets(excel.Worksheets.Count);
+            //sheet.Name = "健診" + i;
+            //setCell(sheet.Cells(2, 62), TODAYDISP);            
+            //setCell(sheet.Cells(3, 8), headers[i].KinmuCompany);
+            sheet = createKenshin(sheet, Kenshin, excel.Worksheets.Count, tempSheet5, TODAYDISP, i, headers[i].KinmuCompany, book);
+        }
+
+        // テンプレートシートを削除
+        tempSheet1.Delete;
+        tempSheet2.Delete;
+        tempSheet3.Delete;
+        tempSheet4.Delete;
+        tempSheet5.Delete;        
+        
+        // 最初のシートを選択
+        book.Worksheets(1).Select;
+        
+        // 保存
+        book.SaveAs(path, -4143);
+        
+        if(objFso.FileExists(tpath))
+          objFso.DeleteFile(tpath, true);
+        
+    } catch (e) {
+        alert("Excel生成時にエラーが発生しました。");
+        return; 
+    } finally { 
+        try {
+            if (sheet != null) {
+                sheet = null;
+            }
+            if (book != null) {
+                book.Close();
+                book = null;
+            }
+            if (excel != null) {
+                excel.Quit();
+                excel = null;
+            }
+        } catch (e) {
+            alert("Excel生成時にエラーが発生しました。");
+            return;
+        }
+    }
+    
+    var aid = findAttachmentByCreatorAndPrefix("{!account.Id}", tmpName);
+    if(aid=='')
+      attachFile("{!account.Id}", path, filename);
+    else
+      replaceAttachment(aid, path, filename);
+
+    alert("正常に終了しました。");
+    window.top.location.href = "/{!Account.Id}";
+}
+
+
+function createHeader(sheet, header) {
+
+    var col = 8;
+    var col1 = col+12;
+    var col2 = col1+12;
+    var col3 = col2+10;
+    var col4 = col3+10;
+    var col5 = col4+10;
+    var col6 = col+27;
+    var row = 4;
+    
+    // 契約場所
+    setCell(sheet.Cells(row, col), header.KeiyakuArea);
+    // WB管轄地区
+    setCell(sheet.Cells(row, col6), header.KinmuCompanyJurisdiction);
+    // WB所属地区
+    setCell(sheet.Cells(++row, col6), header.KinmuCompanyShozokuArea);
+    
+    // （契約先）会社名称
+    setCell(sheet.Cells(++row, col), header.KeiyakuCompanyName);
+    // （契約先）住所
+    setCell(sheet.Cells(++row, col), header.KeiyakuCompanyAddress);
+    // （契約先）TEL
+    setCell(sheet.Cells(++row, col), "'" + header.KeiyakuTel);
+    // （契約先）FAX
+    setCell(sheet.Cells(row, col1), "'" + header.KeiyakuFax);
+    row -= 2;
+    // （契約先）総経理
+    setCell(sheet.Cells(row, col2), header.KeiyakuCompanyPresident);
+    // （契約先）担当者
+    setCell(sheet.Cells(row, col3), header.KeiyakuShimei);
+    // （契約先）部署
+    setCell(sheet.Cells(++row, col3), header.KeiyakuBusho);
+    // （契約先）役職
+    setCell(sheet.Cells(++row, col3), header.KeiyakuYakushoku);
+    row -= 2;
+    // （契約先）実務担当
+    setCell(sheet.Cells(row, col4), header.KeiyakuCompanySubShimei);
+    // （契約先）実務担当部署
+    setCell(sheet.Cells(++row, col4), header.KeiyakuCompanySubBusho);
+    // （契約先）実務担当役職
+    setCell(sheet.Cells(++row, col4), header.KeiyakuCompanySubYakushoku);
+    row -= 2;
+    // （契約先）WB営業担当者
+    setCell(sheet.Cells(row, col5), header.KeiyakuEigyoTanto);
+    // （契約先）WB内務担当者
+    setCell(sheet.Cells(++row, col5), header.KeiyakuNaimuTanto);
+    
+    row++;
+    // （勤務先）会社名称
+    setCell(sheet.Cells(++row, col), header.KinmuCompany);
+    // （勤務先）住所
+    setCell(sheet.Cells(++row, col), header.KinmuCompanyAddress);
+    // （勤務先）TEL
+    setCell(sheet.Cells(++row, col), "'" + header.KinmuCompanyPhone);
+    // （勤務先）FAX
+    setCell(sheet.Cells(row, col1), "'" + header.KinmuCompanyFax);
+    row -= 2;
+    // （勤務先）総経理
+    setCell(sheet.Cells(row, col2), header.KinmuCompanyPresident);
+    // （勤務先）担当者
+    setCell(sheet.Cells(row, col3), header.KinmuCompanyShimei);
+    // （勤務先）部署
+    setCell(sheet.Cells(++row, col3), header.KinmuCompanyBusho);
+    // （勤務先）役職
+    setCell(sheet.Cells(++row, col3), header.KinmuCompanyYakushoku);
+    row -= 2;
+    // （勤務先）実務担当
+    setCell(sheet.Cells(row, col4), header.KinmuCompanySubShimei);
+    // （勤務先）実務担当部署
+    setCell(sheet.Cells(++row, col4), header.KinmuCompanySubBusho);
+    // （勤務先）実務担当役職
+    setCell(sheet.Cells(++row, col4), header.KinmuCompanySubYakushoku);
+    row -= 2;
+    // （勤務先）WB営業担当者
+    setCell(sheet.Cells(row, col5), header.KinmuCompanyEigyoTanto);
+    // （勤務先）WB内務担当者
+    setCell(sheet.Cells(++row, col5), header.KinmuCompanyNaimuTanto);
+
+    row++;
+    // 請求先
+    setCell(sheet.Cells(++row, col), header.SeikyuCompanyName);
+    //グループ
+    setCell(sheet.Cells(++row, col), header.KeiyakuCompanyAffiliated);
+    // 団体名
+    setCell(sheet.Cells(row, col6), header.KeiyakuCompanyGroupName);
+    
+    return sheet;
+    
+}
+/**
+ * 明細情報を出力
+ * 
+ * @param {Object} sheet　WorkSheetオブジェクト
+ * @param {Array} detailData　明細データ
+ * @param {Object} excel Excelオブジェクト
+ * @param {Object} book WorkBookオブジェクト
+ */
+function createDetail(sheet, detailData, sheetCnt, tempSheet, makeDate, headerNo, book) {
+    
+    var row = 17;
+    var pageRow = 37;
+
+    for (var i = detailCnt; i < detailData.length; i++) {
+
+        if (detailData[i].no != headerNo) {
+            // detailDataの終了位置を保持
+            detailCnt = i;
+            break;
+        }
+
+        if (row > EXCLE_MAX_ROW) {
+            // 最大行数を超えた場合
+            book.Worksheets("テンプレート2").Copy(null, sheet);  //アクティブシートの後へ追加する
+            // 新規シートの取得
+            sheet = book.Worksheets(++sheetCnt);
+            // シート名
+            sheet.Name = "会員リスト" + (sheetCnt-1);
+            // 行カウンタクリア
+            row = 5;
+        }
+        if (row == pageRow) {
+            pageRow += 36;
+            // 2ページ目以降の追加
+            tempSheet.Rows("1:36").copy;
+            sheet.Cells(row, 1).Insert;
+            setCell(sheet.Cells(row+1, 62), makeDate);
+            row += 4;
+        }
+        var detail = detailData[i];
+
+        // 会員番号
+        setCell(sheet.Cells(row, 1), detail.MemberNo);
+        // 会員氏名
+        setCell(sheet.Cells(row, 6), detail.Name);
+        // 契約形態
+        setCell(sheet.Cells(row, 13), detail.ServiceKeitaiCd);
+        /*setCell(sheet.Cells(row, 13), 
+            (detail.KeiyakuKeitai.indexOf("単身")!=-1 ? "S" : 
+            (detail.KeiyakuKeitai.indexOf("家族")!=-1 ? "F" : 
+            (detail.KeiyakuKeitai.indexOf("無記名")!=-1 ? "M" : 
+             "" ))));*/
+        // 契約満期日
+        setCell(sheet.Cells(row, 15), detail.MankiDate);
+        // 自宅住所
+        setCell(sheet.Cells(row, 19), detail.Address);
+        // 自宅TEL
+        setCell(sheet.Cells(row, 36), "'" + detail.Tel);
+        // 携帯番号
+        setCell(sheet.Cells(row, 41), "'" + detail.Mobile);
+        // 保険会社
+        setCell(sheet.Cells(row, 46), detail.OtaRyaku);
+        // プラン
+        setCell(sheet.Cells(row, 51), detail.AnshinPlan);
+        // 取扱
+        setCell(sheet.Cells(row, 52), detail.Toriatsukai=="WB扱い" ? "☆" : "");
+        // 保険満期日
+        setCell(sheet.Cells(row, 53), detail.OtaInsuranceShuki);
+        // 証券入手状況
+        //setCell(sheet.Cells(row, 54), detail.ShokenGetSituation=="入手済" ? "○" : "");
+        // メールアドレス
+        setCell(sheet.Cells(row, 57), detail.Email);
+        // 配信
+        //setCell(sheet.Cells(row, 65), detail.MailHaishin=="true" ? "○" : "");
+        
+        // 商品名
+        setCell(sheet.Cells(row, 49), detail.InsuranceKind);
+        
+        row++;
+    }
+    return sheet;
+    
+}
+
+function createIchiroheian(sheet, detailData, sheetCnt, tempSheet, makeDate, headerNo, headerName, book) {
+    
+    var row = 7;
+    var pageRow = 37;
+
+    var added = false;
+    for (var i = iCnt; i < detailData.length; i++) {
+
+        if (detailData[i].no != headerNo) {
+            iCnt = i;
+            break;
+        }
+
+        if ((row > EXCLE_MAX_ROW)||(!added)) {
+            tempSheet.Copy(null, sheet);
+            sheet = book.Worksheets(book.Worksheets.Count);
+            sheet.Name = "自動車関連" + headerNo;
+            setCell(sheet.Cells(2, 62), makeDate);
+            setCell(sheet.Cells(3, 9), headerName);
+            row = 7;
+            added = true;
+        }
+        if (row == pageRow) {
+            pageRow += 36;
+            // 2ページ目以降の追加
+            tempSheet.Rows("1:36").copy;
+            sheet.Cells(row, 1).Insert;
+            setCell(sheet.Cells(row+1, 62), makeDate);
+            setCell(sheet.Cells(row+2, 9), headerName);
+            row += 6;
+        }
+        var detail = detailData[i];
+
+        // 契約会社名称
+        setCell(sheet.Cells(row, 1), detail.KeiyakuCompanyName);
+        //登録番号    
+        setCell(sheet.Cells(row, 21), detail.Name);
+        //座席数
+        setCell(sheet.Cells(row, 26), detail.Seat);
+        //所有
+        setCell(sheet.Cells(row, 29), detail.OwnerKubun);
+        //(一路)保険終期
+        setCell(sheet.Cells(row, 31), detail.InsuranceShuki);
+        //(一路)プラン
+        setCell(sheet.Cells(row, 35), detail.InsurancePlan);
+        //(強制)保険会社名称
+        setCell(sheet.Cells(row, 37), detail.OI_CompanyName);
+        //(強制)保険終期
+        setCell(sheet.Cells(row, 45), detail.OI_InsuranceShuki);
+        //(任意)保険会社名称
+        setCell(sheet.Cells(row, 49), detail.VI_CompanyName);
+        //(任意)保険終期
+        setCell(sheet.Cells(row, 57), detail.VI_InsuranceShuki);
+        //契約店			
+        setCell(sheet.Cells(row, 61), detail.agency);
+        
+        row++;
+    }
+    return sheet;
+    
+}
+
+function createBL(sheet, detailData, sheetCnt, tempSheet, makeDate, headerNo, headerName, book) {
+    
+    var row = 7;
+    var pageRow = 37;
+    var added = false;
+    for (var i = bCnt; i < detailData.length; i++) {
+
+        if (detailData[i].no != headerNo) {
+            bCnt = i;
+            break;
+        }
+
+        if ((row > EXCLE_MAX_ROW)||(!added)) {
+            tempSheet.Copy(null, sheet);
+            sheet = book.Worksheets(book.Worksheets.Count);
+            sheet.Name = "BL" + headerNo;
+            setCell(sheet.Cells(2, 62), makeDate);
+            setCell(sheet.Cells(3, 8), headerName);
+            row = 7;
+            added = true;
+        }
+        if (row == pageRow) {
+            pageRow += 36;
+            // 2ページ目以降の追加
+            tempSheet.Rows("1:36").copy;
+            sheet.Cells(row, 1).Insert;
+            setCell(sheet.Cells(row+1, 62), makeDate);
+            setCell(sheet.Cells(row+2, 8), headerName);
+            row += 6;
+        }
+        var detail = detailData[i];
+
+		
+		//契約地区
+		setCell(sheet.Cells(row, 1), detail.KeiyakuArea);
+		//所属地区
+		setCell(sheet.Cells(row, 5), detail.ShozokuArea);
+		
+        //契約会社名称
+        setCell(sheet.Cells(row, 9), detail.KeiyakuCompanyName);
+        //契約者（被保険者）
+        //setCell(sheet.Cells(row, 1), detail.InsurantName);
+        //保険種目   
+        setCell(sheet.Cells(row, 29), detail.BranchOfInsurance);
+        //保険会社名称
+        setCell(sheet.Cells(row, 35), detail.InsuranceCompanyName);
+        //保険終期
+        setCell(sheet.Cells(row, 43), detail.InsuranceManki);
+        //DPapp	
+		setCell(sheet.Cells(row, 47), (detail.DPAppoint=="true" ? "○" : ""));
+		//契約店
+		setCell(sheet.Cells(row, 49), detail.Agency);
+        
+        row++;
+    }
+    return sheet;
+       
+}
+
+function createKenshin(sheet, detailData, sheetCnt, tempSheet, makeDate, headerNo, headerName, book) {
+    
+    var row = 7;
+    var pageRow = 37;
+    var added = false;
+    for (var i = kCnt; i < detailData.length; i++) {
+
+        if (detailData[i].no != headerNo) {
+            kCnt = i;
+            break;
+        }
+
+        if ((row > EXCLE_MAX_ROW)||(!added)) {
+            tempSheet.Copy(null, sheet);
+            sheet = book.Worksheets(book.Worksheets.Count);
+            sheet.Name = "健診" + headerNo;
+            setCell(sheet.Cells(2, 62), makeDate);            
+            setCell(sheet.Cells(3, 8), headerName);
+            row = 7;
+            added = true;
+        }
+        if (row == pageRow) {
+            pageRow += 36;
+            // 2ページ目以降の追加
+            tempSheet.Rows("1:36").copy;
+            sheet.Cells(row, 1).Insert;
+            setCell(sheet.Cells(row+1, 62), makeDate);
+            setCell(sheet.Cells(row+2, 8), headerName);
+            row += 6;
+        }
+        var detail = detailData[i];
+
+        // 会員番号
+        setCell(sheet.Cells(row, 1), detail.MemberNo);
+        //会員氏名  
+        setCell(sheet.Cells(row, 6), detail.MemberShimei);
+        //会員区分
+        setCell(sheet.Cells(row, 13), detail.MemberKubunB);
+        //（昨年度）受診地区
+        setCell(sheet.Cells(row, 16), detail.KenshinAreaLY);
+        //（昨年度）受診プラン
+        setCell(sheet.Cells(row, 20), detail.KenshinDateLY);
+        //（昨年度）受診プラン											
+        setCell(sheet.Cells(row, 24), detail.KenshinPlanLY);
+        //今年度 受診地区
+        setCell(sheet.Cells(row, 36), detail.KenshinArea);
+        //今年度 受診日
+        setCell(sheet.Cells(row, 40), detail.KenshinDate);
+        //今年度 受診プラン
+        setCell(sheet.Cells(row, 44), detail.KenshinPlan);
+        
+        row++;
+    }
+    return sheet;
+            
+}
+
+
+
+function setCell(cell, data) { 
+    cell.Value = data;
+}
+
+</script>
+
+<c:JSAttachment />
+<c:JSDocument />
+
+<script>
+  createExcel();
+</script>
+
+</apex:component>

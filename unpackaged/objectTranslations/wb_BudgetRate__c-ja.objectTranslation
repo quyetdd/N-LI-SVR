@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>予算レート</value>
+    </caseValues>
+    <fields>
+        <label><!-- 予算年 --></label>
+        <name>BudgetYear__c</name>
+    </fields>
+    <fields>
+        <label><!-- 切上単位 --></label>
+        <name>CeilingUnit__c</name>
+    </fields>
+    <fields>
+        <label><!-- 元通貨 --></label>
+        <name>FromCurrency__c</name>
+    </fields>
+    <fields>
+        <label><!-- 開始日 --></label>
+        <name>FromDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 切上単位（月） --></label>
+        <name>MonthCeilingUnit__c</name>
+    </fields>
+    <fields>
+        <label><!-- レート --></label>
+        <name>Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 切替通貨 --></label>
+        <name>ToCurrency__c</name>
+    </fields>
+    <fields>
+        <label><!-- 終了日 --></label>
+        <name>ToDate__c</name>
+    </fields>
+    <fields>
+        <label><!-- 切上単位（年） --></label>
+        <name>YearCeilingUnit__c</name>
+    </fields>
+</CustomObjectTranslation>

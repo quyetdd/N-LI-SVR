@@ -1,0 +1,25 @@
+<apex:page standardController="wb_Membership__c" extensions="wb_Membership_Receivable">
+    
+
+            <apex:datatable value="{!ReceivableServiceFee}" var="a" columns="9" border="1" cellpadding="4"  >  
+                
+                <apex:column headerValue="{!$ObjectType.wb_ReceivableServiceFee__c.fields.Name.label}" styleClass="greyColour">{!a.Name}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_ReceivableServiceFee__c.fields.ServiceName__c.label}">{!a.ServiceName__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_ReceivableServiceFee__c.fields.Classification__c.label}">{!a.Classification__c}</apex:column>
+            
+                <apex:column headerValue="{!$ObjectType.wb_ReceivableServiceFee__c.fields.Currency__c.label}">{!a.Currency__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_ReceivableServiceFee__c.fields.f_Service__c.label}">{!a.f_Service__c}</apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_ReceivableServiceFee__c.fields.Date__c.label}">
+                    <apex:outputfield value="{!a.Date__c}"></apex:outputfield></apex:column>
+                <apex:column headerValue="{!$ObjectType.wb_ReceivableServiceFee__c.fields.ServiceAmount__c.label}"> <!--{!a.ServiceAmount__c}-->
+                    <apex:outputtext value="{0, number, #,###}" styleClass="bold" rendered="{!IF(a.Currency__c =='JPY', true , false)}">
+                        <apex:param value="{!a.ServiceAmount__c}"></apex:param>
+                    </apex:outputtext>
+                    <apex:outputtext value="{0, number, #,###.00}" styleClass="bold" rendered="{!IF(a.Currency__c =='JPY', false , true)}">
+                        <apex:param value="{!a.ServiceAmount__c}"></apex:param>
+                    </apex:outputtext>
+                </apex:column>
+      
+            </apex:datatable>
+      
+</apex:page>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HomePageComponent xmlns="http://soap.sforce.com/2006/04/metadata">
+    <body>&lt;p&gt;&lt;font face=&quot;ＭＳ Ｐゴシック&quot;&gt;&lt;b&gt;&lt;font color=&quot;#333333&quot;&gt;&lt;font&gt;＜＜&lt;/font&gt;　　BL担当者・健診部より　＞＞&lt;/font&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&quot;#333333&quot; face=&quot;ＭＳ Ｐゴシック,MS PGothic,Osaka,Sans-Serif&quot;&gt;&lt;b&gt;・会社及び自宅の住所が変更になった場合は、必ず担当者に連絡をする事！&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font face=&quot;ＭＳ Ｐゴシック,MS PGothic,Osaka,Sans-Serif&quot;&gt;&lt;font color=&quot;#333333&quot;&gt;　&lt;/font&gt;&lt;font color=&quot;#333333&quot;&gt;&lt;font&gt;【会社住所の変更の場合】&lt;/font&gt;&lt;br&gt;　　・契約地（日本以外）、管轄地区の&lt;u&gt;BL担当者&lt;/u&gt;または内務&lt;br&gt;　　・上海健診内務&lt;br&gt;　【自宅住所の変更の場合】&lt;br&gt;　　・契約地（日本以外）、管轄地区の&lt;u&gt;BL担当者&lt;/u&gt;または&lt;u&gt;内務&lt;/u&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font color=&quot;#333333&quot;&gt; &lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;&lt;font color=&quot;#333333&quot;&gt;&lt;font face=&quot;ＭＳ Ｐゴシック,MS PGothic,Osaka,Sans-Serif&quot;&gt;＜＜　　割引担当者より&lt;/font&gt; &lt;font face=&quot;ＭＳ Ｐゴシック&quot;&gt;　　＞＞&lt;/font&gt;&lt;/font&gt;&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font face=&quot;ＭＳ Ｐゴシック,MS PGothic,Osaka,Sans-Serif&quot;&gt;&lt;font color=&quot;#333333&quot;&gt;&lt;b&gt;・&lt;/b&gt;優良割引の満期更新時には、割引率の変更があってなくても、&lt;u&gt;必ず申請書を提出しましょう！&lt;/u&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font face=&quot;ＭＳ Ｐゴシック,MS PGothic,Osaka,Sans-Serif&quot;&gt;&lt;font color=&quot;#333333&quot;&gt;&lt;b&gt;○&lt;/b&gt;グループ割引基準企業の満期更新時に、割引率が変更になる場合は、&lt;u&gt;必ず申請書を提出しましょう！&lt;/u&gt;&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;font face=&quot;ＭＳ Ｐゴシック&quot;&gt;&lt;b&gt;&lt;font color=&quot;#333333&quot;&gt;＜＜　システム部より　＞＞&lt;/font&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font face=&quot;ＭＳ Ｐゴシック&quot;&gt;&lt;font color=&quot;#333333&quot;&gt;&lt;b&gt;○Internet　Explorerのバージョンについて&lt;br&gt;　Win７：Internet Explorer 11&lt;/b&gt;&lt;br&gt;　※それ以上のバージョンの場合、以下の機能に対応できませんので使用しないでください。&lt;br&gt;   　会員証、会員データ発行、満期更新、保険情報更新、継続申込書、請求書&lt;/font&gt;&lt;/font&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;font size=&quot;3&quot;&gt; &lt;/font&gt;&lt;/p&gt;</body>
+    <pageComponentType>htmlArea</pageComponentType>
+    <width>wide</width>
+</HomePageComponent>

@@ -1,0 +1,115 @@
+<apex:page standardController="ContractInfo__c" recordSetVar="Contracts" extensions="ContractInfoBatchProcessController">
+    
+<apex:form id="form">
+    <apex:pagemessages /> <!--error message if search picklist are null-->
+    <apex:pageBlock title="{!$Label.ContractInfoBatchProcess}" id="block">  
+        <apex:commandButton action="{!search}" value="{!$Label.Search}" id="search" reRender="form"/>    
+        <apex:commandButton action="{!back}" value="{!$Label.Cancel}" id="back"/>              
+        <apex:pageBlockSection columns="1" id="searchPickList">      
+        <apex:pageBlockSectionItem id="countryNamePick">
+            {!$ObjectType.ContractInfo__c.fields.KeiyakuArea__c.Label} <apex:inputField value="{!contractDataFromPage.KeiyakuArea__c}"/>     
+        </apex:pageBlockSectionItem>            
+        <apex:pageBlockSectionItem id="jurisdictionPick">
+            <!-- 20180502 {!$ObjectType.Account.fields.EigyoTanto__c.Label} <apex:inputField value="{!accountDataFromPage.EigyoTanto__c}"/> -->
+            {!$ObjectType.ContractInfo__c.fields.EigyoTanto__c.Label} <apex:inputField value="{!contractDataFromPage.EigyoTanto__c}"/> 
+        </apex:pageBlockSectionItem>            
+        <apex:pageBlockSectionItem id="shozokuAreaPick">
+            <!-- 20180502 {!$ObjectType.Account.fields.NaimuTanto__c.Label} <apex:inputField value="{!accountDataFromPage.NaimuTanto__c}"/> -->   
+            {!$ObjectType.ContractInfo__c.fields.NaimuTanto__c.Label} <apex:inputField value="{!contractDataFromPage.NaimuTanto__c}"/> 
+        </apex:pageBlockSectionItem>                                                                                                                                     
+        </apex:pageBlockSection>         
+    </apex:pageBlock>
+
+    <apex:pageBlock id="resultPage" rendered="{!showResultsBlock}">   
+        <apex:commandButton action="{!updateRecord}" value="{!$Label.Update}" id="update"/>  
+        <apex:commandButton action="{!closeSearchTable}" value="{!$Label.Cancel}" id="cancel"/>  
+        <apex:commandButton action="{!selectAll}" value="{!$Label.CheckAll}" id="selectAll"/> 
+        <apex:commandButton action="{!releaseAll}" value="{!$Label.AllUncheck}" id="releaseAll"/> 
+
+        <br/><br/>
+        
+        <apex:pageBlockSection columns="4" id="InputLookUp1">
+            <apex:pageBlockSectionItem id="InputLookUpItem1">
+               {!$Label.New} {!$ObjectType.ContractInfo__c.fields.EigyoTanto__c.Label} <apex:inputField value="{!inputLookUp.EigyoTanto__c}"/>
+            </apex:pageBlockSectionItem>               
+        </apex:pageBlockSection>      
+        <apex:pageBlockSection columns="4" id="InputLookUpItem1">
+            <apex:pageBlockSectionItem id="InputLookUpItem2">
+               {!$Label.New} {!$ObjectType.ContractInfo__c.fields.NaimuTanto__c.Label} <apex:inputField value="{!inputLookUp.NaimuTanto__c}"/>
+            </apex:pageBlockSectionItem>                   
+        </apex:pageBlockSection>          
+        
+        <br/><br/>
+        
+        <apex:pageBlockTable id="resultTable" value="{!newSearchResults}" var="row"> 
+            <apex:column >
+                <apex:facet name="header">{!$Label.UpdateSalesPIC}</apex:facet>
+                <apex:inputCheckbox value="{!row.InchargeCheckbox }"/>
+            </apex:column> 
+            <apex:column >       
+                <apex:facet name="header">{!$ObjectType.Account.fields.Jurisdiction__c.Label}</apex:facet>
+                <apex:outputField value="{!row.ContractInfoData.KeiyakuCompanyName__r.Jurisdiction__c}"/>  
+            </apex:column>   
+            <apex:column >     
+                <apex:facet name="header">{!$ObjectType.Account.fields.CompanyCd__c.Label}</apex:facet>
+                <apex:outputField value="{!row.ContractInfoData.KeiyakuCompanyName__r.CompanyCd__c}"/>  
+            </apex:column> 
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.ContractInfo__c.fields.KeiyakuCompanyName__c.Label}</apex:facet>
+                <apex:outputField value="{!row.ContractInfoData.KeiyakuCompanyName__c}"/>  
+            </apex:column>      
+            <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$ObjectType.ContractInfo__c.fields.KeiyakuCompanyName__c.Label}</apex:facet>
+                <apex:outputLink value="/{!row.ContractInfoData.KeiyakuCompanyName__c}" id="KeiyakuCompanylink">
+                    <apex:outputField value="{!row.ContractInfoData.KeiyakuCompanyName__r.CompanyNameEng__c }"/>  
+                </apex:outputLink>
+            </apex:column>                           
+            <apex:column >
+                <apex:facet name="header">{!$ObjectType.ContractInfo__c.fields.MankiDate__c.Label}</apex:facet>
+                <apex:outputField value="{!row.ContractInfoData.MankiDate__c}"/>  
+            </apex:column>          
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$Label.CompanySalesPIC}</apex:facet>
+                <apex:outputField value="{!row.ContractInfoData.KeiyakuCompanyName__r.EigyoTanto__c}"/>  
+            </apex:column>  
+             <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$Label.CompanySalesPIC}</apex:facet>
+                <apex:outputLink value="/{!row.ContractInfoData.KeiyakuCompanyName__r.EigyoTanto__c}" id="KeiyakuCompanyNameEigyoTantolink">
+                    <apex:outputField value="{!row.ContractInfoData.KeiyakuCompanyName__r.EigyoTanto__r.SeiMeiRoma__c}"/>  
+                </apex:outputLink>     
+            </apex:column>                              
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$Label.CompanyGAPIC}</apex:facet>
+                <apex:outputField value="{!row.ContractInfoData.KeiyakuCompanyName__r.NaimuTanto__c}"/>  
+            </apex:column>        
+            <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$Label.CompanyGAPIC}</apex:facet>
+                <apex:outputLink value="/{!row.ContractInfoData.KeiyakuCompanyName__r.NaimuTanto__c}" id="KeiyakuCompanyNameNaimuTantolink">
+                    <apex:outputField value="{!row.ContractInfoData.KeiyakuCompanyName__r.NaimuTanto__r.SeiMeiRoma__c}"/>  
+                </apex:outputLink> 
+            </apex:column>                 
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$Label.ContractSalesPIC}</apex:facet>
+                <apex:outputField value="{!row.ContractInfoData.EigyoTanto__c}"/>  
+            </apex:column>
+            <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$Label.ContractSalesPIC}</apex:facet>
+                <apex:outputLink value="/{!row.ContractInfoData.EigyoTanto__c}" id="EigyoTantolink">
+                    <apex:outputField value="{!row.ContractInfoData.EigyoTanto__r.SeiMeiRoma__c}"/>   
+                </apex:outputLink>    
+            </apex:column>              
+            <apex:column rendered="{!!isEnglish}">
+                <apex:facet name="header">{!$Label.ContractGAPIC}</apex:facet>
+                <apex:outputField value="{!row.ContractInfoData.NaimuTanto__c}"/>  
+            </apex:column> 
+            <apex:column rendered="{!isEnglish}">
+                <apex:facet name="header">{!$Label.ContractGAPIC}</apex:facet>
+                <apex:outputLink value="/{!row.ContractInfoData.NaimuTanto__c}" id="NaimuTantolink">
+                    <apex:outputField value="{!row.ContractInfoData.NaimuTanto__r.SeiMeiRoma__c}"/>  
+                </apex:outputLink> 
+            </apex:column>                                            
+        </apex:pageBlockTable>    
+        
+    </apex:pageBlock>  
+</apex:form>
+</apex:page>

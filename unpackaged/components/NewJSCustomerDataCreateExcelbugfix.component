@@ -1,0 +1,245 @@
+<apex:component >
+
+<apex:attribute name="account" description="Account Object" type="Account" required="true"/>
+<apex:attribute name="data" description="Data" type="CustomerData" required="true"/>
+<apex:attribute name="isEnglish" description="English Language" type="Boolean" required="true"/>
+
+<script>
+    
+     var HERADER_TITLE = new Array(
+    "No", 
+    //"契約地区",
+    "{!$ObjectType.ContractInfo__c.fields.KeiyakuArea__c.Label}", 
+    //"WB管轄地区",
+    "WB{!$ObjectType.Account.fields.Jurisdiction__c.Label}", 
+    //"WB所属地区", //[72]
+    "WB{!$ObjectType.Account.fields.ShozokuArea__c.Label}", 
+    //"（勤務先）会社名称", 
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.Name.Label}",
+    //"{!$Label.Kinmu}住所", 
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.OfficeAdd__c.Label}",
+    //"{!$Label.Kinmu}TEL",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.Phone.Label}",
+    //"{!$Label.Kinmu}FAX",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.Fax.Label}",
+    //"{!$Label.Kinmu}総経理",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.President__c.Label}",
+    //"{!$Label.Kinmu}担当者",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.Shimei__c.Label}",
+    //"{!$Label.Kinmu}部署",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.Busho__c.Label}",
+    //"{!$Label.Kinmu}役職",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.Yakushoku__c.Label}",
+    //"{!$Label.Kinmu}実務担当",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.SubShimei__c.Label}",
+    //"{!$Label.Kinmu}実務担当部署",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.SubBusho__c.Label}",
+    //"{!$Label.Kinmu}実務担当役職",
+    "{!$Label.Kinmu}{!$ObjectType.Account.fields.SubYakushoku__c.Label}",
+    //"{!$Label.Kinmu}WB営業担当者",
+    "{!$Label.Kinmu}WB{!$ObjectType.Account.fields.EigyoTanto__c.Label}",
+    //"{!$Label.Kinmu}WB内務担当者",
+    "{!$Label.Kinmu}WB{!$ObjectType.Account.fields.NaimuTanto__c.Label}",
+    //"{!$Label.Keiyaku}会社名称",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.Name.Label}",
+    //"{!$Label.Keiyaku}住所",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.OfficeAdd__c.Label}",
+    //"{!$Label.Keiyaku}TEL",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.Phone.Label}",
+    //"{!$Label.Keiyaku}FAX",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.Fax.Label}",
+    //"{!$Label.Keiyaku}総経理",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.President__c.Label}",
+    //"{!$Label.Keiyaku}担当者",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.Shimei__c.Label}",
+    //"{!$Label.Keiyaku}部署",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.Busho__c.Label}",
+    //"{!$Label.Keiyaku}役職",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.Yakushoku__c.Label}",
+    //"{!$Label.Keiyaku}実務担当",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.SubShimei__c.Label}",
+    //"{!$Label.Keiyaku}実務担当部署",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.SubBusho__c.Label}",
+    //"{!$Label.Keiyaku}実務担当役職",
+    "{!$Label.Keiyaku}{!$ObjectType.Account.fields.SubYakushoku__c.Label}",
+    //"{!$Label.Keiyaku}WB営業担当者",
+    "{!$Label.Keiyaku}WB{!$ObjectType.Account.fields.EigyoTanto__c.Label}",
+    //"{!$Label.Keiyaku}WB内務担当者",
+    "{!$Label.Keiyaku}WB{!$ObjectType.Account.fields.NaimuTanto__c.Label}",
+    //"請求先会社名称",
+    "{!$ObjectType.ContractInfo__c.fields.SeikyuCompanyName__c.Label}",
+    //"グループ",
+    "{!$ObjectType.Account.fields.AffiliatedCompanyName__c.Label}",
+    //"団体名称"
+    "{!$ObjectType.Account.fields.GroupName__c.Label}"
+    );
+ 
+  
+    var headers = new Array();
+    var members = new Array();
+    var ichiroheian = new Array();
+    var BL = new Array();
+    var Kenshin = new Array();
+    var mindex = 1;
+    var iindex = 1;
+    var bindex = 1;
+    var kindex = 1;
+    
+    try {
+        
+        <apex:repeat value="{!data.data}" var="a">
+            headers[{!a.Index}] = new Object();
+        <apex:repeat value="{!a.Values}" var="v">
+            headers[{!a.Index}].{!v.Name} = "{!v.Value}";
+        </apex:repeat>
+        
+        </apex:repeat>
+        
+    }  catch(e)
+    {
+        alert(e);
+    }   
+  
+/** Excel最大列数 */
+var EXCLE_MAX_COLUMN = 256;
+/** Excel最大行数 */
+var EXCLE_MAX_ROW = 65536;
+        
+function createExcel()
+{   
+
+    var tmpName = "{!$Label.MembersListTemplate_Eng}" + "_List_";
+    var folder = "c:\\temp";
+    var filename = tmpName + "<apex:outputText value="{0,date,yyyyMMdd}"><apex:param value="{!TODAY()}" /></apex:outputText>.xls";
+    var tfilename = "TEMP-" + tmpName + ".xls";
+    var path = folder + "\\" + filename;
+    var tpath = folder + "\\" + tfilename;
+    var objFso = new ActiveXObject("Scripting.FileSystemObject");
+    if(!objFso.FolderExists(folder)) 
+      objFso.CreateFolder(folder);
+    if(objFso.FileExists(path))
+      objFso.DeleteFile(path, true);
+    if(objFso.FileExists(tpath))
+      objFso.DeleteFile(tpath, true);
+    
+    var excel;
+    var book;
+    var sheet;
+    
+    try {
+        // Excelオブジェクト生成
+        excel = new ActiveXObject("Excel.Application");
+        // 表示無効
+        excel.visible = false;
+        // ダイアログ無効
+        excel.DisplayAlerts = false;
+        // WorkBookを追加
+        book = excel.workbooks.Add();
+        // シートを１つのみにする
+        var sheetCount = excel.Worksheets.Count;
+        for (var i = 0; i < sheetCount - 1; i++) {
+            book.Sheets(1).Delete;
+        }
+        // シートを取得
+        sheet = book.Worksheets(1);
+        // ヘッダータイトル出力
+         createHeaderTitle(sheet);
+        // ヘッダー情報出力
+        // sheet = createHeader(sheet, headers, excel, book);
+        // シート追加
+        book.Sheets.Add(null, sheet, null, null);
+        sheet = book.Worksheets(excel.Worksheets.Count);
+        // 明細タイトル出力
+        //createDetailTitle(sheet, DETAIL_TITLE);
+        // 明細出力
+        // sheet = createDetail(sheet, members , excel, book);
+ 
+
+        // 最初のシートを選択
+        book.Worksheets(1).Select;
+        // 保存
+        book.SaveAs(path, -4143); 
+    } catch (e) {
+        alert("{!$Label.ExcelGenerateError}");
+        btnEnabled();
+        return;
+    } finally {
+        try {
+            if (sheet != null) {
+                sheet = null;
+            }
+            if (book != null) {
+                book.Close();
+                book = null;
+            }
+            if (excel != null) {
+                excel.Quit();
+                excel = null;
+            }
+        } catch (e) {
+            alert("{!$Label.ExcelGenerateError}");
+            btnEnabled();
+            return;
+        }
+    }
+
+    var aid = findAttachmentByCreatorAndPrefix("{!account.Id}", tmpName);
+
+    if(aid=='')
+      attachFile("{!account.Id}", path, filename);
+    else
+      replaceAttachment(aid, path, filename);
+
+    alert("{!$Label.ExcelGenerateCompleted}");
+    window.top.location.href = "/{!Account.Id}";
+}
+
+/**
+ * ヘッダータイトルを出力
+ * 
+ * @param {Object} sheet　WorkSheetオブジェクト
+ */
+function createHeaderTitle(sheet) {
+    
+    for (var i = 0; i < HERADER_TITLE.length; i++) {
+        sheet.Cells(i + 1, 1).Value = HERADER_TITLE[i];
+    }
+}
+
+/**
+ * 明細タイトルを出力
+ * 
+ * @param {Object} sheet　WorkSheetオブジェクト
+ */ 
+/**
+ * ヘッダー情報を出力
+ * 
+ * @param {Object} sheet　WorkSheetオブジェクト
+ * @param {Array} headers　ヘッダーデータ
+ * @param {Object} excel　Excelオブジェクト
+ * @param {Object} book WorkBookオブジェクト
+ * @return {Object} WorkSheetオブジェクト
+ */
+/**
+ * 明細情報を出力
+ * 
+ * @param {Object} sheet　WorkSheetオブジェクト
+ * @param {Array} detailData　明細データ
+ * @param {Object} excel Excelオブジェクト
+ * @param {Object} book WorkBookオブジェクト
+ */ 
+
+function setCell(cell, data) { 
+    cell.Value = data;
+}
+
+</script>
+
+<c:JSAttachment />
+
+<script>
+    alert('CreateExcel');
+    createExcel();
+</script>
+
+</apex:component>
